@@ -337,8 +337,12 @@ module example_top
 );
 	
 	genvar _i; 
-	
-	parameter 	SIM_DATA 	= 0; 
+
+	`ifdef SIMULATION
+		parameter 	SIM_DATA 	= 1;
+	`else
+		parameter 	SIM_DATA 	= 0; 
+	`endif	
 	
 	//	RXC Shall Not Be Inverted. 
 	parameter 	CSI0_BITFLIP 	= 5'b00011; 	//	[4]CLK, [3]D3, [2]D2, [1]D1, [0]D0

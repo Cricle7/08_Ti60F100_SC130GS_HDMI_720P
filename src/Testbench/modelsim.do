@@ -2,7 +2,7 @@
 set SWITCH_1 SIM
 set SWITCH_2 EFX_IPM
 
-#Define vlib
+
 vlib work
 
 
