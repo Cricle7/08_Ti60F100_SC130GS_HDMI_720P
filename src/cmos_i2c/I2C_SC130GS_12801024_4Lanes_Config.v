@@ -20,7 +20,8 @@ module  I2C_SC130GS_12801024_4Lanes_Config  //1280*1024@60 with AutO/Manual Expo
     output  reg [23:0]  LUT_DATA,
     output      [7:0]   LUT_SIZE
 );
-assign  LUT_SIZE = 106 + 1;
+// assign  LUT_SIZE = 106 + 1 + 1 +1;
+assign  LUT_SIZE = 106 + 1 + 1 ;
 
 //-----------------------------------------------------------------
 /////////////////////   Config Data LUT   //////////////////////////    
@@ -109,32 +110,34 @@ begin
 79:	LUT_DATA = {16'h3664, 8'h06}; 
 80:	LUT_DATA = {16'h3c00, 8'h41}; 
 81:	LUT_DATA = {16'h3d08, 8'h00}; 
-82:	LUT_DATA = {16'h3e01, 8'h20}; 
+82:	LUT_DATA = {16'h3e01, 8'h40}; //exposure
 83:	LUT_DATA = {16'h3e02, 8'h50}; 
 84:	LUT_DATA = {16'h3e03, 8'h0b}; 
-85:	LUT_DATA = {16'h3e08, 8'h02}; 
-86:	LUT_DATA = {16'h3e09, 8'h20}; 
-87:	LUT_DATA = {16'h3e0e, 8'h00}; 
-88:	LUT_DATA = {16'h3e0f, 8'h15}; 
-89:	LUT_DATA = {16'h3e14, 8'hb0}; 
-90:	LUT_DATA = {16'h3f08, 8'h04}; 
-91:	LUT_DATA = {16'h4501, 8'hc0}; 
-92:	LUT_DATA = {16'h4502, 8'h16}; 
-93:	LUT_DATA = {16'h5000, 8'h01}; 
-94:	LUT_DATA = {16'h5050, 8'h0c}; 
-95:	LUT_DATA = {16'h5b00, 8'h02}; 
-96:	LUT_DATA = {16'h5b01, 8'h03}; 
-97:	LUT_DATA = {16'h5b02, 8'h01}; 
-98:	LUT_DATA = {16'h5b03, 8'h01}; 
-99:	LUT_DATA = {16'h3039, 8'h44}; 
-100:	LUT_DATA = {16'h3034, 8'h01}; 
-101:	LUT_DATA = {16'h363a, 8'h24}; 
-102:	LUT_DATA = {16'h3630, 8'h63}; 
-103:	LUT_DATA = {16'h3652, 8'h44}; 
-104:	LUT_DATA = {16'h3653, 8'h44}; 
-105:	LUT_DATA = {16'h3654, 8'h44}; 
-106:	LUT_DATA = {16'h0100, 8'h01}; 
-
+85:	LUT_DATA = {16'h3e08, 8'h82}; 
+// 86:	LUT_DATA = {16'h3e09, 8'h3f}; //gain small
+86:	LUT_DATA = {16'h3e09, 8'h3f}; //gain small
+87:	LUT_DATA = {16'h3221, 8'b0000_0110}; //mirror
+88:	LUT_DATA = {16'h3e0e, 8'h00}; 
+89:	LUT_DATA = {16'h3e0f, 8'h15}; 
+90:	LUT_DATA = {16'h3e14, 8'hb0}; 
+91:	LUT_DATA = {16'h3f08, 8'h04}; 
+92:	LUT_DATA = {16'h4501, 8'hc0}; 
+93:	LUT_DATA = {16'h4502, 8'h16}; 
+94:	LUT_DATA = {16'h5000, 8'h01}; 
+95:	LUT_DATA = {16'h5050, 8'h0c}; 
+96:	LUT_DATA = {16'h5b00, 8'h02}; 
+97:	LUT_DATA = {16'h5b01, 8'h03}; 
+98:	LUT_DATA = {16'h5b02, 8'h01}; 
+99:	LUT_DATA = {16'h5b03, 8'h01}; 
+100:	LUT_DATA = {16'h3039, 8'h44}; 
+101:	LUT_DATA = {16'h3034, 8'h01}; 
+102:	LUT_DATA = {16'h363a, 8'h24}; 
+103:	LUT_DATA = {16'h3630, 8'h63}; 
+104:	LUT_DATA = {16'h3652, 8'h44}; 
+105:	LUT_DATA = {16'h3653, 8'h44}; 
+106:	LUT_DATA = {16'h3654, 8'h44}; 
+// 106:	LUT_DATA = {16'h3221, 8'b0000_0110}; //mirror
+107:	LUT_DATA = {16'h0100, 8'h01}; 
 		default:LUT_DATA    =   {16'h0000, 8'h00};
     endcase
 end

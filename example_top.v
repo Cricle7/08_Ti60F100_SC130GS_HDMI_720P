@@ -338,7 +338,7 @@ module example_top
 	
 	genvar _i; 
 	
-	parameter 	SIM_DATA 	= 1; //原来是0 
+	parameter 	SIM_DATA 	= 0; 
 	
 	//	RXC Shall Not Be Inverted. 
 	parameter 	CSI0_BITFLIP 	= 5'b00011; 	//	[4]CLK, [3]D3, [2]D2, [1]D1, [0]D0
@@ -354,6 +354,7 @@ module example_top
 	//	Static Configuration. Trigger not implemented. 
 	assign csi_trig_o = 1'b1; 	
 	assign csi_trig_oe = 1'b1; 
+	
 	
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -678,8 +679,7 @@ module example_top
 		
 		.dyn_pll_phase_sel	(0),				//	input [2:0] dyn_pll_phase_sel,
 		.dyn_pll_phase_en		(0),				//	input dyn_pll_phase_en,
-
-	//axi----------------------------------------------------------------------------------------------------------------------
+		
 		.io_arw_payload_addr	(w_hbram_aaddr),		//	input [31:0] io_arw_payload_addr,
 		.io_arw_payload_id	(w_hbram_aid),		//	input [7:0] io_arw_payload_id,
 		.io_arw_payload_len	(w_hbram_alen),		//	input [7:0] io_arw_payload_len,
@@ -696,7 +696,7 @@ module example_top
 		.io_w_payload_last 	(w_hbram_wlast),		//	input io_w_payload_last,	
 		.io_w_valid			(w_hbram_wvalid),		//	input io_w_valid,
 		.io_w_ready			(w_hbram_wready),		//	output io_w_ready,
-
+		
 		.io_b_payload_id		(w_hbram_bid),		//	output [7:0] io_b_payload_id,
 		.io_b_valid			(w_hbram_bvalid),		//	output io_b_valid,
 		.io_b_ready			(w_hbram_bready),		//	input io_b_ready,
@@ -707,7 +707,6 @@ module example_top
 		.io_r_payload_resp	(w_hbram_rresp),		//	output [1:0] io_r_payload_resp
 		.io_r_valid			(w_hbram_rvalid),		//	output io_r_valid,
 		.io_r_ready			(w_hbram_rready),		//	input io_r_ready,
-	//-------------------------------------------------------------------------------------------------------------------------
 		
 		.hbc_ck_p_HI		(hbram_CK_P_HI),		//	output hbc_ck_p_HI,
 		.hbc_ck_p_LO		(hbram_CK_P_LO),		//	output hbc_ck_p_LO,
@@ -729,13 +728,12 @@ module example_top
 		.hbc_rwds_IN_LO		(hbram_RWDS_IN_LO)	//	input [1:0] hbc_rwds_IN_LO,
 	);
 	assign w_hbram_bready = 1'b1; 
-
-	//AXI AWAR MUX	---------------------------------------------------------------------------------------------------------
+	
 	AXI4_AWARMux #(.AID_LEN(4), .AADDR_LEN(32)) axi4_awar_mux (
 		.aclk_i			(sys_clk_i), 
 		.arst_i			(w_hbram_ui_rst), 
 		
-		.awid_i			(w_hbram_awid),//0
+		.awid_i			(w_hbram_awid),
 		.awaddr_i			(w_hbram_awaddr),
 		.awlen_i			(w_hbram_awlen),
 		//.awvalid_i			(w_hbram_awvalid && w_hbram_cal_pass),
@@ -812,7 +810,7 @@ module example_top
 		.VSYNC			(w_csi_rx_vsync0), 
 		.HSYNC			(w_csi_rx_hsync0), 
 		.DE				(w_csi_rx_dvalid), 
-		.DAT				(w_csi_rx_data_rel_raw)//cmos data
+		.DAT				(w_csi_rx_data_rel_raw)
 	);
 	assign w_csi_rx_data = {2{w_csi_rx_data_rel_raw[47:40], w_csi_rx_data_rel_raw[35:28], w_csi_rx_data_rel_raw[23:16], w_csi_rx_data_rel_raw[11:4]}}; 
 	assign {csi_rxd3_hs_en_o, csi_rxd2_hs_en_o, csi_rxd1_hs_en_o} = {3{csi_rxd0_hs_en_o}}; 
@@ -892,7 +890,7 @@ module example_top
 		.irq				(), 
 		
 		.pixel_data_valid		(w_csi_rx_dvalid), 
-		.pixel_data			(w_csi_rx_data), //cmos data from mipi
+		.pixel_data			(w_csi_rx_data), 
 		.pixel_per_clk		(), 
 		.datatype			(), 
 		.shortpkt_data_field	(), 
@@ -1007,7 +1005,7 @@ module example_top
 	reg 	[31:0] 	r_sim_data = 0; 
 	wire			cmos_frame_vsync = SIM_DATA ? w_sim_fv : w_csi_rx_vsync0;                     //  cmos frame data vsync valid signal
 	wire			cmos_frame_href = SIM_DATA ? w_sim_lv && w_sim_de : w_csi_rx_hsync0 && w_csi_rx_dvalid;	 //  cmos frame data href vaild  signal
-	wire	[63:0]	cmos_frame_Gray = SIM_DATA ? r_sim_data : w_csi_rx_data;//选择信号来源于仿真或是真实信号 
+	wire	[63:0]	cmos_frame_Gray = SIM_DATA ? r_sim_data : w_csi_rx_data; 
 	
 
 	lcd_driver #(
@@ -1030,7 +1028,7 @@ module example_top
 	    //  user interface
 	    .lcd_data   ()
 	);
-//仿真使用信号
+
 	always @(posedge w_csi_rx_clk) begin
 		r_sim_data <= r_sim_data + w_sim_lv && w_sim_de; 
 	end
@@ -1071,7 +1069,6 @@ module example_top
 	
 	wire 			w_wframe_vsync; 
 	wire 	[7:0] 	w_axi_tp; 
-	//axi4_ctrl--------------------------------------------------------------------------------------------------------------------------
 	axi4_ctrl #(.C_RD_END_ADDR(1280 * 720), .C_W_WIDTH(CSI_DATA_WIDTH), .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
 	//axi4_ctrl #(.C_RD_END_ADDR(1920 * 1080), .C_W_WIDTH(CSI_DATA_WIDTH), .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
 
@@ -1083,7 +1080,7 @@ module example_top
 		.axi_awvalid    (w_hbram_awvalid      ),
 		.axi_awready    (w_hbram_awready      ),
 
-		.axi_wdata      (w_hbram_wdata        ),//cmos_data_buffered by axi ctrl
+		.axi_wdata      (w_hbram_wdata        ),
 		.axi_wstrb      (w_hbram_wstrb        ),
 		.axi_wlast      (w_hbram_wlast        ),
 		.axi_wvalid     (w_hbram_wvalid       ),
@@ -1109,7 +1106,7 @@ module example_top
 		.wframe_pclk    (w_csi_rx_clk          ),
 		.wframe_vsync   (cmos_frame_vsync), 	//w_wframe_vsync   ),		//	Writter VSync. Flush on rising edge. Connect to EOF. 
 		.wframe_data_en (cmos_frame_href   ),
-		.wframe_data    (cmos_frame_Gray),      //	CMOS data input
+		.wframe_data    (cmos_frame_Gray),
 		
 		.rframe_pclk    (w_pixel_clk            ),
 		//.rframe_vsync   (lcd_vs             ),		//	Reader VSync. Flush on rising edge. Connect to ~EOF. 

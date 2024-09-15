@@ -67,7 +67,7 @@ module axi4_ctrl #(
 	input 				wframe_pclk,
 	input 				wframe_vsync,		//	Writter VSync. Flush on falling edge. Connect to EOF. 
 	input 				wframe_data_en,
-	input 	[C_W_WIDTH-1:0] 	wframe_data, //cmos data input 
+	input 	[C_W_WIDTH-1:0] 	wframe_data,
 	
 	//	Reader Interface
 	input 				rframe_pclk,
@@ -161,7 +161,7 @@ module axi4_ctrl #(
 
 	wire 				w_wfifo_pempty, w_wfifo_empty; 
 	wire 				w_wfifo_ren; 
-	wire 	[C_DATA_LEN-1:0] 	w_wfifo_rdata; //cmos data input buffered by fifo
+	wire 	[C_DATA_LEN-1:0] 	w_wfifo_rdata; 
 
 	//	On EOF when ~empty, flush the last data then reset FIFO. 
 	reg 	[3:0] 	rs_w = 0; 

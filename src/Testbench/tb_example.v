@@ -285,20 +285,42 @@ module tb_example_top;
         .hbram_RWDS_IN_LO(hbram_RWDS_IN_LO)
     );
 
-    // Clock generation
+
+    // Clock generation for hbramClk (247.5MHz)
     initial begin
         hbramClk = 0;
-        forever #2 hbramClk = ~hbramClk; // 247.5MHz
+        forever #2.0202 hbramClk = ~hbramClk; // 周期约为4.0404ns
     end
 
+    // Clock generation for hbramClk90 (90度相移)
     initial begin
         hbramClk90 = 0;
-        forever #2 hbramClk90 = ~hbramClk90; // 247.5MHz
+        #1.0101; // 相移90度
+        forever #2.0202 hbramClk90 = ~hbramClk90;
     end
 
+    // Clock generation for hdmi_pixel_10x (742.5MHz)
+    initial begin
+        hdmi_pixel_10x = 0;
+        forever #0.6734 hdmi_pixel_10x = ~hdmi_pixel_10x; // 周期约为1.3468ns
+    end
+
+    // Clock generation for hdmi_pixel (148.5MHz)
+    initial begin
+        hdmi_pixel = 0;
+        forever #3.367 hdmi_pixel = ~hdmi_pixel; // 周期约为6.734ns
+    end
+
+    // Clock generation for sensor_xclk_i (27MHz)
+    initial begin
+        sensor_xclk_i = 0;
+        forever #18.5185 sensor_xclk_i = ~sensor_xclk_i; // 周期约为37.037ns
+    end
+
+    // Clock generation for sys_clk_i (123.75MHz)
     initial begin
         sys_clk_i = 0;
-        forever #4 sys_clk_i = ~sys_clk_i; // 123.75MHz
+        forever #4.0404 sys_clk_i = ~sys_clk_i; // 周期约为8.0808ns
     end
 
     initial begin

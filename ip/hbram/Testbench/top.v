@@ -13,7 +13,7 @@
 //  $Id:$                                                                         //
 //                                                                                //
 ////////////////////////////////////////////////////////////////////////////////////
-`define EFX_IPM
+//`define EFX_IPM
 //`define SIM
 `timescale 1ns / 1ps
 module top # (
