@@ -845,7 +845,7 @@ module example_top
 		.clk				(w_csi_rx_clk), 
 		.reset_byte_HS_n		(w_sys_rstn), 
 		.clk_byte_HS		(csi_rxc_i), 
-		.reset_pixel_n		(r_reset_pixen_n), 	//w_sys_rstn), 
+		.reset_pixel_n		(r_reset_pixen_n), 	//w_sys_rstn, 
 		.clk_pixel			(w_csi_rx_clk), 
 		.Rx_LP_CLK_P		(csi_rxc_lp_p_i), 
 		.Rx_LP_CLK_N		(csi_rxc_lp_n_i), 
@@ -1034,7 +1034,10 @@ module example_top
 	);
 
 	always @(posedge w_csi_rx_clk) begin
-		r_sim_data <= r_sim_data + w_sim_lv && w_sim_de; 
+		if(w_sim_lv && w_sim_de)
+			r_sim_data <= r_sim_data + 1'b1; 
+		else
+			r_sim_data <= 0;
 	end
 	
 	reg 	[1:0] 	r_vsync_i = 0; 

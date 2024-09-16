@@ -23,6 +23,8 @@ vlog -f flist
 
 #Load the design.
 vsim -t ps +notimingchecks -gui -voptargs="+acc" work.tb_example_top
-
+add wave -position insertpoint sim:/tb_example_top/dut/*
+add wave -position insertpoint sim:/tb_example_top/dut/u_axi4_ctrl/*
 #Run simulation
-#run -all
+run 150ms
+run 150ms
