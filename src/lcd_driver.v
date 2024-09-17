@@ -78,7 +78,7 @@ module lcd_driver #(
 //------------------------------------------
 //h_sync counter & generator
 reg [13:0] hcnt; 
-always @ (posedge clk or negedge rst_n)
+always @ (posedge clk)
 begin
 	if (!rst_n)
 		hcnt <= 12'd0;
@@ -97,10 +97,12 @@ end
 //------------------------------------------
 //v_sync counter & generator
 reg [11:0] vcnt;
-always@(posedge clk or negedge rst_n)
+always@(posedge clk )
 begin
-	if (!rst_n)
+	if (!rst_n) begin
 		vcnt <= 12'b0;
+		lcd_vs <= 0;
+	end
 	else if(hcnt == H_TOTAL - 1'b1)		//line over
 		begin
 		if(vcnt < V_TOTAL - 1'b1)		//frame over
