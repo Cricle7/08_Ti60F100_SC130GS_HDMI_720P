@@ -1017,7 +1017,7 @@ module example_top
 	) u_sim_data (
 	    //  global clock
 	    .clk        (w_csi_rx_clk   ),
-	    .rst_n      (1), 
+	    .rst_n      (w_sys_rstn && sc2210_i2c_config_done), 
 	    
 	    //  lcd interface
 	    .lcd_dclk   (               ),
@@ -1034,7 +1034,10 @@ module example_top
 	);
 
 	always @(posedge w_csi_rx_clk) begin
-		if(w_sim_lv && w_sim_de)
+		if (~w_sys_rstn) begin
+			r_sim_data <= 0;	
+		end
+		else if(w_sim_lv && w_sim_de)
 			r_sim_data <= r_sim_data + 1'b1; 
 		else
 			r_sim_data <= 0;
@@ -1074,7 +1077,6 @@ module example_top
 	wire            [7:0]           lcd_blue, lcd_blue2;
 	wire            [15:0]          lcd_data;
 	
-	wire 			w_wframe_vsync; 
 	wire 	[7:0] 	w_axi_tp; 
 	axi4_ctrl #(.C_RD_END_ADDR(1280 * 720), .C_W_WIDTH(CSI_DATA_WIDTH), .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
 	//axi4_ctrl #(.C_RD_END_ADDR(1920 * 1080), .C_W_WIDTH(CSI_DATA_WIDTH), .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
@@ -1133,7 +1135,7 @@ module example_top
 	lcd_driver u_lcd_driver
 	(
 	    //  global clock
-	    .clk        (w_pixel_clk   ),
+	    .clk        (w_pixel_clk   ),//html_pixel
 	    .rst_n      (w_pixel_rstn), 
 	    
 	    //  lcd interface

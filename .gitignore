@@ -24,4 +24,5 @@
 !/src/**/flist
 
 *副本*
+wave.do
 !.gitignore
