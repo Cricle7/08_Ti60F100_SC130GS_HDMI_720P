@@ -211,7 +211,7 @@ module axi4_ctrl #(
 			end else begin
 			end
 			
-			case (rs_w)//现在始终是0100
+			case (rs_w)
 				ws_w_idle: begin
 						rc_burst <= 0; 
 						r_w_rst <= 0; 
@@ -363,7 +363,7 @@ module axi4_ctrl #(
 	//	Input Trigger on VSYNC_F. 
 	reg 	[1:0] 	r_rframe_vsync = 0; 
 	
-	always @(posedge axi_clk) begin
+	always @(posedge axi_clk or posedge axi_reset) begin
 		if(axi_reset) begin
 			rc_r_ptr <= 0; 
 			axi_arvalid <= 0; 
@@ -449,7 +449,7 @@ module axi4_ctrl #(
 	
 	////////////////////////////////////////////////////////////////
 	//	AXI Read FIFO
-	wire 				w_rfifo_rst = (r_rframe_vsync == 2'b10) || axi_reset; 		//	Reset FIFO on START pulse. 
+	wire 				w_rfifo_rst = (r_rframe_vsync == 2'b10); 		//	Reset FIFO on START pulse. 
 
 	wire 				w_rfifo_aempty;
 	wire 				w_rfifo_empty; 
@@ -508,10 +508,7 @@ module axi4_ctrl #(
 	
 	reg 	[C_DATA_LEN-1:0] 	r_rframe_data_gen = 0; 
 	always @(posedge rframe_pclk) begin
-		if (axi_reset) begin
-			r_rframe_data_gen <= 0; 
-		end
-		else if(w_rframe_data_en_load) begin
+		if(w_rframe_data_en_load) begin
 			r_rframe_data_gen <= w_rframe_data_gen; 
 		end else if(w_rframe_data_en) begin
 			r_rframe_data_gen <= r_rframe_data_gen >> C_R_WIDTH; 
