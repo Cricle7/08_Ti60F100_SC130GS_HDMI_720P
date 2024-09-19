@@ -308,44 +308,246 @@ module `IP_MODULE_NAME(hbram_top) #(
     output wire [RAM_DBW-1:0]   hbc_dq_OE_2,
     output wire                 hbc_cal_pass
 );
-//pragma protect
-//pragma protect begin
-`protected
 
-    MTI!#;l2uz}lx5HYB%I!_V]S:pK{{x_n5(8Fff+="!*H!m7'ZBx;uulBi_iXT$p'jkU27U}5*DYn
-    ?2r$n!*n,Lrpx**?Qeol<]#Xmu#EklArmEO@3KN<TWuE3JKUlz}6HTDr'VU\!-s;!^@l31JaL${\
-    O;jlVE~Xe=?J]^]JU>[>*R?HZ^HlC=r~>~s-QJYJ;M|EGp$Ywe5HCiXkoiEk6.m$r]QJ-?l;~l?1
-    Qua<xJF_$p;q-|i7{u_!me!R;1"mE;;,ATko7k]Q\,YKseJR-EwW[m_3];+MC=_HTj!K[~[>!BE!
-    ka>lsW;EwT*{4^piRr&3t#Y!<:[k'iV@$2=*VH13x{Q]-p_![!]_V7{sVZz'iMKx-e~BwuAo?!aT
-    Os\!{ImsIo1AOm7J5~DT$pl#+kOA,W=}W1q7kluGa]$<a{#s[C]uDp}5'*Tt3T\m07T<7lvU^(Kl
-    s!na{skhnRIR,,2RBoC2rlkkQH_uC$\VU^A$'a\$p~3~NQnjuI>n{vVTwiI5JrzT5ols1Ux*-1JA
-    zI);hw^~]=VpQ=ZV7^GRT;IR$dm1o(N#$$]}JU@=}}\qY~,jap,zRs{,5$xOK<53*RsiRoBX}QJD
-    r=CUrUUQxRV#wVKD'JUH]=*V]Ci?5YsYEx~eQ,Q$nI!;Q7!]a>^Z[lWG${v$5!Ws#T!2EmJHGnOr
-    kYH\Ge{GqYI>x5,}RQ^p=1T;T'3ZIH\Uz~H'I]Du{[#1H'@[AQl][3EQ{Lv@A$iX}'x3uj]n!w$'
-    1;3HX2lkTJGQ?'xW^+,+5sIAK5Ci{BovU^],sB'?HoY$uE6jk]E,n[+melaY+~7yFc'aQob1~[wR
-    UjU/I!\+HAI*B3-<e;$*omn>x+J=2^=W?YU@]ze=^a!~A,xKHDl^Lpl1{7525CXE]uv!BwUnEznU
-    *<*j;CYD7j-5HPI%qJ'\-B)E2sp9;rk]}>2D$prk5wnkD?QuTa{_Q?JaBoBrUsk{0'^\5'>$<X}J
-    ,DZHC\B{OAD^${<$-n}z^K*kp#[2C!'k]=Z!W''O@YDTw$DA_<E+=\CuoQr7zTw-EM>>J'RB~HDB
-    JvZ[z3m6sQ$oxZnIH5sT}{O~\^]on'7_qBH[Q[<TH[_ov<l$uY=U?CmmwDs_oX*IxEmr5]E]Ej5+
-    #<53n*3zE}s=W6MRk'<^A;Xl3l}i*WJ.*~A2[na,x_Y$YlK!Awmu?<>Zv!{2{e~z$7_~$]wesA@X
-    \$nXua7@2]O3;<lJel>{r<]7[(}5X~*}a>:-1=ZQ^#vx}Y>O^HU;Xv+MIr]kV+>>1AX@/pe]U?*E
-    wR3xnWsGVPixoEG>Q*=UA=3wCv}C>-XDwOb7*U*rpKXI3\lRD,<QnTv7TwuU+zuHT=@p-5Gr{uZZ
-    HoAs^KplKI72TsztCr<Zw|Q^#~'1>e{Ip71rm_a*m^pVnkYYvu1J-m]exY{5sGkV1WzI}RXvwemw
-    JVA\X2<'GIL)}k7rGn@@C<D\61Z~#,[\?TE!~,Y@lB_HX1$}HBajBu7V@~A\AlH*!25\>QkzkT['
-    @K5RlilHJ}++{~X}To,Y2PskRHpxC^AVoH^~sR3[Y+&^snp%EBXp[DrQ,_BzNM$_n<z+ewIt^x__
-    [iu?KX[KZamjK_kE]v}Y*=jQ\}l{cQA@ka_VWrU3<-$k~}KjE~1ElsEX3fDRv7eR\?y@Ue<Gj{H\
-    Kz{Q++WWH*[]!{^cKvXREl{Z_!*]G22[*=uaU_z3vs;V!I+$aw\=K[WDORUB#a}2>6#ATGB[nJ=Y
-    <OlOH#D_ez,a[jwQX}UzzZ?5Q>Y+5\+5BBe>WB{H'*fD!1K#HxAOBxwXsTQR3+U<j_n1[np5$_VW
-    *WT1@Zp*T'jo#Jox,i<I[}^B]l;LBK5lN[$B#=7j-x<{BY;V-Qu6'k\l^L@]-ov>5{LM{oaYE*\e
-    TE@+^DRDD2\k+z,WR\OjI@5mYE2-1X73=j*U62EA{p\A]zeH\GxZW_DRIG^vai{Dew$D;ZeXsB?^
-    o_aEx=z#Tr_-+I_QrT><vrnEpB=1r~|^A^[e^5T{]?77J^r=#n\~rx)e3]Zr*Hp']1rUsEmlIk^D
-    O^@BW'VY<vxLeR{Kmn'm7<7Wp<<]K<Y$Bm<@vRo+1@Wo9#rD#Kj-uK$=>zlo*Up#a+]$a,]+1Gk*
-    \Uxe$o2;zia3^:h~oT;eUpz:3(Bpnp*i$u/j$!~]*uOYlDo_s7][Qxo)^ajr/?z<dq+'<37KE[^~
-    aQO7QZy$l#;D*<E{YEnR,3I--xkTj+ru\!KQjlou\VD4+$nv_J5z@*JWTU<VH{m#e+A]'rpC5]aD
-    ^X5j(X_K[Z}T11#[Rn<}5vm1r5!\{xAo[flAJ_[kVz{[YkG',[lD,GKY7=VE$eD2R{_v53uEa7AD
-    is^!~aS@[R!oKR2WTJ[kll-ei<ujIw[532~TY-A'=nz3Rg}@I$wG~pe<
-`endprotected
-//pragma protect end
+
+// IP Decryptor begin
+
+//##START PROTECT##
+wire user_clk;
+generate
+    if (AXI_IF) begin
+        assign user_clk = io_axi_clk;
+    end
+    else begin
+        assign user_clk = native_clk;
+    end
+endgenerate
+localparam DQIN_MODE = DDIN_MODE ? "NORMAL" : "RESYNC";
+localparam TCYC = (MHZ < 100) ? 10000 : 1000000/MHZ;
+generate
+if (CAL_MODE == 1)
+begin: soft_cal_block
+`IP_MODULE_NAME(hbram_cal_axi_top) #(
+    .RAM_DBW        (RAM_DBW),
+    .RAM_ABW        (RAM_ABW),
+    .CFG_CR0        (CFG_CR0),
+    .CR0_ILC		(CR0_ILC),
+    .CFG_CR1        (CFG_CR1),
+    .AXI_IF         (AXI_IF),
+    .AXI_DBW        (AXI_DBW),
+    .AXI_AWR_DEPTH  (AXI_AWR_DEPTH),
+    .AXI_W_DEPTH    (AXI_W_DEPTH),
+    .AXI_R_DEPTH    (AXI_R_DEPTH),
+    .DQIN_MODE      (DQIN_MODE),
+    .CAL_MODE       (CAL_MODE),
+    .CAL_DQ_STEPS   (CAL_DQ_STEPS),
+    .CAL_RWDS_STEPS (CAL_RWDS_STEPS),
+    .TCYC           (TCYC),
+    .TCSM           (TCSM),
+    .TVCS           (TVCS),
+    .TRH            (TRH),
+    .TRTR           (TRTR),
+    .CAL_BYTES      (CAL_BYTES),
+    .DUAL_RAM		(DUAL_RAM),
+    .INDIVI_DUAL_CAL		(INDIVI_DUAL_CAL)
+) hbram_cal_axi_top_inst (
+    .rst                  (rst),
+    .ram_clk              (ram_clk),
+    .io_axi_clk           (user_clk),
+    .io_arw_valid         (io_arw_valid),
+    .io_arw_ready         (io_arw_ready),
+    .io_arw_payload_addr  (io_arw_payload_addr),
+    .io_arw_payload_id    (io_arw_payload_id),
+    .io_arw_payload_len   (io_arw_payload_len),
+    .io_arw_payload_size  (io_arw_payload_size),
+    .io_arw_payload_burst (io_arw_payload_burst),
+    .io_arw_payload_lock  (io_arw_payload_lock),
+    .io_arw_payload_write (io_arw_payload_write),
+    .io_w_payload_id      (io_w_payload_id),
+    .io_w_valid           (io_w_valid),
+    .io_w_ready           (io_w_ready),
+    .io_w_payload_data    (io_w_payload_data),
+    .io_w_payload_strb    (io_w_payload_strb),
+    .io_w_payload_last    (io_w_payload_last),
+    .io_b_valid           (io_b_valid),
+    .io_b_ready           (io_b_ready),
+    .io_b_payload_id      (io_b_payload_id),
+    .io_r_valid           (io_r_valid),
+    .io_r_ready           (io_r_ready),
+    .io_r_payload_data    (io_r_payload_data),
+    .io_r_payload_id      (io_r_payload_id),
+    .io_r_payload_resp    (io_r_payload_resp),
+    .io_r_payload_last    (io_r_payload_last),
+    .native_ram_rdwr      (native_ram_rdwr),
+    .native_ram_en        (native_ram_en),
+    .native_wr_data       (native_wr_data),
+    .native_wr_burst_len  (native_ram_burst_len),
+    .native_wr_datamask   (native_wr_datamask),
+    .native_wr_address    (native_ram_address),
+    .native_wr_en         (native_wr_en),
+    .native_wr_buf_ready  (native_wr_buf_ready),
+    .native_rd_data       (native_rd_data),
+    .native_rd_valid      (native_rd_valid),
+    .native_ctrl_idle     (native_ctrl_idle),
+    .hbc_cal_SHIFT_ENA    (),
+    .hbc_cal_SHIFT_SEL    (),
+    .hbc_cal_SHIFT        (),
+    .hbc_cal_pass         (hbc_cal_pass),
+    .hbc_cal_debug_info   (hbc_cal_debug_info),
+    .hbc_rst_n            (hbc_rst_n),
+    .hbc_cs_n             (hbc_cs_n),
+    .hbc_ck_p_HI          (hbc_ck_p_HI),
+    .hbc_ck_p_LO          (hbc_ck_p_LO),
+    .hbc_ck_n_HI          (hbc_ck_n_HI),
+    .hbc_ck_n_LO          (hbc_ck_n_LO),
+    .hbc_rwds_OUT_HI      (hbc_rwds_OUT_HI),
+    .hbc_rwds_OUT_LO      (hbc_rwds_OUT_LO),
+    .hbc_rwds_IN_HI       (hbc_rwds_IN_HI),
+    .hbc_rwds_IN_LO       (),
+    .hbc_rwds_OE          (hbc_rwds_OE),
+    .hbc_dq_OUT_HI        (hbc_dq_OUT_HI),
+    .hbc_dq_OUT_LO        (hbc_dq_OUT_LO),
+    .hbc_dq_IN_HI         (hbc_dq_IN_HI),
+    .hbc_dq_IN_LO         (),
+    .hbc_dq_OE            (hbc_dq_OE),
+    .hbc_rst_n_2           (hbc_rst_n_2),
+    .hbc_cs_n_2            (hbc_cs_n_2),
+	.hbc_ck_p_HI_2         (hbc_ck_p_HI_2),
+	.hbc_ck_p_LO_2         (hbc_ck_p_LO_2),
+	.hbc_ck_n_HI_2         (hbc_ck_n_HI_2),
+	.hbc_ck_n_LO_2         (hbc_ck_n_LO_2),
+	.hbc_rwds_OUT_HI_2     (hbc_rwds_OUT_HI_2),
+	.hbc_rwds_OUT_LO_2     (hbc_rwds_OUT_LO_2),
+	.hbc_rwds_IN_HI_2      (hbc_rwds_IN_HI_2),
+	.hbc_rwds_IN_LO_2      (hbc_rwds_IN_LO_2),
+	.hbc_rwds_OE_2         (hbc_rwds_OE_2),
+	.hbc_dq_OUT_HI_2       (hbc_dq_OUT_HI_2),
+	.hbc_dq_OUT_LO_2       (hbc_dq_OUT_LO_2),
+	.hbc_dq_IN_HI_2        (hbc_dq_IN_HI_2),
+	.hbc_dq_IN_LO_2        (hbc_dq_IN_LO_2),
+	.hbc_dq_OE_2           (hbc_dq_OE_2)
+);
+end
+else begin: hard_cal_block
+`IP_MODULE_NAME(hbram_cal_axi_top) #(
+    .RAM_DBW        (RAM_DBW),
+    .RAM_ABW        (RAM_ABW),
+    .CFG_CR0        (CFG_CR0),
+    .CR0_ILC		(CR0_ILC),
+    .CFG_CR1        (CFG_CR1),
+    .AXI_IF         (AXI_IF),
+    .AXI_DBW        (AXI_DBW),
+    .AXI_AWR_DEPTH  (AXI_AWR_DEPTH),
+    .AXI_W_DEPTH    (AXI_W_DEPTH),
+    .AXI_R_DEPTH    (AXI_R_DEPTH),
+    .DQIN_MODE      (DQIN_MODE),
+    .CAL_CLK_CH     (CAL_CLK_CH),
+    .CAL_CLK_CH_HI  (CAL_CLK_CH_HI),
+    .CAL_CLK_CH_LO  (CAL_CLK_CH_LO),
+    .CAL_MODE       (CAL_MODE),
+    .CAL_DQ_STEPS   (CAL_DQ_STEPS),
+    .CAL_RWDS_STEPS (CAL_RWDS_STEPS),
+    .TCYC           (TCYC),
+    .TCSM           (TCSM),
+    .TVCS           (TVCS),
+    .TRH            (TRH),
+    .TRTR           (TRTR),
+    .PLL_MANUAL     (PLL_MANUAL),
+    .CAL_BYTES      (CAL_BYTES),
+    .DUAL_RAM 		(DUAL_RAM),
+    .INDIVI_DUAL_CAL		(INDIVI_DUAL_CAL)
+) hbram_cal_axi_top_inst (
+    .rst                  (rst),
+    .ram_clk              (ram_clk),
+    .ram_clk_cal          (ram_clk_cal),
+    .ram_clk_cal_2		  (ram_clk_cal_2),
+    .io_axi_clk           (user_clk),
+    .io_arw_valid         (io_arw_valid),
+    .io_arw_ready         (io_arw_ready),
+    .io_arw_payload_addr  (io_arw_payload_addr),
+    .io_arw_payload_id    (io_arw_payload_id),
+    .io_arw_payload_len   (io_arw_payload_len),
+    .io_arw_payload_size  (io_arw_payload_size),
+    .io_arw_payload_burst (io_arw_payload_burst),
+    .io_arw_payload_lock  (io_arw_payload_lock),
+    .io_arw_payload_write (io_arw_payload_write),
+    .io_w_payload_id      (io_w_payload_id),
+    .io_w_valid           (io_w_valid),
+    .io_w_ready           (io_w_ready),
+    .io_w_payload_data    (io_w_payload_data),
+    .io_w_payload_strb    (io_w_payload_strb),
+    .io_w_payload_last    (io_w_payload_last),
+    .io_b_valid           (io_b_valid),
+    .io_b_ready           (io_b_ready),
+    .io_b_payload_id      (io_b_payload_id),
+    .io_r_valid           (io_r_valid),
+    .io_r_ready           (io_r_ready),
+    .io_r_payload_data    (io_r_payload_data),
+    .io_r_payload_id      (io_r_payload_id),
+    .io_r_payload_resp    (io_r_payload_resp),
+    .io_r_payload_last    (io_r_payload_last),
+    .native_ram_rdwr      (native_ram_rdwr),
+    .native_ram_en        (native_ram_en),
+    .native_wr_data       (native_wr_data),
+    .native_wr_burst_len  (native_ram_burst_len),
+    .native_wr_datamask   (native_wr_datamask),
+    .native_wr_address    (native_ram_address),
+    .native_wr_en         (native_wr_en),
+    .native_wr_buf_ready  (native_wr_buf_ready),
+    .native_rd_data       (native_rd_data),
+    .native_rd_valid      (native_rd_valid),
+    .native_ctrl_idle     (native_ctrl_idle),
+    .dyn_pll_phase_en     (dyn_pll_phase_en),
+    .dyn_pll_phase_sel    (dyn_pll_phase_sel),
+    .hbc_cal_SHIFT_ENA    (hbc_cal_SHIFT_ENA),
+    .hbc_cal_SHIFT_SEL    (hbc_cal_SHIFT_SEL),
+    .hbc_cal_SHIFT        (hbc_cal_SHIFT),
+    .hbc_cal_SHIFT_HI     (hbc_cal_SHIFT_HI),
+    .hbc_cal_SHIFT_LO     (hbc_cal_SHIFT_LO),
+    .hbc_cal_pass         (hbc_cal_pass),
+    .hbc_cal_debug_info   (hbc_cal_debug_info),
+    .hbc_rst_n            (hbc_rst_n),
+    .hbc_cs_n             (hbc_cs_n),
+    .hbc_ck_p_HI          (hbc_ck_p_HI),
+    .hbc_ck_p_LO          (hbc_ck_p_LO),
+    .hbc_ck_n_HI          (hbc_ck_n_HI),
+    .hbc_ck_n_LO          (hbc_ck_n_LO),
+    .hbc_rwds_OUT_HI      (hbc_rwds_OUT_HI),
+    .hbc_rwds_OUT_LO      (hbc_rwds_OUT_LO),
+    .hbc_rwds_IN_HI       (hbc_rwds_IN_HI),
+    .hbc_rwds_IN_LO       (hbc_rwds_IN_LO),
+    .hbc_rwds_OE          (hbc_rwds_OE),
+    .hbc_dq_OUT_HI        (hbc_dq_OUT_HI),
+    .hbc_dq_OUT_LO        (hbc_dq_OUT_LO),
+    .hbc_dq_IN_HI         (hbc_dq_IN_HI),
+    .hbc_dq_IN_LO         (hbc_dq_IN_LO),
+    .hbc_dq_OE            (hbc_dq_OE),
+    .hbc_rst_n_2           (hbc_rst_n_2),
+    .hbc_cs_n_2            (hbc_cs_n_2),
+	.hbc_ck_p_HI_2         (hbc_ck_p_HI_2),
+	.hbc_ck_p_LO_2         (hbc_ck_p_LO_2),
+	.hbc_ck_n_HI_2         (hbc_ck_n_HI_2),
+	.hbc_ck_n_LO_2         (hbc_ck_n_LO_2),
+	.hbc_rwds_OUT_HI_2     (hbc_rwds_OUT_HI_2),
+	.hbc_rwds_OUT_LO_2     (hbc_rwds_OUT_LO_2),
+	.hbc_rwds_IN_HI_2      (hbc_rwds_IN_HI_2),
+	.hbc_rwds_IN_LO_2      (hbc_rwds_IN_LO_2),
+	.hbc_rwds_OE_2         (hbc_rwds_OE_2),
+	.hbc_dq_OUT_HI_2       (hbc_dq_OUT_HI_2),
+	.hbc_dq_OUT_LO_2       (hbc_dq_OUT_LO_2),
+	.hbc_dq_IN_HI_2        (hbc_dq_IN_HI_2),
+	.hbc_dq_IN_LO_2        (hbc_dq_IN_LO_2),
+	.hbc_dq_OE_2           (hbc_dq_OE_2)
+);
+end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1755,803 +1957,4907 @@ endgenerate
 endmodule
 
 
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#2Aj7}}{3P#GVOw{^TurJs,2*n?[1B+eLE?n@7#[@Y|Olv@='O\nI~aVz@7@Y5II_CjRsW>V
-    AUO%S#Ull!r#~$!RVN^,]Eemp[KwJUz^;}PkCz#jnHv3CO7FZo@;IaD$]>>}TsOHFC#Qr}k!*/Cu
-    nj=u@aKn0C2-ZF|G_uAtXsJDgG~*#;<rxu>!X+]H2_O>#d#E2;EUlElj2G|=H[wV5B#=aDlCGDm}
-    &_i[Bn\\}gLa]si*-H+1w5A3'{}U>xi@rkQ}PxeG]Rj^]!Bin:?{UBRi}^a{xCj+[o3+lB^gHorw
-    HwZa4l#O[O@!ew1EDp,5]ro7$<,jQ2oMhzsmBM}v$]Q;H?c3A\2~z{T7+C{zX<\q?\27QZ{u,,*~
-    _i{Dj>EmD#ws?[?\7!_>mXVDK=zDo{1Oj77^1vw-'*j$[Y\m^]ppCXKmV}JQ,yX$r#o3@uoz?A\#
-    X=hOWlWoG{}$~o=7qp,mlnoDDPY[,zUEea_b*jk?[U[Z,'lV#H}x>H;,~5?UgO7x>C'~##eX[.[U
-    z$xIO!@V;#_?jk'<xZF]uTW[Ue\z'Z[3n}xz'Uk#DlBEe7uc57pvTQe7\I!Es\o$Q93E~mrY;O3s
-    +=@e~$-VipRab5Z-7o?oBCTeGO+++Xz@sA,H=v*^_m7pE<Ge{Ym<eD5\-G-w<*AB#1ILB}Q_=swO
-    pVHam1!ArKz\=,<]b*C<;UaGBl]#JGY?]r[w<_GWa'*XGY3ev7lV}lvlDY@sx5U=}G=u_1rrQ.H=
-    aHM*G\u~XYr_a]3YyppxAilrT?z_>6p?x\>*v+EaUX(BDu]}V=~jz\m1~~_vyrG,@oO\v6=['G7V
-    3$<_kKCU5~>[n]rn-,=KE#,Zok?rX#[a[h}1<a5B{[$jm<)]~I<)m.p_*kuvxD4]iX]*=OT*t%/^
-    koTTHBHEZm{r!RZT[*a>[+A8O#~Qi=\$$,oXl.z{11RQY<-RoJ2[=aKw1o~|]1EY3+V?j[mUlKI]
-    K[{'ur\uA<\G:(W=<rw]!E2D<D-rxi=OkK'J1$'T$pu,[A7HEuOD[Ux'{D!xl}?=}AK|>A!3_iXY
-    ~E{BC'k7uviA5A-29Jo,~exl<=[Zj>}AuD,5o_puGk5a+5o*B$Hnke,i\]*p$7K<2[=zQ|@$YW\!
-    $T.NRHYiDMsD?TnSOYElfj\<BMBuA2BA2[HrBRe5_XD$poB+^O^RsikQ'J<e-G'?V!b?<*?@Ap][
-    O{v=X-leo=su<U+KXB2rqA=[7^#I_U>-I[G\p53@GmIGU>w<<7;Y71*G{TTzOkVDi]~~wDURx$ZU
-    C17]OjQ#CqET]1m='BKA>E/Z-YYN_*w3>En7,m,7lW,rD^3RtalU{1T-UsGE<7WBw}?7sX+YVoWr
-    rZ-VGB?eQYiOw2]1-}pr@oe^raHYHDhM^>2UmnGD5I>s$G~=A5KKM<Y73L}\R;Cml-^K<J\!DC[V
-    ~K1[I3$@>w>a[7\H{!JRG>'Ga$Cs1;1[;]Te$7$juaXj#$r_R]5;u##z#=uj{v=V}ps$]z.!w3k2
-    p?mRe*;@DOYf@<5]I@3[ew{aQ'uRI^E~'uBiOU=lHI~=i*EuiD~7p1j\aaOa1Un;#sD}1+ABYi[j
-    >5A^vy3n,pO'VYsk]e51~o-o1rC)9w>mY]BaX;]2_j+ox7H_+[e]U~\~{x{Q#nG>DqU}k~G,nrBI
-    'wx,B!+_uHgoITuqI?,{'@Q#&L$lG*X]w#$e-<?5X_c!z?!)aQDi]31r=@7_iv=lO5+#DpI?=HT+
-    IXI]J]HpYWY?HUX'7H7UmrGR]nO+SKrHA7_Wm>Te3R?zs:mET[T=n@'x?5u$*21+7AKXVD-{A#$i
-    \i2Vpi<EJvH$~DAvAID*=^7;z_<{r7e{!un\'}Z_uR%<7+}#ap'?zECYj'2|w>M&'CXp,7nHGG]+
-    vEzo}#^!2<^<!<rKT*3mMI=#J'<Y?Lz\!#]k$[n*'mSUDXeX]#\'~5s!OW?B}#-\?lZ,U[FF41H$
-    @/-z{en>2wSr^<*E!nAV\KeLJQ5JVBE<1\Yxoi,=\zx,|DzaDI4-v7ac}}AzX]z7Ix-D;X>[8k\D
-    }Sd571vKreHDWIZw1{>:y/IaDBv}^u$\HaqD<3Y-A[^ew{HXv{UeUsz71-#,ee=-XGm>zRG}%_;a
-    [uzAQ}5exvsp5a5YDvJ,3ZI'G\E{7>oaprq~D-1CW@2j+TYl_-{B^Y!>ruo;CsHmG8*<*Z3pT3bc
-    TCwR%,WeJ$xmRf?Eo!GxC>}\@+Zs>^]DzRvKYBtqT_o[d!*r{!YaDvG>sJsAvrhX>XG*sA+?HzO1
-    Ow;TX*1I,?>\BAkoU1kLDzx2Uox=!>5G@o$Z>]-?^w{>pU<$aD*pnsCpy)_k=}G>XT.|B]i^C7^z
-    mGzwLxu15B~JD-R$Cf21T3{na;1@\^I*-jqB~xKYX7Ev>o7O*I=$T{Qyu\<n<{Up=^KC$$+AB$n]
-    x{_oH+OCE-!k;<oI3[O[1%tLIz7J^4e5J@*X3W+{,eTC[uDsIOp~$H2YK]\{o7~-IBv2V#;71U1V
-    3]/6!j(]$s#<sD]AoYaFT}_2<oY2a<-[X\Jx9,1_pB1e7eER5\ll->n7]$z5uBi_OkR;~_GvDr_{
-    3pkEE8!*Dxs-V]Ao\x;GWC?]=xOHvTC^]*R{B~{{eE$Y#nVCI#W7_T]&XG-uD\=RRav+[<o$7Kx?
-    uVR2i^veT[XDzIom}+UEi_1s]$E^Llu_a^7wuT<VJBhGa+x]+K;$~IoAjuUC1jIO3AUm5{m'}znD
-    i^psQ<k}J5evnUWRmVK'X]DC\mZmo{^uemX\>m~l_wpXVKEo=-w8MUQAJ#p{ou>s[0Fx1W}\WG>A
-    5,>ODQ?)T[{JI[wO+}H^{ro_!CKnu,7^JYwWCYK_+s?5Dn5X~DuWIXJ3?^~uR5enQ\U\oKxGEJjW
-    ou3nA-@xE<XE~IH+TAs@Ja]JqO'KX1~@2;1$pV?nVI@H!C@45~wRC'XeOi'em<}{-Dl<'}TCRB5a
-    ]EQwyV0pRJ{Y>V#1mGvzAXQ*,1<JD-Z4!XJsKYzjPlWXx1'-J5_7H/kAuor=]x}p<rbz!E*JxDXI
-    -1z;Eo-B-mRGa1O$]KH2Bkx/jHTmzCAEs+eivaQ#+^R{4n'opU}JVFV<YI){zu_&^w,^z;HaOv33
-    PL?vK~i-wTs[YC.}FsjQoe,lKQ+\x-p1[w^jU5-Y~}'rAcOa_^k'#<=@K\+zwsoyw7kH;TA2z5mD
-    Gq3*Q3]1neJIIJe]'_[55jXBDE1)1;_TlGE-o+@pk>l'IYX>X_;-!H>zGu,nCreu,2EiZE+2qO{'
-    vE{7<.E|O;~$xO#^Eo=]$>X^@DKD>1B+sopZ*ksu%'rT[sTvH_AIH_@,s>am^#E=#W{C]T='TW5k
-    ]#oYpv5<^vwJ\CBxo$#5$oA2Zjx-Y15*iV*;[;H1;ex~I"Yj?Tz<R}[V][gm{To0KTJB/aT'5k1#
-    oijA},7_WY+;'u|(/noWKG=nC(}]\5B2~uxCxlw<QT%\3OBI(i+uYD,~D$EQ<Ue}w1X$Aeu']Zl~
-    T\vspVAHuu]Qudc]!!u1vw5Qkp$GzXn[s~C1XH33QmeInjl(_~XJ};B-l6$-23IK5QU+zuBm5!R{
-    Go_iX\7#n3PJ=ZDp=ix"Gv3@-Gx<@1W'*DaR%QpT?u&V3jrDC{-{[U~~w;]g]?E[R!3*uY3^GTn\
-    c~[k7<IUn+XA2
-`endprotected
-//pragma protect end
 
 
-`timescale 100ps/10ps
-//pragma protect
-//pragma protect begin
-`protected
+// IP Decryptor begin
 
-    MTI!#^#U1DBxZS#oJkIQiUlz\>rne7u-uk75ri=mQA=@l}~1ow553,5@ZB-[!$F$J!^p3v7^^{,'
-    4ma_H<sk7_rPlwJ#*+[[o_n=['CW!Ul$HUlO.#\*5'JD]4#}Rn@R8P1C+7uHQ'Qn<e+T+Xy!DX!v
-    m~x91=Gp3'lu,*Ur[{JuS}JD!nU]^lOTWGa7_?spz,1#e,3moL=wHzv'a;5rknxIH[sYamYCKV[a
-    [VOY$Y<E\3=7rY:^{R^s2zwR}>>GYT;~=Yj7sAUGvzAmOinGc]z~rk1=r}1C*Q<W2w]iBq$\+I!=
-    El|L=2p;p,pm:k$B@}k$>\0Z-=!M:E-~@j^vB7{~2[E5Dv$jj;^+$'13A|*BBX$[['^B{J37'?lH
-    -u#,Axs_13&u]\ip~l-&e~\xmI1T5YQrOx^ieBQ}YnmWo-=}Yzj@!a*v>Rk3TDXT?XU7aT=i[9nl
-    wrw'>$B<<=i-]oT^}W*mDUJ+@I*_lVJ=lGYr?O^5OKr+EaX>fEXx2lpV3a${Y{Um!geD!3ImaWo#
-    p@IXXax\^!~<$lTDGT!53]Cu=ibx=Zn#5^x
-`endprotected
-//pragma protect end
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_user_if) # (
+    parameter AXI_DBW  = 32,
+    parameter RAM_DBW  = 16,
+    parameter D_RATIO  = 4,
+    parameter DUAL_RAM = 1,
+    parameter RAM_2DBW = (DUAL_RAM == 1)? RAM_DBW*4 : RAM_DBW * 2,
+    parameter RAM_DMW  = RAM_2DBW / 8
+)(
+    input  wire                clk,
+    input  wire                rst_n,
+    input  wire                ax_valid,
+    input  wire                ax_type,
+    input  wire [7:0]          ax_id,      
+    input  wire [7:0]          ax_len,     
+    input  wire [2:0]          ax_size,    
+    input  wire [1:0]          ax_burst,   
+    input  wire [31:0]         ax_addr,
+    output wire                ax_ready,
+    input  wire                w_valid,
+    input  wire [RAM_2DBW-1:0] w_data,
+    input  wire [RAM_DMW-1:0]  w_strb,
+    input  wire                w_last,
+    output wire                w_ready,
+    input  wire                b_ready,
+    output wire [7:0]          b_id,
+    output wire                b_valid,
+    output wire [1:0]          b_resp,
+    input  wire                r_ready,
+    output wire                r_valid,
+    output wire [RAM_2DBW-1:0] r_data,
+    output wire [7:0]          r_id,
+    output wire [1:0]          r_resp,
+    output wire                r_last,
+    input  wire                h_wrdy,
+    input  wire                h_mrdy,
+    input  wire [RAM_2DBW-1:0] h_rdata,
+    input  wire                h_rdav,
+    input  wire                h_pause,
+    output wire                h_rwen,
+    output wire                h_req,
+    output reg  [31:0]         h_addr,
+    output wire [RAM_2DBW-1:0] h_wdata,
+    output wire [RAM_DMW-1:0]  h_wdm,
+    output wire                h_last,
+    output reg                 h_ctc,
+    output wire                h_btype,
+    output wire                h_atype,
+    output wire	[7:0] h_rlen
+);
+reg [3:0]  state;
+reg [3:0]  next_state;
+reg        init_done;
+reg        ctrl_idle;
+reg        axi_wr_req_1;
+reg        axi_wr_req_2;
+reg        ctrl_rd_req_1;
+reg        ctrl_rd_req_2;
+reg        wr_fetch;
+reg        fetch_done;
+reg        b_resp_int;
+reg [11:0] burst_cntr;
+reg [2:0]  h_pause_r;
+reg        h_ctc_int;
+reg [1:0]  h_wrdy_r;
+reg [31:0] addr_align;
+reg [7:0]  ax_len_r;
+reg [2:0]  wreq_cntr;
+reg        wlen0_pull;
+wire      wdata_req;
+wire      pull_data;
+wire      burst_hit;
+wire      pre_burst_hit;
+assign h_req       = axi_wr_req_2 | ctrl_rd_req_2;
+assign h_wdata     = (axi_wr_req_2 & ~h_wrdy_r[1])? {RAM_2DBW{1'b0}} : w_data;
+assign h_wdm       = (axi_wr_req_2 & ~h_wrdy_r[1])? {RAM_DMW{1'b1}}  : ~w_strb;
+assign h_last      = (axi_wr_req_2 & w_valid & w_last) | r_last;
+assign h_btype     = ax_burst[0];
+assign h_atype     = ax_addr[31];
+assign h_rwen      = ~ax_type;
+assign ax_ready = init_done & ctrl_idle;
+assign w_ready  = axi_wr_req_1 | (pull_data/*axi_wr_req_2 & h_wrdy*/ & ~(|h_pause_r[2:1]) /*& ~pre_burst_hit*/);
+assign b_valid  = (axi_wr_req_1 & w_valid) ? 1'b1 :1'b0;
+assign b_id     = (axi_wr_req_1 & w_valid) ? ax_id :8'd0;
+assign b_resp   = 2'b00;
+assign r_data   = h_rdata;
+assign r_valid  = ctrl_rd_req_2 & h_mrdy & h_rdav;
+assign r_last   = ctrl_rd_req_2 & burst_hit & h_rdav;
+assign r_id     = ax_id;
+assign wdata_req = axi_wr_req_2 & h_wrdy;
+generate
+    if (D_RATIO==1) begin
+        assign pull_data = (ax_len_r == 'd0) ? (wdata_req & wreq_cntr == 'd0) : (ax_len_r == 'd1) ? (wdata_req & wreq_cntr <= 'd1) : wdata_req & ~pre_burst_hit & ~burst_hit;
+    end
+    else begin
+        assign pull_data = (ax_len_r == 'd0) ? (wdata_req & wreq_cntr == 'd0) | wlen0_pull : wdata_req & ~pre_burst_hit & ~burst_hit;
+    end
+endgenerate
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        wlen0_pull = 1'b0;
+	end
+    else if (wdata_req && wreq_cntr < D_RATIO-1) begin
+        wlen0_pull = 1'b1;
+    end
+    else begin
+        wlen0_pull = 1'b0;
+    end
+end
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        wreq_cntr = 3'd0;
+	end
+    else if (!axi_wr_req_2) begin
+        wreq_cntr = 3'd0;
+    end
+    else if (wdata_req && wreq_cntr < 7) begin
+        wreq_cntr = wreq_cntr + 1'd1;
+    end
+end
+wire [31:0] h_addr_int;
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        h_addr   = 32'd0;
+        ax_len_r = 8'h0;
+    end
+    else begin
+        h_addr = h_addr_int;
+        ax_len_r = ax_len;
+    end
+end
+generate
+    if (DUAL_RAM == 1) begin
+		if (RAM_DBW == 16) begin 
+			assign h_addr_int      = (ax_addr & ~addr_align) >> 3;
+		end
+		else if (RAM_DBW == 8) begin 
+			assign h_addr_int      = (ax_addr & ~addr_align) >> 2;
+		end
+	end
+	else begin
+		if (RAM_DBW == 16) begin 
+			assign h_addr_int      = (ax_addr & ~addr_align) >> 2;
+		end
+		else if (RAM_DBW == 8) begin 
+			assign h_addr_int      = (ax_addr & ~addr_align) >> 1;
+		end
+	end
+    if (AXI_DBW == 256) begin
+        always @ (*) begin
+            case (ax_size)
+                3'b000  : addr_align = 'h0;
+                3'b001  : addr_align = 'h1;
+                3'b010  : addr_align = 'h3;
+                3'b011  : addr_align = 'h7;
+                3'b100  : addr_align = 'hf;
+                3'b101  : addr_align = 'h1f;
+                default : addr_align = 'h1f;
+            endcase
+        end
+    end
+    else if (AXI_DBW == 128) begin
+        always @ (*) begin
+            case (ax_size)
+                3'b000  : addr_align = 'h0;
+                3'b001  : addr_align = 'h1;
+                3'b010  : addr_align = 'h3;
+                3'b011  : addr_align = 'h7;
+                3'b100  : addr_align = 'hf;
+                default : addr_align = 'hf;
+            endcase
+        end
+    end
+    else if (AXI_DBW == 64) begin
+        always @ (*) begin
+            case (ax_size)
+                3'b000  : addr_align = 'h0;
+                3'b001  : addr_align = 'h1;
+                3'b010  : addr_align = 'h3;
+                3'b011  : addr_align = 'h7;
+                default : addr_align = 'h7;
+            endcase
+        end
+    end
+    else begin
+        always @ (*) begin
+            case (ax_size)
+                3'b000  : addr_align = 'h0;
+                3'b001  : addr_align = 'h1;
+                3'b010  : addr_align = 'h3;
+                default : addr_align = 'h3;
+            endcase
+        end
+    end
+endgenerate
+parameter INIT           = 0,
+          IDLE           = 1,
+          NEXT_OPERATION = 2,
+          WR_BURST_CHECK = 3,
+          WR_BURST_FETCH = 4,
+          BRESPONSE      = 5,
+          RD_INIT        = 6,
+          RD_STREAM      = 7,
+          RD_DONE        = 8;
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        state <= INIT;
+    end
+    else begin
+        state <= next_state;
+    end
+end
+always @ (*) begin
+    case (state)
+        INIT           : begin if (h_mrdy)           next_state = IDLE;           else next_state = INIT;           end
+        IDLE           : begin if (ax_valid)         next_state = NEXT_OPERATION; else next_state = IDLE;           end
+        NEXT_OPERATION : begin if (ax_type)          next_state = WR_BURST_CHECK; else next_state = RD_INIT;        end
+        WR_BURST_CHECK : begin if (w_valid)          next_state = WR_BURST_FETCH; else next_state = WR_BURST_CHECK; end
+        WR_BURST_FETCH : begin if (w_valid && w_last && burst_hit) next_state = BRESPONSE;      else next_state = WR_BURST_FETCH; end
+        BRESPONSE      : begin                                                         next_state = IDLE;           end
+        RD_INIT        : begin                                                         next_state = RD_STREAM;      end
+        RD_STREAM      : begin if (h_rdav && burst_hit) next_state = RD_DONE;        else next_state = RD_STREAM;      end
+        RD_DONE        : begin if (~h_rdav)          next_state = IDLE;           else next_state = RD_DONE;        end
+        default        : begin                                                         next_state = IDLE;           end
+    endcase
+end
+always @ (*) begin
+    init_done     = 1'b1;
+    ctrl_idle     = 1'b0;
+    axi_wr_req_1  = 1'b0;
+    axi_wr_req_2  = 1'b0;
+    wr_fetch      = 1'b0;
+    fetch_done    = 1'b0;
+    ctrl_rd_req_1 = 1'b0;
+    ctrl_rd_req_2 = 1'b0;
+    case (state)
+        INIT           : begin init_done     = 1'b0;                   end
+        IDLE           : begin ctrl_idle     = 1'b1;                   end
+        WR_BURST_CHECK : begin axi_wr_req_1  = 1'b1;                   end
+        WR_BURST_FETCH : begin axi_wr_req_2  = 1'b1; wr_fetch  = 1'b1; end
+        BRESPONSE      : begin fetch_done    = 1'b1;                   end
+        RD_INIT        : begin ctrl_rd_req_1 = 1'b1;                   end
+        RD_STREAM      : begin ctrl_rd_req_2 = 1'b1;                   end
+        default        : begin init_done     = 1'b0;end
+    endcase
+end
+assign h_rlen = ax_len_r;
+assign burst_hit     = (burst_cntr == ((ax_len_r + 1) * D_RATIO)-1)? 1'b1:1'b0;
+assign pre_burst_hit = (burst_cntr == ((ax_len_r + 1) * D_RATIO)-2)? 1'b1:1'b0;
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        burst_cntr <= 'd0;
+    end
+    else if (ctrl_idle) begin
+        burst_cntr <= 'd0;
+    end
+    else if ((axi_wr_req_2 && h_wrdy && w_valid) || (ctrl_rd_req_2 && h_rdav)) begin
+        burst_cntr <= burst_cntr + 1'd1;
+    end
+end
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        h_ctc_int <= 'd0;
+    end
+	else if (axi_wr_req_2 && h_pause) begin
+        h_ctc_int <= 1'b1;
+    end
+	else if (ctrl_rd_req_2 && h_pause) begin
+        h_ctc_int <= 1'b1;
+    end
+    else begin
+        h_ctc_int <= 1'b0;
+    end
+end
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        h_wrdy_r  <= 2'b00;
+        h_pause_r <= 3'h0;
+        h_ctc     <= 1'b0;
+    end
+	else begin
+        h_wrdy_r  <= {h_wrdy_r[0],h_wrdy};
+        h_pause_r <= {h_pause_r[1:0],h_pause};
+        h_ctc     <= h_ctc_int;
+    end
+end
+endmodule
+//##END PROTECT##
+`endprotect
 
 
-//pragma protect
-//pragma protect begin
-`protected
+// IP Decryptor end
 
-    MTI!#3{s3A\\?~>U5|p7U'7Z3sQfb5Z[;{]PF:[7"HE|?7s*r'JDiHeIk'irz+e$]C]Qy,Q^~?X;
-    @<|OZz%lwJ#*+[[o_n=['CW!Ul$HUl$a-~G,M+1=HJ=\KTB\iUUXC};;1Uj}s*CX[fYVj=x@rAB5
-    =ATI3alD~_B@^Ta-D?U7;xDW>XH]_~B+=e1wXjAQ,ODuRE,zDi8:.S!B!lli1\2Yr?!'HAm$TE@V
-    >uRQ$uBnTO^2YiC-^QJ[z~iVuH?EI!'r<[=Kz{q\*BrYEG#xeXeZ^jzVIrvw+O\aao{7uX$BV@xL
-    aY$a}$#{JYDejr?H35#^[]mJYC_JU,A{gujTn:W'r#nT{]u-,$-<po\C3#2I}xzlkO>T@*|N5j7x
-    X='7Yez?.Q1D#kw$E)y>G1Au^RE?X\He7urKXv{<_U?%q#zCIEZx\h*5_iqgRzjDZ*E[Dgs3RR#I
-    Y^{X+I{,H7m*Oka<{2V$K?z5<~Vn@1=J\J6}HC=*uAU#qmB{5iasVo^zWG\HTi5DT<*aU4-zk{^'
-    ?z~V[rCjo}L.IA7e7z#2bm5iB<=i,hq|s$vvd<+e+IB=-177QjJB!@v{pA}i!oBPVHTA]_Q}!*u'
-    ^eu'{jkBY'>~vGwz\ROZ!X$=]aA}xRx5{QL<Yi</TR2]o5Y]z+}Vi-xH<a}_70fKAep*e;1,2*IW
-    [QK&={nU[I3-C=>ZJ7v=BK2E-,w;cm\U'D**!Z|XVBek>R1xz53'BWrJ{CU[k]Yr#;-7A3^ru1J;
-    vG#ZGxzxe{^pW5CWXAHwXDExw;^(-pOi?s@@[nzExe\\zDo*0=Zs\r1,ZLvwG,^K2a?pTK0?aCCG
-    kGi{DAs<jTrTBk]cH]m;ReKu*mWUX]@7@w<M{]v+~DsJnz#]Vz?!$*<@#r*O3U}-EJAlXVmjrWZ]
-    OZr1$Ox}T}x2-'@2WEx@#Iia9=-ap>1XnCDeHJD1Zj-Owe~-oTp]-IAZnY9QkY\\HUstk>}u,8=V
-    *oy?nRuVT^};Xu1>9PZX{7PdBE<3lEK[QHssS/=3][jUVIV5GmVs!#G_H,BU^CVAoUCH^$\\B\\w
-    ^,Iwa5_CTAj)Gl>5Ia3K[#u1aB\T!VI#sIs1lkAYkzr<6,3vr1pY1xU=l$rZz$27{Tnak$w-$@T^
-    W$~5U<C<J'[=a]B@^^aEX>HpKYoxm^Dv7lZX5uw,pw7d=CW;rpRzqgF@s2-V$ip~[oYPxERK_-jO
-    t$FIR7{Q*p*wwXnHV[+k5e<U(0jQ~>-O!e,7]zCK5@F]Apo4'OTC5'!uElV1al5Dpjk;mB\'l}>e
-    Qp^;Y5Qz#AYx\uABvnVw*\k*v+*i$!A{#n{-^X1,7!wp1z;21!mDVax-_=H^^'Jsx?Q$U1H}H}2$
-    6}V_*n\{{'lxYO[l{op!n2wAD@XT{epeK2DQ!Xvl!}lKeAO,!]oXpDYV[$Cp1=Tprm_QojCi>P=R
-    *?TsZK#G^R=7*o<E]<JeBE>>~ew{*ez7#@q7;uD,X1xtt,wp_OTT7tU\Pj^KsU+l[7T[$"v,HzDY
-    ^Z?*V\wBaoW_>oT\}{^sB3L*4pao#?*C3]?G;wpD](7XO!TBCIYkZ?R-QUwT,=DD@C,37G3w{ne+
-    [z*WJ#*me\rsx5-QAm~1Xrz,k1r;m*=OnBz;[meCy.j>Xw-v7~!xvZ,<A>awmQ8=~r1F[#rUMo*G
-    1!r<T;}2?jOkjT5D}3zk~II<}n=#j<,mVKsEizV$7HT+kQ31_WYK^R*AzdKN\iBK2}U2/1*ivq%x
-    G>7RJIDQ#7~eJ~RKRY-j^GO$z#A*'kKCv+ksmYX=;wzD*kT;wG]<}B-&1,sK-U@_kGY{cO7pB\jz
-    'GUGTvVX+v}rnw*kD?oAmTB~_!U1kuIv^SD51Op@G=]UjK=]k^CC<#xw~1|E#V;];PEx#U[;D[#A
-    jI|k,=IA[Zep*3J{$tl*@3q7+r[&=>51:N2,^2nI-~cjn}-UC{-xJ_[1B3[[[vCXH]-[1,'UC>[Z
-    {W1-<Apj2pQ?_G5!7#\2HGV]O{Ru,Ap~a1Ik1e_G3eBDr@sown7C3Z1;5oQG>mCA[5_UOmTs{o'u
-    DnoiA27T^~?i+;'!HCYbr=5W<5lxan=a@A<*5We@ka}O}[*$c?^7B}^n#w<$3u,l\-s7zr;7m\-m
-    W|9Q:^+Z~oj-v|]jZ^Gxz=sCWegrVu!v#X]RAKr\3T]\sl$s=IR'Er>\XU<jAa]l<V++Tl#mQB1o
-    ;-#oieO<E]+W[\}I_W2]HX5LgQ;X-U*@O'WQao!@T4g-DQ@pv3EuHo\KvIA>$2[S"QAZ2*Zja1uw
-    vr;;=~VjHm]7*xvOuj>DprazO/G+V*H<jrl[a{lrl1G;<oCJv7I8la{>Z7Q!QI#3,]7Zz_{ormp@
-    jAIUj,{E+nA@r^wvRTDuVUe7u[wv^JzT!<a~DwW@s5=-GToDOKH$H\TlOsm!Yk$XIK1'9OJQ[r~-
-    JE}A_<^sU;1A[Da<KM5e7@QAEsLYQV{J<V7uG{aeNEaoG6:C@v=u*5kzRxiI+*e\[I<:vl]GvJD+
-    $XBCRKr},R'<~7v3?v>p7\w^XE!V'CCO1oRJ@rw!]~,*'%vm{U4!r~GxmzZKU;2uC{VXR]vese2$
-    kwmxaExU1#w5VO2+>pIxT<l3=uB<]xu=?WpxXK}2OxY+1B]1!D]GDpvE(?^;OV]p!Iv$lxO@G|Va
-    !jRZ[e;&.jAJ5Bu@YO-1!V$]A,<ZYr>-?EuY@UAwvDQ,-Xpz}:E{@1Twm>OU*WoJ'z&#TvYv_2^{
-    pC\@YpEQO@BYAZ*sHQ5]$#BHaG$,|s71[GJEG=G2$9rwK2B\Z5wI[QD,Trje*Dqv*r\lWAroiups
-    !K^pE7OqU';Z7U7vOXfIbJXu5D"Z7YnTx?CRGIxCu7H?=<~'=]Y-wY$CE*U-\lzs^Q'V.55=o\I<
-    KZ$TDmlW14]n]p-XID?'$i^$TjR7$,@-+{\re7+a<#kpX;oi^Z>U3\'uu{Lzo@D\3WtXUz#JlOjI
-    k\_X&Rx<!5auYZ{C$2v-BTD=>'J7m?Yu$^$[T_;_jx>1ehz^UW[=,#nEuu@7jHoQZ+QK7sl+0Y=B
-    ?zH2k$A$V;v1pT7DCss]5YpmO~<OpOW$?oV#CjAOI--nx2*7Gp_22Xw2x~=_~Yse_rGC>n*k}lY3
-    oBjeX~>~O?7,;pBR$a<C}2D\EPmD2*=l{zv*WG&U$*\lKTk<z!HUr<#T<J;;}K'^QA+Z[nuNOEUp
-    er['&v8<^iYQaH'cO@s[C7G-Yz@5_Rnjtv<O;fKV1}u\+kg-nZsXH<$}?o#HUpeNRBkOQlj1Bl7K
-    p=as.[T\HG<wxV,=<]5rpsTr\oB#o=j3B]@RYSLn7Dj<n1li1,ED]5?BZ~*@je<mYU~72Yp9K_Bj
-    *lswXURuEeEkF;\w~DE5=&[XC+Dj7a[Er],zeH:>U=m?+,l$+KHG*]!Hr+Rj!mRZ{{WKTal/!T*;
-    7kpVqe+{UEpZ@w7>j_<xYdF7J@Y#x^Ylj$'C#le|3+{Y3RC},R}w>+DwllR'vTvR-Vw*klOU'YvA
-    vbkn@T?IIIpZ=5QJ>oLV=j!>H$@s@DDz~wK$JJ-#]mY9k\^AE<l*eHws+l}3fM$iR>@wB+w,m^r_
-    k@.B3p-^,X'*$YW}-mHoB]Wvj#kv+;o<}R\#-Di7I?kE}?^$IK;jD+HTBok<QUH,J3a[^eZ^Qnkz
-    IZ3DQ^m8xuB]o}*i-I{^REU!QnsYn.2x{l\O$3{+[EJe$!872Tx,DYKV3UV_xY<A]w\C$X5!e^}Y
-    -j\=W=Yzrs=+Us$O>[R[RD2?IAp^3o<?{+#3Ve7CGz#]~=ux\m!=JWBU[;V[W@T[5Y]}l!*\_*=@
-    Q^*}K-B]In3aE7
-`endprotected
-//pragma protect end
-
-
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#3\2^$kmvS'#*?e?e$_T]<j[XTDHDAT-LgH{Riria{N~1,Q!l2'('*-{|tTDx<lnWkIk;*$*
-    a;/S#Ull!r#~$!RVN^,]Eemp[KwJUz^;}3-,nzx#XAoQ~,ZG[|!j5i]?K;es[J_m{xs,>Tr_]paQ
-    {~r1@<[{pw8$@u#(jlJH5FKo\kf[io5J}oX;zsVp#XaSzV<Biw@2112#HX7,-TWp'|}RX\QZo=IB
-    Zv+Ux{mX@_]>uzTrJU#B_#u>XX)J7}z!w>V?7#=K]5Qa$rjI<J*H,#-Ex<ol@R~|KX+O^)TR}u=_
-    nn7?jOImmTMQzUK}lk['~suH_n!DDKnLE$!-xuU#Xa*7_7+HQCzll$z-!oIU]CHG^zD^*?xIE+~U
-    t/[j3OV1@VABsmTOv}d}!o[Z$xWZ9wUOAo}2'de@lVin'jrZv@1Eia[\[]+<oiVqn*]i_k-knXJQ
-    5}!v*UT-UXoH][ZkrA3noK$T$n[Yn-D#Q*>v_~Q+u5#}Y~,Vnnv+B,i!-G~paeRJ=[-?z-7~t=w=
-    ez\x17>jCKH'A=ejZRvG[?VWr3'*VVIm2:~paew=3pTrunD>H=}\ZRIm';$AGBYxHBe;BV[aTr7?
-    oZ\o?xR^]@YI<lzZKO3ru\A=X!GY@l{=ueIU!e=1s7NCJD}:+Q5-MT+XVd755kER^oE!'W5V-rDn
-    !xY@r#7Owm_c*#Z<noQ,v=!Q:f^B5sippk{'r-[e_s'-=i3<X\'KjJ2zRum5Gsx1mHz!_-*mKlTr
-    ?ABW_5Q?C@$HB<l$uJeoYWquU+Q7VApG^OK*!*pQ+'{^C*W]uR7UweV,!EB51BYRkR]u$]#Y1Anv
-    pwx,k,5o\vADQ{^'X=+P=xma?7w'h'P;s32@D2Af*e{+$~U121UnCGa,!xQ@I#z_{aQ*oRAEKTl]
-    A-v$,U@Kr#<!*}p_Y>K!cVysrOmKw^T$CX<*'GaZ$*2QgwHI=+ADsuwzYE;J,1ZEasVsTrTm]Y-~
-    Z^?Esh[n^s^!WJ'O}^X5w!BZlvk$]ikC!?T'w,Tp2-dp;2Z]EEvV5pEs5,?[ZsCn^J~_EGV2z<U1
-    >&*Zmm{j\un>*@Asej%opTU*D7zi$w;=o]TE]OrDoH[Q_eZ*xoxvnx*[l#r_$2AKvCkDjsreIGnV
-    Bx$Y15INTA+Ap3DWOCA={IvwRW,V{+'@mO#7iY{1?,<+3CXlunnaomUwT5;~k_5$bvk[~HH}Ao+W
-    jA_{\peYYVZeRQBm~,V_7YUBvo\E]w+D?svEQCQs$u>XuW-HKnr_-Mn1;k\;U$-_'*!G?]nx=*1"
-    5rEw{ppQr+*iV]<'^jvi^k*XrOUQVY+m}L7JYa*ZTl1H$
-`endprotected
-//pragma protect end
-
-
-`timescale 100ps/10ps
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#>>s~1$l$15!@ppO'r^vu~5EOF\^=A\G"NoZ$[IP<s#QBZw?#z=$'G-sI,#W)52+QpEH*1z2
-    o*lBw#Ull!r#~$!RVN^,]Eemp[KwJUz^;}PkCz#jnHv!'\I?A2]+jX~G~JRopJ,sk@]z^*T]a7_=
-    mx5*QxW0R2X7#<3[@{nZ9rnYX'm-+CPRO{,\IoI9=5iVXj5T'l_?NDt^5wI|^!zuNNdQk@QImlBx
-    Z7maC?<o2_JqwjvrzTOv<eZIoXQY5?ao>[H=#H,>r=\!e7rp~H*$rp>A_W<Bepi^vfwEwC2l;XJ'
-    K>]-*En|{[H]^>R{Ezv=Rpu~X1ol@rVHs$^5>H2pexJ'v1JAzzkpk$!zm*v[-a{=r_Z{$^Oi6Qot
-    q.ETpKG!v$=;sKIZIJ!T;!+$UYdO\1JC{^QTV?_+[A\PV#X=8HXDp\@!oe5W1L#wX<=aWKJeAO6"
-    o<l{bm+Zo1+v*V{DY=VUDfrp;[irJ@5'>n\X3=pZA;}}*~Q}5s_Vx[{723x3Jo*,-X<wR7kwJ}fu
-    +]l[Zpa#VE5'*nw1rpA{Q}OO'Ea7T_KjIur+Uv-Y7*AJaO2?VX}}nJm$aIx13m^'EIa[*O3pC2m,
-    G-2^{ust]\vG/[-7<~'?5VvBE_-Z,eZ5\j\7l\V}W+*7{\eYKLC_3Gvsjz^K\n5\I?O33A}Ev'zd
-    I>RUmR~TxW}'iC\s$om*m$wu|gp@pi7i7+}DkA3X@BF1J3vmnU[TDv}h1ksm=-rJ[2}AtTz-~L!^
-    HX-a[~IUOr@zm2ZCv[9Y#eDpT7YqUr#T\v<+I'\1p^G{[;xJ1-1sDS;[=KoCEp<n-_xG]vQyVUxU
-    -Cji4v;wJ/ArDmpZJm7w3Dm5{nG7@^1)2$xrWoWXcxH7]7\\2ICBZ~sQ_ZD2~}]vrs?m*}!D7p\;
-    }<s3][pk-U=W+zlD]+<}V[i,'t-UO,p1TzfO_z1[IC}#U$T^@ZW{[Vp]-;Y[xxX<ERTvRZCxv'?[
-    @g1KI>AUn,)'{]!'D[]]ZR}YUQ1se=},G7kVZe]<eOmE$n$*a^BKAQCFp?KOp;pQp}T+V]rTzIYU
-    SGR[G-7{G<BW\jIOBv#sCn^+r3D#^\Iun'ADEaoXpWsL\s*C_uBA~piK}!r#<x$}z5uv]mT5Iv;\
-    RH,i5e7Ku1jUFaQ=-L}^HWN^O1Y-*$v,Wo$*{1oCU\iMY+mI-S2BCVEdKp;]s3mmKxZoYsG=E_,s
-    O[E3~YpE$[1Dx[@Ix#pw9wwou37^s*?}Y]rG]Q^JaJonK<{Un#Gr['eXx|h+Uo[pD_zxvZDTGz#.
-    0w\G}:UDTJ3j\s5a!$nQTwwUU;e2j5_H]$o_uE^+sIp_OBuIWU)U<ImrYvX!owp3<-?Ck~V^xBYj
-    HC<*E+abBHz>JCeuD]!CjCoI8~7RrPykjpWF'+,XZzY7EA2#1!YG5OR~V]>}0ivJ!p}lHlliY]{j
-    \e~D_vlIl7lVpHDeiTRZKQ3BKKD7jZ=Z_|E2*I_O@v~anWx8>Q~V~']Uu}J3y@^RT%4X[2Xk,^k[
-    R2u^C?''I!aTO}u1a\TG*i@oT}-a.urm<Uts72x:GG!DpmJ>*jI~x;2o{CD?BC>ZI]j@I@CK!Dim
-    1Y,apA+Yv]nVawwAD@<Z.KB-rkIaa71?]sDH_aejY]KoIIx\i8p!'E,uV-3Rn'cz*]*xaKm@{5#k
-    G3}^+2VEAJ-TRiz^ExUQC!1}+zu]xxOR?z~o<$m&}#Am<Ipnse@[+Dzl!erZ.^C*I^Y@avjz}O3$
-    zEYje7DVkjp>l#E1RRj_?0VrwW9lGQ__}I2AXpoQHM-CH7?}uw;}pKJn'[po<51T<QBAWUV}J5_3
-    BaijiUO-Y*_m*JEn5^rDDK3w-K4CE}km^x;FREVi5{p{%i]jvBCk+*_kZ;*YW;*mZa\#ukHo[TVG
-    {I5DQ%xB$kr[!n|1jx3G#<JR,vYzCn!'=nr=\E=BnBeV3Tln_KXznjK_WO-Es<}}u3@bi1B<uOo2
-    VGn>ou_,Ur2*~r>nu_~K%e5e$'\pE\a-m=De{a^-]W-a13rT#~oYX@}*}AhW7']x,EmDGoT\w_J'
-    p{~,1J}@G^jmD>ZQ2K\u{W~kzX1_u$Td-\wk,]Q{r^p<E-+omn2Vxv^~8UnJ,LslRkmxsoA,3mj\
-    AHXrC#Imu7'!nxl#xD:Xojj,1Cr+xAjk+Ul<sxXZ*R~J_KG]GDolZ<CMdBj!-a-@-:7XQV2+2Qg~
-    5i[E/^A33C5*\nXH=VNc_V~[Hp\v#<I]U]>Hc\#23Yuw]SeWu,u5#U[]XpR{Z'VU!uQEJC6>Y#QV
-    pI+DTpB;=YU,CH\R^WafmB5B"B~+ET]\nIn=C_;e#J}e]}~K]o15I_2O~EU@,brO+#Up1,x;577H
-    BZRi7AqAG*IL$,}ir%WTr~#7aX}rp2k$Q@[[T'Tsl$?Bnr]*1Tj1vk^{VDqLj2;;s+sHaA5^>U\w
-    Vp1=lQsJAHJ}~jE!G{I[#*kU}@RsVsW$LI{z-Upk~J<Cx3>el?s\AV_*C>VY[:{X,[&!j@akN+R>
-    a31Kw-$C@[<ru)IBE'\r;]D3E-.9i[ur=s1,C7I39wAT-$CRT?]OuRO1i^GJ<1k*D7U_uGBwoi{~
-    H0-E-{!pt]AsjWDv"'eisM9'A[^CGv<L,H1AGp3sjvK?ux,{i\<sKERA!_nZH=eIt{pE{}$BW?x3
-    [@jo$R@Von-_r[*BaN$Y]A!-ED\+*v~+Q~x@-=rm>KN|A\znwoeo+-2^Tx>=HnJ$Rk=<1szHpW}s
-    FWB~=U>7Bnr\a~E}1TD!1uEHU-s@_l1JAm5A>:xX_iweo5RRn7KjK@pK!sT']>\pwH-$!YE;o5VQ
-    z*-D'smG{ePBGxk{DsETvXv;RJB,v];,_\B.s2=2Cz~[vB@C7+lCCJ=r2xiQiBjHGp!!C=E-^\5W
-    >=nT<G<#cu$2KI;[AY>$w[O~]gp~!3I>[X'pve^keU72A{O-+X]VCUE>a-=;7Q=D'U]2s'7@YZE}
-    ^kzy$XCzG{^TQE{vjDUk[KeRu$C,3>li)v<j3?n=owzH]#{3;_HQRk^>zhA$*>gtJViEyI<KU\OK
-    YhZw*mXB+!Lx;sp3+25Dj*ul+,V,WQair#pE=]J'#-wI]pIyE#5AlV3e]*l!U$**!a_}]Rne-_2v
-    zXR;An!]><D^$i<lY=s^CC3uuxmRzuAW3=R?S3j3B#'DxYK+E=z,K5{m!AQl\rW&:{D-TBr7T-n,
-    <|W5u2+YTl=]Q;6;'v]op<vLi5E!#Ir[X'1C[-XX|<[G#V;$@GDwIWUBQ,JHrUs{x*n*},U^X#\}
-    !C$],<EY{BAEVdw7wQC1QRN4|{rUviSY=nD,_QI-D(I~~,YO1W!,}<B3nuClZ~lp\KnBlE\)QpEX
-    AGGoV+w!5,e1C-+}xnSo>p+>X>{A&lzr5a,BxhrH2zEovr_zDWJ+HwYJl'l3_T^{Al)Qyj<u7Wv<
-    kx"w51X!'Jn6MkB~}B@DOJYaZR1$]1\s#E]1>]Di^BX[u?A-TnY=~?U[a_]V!KB;{$mri_!]1*}Y
-    ]r[*7dW'DsZ'i{y>GCTHlz}!ep]=pVk)z-Y32p#[*Cm1]W<q!wK5ww~kqL],ukjHIk*=a{}<3G>z
-    =nG0^EnE!H}C>H}5I_@=(tlCj2,3~[i\@nD{-W}?VKGJmGHVW[%IT]CmjD?hGGnWOG~YBxux'J_~
-    LA7>BS!r_n=AZ\C;+=A7+YjwHpvkB@~7}}'YDZ]$Zef~]CO3A]WloW\#={Yo^o7f$,5#Jz}1s{AC
-    @7@{W<jD0UEoJq>XpR^>3wV'?U2On3oKwrY5i[,!Dx^sD's+EK\^A2J]UaQxw,GO#5uYV5F*Mg1G
-    m#*ez-kwUE.p7OW,uQ,2TGuK=]!;A'[B{eJ=Y]CpT7,IGo?)a5B<f[GrR}Z}K-X-2,V3RU>,?CY*
-    776AD_!o>VumBDK'7J#Cw2$:HCX>!'@H[?z\J[[KXYxz@TKEx$#K7?Y''naW~o@<)WexlQn_^=?D
-    j*e@YQvIn'x2#tzRO*E<JKlWorH.E*52<<;#B-]2!eGsh'vE}-weu=\v?kjIv<zkKjO?H|m<+lv=
-    'Qp*u1~{v{$DsDOuEDlZH{OOavE]5kDK1',Oj72=I5-e3~vQOj;>LvspV[0EivC*7!*77A{Y{TRM
-    ET+_5jQRKlor3>E7vKeKOeQu~Io=ElI;uG7iwn]?d1U5KS]HuYXQTRB]keD+u?^rmOZE;,E5~3';
-    OR@lkZ:xxz-:IZ',Q=G=Y)^msYre*+[!~-#V#H,{lwx_Ynt'#E5Q3\3n,2ukp>o$+npiU=H5sir^
-    _+YO\YRJnA,~}T?-<x-[1Q-@EZYEzoJ*O{$c^5Okj->'Q2_i!]<u~s?[1InV#['s,nVa)73EvlRU
-    #B^<7o-]{W<BpjQQ@P^7#+qABT-G'?#ITp@~p@,_rJ5EviKsv>IIYI>4rs3@@r!}?q'~<K3j+j25
-    @oyFHrD>~T_}ORc@]TsQ}#B+TTKxwQQP2<,o~{xIA_xYo,-soYmEr{WDX'Ian7D[[DVmklDT~'-J
-    sja;\u2[X]o#2VvDD7WxmX$Kx!Gak{Q37=?lWY>G<G!,sG$W]$5}=X;U,7JmGZss'UDz]]$IO@1u
-    Q;x~KeB7D=ZH~rV[e\UU*kA<4zV&:Ox2Uz+1^.nOwTT+VCE*^Qr&Oge+mx3B~GuzKTrXms2z^p[V
-    Y'_z;j6_vXKs47WI{=Dw1hjp3Ok_nWjVav,+Z?RAZ3U>o+E<Bl?AD7DZ>[Y2m>O@<$!Q'izuE;Bw
-    o<VJ>C5C~-Q;m#Y~l'+Ouw<I\#VUxoVpTwCAT7oX}GZDH?,_BxUXeAs1;u|=\sIO--@Y5H^AeAuC
-    Jp2*71GfOV^>#T$C3]|Zv!QQ}VCHnK~511@z@amTAjA#Qo*CB2YcYsE1jUG=$rW[C_-WJT<X=QUp
-    ~p'j~s~p-z-rD[*ULzAJaUV[r#>3xGW2nXHxa5'skH-!ILK=vvGDuw'>]XD!^krs@BB,Z~+AQT@e
-    lHQZ!H!ClAHs@_Jx\$?Y]p\_@-Re=^C3DAMI}$Jnr<;^,_XRAz^&_W+1YXY2BDuYGCApQI\OjG1E
-    pin*GeBkIp*nW+>>HYB=TaHB)aa;v!Uej[U-;R5Oee_THbA7XQC2{kHB#-u*QOX\KY~}Tz(7_2;H
-    _'*:S2__sRI0B=Iu#o*lR\I$r<Ozr[#OeZW@l5oeU{x{DZjU><-?e2Oe_IJjE1XaUDCE3VRU~eJQ
-    kxr>_VVxjYu?vi>K!j_O3xv<_lYiyp1k=]W~D}H+I*+a$$Kl{52@akvzjY~5z^$iK\{!?JXK3+Vm
-    emI_~#armirCr8*sBDG5+Hv"ZomDo}T}ja}]Z,-U,1Zv<GTkT_u#IU~T$,@\~AE<AlV{h!'!k)7s
-    'HWYCpt5EY5G^>!_YHVO\!HV{7ZsY~p#*?B-{E$]k3RBJs?C3nXdl!uVWsViEu-<]EIu|,m[X*]{
-    O&cJ';@H<$j,\u17!\atpDE'x>_Q(Qi*zrVU7[!7?;-Y<kQ@Qn}BAACl{!sC;vu]DeaHGo|6=]~G
-    UE-*Aw>Y,}\;E7HUu,,nFOsoG]<jkva[l}nee'XEY<Yp*==mB[\R}C<-ez@V-A'mKuC~CIaY77IG
-    AaQ^@Ow}m+CvQyGRAXCT-\mODR\{[2v$;z{o!K&$=-QmR^{31nQ#V]mQ;U<pEka{*{Gjr^{%+pis
-    }zlOARwk[A>YUI>Q{'IK1,Cm}>~KuQAwqJU}rj+\\XDxIoo1pW}5Y@R#jE&[Y@!]>>-EEWHE_?ZR
-    les(B2ToO=;K%@=+~Gwp}Q{Ka@CXJ]{TCIo2oGZKj$oV*XjT]?]vW$;IvJ5#om+uHl0a5~;lR<{D
-    ~nuZs7YDz3#W1CAV+HJy1AmJo=],1X,Y5v=X@5I3sHUTRE$JUOvn[{l![+^i8DITGojYU@G*>VAV
-    'OG}G}xKT3=H>k9T}XBC@\nH5W$RKR!euV5eKs}685RQEMur\_sn^aT[nDWIkpsX\Jm]TA95'[uX
-    r=]H'Y}*kG\n1B\[Wx^uVWRR>B$^kV-<liYOK3<1k,72n3A1mm;BpHUY+!w@<prW[]ljBBk*ZnwA
-    G<p7l~umR]X'*XY#OTWG#[nG>x5u[qf_km5iDiVe5kwLr+<pC;IN$kO{7TKsQI,WWz[VH1DuCr[_
-    cE3$EZCmU+DRRGrrAAa2Q;rwWa}Us_+pUG\^'?T]EaI<uBA[sQvuY/^vOe"#]I19^#^#WXXQ0>Vk
-    TFD-X~wBWs?E\T-U[o0+nK+1[An1Z!!{<oGXUGj>TADMa-KBr;Q~K+VUWrZ~Dzn1<QCZw}sC]E>K
-    =\U!UjQQ]Z3~E!O;Y$2HZ>TA^r)CwZD?]#?ss,psHQEvQR*EWE<s_+V[hI[r7H}#k;'r#-'^oE3\
-    AxmUTj90^Z>5hJ^'[DG5OieJ;;zJTBU*jhX\T}m7!pjI<ODX;kToim*YsZdn*=7[Hm2UxexKXgB1
-    Qan<@?o"l'Ol=}$vDY;}fXR_lI<VjH'Qv\T5]/Nr!$GoR2O<OoYIc<w<QH5xJG=*B>wD<DeCevOT
-    Jv-1T+pv!1JZ\=U^-^NETKI>r;efrmp]I!wAaL<e5ELMG{Tu=x}*;o_H}5@I;_!\V=n^;.B#]lJj
-    HlnG\@eOi#u,oD_jjGsEsVmAK;\5H$B\D1-j{U/kv!s+arKo0$_7GJ}\R4giCY,1^v!I\mC7';>1
-    U7aj]*alUV!A'OYD'YDxpI_l)?R=$TO=3OG5-_\KuJ>;T>I){OO>jzwHWCOe#X2\EJ+RJSX_[-eB
-    5vJ__zRx?p5R\XD_m3D>{?>a+>j2XB5x5Y7,X=v^A7Zp53]BD=EmZT#a;CvB+~ZAY~Mv[$I[m3[K
-    aJ~2la_AIE^H<~=2[37x=vvW5r'ZT7e{5G>Y$Y]!RJJ]zxu!]Xw}?s@T_EnU_OCvk,n5K@+aer]>
-    }CGiwE?xus@0I;H>_T=3[T5+@>1a!aO]}An?}2\}xr3}S)JAo'z1-vYlEo,*vu$@Bi;[rHz!VC@>
-    $I2}iBfsCaG2G?r'n,UD1Y~9*XD$>'Av\OG>{X@pgNeBOu\sJKQ',?zZHx7]2T'H}^3l*ZEk;AB#
-    mE-Huz2DTIGr~KK[<?$R2R7{Ds|vm_jE~z=j>ZwcRB{j{YZu2>J~zIi+]_[-=52Kp-12[OIzXzVX
-    JT&qCV-HzA>Ek'5^"xR-^GlpQ0WXoAE7VWz?7pDxOD2OH?'!3HKQu$IzIAI1+v*>Vx?a{lo#'rHA
-    s__$\E>[3QNI<;,Z=2lU[1DplIJ7],K;{{*ZVm?J5Z~:\rJaB+]u+ezw\nv}><3C%owuUICRW=Ku
-    A9erB[fh[OKelO^BK[-+!l]=TrkZ7>j2k[DHoIY~lCCQ[,B<Ks7<{_;E#D2YvXmH=Dzk8eej33sB
-    \e2_'u7,Zf6?H>]iR^pQr]-n5!?&?_,Tu*@pi_wWxAOvDm-A$'=5,@WXk\Q}Bv]OaE7uR5Is!l}H
-    Jnou5Gi1ounWs]D?6K,X$GTYIh@l{WjJ_uiHH1BppWiCnW#aC^>U,1<s7IH<BohB5Q,$1<IE}nwi
-    UB@hJH=pzYxCrpT\V\iwl@-OxV^aO<z#InG>WIRHn=n}b3QvUTvnUue=#,sB'-Tx5\O*QR5@+!x$
-    TwoQEFXB#HZ>UGAQEO=}JJ#^Q'\O2U/>,e2Z5o=Q@=Ikx*ukXT,lD~@lJ~'rv~;+pmv8kE_CweE,
-    -=G]$7A[+YmrEp7W>js$^EA2ReZOo>EK,,WW_Wl2GSsEE\0E5isCu-e;7p]4C!*;{GAEEsIQusnz
-    VVTW1]m^CZVCx{\r~'~mb]nY#>=J>'RZ~xn^\',XIR$=vIM\Z[IK<z=jRCZ1pOovQ>~3Q-$;DU7'
-    +{TV+Enpm]25p[Z$>q=Fe@e_]{+1,ZeJo*UJI!jCka$k[+sG'<l{GB?XVDDOo'Q<lpJWax3CzsJ*
-    =ka;^<^2V#pH?G;Ki'Qi-wI@!rDiK$XX,AXp=jVRk]a1S@DK\cv#{BKC!<I}{7Q3T=O=7vTD2-W>
-    -sun!lEJY3N~]$GeiCO^I+5'kE@lvRrv!++$+IVmH@<UIOjq7kz@t^GXYo<5k?^^CR+Y1x,QQpQs
-    H^zn1vo\1_9?eC#,x\Eiv'K.{QXVsJ}*H,->uo1k}[_C'\K-xXm]3AX,eU]'Rz#R1G,2S;A{!>U!
-    =k^z!6zua'\W_XJRe$zDKC,51>&?z3Jjl;#S1<1>Y;U@M,n7Y$r#sCC#?+}71=n*eeGe7IDw-7$1
-    5eo;{5AZVH=7Y$_KHP/CcHsGYT\v\lko{0XHGkCG+u}RA@{eR1K<K#grirR!*-n!>1V1VCQ7'<o^
-    Tp}iUUK?n+!.XauW]!EVO<,~KQ7'R{O}>jE<Y{{<oD?-eIJT~j+2[*}~iI?{l{2UewpU'G+U'IYl
-    '@,'_*rQIMA_o_~=jW}CmJlT*;ZAZU?V+WpD7>X$3*!n7vrmzI?UJUe^5uA_ZnUlk=Zxv#13$+Qn
-    un~LdAEQQG!lHDC};{o]U}TU?fjG$mpv2G>+7#a<@<IIGD!oJxlsov**},Tj_},]7<vjAl]O?{-=
-    ?^HXZ=v,QoL*Y7V,lO\cgp7T11iKZYU-Gw]j7*!!KhJ]pj4IBpklnnecB>nD5xs3Kt^nlJ<H}sta
-    ]=o<jIj_MP?<${wnVlG'?k%rwvRiG,s>Ox>>5u'*p=vKO7xG@rG52C7]QwpLx'Zzw1_[n{]nj[HG
-    d*@-as=<a|-\HpeKCzGneU[K>@H'K!+[+BIk@uPHo>5$oXak5<u*<$JERWHE_J\@w5,BTw1x#,^[
-    U\#n]Kx5[D^v~'RQnmB:*wXVpQ\w3\CD"tW[vDIX734GVi!e+1Um=_\EnWsYVOD*V*T)j$,use$!
-    glYW$,+Avs!*OZ^K=/EGRi~_O#pETj]JwRCx$X$xmoj1jVVCvi1[Uow+7I7rRaEku$V[lsHY<T]k
-    }V>'eG\u]R,S;>@TAxHQu1-[xO^,{o}>OmOHiR#[s$7YrAlXJl]uCv=w}o!$|VGC]C[TK'm->^mW
-    <'C>}\_${C5~7TV=XmU}@hl~'2kAO]i[W+j]CUvverpXU>L&HOW~~V^kkekRn]>=\;vjGW=_wC1_
-    }['74m1G!'-Uu}vx!P\a\ZhoK[@3j2Z9>,alD@aHz;zWxOZ2R}7>*gW^zrcOJO#_J^iH\@X;ReZ3
-    AYrH{B,J+KCsIR1,Gn[n-XZVuAHTQR'HG--mj^$<7XTln,^?oD}kB\#{BEZS^TU="DK<?w5U*{\[
-    XwO3'xje+pjj~,*!ZlwT@3xau|DTQmIo!#''C1_v7HA5o_nO~#Ul$Y>rx7MBl3a}'+p$aUZDV@~:
-    *\O^U]Zw{RnZIq6"=;}xR[DeZoQ[sioup?zseq1a-#vkn3<[pWwems0X*@7T}a[D@7;CsB2%Y7H*
-    [3^!?p%4Uvmz\vH3O+T?QVpE\o3Qjkuen{WowQIVJ+Dz52G[KHGOXTT-(+Y\r#nR*2noVB0ZaJ][
-    s@;26Orkxo]o\eaj=V1ur>w5^Y\Q3<E]\loB@moBG3_Y$Pp?mVyTeEEoQkX1IRDURaO_GRJB>zx+
-    l;$R[$#4rjX}-x+*B@+wQJ_m%k&DBVo3*_xu{J'Hj{1HQ*j+AZX$W@>Jlm?<XW*G;5w[baGWKA*Q
-    Z
-`endprotected
-//pragma protect end
-
-
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#E=j>o*&Ez*5e2^$'Q@jGG#TUsQr+U'?FI#o[|*!Du-}UO[VCHcwn_[6}/\!xr!rRiLI-rK*
-    +3Z@aQxvjk}]irz!w$wIi@DFzx^QI}VCX$wYoOazN@'}TQ!G+v~{U5r#}!Dlp,]kJ-+A~]_}?}#~
-    3Q?rEvO;]?9mEQwTo1}CZUz_sTf=E[apwY,lrkTkXEZM2$#!]E?5[_pIWU{x+7~ATs{TW$upYTAm
-    RGCuBG$w=i^rYmm}CD%0p$~]{O@~Y\j[J=nZeGEkvpX_=uo_oiY@s$'z,.$j^p]*z2sIE[hO~Yz;
-    Cl_]@uXvaJ~2oRG,Wr_e[QGvA1i-wxX<O{!@vpais2$ooiZ$AoT!<HAj?pOp7o!&ZT![FLoI=u__
-    Br]T']~TR$[,aw7CB@u1<~A^{xl<pug>on=CKXV[D3mCopZ,?S!$;rQ]rBB[w=M871i'pnK5ox2,
-    9_'D^W*D5sI?'owDKsBxo;<z*"[T~K2pve|F"rpw#VC@pF))^w'{Z<lp}3YVsX3B.QuWJ]+DQs?z
-    !%=@@A!X7J-w<=OPs@o$=ZaJ1=]o&!Gs~Z]!Y,nH;e^#Y5Y>[0lVuZeY1k9G}Ix1@BD!HUzQ1n${
-    Izps\#<oA@]CVwvv~XujoRBH\X2\&9('2zj_B*[C$<$=5;VR]HaNm1E1_j#Kaw]D=3$Q>T[IxkF=
-    @U^9I1J3nv'{/-7{#fk]$-=BR}wUU$EDw5[k{wz_-3TC{sBPJE><O'>}DJv!reV^-oU}&fuH<Ee$
-    <zlJ7pH$e,=@VzG5n{WsJeB(~'!T#E^1E?-_&-]DTRji+1-$HqVmZ+4;s5~uAYoQ}TpawlnGOwxr
-    <C_*Y<W5Hw2)?>GY7lu5=-m]@<Yr=uJKEg{]IIE3$YCaAjCv3Ki*2I7J3lYX_sU]>{ExHjf^wuDv
-    Q$kPkzBiQ;Q2x;Y~w'e@^oj#V^DH-[zB5<upJOj}OlfG7Ipx}j$#XI=s2ITQrD#+rHvO2;Oz2>Qu
-    pzppe-ne,+e;o[^V8}i$mp[!CrWKkE2W33I?7-Uz2^Hsz-}V+KXn,A>;zGo1^bm{]!3^^='rYH\2
-    @~oroYH^1Wv~e\N^Zlv~E~rVKsx7Z\[L%*pj*%*u;^UjuTs2AB#lOCI!Iorn$XI!]Wo-Yjo$r371
-    ='_,Desn}K|@+!oVe7A\3KraNzr#}]~<oBRj+cAa+?p\VZ+ll1}|'B{l1';oY>nUU_]D]KoI]KDl
-    eG]UAaOV.?*uk*{sT<*][/TQ!]u]IuI>!=9o^@G{'as<752segK7oo\-UIIAETOAH;n'Ew+7@]Bg
-    p7LUOrXE_s[HUeXxT\*kQ$pHo-oWHw!+V~^>E${BWHj[kQwVoHXU5}<>{Jj7EYiI#MUl-3$QRrmr
-    2^]5CA~lQZKn5@uzdEvC__mu[Ovw~lQ>'IfOG]1o]MGXuK)(2I>j7u-msn~mbE53u.H7i7(pYewZ
-    Y2
-`endprotected
-//pragma protect end
-
-
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#F,lm*.o}~OlQE-]joE]JR,V}p_+oruQ=i<}O5i$3$u1~ma7z'}51Zs@IH[Srx;T3aVIC2__
-    CajAj$m[rZ,%lwJ#*+[[o_n=['CW!Ul$HUl$a-~G,M+12Hi,z_<QqC!ET}z*<5j#rOU+#v2o5gD#
-    [C=.Gs><DQ^*=aO{$D#}x#]<o~[7>lI!(PX'{{n$?JFx@{j@7Mo-T?C*V\:[YO_xa~Vz^$a^;eZe
-    lV;2^7V,r_$7o@Q1-zZaHQr<a]$(:O7{x$?A\DDxT(Z[KWb$~allT}#6W12Y"i^^kzl_m@[;WW<<
-    ?X[{2FqTapWk$l2Oq:Cr+?{R7Toz;VAr7s~js$q2$!5"7R3HGIzHC!YG\-AV1"|UaYZHx{@i1@r7
-    !u+AEo3jixxCsCZ#jpiP@<WE@<\Zjp\JpY*U\mmokvIp$D5kpu^Dsm{$tX'pl*VZ]i>e7r;@QXY<
-    e&C|QVW~^@Xv0o{R2vQk$u>RKrr{AN(,XKlu<,wxuW3j/<rA>'$pDrKYCwX^u3}zDB4$;YezpCO=
-    {zo?5,[l=K^QUe1I1lje!l+=w+!V;1~BDOI8WC'H}xY+Q=GkX=<AFqVlT1JBe@_$#kE3KlfJAAVj
-    V;@$5R1s^noHDa,LSYsRu_'X[,=;Y4$_5i>V7,^vpj,n$^C#^?vZalAw+QWeV$7>EK,~mzACv_+'
-    ivQRA_rn1*lEVEUCAzrnp[+Tz-j5<aA$l<]r2;E_oWz=Im(#5@2~jnrxsaTSlx}[==D$'B<+X{$-
-    Pu=~^JR}^u5~AG;uxs!B?6[W$pz3VuQ#]BTYrl$J@$a5_zE\>vsr'Qz{DC[\KDkU]QIA}J#HuRx3
-    7kn5I@$3o;Y3;Iy0[=Y'>OXJZx,H5B]=wS[no{o<[{~ewZ=wu]BzW$IlEvVm,!AX@IB11a1?,RC>
-    *QaskHm=QB|-'v3m]^2WY,$'BT^o}m~Rk'{1ex5m{'I/*=nO<VZJ#<+A}HGJ<n}^::Kw3--1n3D>
-    j^Om[li'^+$p7_Dn*Z7*Z{N)}i{$7WZ?)_RK;6m{1VhzQ7Zw<7Du><Xl^=phx,3vU}UnQEGa=s<B
-    ?nU=o,??1oJTD;3[!9G5*$$'z@YTvTH15HpY}QC$iI]IO~Z}n-U\Yo5oaQ?ne?6Z+,u'n}E}Xuj*
-    o]#x~^a6#a!7jzjvD'l,jx<VS=)yV*al-jpipK2D$Z<CNs[>^_WI^O5W^ACX<U*IKFRDR^rGiA?\
-    <'2O7]ETD_Ul'G^@JTvK^O52!2e?Vu,{'znEXJ;Y,T2'>OW5Oe1XVzEIw^D^i;,\\W_V]zs#{-Be
-    QUvi^a'X$VIEsa~z_WC-aUH<xQ-BC=u1J32anKW]iBDm_QpkmUc^s<3/=OTXm_HZI{>K'CXD1!en
-    KIK]?pxr=oS(7H7}<e[K{_UA(kQA7:#[\}w<Y~j]2z\;HosvQ}ye[KO)xHz*$u+;Q;O-A$z{$z_Q
-    _#Y?n[^p,?v;QXOe{IVv=unwR]V}4Z-^1~<{\<7]#*NM3<J[}ZWsmjxALBO<u*amUIx1^WGpWxZ~
-    \!=K2OCzijZ~!2[qP&$Z3[Lz\#5Gm*5*UXzIlX\xXmJ1#KAj'D'a5Uzir+j{RvB+sp24V>CVwD{*
-    B^Ep$r{s[>=z/8@IOiV}Wmx*WZR~rDwG;7We+wCj^*;D<m#>mIzR#3=2RD3n7B?r!?k5uG+8r{jU
-    (ZnHICV!r}7k,*HHHjDX2\~nWl^sUv+'[ymaxj#*EJB|^o';Dv[1I@XvYezuiD,>#I}~k\#}r=}V
-    Ixp,K{!]JHI?}I[!FrR1Xn]K;,Y1#=\reXnY'*O*D6G@U??TGjtx[Kp_{;'?I;<eZ5Oa5EQs;VC+
-    AZ[OK^Y}U3;:}?oEY&p?WI;v'-*WZ5U]iI*JOe{rKl~D'mlYCm$,JGo3VWz!=jsV,\i$,r^;Z?95
-    Y,iOwCAA}o~3{Qe^{,jO'XR5XHB77!zrG{>XCCX[zBz3B['Tn'D<=@CEIku2O?jZ1{A{XADV#7JQ
-    T7;E^37=RekRi_Z3B1Q-YQTp[{~wRDY=WEk1_-[js!@R3D]vOI72}CCAX{C\G~>=n+\^-wjGaDX[
-    AxRB^Z[Ka=V"#YIWnV!uUo+J_w<V+j<JT1{DwDCo-{=D_,w$%7GVar}$r\x_H'!sW'?s?V_>'\RI
-    YsGi}DmX]I]i'JIA~*!K5V/Q]#$l_*@IZ!-KpZ#[V^oT*o<sxXQZ{T{,3\*j2v~}jwE:QA_?-nT<
-    0l5pR{V?_DAJ]c7W^nr?{$<Gr{EADKTH7'}*\;[Y-D}\x2#waXfpI[$pZIwJ=TmrW>Op5]7o{GG~
-    >W?m*#wZTwOi+Yv+R*$Xx@*T_Bmf:suYE*K^pwU1Ov^mz1]$r}2vG}j1R@Ik~H{v]e;Cu'Uje\ED
-    'Vswzr;E]I5<Hi&I'1+mr{!maV=EzBe-l\EGpG}QDle<Ue{L,%BzQ5GY0+s!n-'nZ{EAVG\zZlT3
-    ^~_oxVlY~[@xr,v@]lpsZK^^pU<DY0)1~C7QWlv7lY{ouQ\!*iKV}]1E5ABxWVvr@VT=-<_'->O,
-    ~{>eoD\X*+=!A}Boa22@Ao#r;-lBW7{l+G17szzlG^[1?mAEYX5'_~+aj~=xCZ3*R]X7CUHx5zjr
-    Iu[+Tx>R>@Qj'l~b*Eua8bWen33v2Xdts_7V2x!T}T<=kCnA}3}!Is*D|Ea\7oZTZarCzB\w?H=@
-    k&y~CT[BD<I/QVRC=z;~U[>K8rOX<*3x~7_{[^C+nO3}\w5BRCX^D^i\lI!Y<.'Mh,H7VRX<}p4;
-    ==xQ'E>QK_u1+!-Vp<5|A5JYvP>C*~r!osuC*s/11#'aDHTC5Qju'jBX'm,Z'=CGAEv~l[H_ea1,
-    +EZ#Oov'Ok3oW3->I<n!w2sB3{}po<GsxVik*Gv1-~q2B+X-7=\!AY,}Bue~On,zs?Bz=_HAz^OU
-    eIBk1_IDQUr<[Z=UGru'r{~<nR{K,'mJY?DPlr-*Q~UD,1,]55\W}uj;u9[vxR]Ql?[kYiF-A;3'
-    CTp13BK~a2OK7I~p,UkA}~BY_AUd~axTEX;u},+Dt-}o*}rKKqOr'Y:aal@7~XaK'+r#>ei6a$x]
-    DksUT[[DID{eT=j{QK-r7+Gk=1F=D\vG=7[q[eHQg_aI+Dm}Uo*K3M*~E;<eJAQkz]ZAQQEr{Dsc
-    GB'ER{$ao2Jxx[JIjV?*]k*-s^7QT[v5Q#[@IjUpVWO$W5=GWO{>\en\AQ2~eOpsY#+jfl2H^{<o
-    m$eB$+}>]^[Be(zYl!Ta<OC]WK!Tp=TCRp*mDGq$UA;JQ}I]aJjHD*uE1+~W_@-,7#\:+jpJf>Y*
-    <DC<X\HO5W'v,*CXCOqN3{+wZXY<(:^7+EaQU##r?BO\}K2[AjwUpula3zD!5!GR}kevm#k5G{j$
-    $r$Ck^D>OiHGlGaxoHl[~wLCTD,5weD,HvQ3OIl2j3>nDX{e+><YCmuBW77jX}JQi\$IB_Ic=?5n
-    3+s*_T^Du{l[BC^Dm_are-!,=3Ts=R3E(j,XaQeVpC=A^l9T,'HKpke5cO?~>IG;x*><w_U*,Q=D
-    @v>o_om*>EnVH_(4bB&1Y#TTsO<mlaskVeT'XuX5Rk7"CeH1,vrJ<XxpADu{a_-nAzuQU]ow*\X,
-    z{B\nH&r;-nQAn#Hoi>Rav1ceaU'OAs^]{\ITH;v{Gp,@GeG;-Q+]k>EZp#unDC_}mHkRiuQo'\<
-    UIQ~sw7A7vYGe5^[VGIW+j-w@+D3ZazZoO2<Itx1]W7#j2U_RI#]mAx,2T6Q^#'5<OW9rUIK]Rl\
-    \?OJQWm='Qok7w]WH$=Hu_$ub}UHkVEV\)7s7YxsJ$ftxZ,[@*+XY-D>'Z7U(ozBxL,U{pLn,!sv
-    E7saBwvnpaK}e2aIRl\HCI;}@\K'[*H=#OQ~BBo3DiQ><G!O=,Vefm$vRK_m}unv+x;{2CjE@i<E
-    -~B'DUI#D5uK*Doz{jx}7-]>uz'i,iBZ[OeWr-\SIS|[xKo3B-#Gp1xQ1emr@J]k<7B1#}#J*u{Q
-    l?<-jWzR,=,Ks#Ki*7U2rmKxJ-@lDR<2*],}EEB_JJ3HRXY]'$]!U-]F@A+\7;2Vism2B7Hp*$s?
-    9i[jK#o+~$Z+@GmV*D+~]DGRIKH'{*YupEx@Y$o}s_C_x==[E[mJzHUu'L~BVeO'k{jGku*REA7Z
-    !rsm^C,wm1lC}]a\}Z@pxR*J1j,T=O=p*u^Q;]}=j3n\]^AX;x(O&nj!@TV3#z~=~IHJp"VAn5I<
-    Hr6]kp~dL^5l@DC7{w5DruY>&FEWx2NaoxkNfYHxGvJmDoZGXle'o*rZ*<1l_*v~Y#Q3!}c#$QB=
-    m}!IiGH'OXC#YDoDHnvWR2\]n6WYo;]Y@l"kCikpDoDj~UnCD<H@_Er^<ADr_aQ~D'[Y_Iuhr}kx
-    _i2eE~}=:kl;QLWC<lArQ\Zs'XB;TB$B!<Bu5\'}E~#5Q2EB1R!I1xX*k{Y]{'[><T1>]2<<>aQI
-    ?JGaRApW2e5_vx-D^=oTw[=XWal-l_I+Xj7}xD~9,VEZSC]ao[<VViGjlYT\D<DU>YX-?$eXKJ$1
-    osTe[6jW7Z];[}mXl!n^w7>&E>@!jOn!6kOW~[m5KVan@o$a]rE^BtQ$^ix~sG*YY~mrvTOeX\$I
-    B@3sxpuskO}3V[lDl3]Us-p;p<pGKuZXO$i+{z(J=;#?>]HEZx5,AeBn+-#aA!_fE?nT|;OV=Q=[
-    =YlT#KOoG!Tna;7]uRf#U>,a$#K})BW>^']_'1O\iHp1XG~1Cl[*K7!n5;V'R<*Z}#nH{}sJ{T[,
-    }G+*\:I_r+uX1@OsHs:tSl5uW3COip+J{toU~[>]a7GWG_JxToZ<o=YD5i]wRXA7\=4+Y;JojHG0
-    .\r>vQs*e?p@5wT{{_^{Z\r;BfX7KQJLDHA=lVo3lQZ;DQQ3^Bo_I~>*9;G?]!rpXVDDrE7J]*,@
-    xF5v=G-laQTsJ!GxvoX<pAvYovLU7RA[X,=A[T_Dx1V*K\ZH<7}KR{'d]\kx1Ypo>'$r7W57/r;j
-    _-pT!<UVkwxIebI_vHyl<V]=_,Q+G+ILlXunj{{rx-u<vHs<[u3jG@TpH^^-Zs^RREZCU_ZCW($O
-    Elx~R{Hov[}x+zDamu'm-?AnBeD^+msw\H'3=$N1uzxuU5{I[IG\7HoR?<$wL7JA'1apmo23kjA3
-    \GjR#U$<kn+zAO?zU[o+='p}W-OB{A][\?V~2Ir?O%q1CkHIlvof*Or~/k<XdC,K@40/o*IH<_Zj
-    "Y?'[-ws5HE#HB;*1QmHIS!ov=-a7;g#\?p!+5R}j{^p#np-*$5D>5WgJjwCvT1KGl!2]ir5QR;7
-    Ck*WUew~-7GRv}eC\em~Px1pu*K5k^rp_dU'\OC+UvZ7iRM4Vpz<[HVmc#XKj]Y5E,Qv5l^asU^o
-    UQCilT,+C_Wr7RlA$m>OX_;<Wf@<z!AX=B~E_$?=w%x0~eRlu<AU$2@vREDYRzrAXeY'=[<{1#Rl
-    -]+_YB2$K[-+Yz^#C]2l#l[XpW5HA{V=5~URQ~eV7Kp[|NsT@k>>U?<Cn#oj_Y7}~n9OU>?5#YE[
-    _YuGaaWB3+ZHxa[#],[dYXIv'ueQsHsQ7!-Ko?s!/Xe!TiTJ'5s$Thr]{;Tn^H3rr1z#};^Yr?s{
-    uvv,;uxYIk7Kp\TGA>i{GjnD1'5a}5[jQkRB#l>>V~A1n-K73?}iRW*1;u-YxT*~~G;,$]n$xC1@
-    BZ|ZHD^yB]-jn'_+\iQr5$-'sn1lm$r27)m[*HzuG=2x<!_TpOl@{OApCue,*7!jn,]{\=jo>5OV
-    2RI=;H]GilvJ7?Jo<]e@o?JRQ2<sUn6'lH2XBjIH<m{d_@O^O!TRGO}~]_]iO/nUXui,A1AA,m@-
-    l$OHO!mGeerum'lww7[z+H<r'>D+@TlERl^B#[aIJw5-!,#e>YR>Owkjs'}}+<pDID1~1r>lzuj*
-    YUjkr!Ns]m{'Z<GDDH{fx^uGx$,1x/AH!]W5iCr?a\>[v~Rujnz_wklIio;X@j@pR!XwwY%\^Vw#
-    7Ox0U*ner==Ox31U?T$>DYJ=^>\'%p<TC.2C7ixj=sVB\rYj5!F,5=B5]Gu{$B@;_jz3jrOeT*1_
-    <w@1AZRe#]O+{$=K}$H}lezywCr??rum*<m>(><HpweAum^zX]_QJE+<#Y}s#.xWWkM]H5jW>pIt
-    ?-UOlY{,$D[Bvuj>\H1BV2pRj<xU@=oCznp*]e#GYQmVI11+45!C'y-anW'o;pQ2>YIw2!I#xZeO
-    !{v->$[QspU*aa*;ekw>n3@w}kE^1pjrn2D'kOSE?n$YKA?RD-2b@[K22p}-o#Tk(T{'^3ImK'{s
-    +gBmVTHIp7"=5]OOo=JZvDJH7{K5Z;[k77ZEaA[:72cKDXZ$57Jr>7TB7_zRGA3'1{!;BxV3VT]J
-    OD]lmV~WY=7\,e/jTKaA,'*7WHRVDu2x'-@_]W*q,pXOH72H^=O=FiD@Ij+$pRlEX5UIWnHu2\!6
-    K^2KEn$<ljQOgB1}Zlb3$rH1}R+5$wYiH>]SYVE{@jkZ7i<?63+=+>a@lv?Oa'5nT{pKuA<Dp5?;
-    *,@Tz5EeRlrpln+5kvZ}*1HCCKzlZk-aEv+zJPjks'i*!;+rEUBID>\I<#EnYUGi<^'5~CHTn]rp
-    oTB$<U_uXQ=k^O^TJ7#+[-1'B}']J}r^n*=!-,*M-w]zY]OBCXQm?,!Yuxv7\5T~>YHlBV2@B7l*
-    -I'@Wv{+XY^-?-Dn~nTTcE5,KvA+lX1jX63_O7IjZ=x\#3,j_EjQmJ;>CaB,#2v#$r?Cm3lWG{-s
-    ]^x}1T<rr>1sr+*k5ohUj<Wc*~oJD*UavD[ec&E1RYC<KQ.[GnrACm\>G*?#]w]Xa;'Yu~OBiHY_
-    RJ\ekG{$Q~;iO!IBrKTvET]_j},_-j7_C,H4CW@K}_Zej!+o__^C~A+1;B}2_nOi]llv#\@ro_Os
-    {IZ]1]-]z*a*Y?wY=${~yLT^WR#Q+-4Q<sO<5I{5EkxRG,$8lCv+on}D0HlJ[-<}?9>__}BkGp|R
-    ?35wr<=],}2SpE~A$-'\ql,zG.8aY1D=HEEQum\2RG\^CZwJ'-YVRvo7-xwVA!p\TC3ro}U@x7i}
-    Gx*pWVs4HD@,1D}W'T5^(=GJWvvrk{E;[(R~$=\ao{GsVn*iB'x-@?!A2w45VKv2_XZ3>B<QiwC*
-    V,YWQm,[TEmeD7,C1;['}[wI~sv>=+e]m'w'mW2'JZ=n]}]m[[<@okmwT5iuQ?xjY7\v!'HLr]i@
-    $;PI^-J^p<#uY]V?CDrRa5{J$7E~7HOB?eZT*~!3AQopC2O&H}pkXw^Z2l~^T[Apa\<@;w~u6",+
-    H[wYu#XT=]0$Z;7D?2DZEm_hd5;l@mO[XCGUU$HJu^~2s_JpIXOi-?sR3;-3Y<IRDz?nrTQ5jVYm
-    ^+-{>7<5J5Ga-HGamGlG{oZ@~4,?O[va@7J>UjA$lja}la\pBQuClrYWY=ExoE5UHa>BU2V2=BT[
-    w!=rXjhC7}lduXuY<B3G---a}^xpcrYip,RH~r=#*l@2#BZT=RQs\B@,i>>wOeKK#rd-GXjpvA*<
-    7::sp\GxoZvz!{!7$OzvD^aav?I2$-D-A<>sA=[zJwZQi[wTB2VE*!TQxYH]?;5eivH}B[,+eK1D
-    #G@!j^}W}$~TRlJ6W$;s72C2!*wB<q\#KV3<oxR<<B_WJ?'arOW+I2{sp2Qd3,Y5q7k-QazJO[wE
-    H2oa;I]2kX_Ak5>},oZwDp+p[em]U2>m_ex2aB'e2e}'EmUeQeYHI_*=3va-5GIio5si7&YJw?Y-
-    [H^7a~_Uns%OrxYl^jsMKOj}CE'xW^usTr=Kpx_$1U*#T\p7LQOVEDrjQ\]knq$Bv[;[],_2T!rG
-    ulED@-{C*WA_BI*;l35WC;O4}CCo+es-#o7u]k7uwDHkz1r1uY~k|DORmYvX!13\5oEGZp}nuA-I
-    ]Ir5,,oo^RBpAxlUuY~AAB2Oz#Y7xUx<@;rJlx{@KYkEeli+^s+z{tsxY]z5'n]+jaGjaGATYT5<
-    r,o<<lg1VvA^now+_m{7]<HIZ<r=71*CElYJ[[e+Rjxp1rY1&GkuCj}WXKY!ZP,^n-,}'WhQW\mD
-    E#{Y,G@=ypml[6xoJ[Zn_ejw2^Fms-Ru+I,R1GZ2E1}+T_~s+XIp-v=7T$r\vzk,;Cs1+7m?vi]'
-    \';[ZKJVK$*J]p.xDCWRJjW{$$vBKevYZI;v{B]V1U]nEwz<wRu[C}u7X}n1]1k~^j;^uB'[X};S
-    {5-XB3>j4pjemm<+aS7xw'eWo$Tl3WixvVx*G[^m{pRW;-+ou^Z==[2eX+NYEzH*7!Xj}k?'YCsZ
-    5+<?-Gr>r=rg3joIC3<<TDJp#'\TkQW5D2-XLTYTCK[Cp~*{{va=$EUv^+r*A7u~XT*!':U5ECaG
-    n!6$n0UwUs-*#Vl~zXkal\%=ZKEB$'15$'<DK~{7eXpE,]Z2G[a^ioQ]]^juA~G0H,|^=_*eEpai
-    <5$Ox>E\1C]12;+2xG-'rzDQ!p!'*>ZlK'Y$G]n1xYp*nZsH,G3E1mu?lrGCKQ]p<swl!K^@}<el
-    W}Qmz<IKYJ=,r3muE]1D_*Y~<WkpDs]RDi>RH,aVYwrV{Ol<I1AGKQ{H5CTkss{?>HY^_\1Q\j=V
-    m'>}QVQe_mvsp>Xnr~\\*>\GQa,L,}o^jZ[E=k>1Ip_Qk5A$oa;xrx=Elir7Jx}p;1GRZn~Ae@K2
-    v.l$}R^,]GQ_8+Iw]8V,nGwon*sIpe#-l[*EAz-hlA;?POZE>lG>v?HC{}YorI_Kvq7HR'=Y$zoE
-    ]XG5\GTGs-'Hj$iVi^\'Es$J-_{BU}B-e!CW1K0D[^nrE3wpE>X>ox.mETK2^lH!+I=>HrBr@1XX
-    j$WRZX'rjuT="5G2wZaKT_TBC^7k'/KI^^^'oiOj?nY+IB<1_;j'3HLH1Xl~<^K_YR]#Ynp1{7{-
-    'ru+VQD#n3?U+7W2RA*EP(}rEzZ5a@=^$37p?G'I\lDaOj1{o$'a$v$\G@5=+$#IH{Y?sr*YvxvB
-    1X__^xGU'VQJB'mBE>fYOwE^}kGDQC1OPM+U~+s-REz_3v7kDRmsXj2C3Dr^KVoHl*6MnTjj_Fvu
-    n'DZ!\,>pp.vD-E{w[Ck$@AW{mZB.-xrv5]E>'ZOX3TjuoEVi*A72ViEiII\#zl5*aewu=E;oDjR
-    ry>X72e8Y>uXA<{+[DxB]5rj1p}GT>Z<G}-XzUvY[Q+}qk&;a<YV<{2In]p3X]$\ETmoUpKGXQlk
-    5$v{<A]<$WH;\v^}IT=lY@vI*pOs7Wu1G{5E[EEDUpx+Bp7or]EsB'@5T]XXe{*XR-$KG~+@D*,z
-    9o^B1[5DYu[uo_>_Au_BWne*2@xIGuDs'zQe2lD_e*['B55a!G5=DhmV[zE[Ekuo+~sk=DG?BGeT
-    o]I3oTw$[W^ho<{mGjDl2H;kp{QjQOI-A1@se=w_DQ5]C3pX@O?zsERa$=X3tZ+=OI>2==W<IE{^
-    7KvJD|[3537iJzo5@Disx1}k<\];v,?=1UIrsZ#D!a~x1{iB<#IDOsVWoIHE*xrJ2lIWO@GECrVm
-    _a$jR#x{!Y:[zwJ*AU?7m$\uU,_M{'-WQ_iE7KU1ewQe?eRrwG>QTTE*ijp]MB{3oI6I;mAdUs7x
-    mw[_kY3A'^VW@o><^sR=V}Tz?OvpBy7T$^ZGi[wHrO{w-}e,R=!XziH-'H6}in#08w1+T$+ueQ$s
-    lLvm-+l<TT^w^3xZ5?m--jn*wTJLgEk!$+$-]ie,eu<W-hl7;sI5VH[*~e1<DIVQ!R[VCm3\9\j1
-    n+AD\vmw{.Q;ErmIVCjo?UOXnuQ7*'OTCADRTjm7px87*n2+^A@#EBImVa#r->poulW_!]!ma{xt
-    y\CpExjR2J1us\XV7~r+I3DJAaYkJ-}571A[Kur's,z@!e!Y_kU*72D_7_\u;8Yl*r-x$kqnx\Xx
-    Bvo&eH>Kx-e$|=QVK%}s=kuT!]Y\=AUrl+BZ[w;A}Z@1^;2D$;O}@zn7!-Z5Qpfls~$?DDOY>Y2'
-    aT#J,z<^AIkUGO]Sew}kARQVxl^U]UnXrjUzM\{XC>]Ze;^,Qg*XI;;z7VIxkl];3rC;;_Y2v'GY
-    +l,W!uU{BjIE$u]D>vAw{rlowwJ\T{1i~3[>I~Zpu!]$?U'7sl@eoAW^V}cQaR>6^Zn]=oKv,{7Y
-    EEB?EB'kE=v,@aGw3,iY)+I3rx>'~_1T=@[v>_eDlE=I}lIY>Y[aB6wrn~1eaIIa<wl~Qmb=I$>B
-    ={5zm*p_>Aeul#=1RU+i,aIv\UD|=@IZKB'BponZ9(}QD=x\n'~[EIBv#71{X_Y~'{<aDXxW!=-C
-    plE37A*BY[Wxw3e]V#V-1zw+*ux!X<Kr;7njK#3O]QK\*kB5xxpmX~Y_<[Z'Ez<YA$rI~7\[j1D7
-    Q^iI}#aV!r$!^,**HV*%mVl,R7O\BAT#vz}K=DrmszU}xjzO,Ra'OAJu2=[mwT+enQ}n'}r[7@I+
-    nBrA^*vQpxUZU_nVGuV2-U'{'jZ33,ACpQ}]-[Q3>A12R;\\9:0Q!^e7Bl+!>+no?RAvV*@Rvw2$
-    G>u'EIi?Gao?aa{~H_$'GQ>w[wV]Qm]2_OC*{pQE@s~Y]KAe]wE-Xv2eZm19}C#>IU__i5vOsr$o
-    M<5avM!-YJt[$;OWRBJJ1E3eW+2zmn;1';Kr}2]Jp[!eOsAK^1@O]l_mrRDs2~@]Q;mfHp3-j2Tr
-    -Iue#a7H}'QipsAnD\^+H>7<eQ#,Xv,RGA>pDmv{ICiae$}is^;o'#2v!'}H?GW!WX=+\UrZ^kCC
-    o,o+1xQW_EpvJlnaol5j?*Tu}D_5[k5r',rIxHC]+CD,6=}<[#{D7Asm^Z_'W1nB5zWj=JzJD+}O
-    -Hx<s]J-~ACi\355ZYK_A@>r5*C[D+xx~or]BZx}UOGR>Ws?DeT5@0{$ps7Q\jQ_#1a+G,Ys}=b-
-    CJpb$l[,5G5G=TTC!{;~p3\AJU=W[^_{fox{!mxliTC<^Dm>#Cnl,VOOzto3a7@vUG5gH^7Cc<>K
-    e$X~OB,w@6HYJ=#TC@Vv3*{xr*zzJ}@p'57_pTp15wviOHQ)*W\j=wW1x+\pV@;?'R@3MtU^n3'}
-    HB2O{JvzCRWY*e{,2eB_a[,{J1VkmKHrX_Dn{[_=3umaYi27=>W<A;0\v_R!lD^QiQQx\n!\Xv^x
-    [1s5s+QEGv~{s+UR^1o&wlRDUDpR3^${D>TlA5;XX8>ruJXH-onYp,~}ZlZ^2-~5O1kpO-\s~'~H
-    $oIZ!<oAQmxH,\S-CK[%lGKnYWnRDr<TN3H!o[>[}-VmADp_B'n;I*,xTR'!k@Cox8-V\U$Rj~GC
-    +wV-7$E[o=#'\**ZWD$E!u@X$<2sr1RewD3D!'!j<'Ee,]c}1w1!UZ-]GO<r\~IHxUDS~*-ej_ka
-    Ssw+u[]T]rWu2XR=s1K15^KuU[5[[]n=pojZ!7iBm@Y^wv3r
-`endprotected
-//pragma protect end
 
 
 `timescale 100ps/10ps
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#U7Ovv^OzzXRJ>Q?,YpDrz$kOVA}1^Vzl7m*V5r?=pzZ'h:<=xJp[@wa>Y[=kA#pZ$u1@{?n
-    j{Gvx3?7m-R77?@}aJ35/o_n=['CW!Ul$HUl$a-~G,M+12Hi,z_Sg7JQ-jRo'Oo]z.jCe<z_E=&H
-    [z~F^!Az7@BOQ@A#^^G2KU7^a1n<}YJ!p~I;nX$IX[[#Y/7}]s#>sRZE?Bsz<!_np!*?p$IUji?U
-    =k_$#r;+{]9#-XKfY3TXEBu1CWvz=(_IRIOK!A8:Siw!I3n)r;2]["GJ+<^a;[ove<!zs-oT<,L\
-    =qA5u\Czua${sWN@_1!{ri_Aa@\jIW}h,7sw,j3TUYu*E@&xW+5I:YZaz$#G@YKo*<$_Dx#WV>av
-    De_iO<5irUzA+bPka-aWeo\4l!7<f\.>s@}?xjU3{BY#Ux=6['@vr3l$exj'aV?nD)<}2mD-7vlY
-    ^^pua{~}knoCuXYR$}wX1a-_rB}-GTl-e?yZ[ZG_}-TURiK~Hsv@CBRyIu<@Q-$VKp?2]{^lYnCX
-    !t9!DJ_!_~~[nZE7KX!XvBreH[^qaz2jDxou|~a3CwA~@VE]JID*n7mBoO]?s^,@VXo^!;<3v;|l
-    ~GuxVDX#<>VR!~wwwJE\_H#EXBuwx#BC[k[}WU,2Yjp\~na+RE7&ex<[R^ZeQ2a5,I[zv'1~UE,C
-    Qn{]5aKWe~U$UQGITx?m8-TrUU[lKs~RKDv$zr2{K\o-G~-H?FtB1;$\<s$TAw-,s\ox^'!mBlA?
-    pZ?,IlKiRn5lA\Tzk*X=2WKQiV[!I5uUo+X9&~+r<@<~xK[<wBGr'T+JlTD{+^+=YG]4I[ej,*5J
-    vuKC_WYO_;UH_3nREX+XR'@opie{!l1$ApBQETs7jp[o?{eU;H;TzEY\rE]u@S3}ju>e3lZDwCm}
-    n$UB'_wa7\E*m]'*V~Z5uuQv\>O*=+1J2pkI{{kTKefER1@'Fs^vx*QR[q0,<7,"C|+pp<.,2zYg
-    dgD]+,|353*@AHT*q9#>[l[{X]IYDvR<a\]sOVi-Rr8A=QxYe*o5[k*KweicpmA7rx+R\[-K7K3D
-    'l]Z\aTr3+Qj5e<5p*vsfFHpT*VV\2]szvIvQKrj'5o3V<=^''f}$=#7|aYWe-Qj54VZ$GIi>*['
-    7'_1w$,2TQGKV^_mJ5'O~]VYoXEGE1D"Kx+Q5ZvJzA-_c4*roG$B!J1njXCuRnKpOY-<2mEa-K07
-    U@l7<EG"i=[5r$}~F3Ba1Z}e_or!Yp\Vz!xV?x+eY:VpG;Iwnexsk=W[>aV*U>\\Yevl^R<>H='*
-    AOLJH'r_}~pABR5cr<X1ZO=3TO?n$>jQxZHJ[lADKUC?+[VDGTEJruQ\tVW}=xrkQ;rp+KYXKGQK
-    ;z5mkR__zF*\jXez+XaR@QeOWpkz^G*jCOJUQXp-r2sX7>#{+[QUHl'D{O~{E+5TGsRQ@vB},k'G
-    #IT=}Kr\EZOQ@wkTHA@oaeUGR_vTeE,G37$s@{1OWE+A+e;5i2CviXI}nz*3awz*>X\aKU#,ZDa]
-    $=^DY}x'npl!~Ks<!HL2*Geue@sW7KW^Go<EW]58onV@~*p#0=<weg[*\YGD\@=W!oYV2;~]\rjD
-    QJRVeDz_IZ6_m~psI1-m$<,5#R]C+5C!Q?#on-@zIKX\rpGT[YCCx{EawHa+}G~TUoIVw-vR3DW{
-    {nU}:A\?WyZQwAJp!ALsgI-]-z7*}O;$=j5B32RQ>KwD2=DTzk>puC?;lMCZK<]iXQyko=Z?<ZuB
-    k<xH}EkGox;A>W1,DQ'1Dz,{RXB;sZKY_$_e>>\DV3JlAWso![oQR}1!jKzp3,jYO'E?D$,[1nT]
-    G@su{^a@]H1O$H1Y]DCE@a*{T\r}}XT@BY+b5D@?:Y1K/=pl]nrkC[T-~Op]xA<V5^;nAi\jGz'a
-    B!AR5/7xzo}5l3b$\XYQ_}=OVHlCi\Q~snTKekzTRB}o!KV<}+_dLVExiB~*r'kHJzEVGOuG$$<o
-    +/i^K+,AI51j,zO{nYlQYC[KAl+^HOp8,,,wZEr#E]UWi]@=wTDkTprU*?{,;+[[m7XT:pS,K-^^
-    D*ksi*^p@Y*ep_2eX{7G^7$Rw,7wA2rr*1{6<-EsrC[KsWv5h1Zr#I-^ruYpn~{uTIp_\NkeJ!{T
-    vik{7u-VTBI+K[IO@j2\Hx]}mW<X7GQR=5xWu}qD#Qv->Q<J'QG{AE!a{{<a{$lu$BkKBWlaD<e2
-    1VAG\W{THJD1r>Ui]3Y*vreE#[]oelnOj~^$TnVk*1[*wDHr;qP2lE7YTr?y)OlO!5exr$LU<[Rf
-    _^{aiT{~]gM1~7Y5;;k-C><pC@n==<Qtu5,sv]B-ZO~z-CE'i*w}5]~OEV1*HErX#AJ5GkABvmlD
-    BRO=pQ^Y(T+IQov{zMz,X2<,RkUekTer^?DsAsDIeQQ[^W{_}[Dl!{T+K\Y+rj-jJm[7n?yXoE#i
-    $[u$wUTlIW]$rX'Y<+35xI$(7nAG#{oi+R$$'zo~r[7>lv]mrXpJO+$zK-U,hx?=j'YlDJjH=,3j
-    JZroXwsuw7Kj3e~p#Cj*B>oJpm>~\DT}p7~[{_k[>:*3*nUD-'Cu''GHK5{5w=5Up!IXD!z>Qvl]
-    1WXXsG<C[^*sX*15?KU>a;VIK!lEZA~TQ1[_@CToa1wGHe},mG1lG'XnnjZh~DlwpRGX_!;C(HEQ
-    ze>(?XerCE~\\t}1TG-zjD:_O+@]z3j~Dazok;]}W!3sl53CYK51}Hurp*Y+jR>x\^pVoonZ[7E!
-    hX[<E*H2^n}@2)RmA5Y><a*Dn^J>G2_\u7D*lV"AlrKuTpZ}?;p;]R+75?7El2_i{o}IVD7K5i1A
-    [_@#1QkH8}R@7@_z^n1[=eR\W]A-I9IOmvZ7K7[]EO';@$r^AYeZ}29B!u]^ZVYx$@;&71i#nQju
-    uOYZ^jA[h%=reJ]$EKEX!!~,k<RwnDv^wu-D1r[s+$d:QvYTd5*2=]i_[jK^rX$$-%p[TK{nX#m[
-    ir;=BHvQ-s7:nROQC{>OH+~]'-5sX7B~R$,,"m^AIB^o_]a-svp\\.77>@jWBsG~+{'E?aj,k{8i
-    <*ZzA-^DQR@V}*~u_z1\+JwI*cCY<Z|1?n[X=ziQ?U\q|/>a{$3Ir1OO2]{{$\CIa$/o<2R7m=@X
-    Hw;@+E~bXw!=_$GBYm4OpW;szE{V[@vwaVsxO#QKRm{VKACa}0U<\#H5ax/[ojs1lj{IHJ$}][2:
-    !Hn#Hwu]s=Av;Q+5l}Xw^nw*plK^{G7^0n^RpXzAn@,_QX$VUKj^\HIK^g-1xUvA,[*rEam>^DsA
-    AE=]XnesJkY-*_V~5BH{]2Wo^emQ*jV]n?UI[ei<7JiC]Do'7#^];=Iir]~qHnH@*V3XB*JkBDaJ
-    un5rv#uHrN\JoQ3RHpp_ieBWR?rQjr6irxz>DovyExn=z]#=I]Y-foH[<GvRD0!Y2s_!JHn}u~KG
-    D-Y_xoU1>=2z85B\'Kse?uX5arYo#<AvaOmuo2'v[K,wV^w!ew+2@o}iT~D5]F\7$oQna#A1k[NE
-    ZnA52eKl\J~JRA]+Ypmx/Qkw}*x$Yv?~Y=#,E,isYznBI*r3k*_{x>x<m!aUQno-<rij?*-\oe@2
-    7*\A$DDx^;]^GlmuV><p3U]-;T,QDH{{wV7p#]{wDV-UEWlpl[+QrTamx*#+5?Y^uiX_ze^1rje1
-    2!Q$'r'vK2vG\V#_*XX.EJ1jBpoA),l_?'$sU#{l7tjn}X%EAoQa$rHaBW{JHGU[Q,;29jI5pk'$
-    nR^D'CKYu:YxR[0oj7iiD@v-XC$K}/lXUn\<7*
-`endprotected
-//pragma protect end
 
 
-//pragma protect
-//pragma protect begin
-`protected
+// IP Decryptor begin
 
-    MTI!#x]AJTD5;Vi}{cRD<#$X1l^\O\<TZ}YuG[Q;\U=Zo;AE?>rq<Iz3T*~2V>@7@}C3H{U2v<2\
-    o*nO:X<+2U{){Ck;G$k\s{ErsSKwJUz^;}PkCz#jnHv!'\I?{u7NH_z[V5>^5W*l^J,2_9B3xVRH
-    l52=ns}GYkT_^O=>\#5o{W,Oms=CsejcEejT@TIBuQ=X[Epm'v[vXBl=[3CT~6vVm$'~R#K]ns^C
-    [^Lwajzw='$<RD'AG$'ur;Y}+{\A}po^I1x>Y1#=#1nkXI[Y'Y<neIJ2Q=Ej,Dz0-{aRirrao[>A
-    _?>BD]?C$R#1,^,B!x7s|[;jZG#-m*k3[hA}<uU$J\uaG[rs+U$>mEeQ\K_xGkK<!aBkB#<7[x"h
-    *EKzCEI#aCK~aRXaBSK1@jz,553X@2^@N]-3u]E[Ai]RW]=7KiXR=+}A<}]iljgJ>Bzw[AIw\XTV
-    >5{u7}I!wsD@x2{NpGlALI]ln{1vxP@O2BIC+$3>JUO#G-zk'!17]D'2W$YQpnR>R>ECllK,5B]u
-    UT{V!WQ-+O%k53}C*ou>1A]d'AQY9d}K3,v,oGGpT[;EBjzj#w$V1Ox>2ur]Bl!7$,@oIui*O](j
-    n~nXI'==k-*7b,xU]1]v5&@a+3ZO2r7!=Vi_BQ'EZ<$5^x<sj@O$a!{Av,BKz^o\}]VDlTQ{-@@R
-    @_}\uW&avJ;#}[WM)1$es?=oBr@TZ|R^K'3Re{Orasopu3<<33XUY7,C25|YumOr\v;?-!eyQY{?
-    EDYw1BDToA=O2Dr](1Kpz!j[WA,,{6vGW_YnWauwK?o5_\*Oknr}Ri,.?{4q}Ru1JIO]}~Qx?Qx]
-    75voJTQp+]J[l,!ug7jR]NBZap3=ioGi!5:YaE?G17xH{nJ~EKT~]r1|X]u-yD'n+~XH+u>jnhYE
-    +,2^2n,mRIxIJD'o-Bkz$=6NYK+;aA>IC*v[D'Q~C=opD-rj,@wCPx7xZCkl$![[nE[xzm+[>#GQ
-    p\<IuQGm1OK7>*^AC5v{~[XAw}~ml%bYjrliB3[?=+vG}=BpaT-=Q^=zYjpCn17or'lY=unSvW13
-    k$-*eQ}V|XHA3}CvxI><37[n!@]A@Ox5k[pzOz{U_lDvoON!z#K*!CkQQ^H#CxpY$G5\*@]AzOXx
-    pZk*U1$\=s~Y^}irk5;jG~7G_l}rs!J1\#5kLuIB,q(#Im{o=5w%!r!+>auj]ulEs'+s&oJEYAa_
-    <$1C@oQ=enxw]-5~_'~XD79875__+[{OOY{OdG#aA,JV_z4A7^mkaIJ#s<p">1$$_F7iE*%eIm<E
-    Z5]c!vo@Y[#z^!@-5f'#;WZzYIXQW3<pHTgjV$l]v]x*isw(1Z~#H\n?oO#~Bsl!^-mK@BmY$15E
-    $u$>~a}1wBxiY#$l~]#sfI,n~vXJ+ro+XD!HQ!&1A>\NDI}17pv]#{=U|7jsOe\=27Ko3mrA!,'E
-    -vsUowT-j<[m^sWYOhQWK2l\[xVxGnlpJvmEsIIA^;t@TEG]Z!28&x23~vms5U*zkoD#J=;GWA-n
-    U*5~+lEB=>-jv,AW+z2z?G>uH+EJmOB^<R<<pxuD'~5e@1=A#@*s-5'3m^?}\@>ov:D[>C7pX}!{
-    1!@HK$%o*=@Lk>++xBKI/1k4[_@]B'eH\_l[}Y@'kavCwpn^1Y+E(:OXHR=7XDT'-!eOv{;\}Ex3
-    X!U+TGeO7KX-j=HTm}B?<\<Ok;BA~JIe!r,/yzU'~'rXwIGj-V?A_n*Z=3X]kuz'B.1wWIC*uIEH
-    j12pBZ5en[1#Z-o\EXt'x\p*wHCxu!=s2Vi-x$?{CJ>FXlo?1#[G$dmj;xe?+Y&G]#A[K+Gv3$wX
-    U\5~na@QZTY}vsr^oI=G2GU[r7[&K\R!OV^xK{n>YXOK]C>TC~pipGk-yT$_pY7H7GX[Kt5E+X$3
-    '<D^*WIx1T!]*}5l+1XjsQ?Cx},$QC'mOZTYX=C3Duj'CV*#^]o)GHU>sVmG7}KYs-QX4Y*A_BDx
-    U9@EmUk_$]iYBr~*{5flV,,sO-m^k\+hZ55\R2{;KoQ]:':mx'OJHUIyk1^+ewA>[rEOxkE^x_x3
-    ,5{Y3_C{mrrpxo-zc5D=I>H{ZRiKHJ<E2V+x_\R'CjW]wuzm+^Hjx[k+RrzT7+{aGbK>QETXCC[$
-    'YkB}vB']/lZG^xE{W=7-\@aUpe+VEo{xHH5n*i}w}V}#nxss^'EI>9O][ovBGpKT*Y=vR^2^2_1
-    riY7HVQYq*FT+'^=uE@|[kmzyiD{k4[Z-}-[5rrUoi>H$R=al@532@D#mkl=xrv2!w|9rl[eE}Qn
-    ]-zi=@~*c{al@H{seo7ApuX-Zl[3e<wau2<prj\v7!-e$.6sTYiC7He12C,9{5m]+Ries+RZu\O*
-    \<TAuYA\OQ[785lV-$G7=D?+!#H*T$YWR6c*p-;'\\Kuj^Ggp#$@&fAH!]1u)kR:o-AUvZYDZR]o
-    ,2{+h=TG;!v,KjYkJ+[\<7A<~=WaViD!T7{]i#Qma&p?rmGmYWHspwD+7u]v9l?*-C"rGY[wp{mt
-    -=^n7-j<Q~,J)eaCY.%!In7,o^B!}z3-\wZBUujow!'$EYO!>l'AO<$UV'Tpl]!dHezk?\G^p?IE
-    r,1zzieHH5IBHz}p7TH_2B-Y{ao<7kAwr\kTp-ZmK-HnKTel@O^xEKRzwwZm3]vjO,l]\i'\ED2>
-    }I'E]kDZcZO<Tn*?~I,K?1E1x_RJ#)/pZ5#_ZwA4-Ri}h*QQQpne[BAlZ8}"Kx}[^uwOX1^v&~w*
-    o5oI/Yuw]2s>Gd];X@H5e]^'3XTB?7G7VK$_=x:Qw]-Qk_O${Zj,Z!wxHuJIV7{v=Xs;Qz@#r=T5
-    uHEok-Cj{[eE_}Q-Hs?=a{1~GK>U*Wli|b=#e{C$O32E,zgo_ns>,$TWH^I"*Hu[{Q>@MSd*{@mO
-    m13XDC}e(_0^O;wH7oHGaHow]7jiB*]pGZ,->ou_ox<K{ATqs5zrx_^J}_WTV?3TB*DV13^VOXaZ
-    C,xTV,~$~TBz}@-Bwp$+}s~<+,m*5rG=X'w??wx]lGC\>9"2[BsHT5wliBQeJ=Vl2\RUr$7jDWHR
-    iVI&nQivBE+aq9uv{v'<!}{wr~C]kTr?}C7+7I;Dn2W$?]};<WS'a-2V5evcxU>@tkQ[2e{[=T[b
-    V@\@CBseXA5iTD7iPg->oDoYu^G?x2WVJ#-}a=svXOOQw5ACjES&@rBj'v-C9Y\JwGZv_o~m?2pV
-    K{R#*uwzQ>{*mllD5?Y>CIa}7M>,DpN3XEa3aVl2I_eU^pYVnXCUGU2mU;UA}=#RB_}lE<r^}*lx
-    '\@bHGo5<Xo]'_\B7!]s!AA!j>U]{1;Hd!U{U\BpzJp2~,,Y1Y]J37<]sAnv<~5i_D>I;7ssZ]1;
-    VYeOZ]J11;O>Z7,mw]sIwp_o}-5#ITV+$FYua5H{+D*,EaulioW,n^D@}!2QDs7lZm2HQ^IrY'Bw
-    JI?>'_QCBo]o1Eb8RX\o^BDn2<BD-X5[vAH}f_7uH[uC3pQEpfI<[o!T>G\jEEeGU>l_BwGZUA+[
-    }pG*;v:KQ_m@}#$Zj]'K&v-$@!]!QBHn#irsjm>~H9{w>oDHen4=YX@>XE{w<brVmJH\;$s!nwck
-    _Tp#v]7{QaVk_r*$+_]<_]l*Tw7s3W[Q_2QEl,{c3DCTv7j#?1T'ReZUrKCuB>~2[YJW:U[!l~>!
-    $BGJRBZ\Ovj5R#'BmQ{r^I@@UZDEBi]XuwTT@5t9l#~Yv];*[np[vl,_T1,:nj>x'wYTzj5G=Tpl
-    ^WTIunTZWae_tb-E^]=e7[-v7'}rRG@,BkZG<reo<OwjA~wj!n/ClVu,_Up8E[='lWuzqP~{,X[Q
-    JlH*RWI\$l8xaC$_H*<jzkX~<>~TpT+a{]Q;H!pX1AUvT${uT>Q*R$HOKZDkU@u\DrWhG<p~BWIl
-    ]W@~lU+@gB|X]aJ@A]uERxJ\j+1Z>-J!D@ju$5^QJ]+,!T+!YuV"dAXDE#,]aPJ[<jV\eG}>13]~
-    BRw$J5@V+\#_H[BI-sDIH=Yx?w'x=!<,Xz?,aoI{l}t[z3W5kr!Y;$X6-oX!VmjT1QMA]7YB{Kj^
-    ?u]t'$<w7\2;me7K[@Q;,IA*R>X=YF[7mXeiAAGs?u#R$12>{aU[?=!YVG1{jQYUIA5Dru(EaYE1
-    -U=jZ-2#p[[Y?x{5~C\{'5~5'R3t3l{n1ol{1ulA)j#+W_C?I!'wWB#V-&+Er];sU3G]!ks]E#I\
-    {uo]-vvKVD[=@-7E1+m-X}QWw[s{Yxzm}}jkRQsWupKV#=pWD\hjh,-D}V"[,l>ImKA$WI~B_1kz
-    T1^H'J7vEE^I3A^7^GJ\X!@[_JV+H*]?^LjkW5zVK~]<+Vr;nBIne\'3e@{C#p"m=-X*{rzQIz]B
-    $~UH{'XawjC-DGO_J~TzYw{B;{=[v^1/BJH>Hz<#3^5?iI5YnhX>El{UuHWV7]?OG5I*2UTjHvNF
-    0OZH{5$^uD~w<J-jjHBD]a<Gl,JvU+pC]RK$-^}raB#~^LYu^R6+>*zIE~z+>IB$eOk=+@JXjl?E
-    Ka[YB-VX133,X*+,=[B6wU'rg$UH$u{JW@=]T_Ua^UTp-OkWIFO<uW[}x@Z1LRKxA_YaT_5KCkv#
-    5DXUm|!O_]n>OTRJ7uE{-k*NuCov\Wx$P]o?\zm<WeUXmi(}1'Han^]E>*R,^X!S3s7G$+~7N<IA
-    <WC2Z=3BKeQC>,Dp7KlYB^XI^xTBp=QQJaI5TlvYjD!O?'+HT5#2<O?7A\GK3wx7naT1WRs=5PJr
-    oa5X!-^XjvM<D[IU'K]'>oCH=x@I\-[{7rx>Rx5fG2UH<$sRh}<n3[E}1;AmC4Wn]o=XCsUrW1pi
-    Irk_j;tExvo;Up<{n[^moHKDx$IX}5DI_]\35!zr2B{uYZ]i[R]P@X=5OA@W{srDM,w,r7O;2O]Z
-    @vKA,Rlmrm\zo?aoVO\K3mH}wnCv!u=<;v1X5Q#{{8wIUBaXV#?7+k57rAKUUZZ^\wB{TI57AUjZ
-    -]B\#ls:Rjr[,T!xG+$27#xAeHD@,RGW~*A+|T5pCC@;II3Q}BKBVI5!!lpp2p'@$@[<}>B<Z!=5
-    uuGQ\KG3U]kZYTl-jknmDB<EwpHW\7^nRGCXZ_+A1!VK+clQTI'R-U{5>1E@u}}el+aY!n!I7@AQ
-    k3GxKT<^>;]3+;u5,'JXIV]op5v}E{j{Q?n_(5jn$,@O]yr{Dx_mR{zCI57OQQlxI;'3E\BYU;Ie
-    -~jk51cw}R2X,mz}"Q+s~xU>5?HA;{Y\^C!sKE@Z'lmZrpoBU;As!<1nEvBQ}][I$3R[R]'U1bnX
-    QU2\YZd$Ee{i5-OKvn?[AWT_Klu%'@]R?<H~,TX[=#zKprZ?eWXW^^zu$>]2Zzo~35DD)#DA*,T,
-    {w{5'-DTA#leRt![Gw=?-u'pO75OpTYS&]eVev3;@A5CD>7DsnpOp$-nB_a[!^w+DAoCz6:SO>R!
-    _5nropeB[}s#75m5m-jR}{57$VlxDeDHvNnasxH$!##_mO$$[DIxO$vrT-2BuA2'Xlk=z}lxxp\e
-    !W!j#JD7=;KO\1B*3$$P,2oA$aHG\IUZCos-ps=<<$~<2=o{3R#Xsx<}0up'?E_Io*H[ZFII!uQ=
-    -'slo[5sDjBp>DQ,e_$\lJkE_\o*;ImQ2wCv,{kRi+@{nH7B7?sZvHlD!?<aOGCZVZ:?5_Y3jDE%
-    ^z][uxn~Bn1^7K'H^avu$Jz=o-[D3\s,far]DHOpzsZa{Ex!kK{>jB>r=<D^Y}IRZK^u?dw^T_e0
-    <Q}u!G11Ytpy#-w1\,~7ajmnu-j[GCWX~pA3w5-jEeZEO?ra/Q}G'jyh*O3V;-Ea@^?!Qj-Y1pvj
-    Xa;A4Br,5KT[,R.JHD5p5ve_wx,u^{EqYRDuJ5pI@p;r1o37=n+!_{1<Z1CIG5vlzpvlAH]v^#$>
-    T57mzG'*U=^R{1*l2{InGBJwn[Ez\W\xm$nomIr_QsY]'XZwYJ\7_s~!3B,]QO77['3-zpxowDs]
-    C{l#e^vVA=l;p2\?i55<<1->KaB$iwpxYB?@**-=7[{jQT}+j#~uzdD2ZI1p?>jmW;5O>W*}xC27
-    e~'=Ez37=~W*D*qch~=Qz+UTrw{'XE@;Ge$7KV{sI'vEp-5AAr^A_4Ym;wR}QQpDTDve<HV#}GG>
-    p2DH}iovJ}Ep=5,uCzzX3CAp_2\J{arUlr7J{Kf-waBR8;';rQ__3$*><@>+}neVQ*o}EB3majU\
-    @$eHB$vkIy3eQA~-H[XD}$l<Y]X^}ulaxQ\'k*81<u1spEuD!+oiCoVeopEm5oT}?Q^uw7<7um5I
-    >Gu,>owTruX[+_JCkI=j#2x/#CiwHR<5@e_HTv2?pR@$@\2,[=BJ-e],Tnu*l~s*sKA*.'Aa^QV+
-    oa++[*2,VGXjr{hZ=wRruC-ER3K~V75XT!ss}T,oZ*+GO@V7pZ!tWRU2GmKmB5o~Iwx>B<,QIp>s
-    rkCKv^{uov1k31o+pE{@=C<zBUxr=BmxKn_ZElKAP&Lz)$p>eua-GA1D7;^C[WE*e"?Sao<!>I3=
-    =@Di7;w+W1HazZQGQ=i_#}s^;XBB\Z{7wRe<4iUmeAxAx]GV}~[~@_H$#)v^XwA-JTO^5'G,3D-O
-    iTsG~]r5B15!3s>xK#+_<n^Qi}5CpvBje}xK,+>e'mVxl1=Ea7o,+{cSekxHE{'O2^7GI<_E'a+p
-    I[#*+AOiC?pC~Y'x=\kAs+_+5xETxxzQ3Cej_,rT>aeA.[<^^77CmO?ZTEDAY+}31xw5Zo*'I]uX
-    <$rJeU<13o=Z;'YGn^O<uWjKxjixiGC$DX''ZBDm=kY2kH'!!?1CQFT+,i{ET=~'1B^uz~;l^,,v
-    v1l}Hl-r*?8'o'wI?mQvKO1=2C=95k2X^g;>Y<0lJzU$k2zo~2K7R1ZHR3aD\[jp~{Cj=o3'2TkC
-    $*zeADU7*VRepTBm',#~oY5!,5{=rK1B>>X0yfI3YJ#DxxeXY~$eT3I$_so#zXl}va!x?#)^xYVV
-    {$[E,jEEn1Gn$]Vj3^Ti^V'\>XmDx}'T*k>kvOH}5JU=xs1p]-Q6^aG}(uxR|?TVj]mx[pUXU\*^
-    ~RYHA_]zV]oDRDpiODC]_Hsp{I-aGAVoB{AaTo2T>AIW^PC2T]RCxIBIsAw1,ROl@ZeRxa/-+QUn
-    .>eKD\<\K_B3aX<<z\A[E=35xlZpUFF(l@up3OCGn*\+h}{m^%GW*wk*=uy|6@e!r\ajYsrk@GnI
-    A_5XG[Q-G,iVjwI+2velJ~_Io+-Bn!pt*BeBxVip}?~a5DeYR#wm[_1JznH}CvG7+sQ1BQrU]+C}
-    ?+zi<s>m5se3pxkvc2[rTfm}rAv+j_VY>-RA3X3w*<*!C~PSz.|hr^[XvHYsuR{7sr>~}1E@$erW
-    1}W<2=gF>^KE{^QA
-`endprotected
-//pragma protect end
+//##START PROTECT##
+module `IP_MODULE_NAME(soft_iddio) #(
+	parameter MODE = "RESYNC"     
+) (
+	input 		clk,
+	input 	[7:0] 	ddr_din,
+	output 	[7:0] 	ddr_din_HI,
+	output 	[7:0] 	ddr_din_LO
+);
+reg [7:0] ddr_din_HI_reg;
+reg [7:0] ddr_din_LO_reg;
+reg [7:0] ddr_din_LO_resync;
+always @ (posedge clk) ddr_din_HI_reg <=  ddr_din;
+always @ (negedge clk) ddr_din_LO_reg <=  ddr_din;
+assign ddr_din_HI = ddr_din_HI_reg;
+generate
+   if (MODE == "NORMAL") begin
+      assign ddr_din_LO = ddr_din_LO_reg;
+   end
+   else if (MODE == "RESYNC") begin
+      always @ (posedge clk) ddr_din_LO_resync <=  ddr_din_LO_reg;
+      assign ddr_din_LO = ddr_din_LO_resync;
+   end
+   else begin 
+      always @ (posedge clk) ddr_din_LO_resync <=  ddr_din_LO_reg;
+      assign ddr_din_LO = ddr_din_LO_resync;
+   end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
 
 
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#Bel;i[AoAX[Z1^3~'G+#m++!:=0\#rXN/iTP"WA0Ovj3=Rs?Xl~}j>@7@}CGHwUUp$2O1QZ
-    OcX7+2U{){Ck;G$k\s{ErsSKwJUz^;}PkCz#jnHv!C?'?AU1&HC?]vRA^5WBl^J12v9fk'jIy[7*
-    p[^1p}~jj|^m,!U\AWs5zCzuW?x>BV0T{1]?<>7rYCizOVvE?YYjsGvGnRYQGJ,Gps5;lU'mvHD7
-    5J+D#Zs:/-_*CiTjzW-GCD7~]}^jo)*a1^|rQDErW[z*OVkCR=2YE!wVv[;}@<jxClO2s\z^CH_m
-    Q+GR<D#t5iX^\-mD5[ABsuKV}RsVrxn+fl#sG+<lr7k]_1AJEl!E>XskvUDweuaUo?O>=1'uRAV@
-    }GCj#!]W{Z_aTY5UU5Q[KY><BX1JH;qWn$p[J;epZKpQuIpwElv]'G-wErAxH<J^^kTrR7CY5CRe
-    OU{Rj>CUh1?{]F@A3+qz'mBO?W;H7Ajl_3~C_Do5XZw[.BBrirZ]w%=v?D^2UoeY-w=U,@lzesrn
-    Q^mI^7>-<DGZo}~<A+(XvKK]=kVu-X@sKm$l@'~qvXeTVaYsGYEjSv'++IBGwl3z_\AX'9,O{'$B
-    }xj;jT<9[-;~C\BRYa\KVD_x_~J}.]ruvuOKre+Eo1kKGC-w]X_3[=noI2QpEhT$<ae'_$BK[H.x
-    e-7Xe?w2I2}1?usU1zKzzpmADCKZUQu]U}$K=}7#1L45ZG{wYGkka]n'OA',~!I~U5W71,?~]H+D
-    ;$E3*U7L*<Ipa*jZ7uW+Jn!#V$Xr-<z$t9xeV@&R35!I@xpxWDE_>ziZBW3,Y51Y*A^Hz|TBY{/O
-    ]RZ7X3DIR1U!rOa^?5#9ne5_rYk2-$!lmX-wDHDB<aI7$nG;&51D<V'#xL_{v}Z-!G';lUv7iE,R
-    $Dp*1>;l'!f=G7Hi-JmCkzQmsj\xja#@aQxxE!r$EXrw_k2}H2jq1<2GN_lT{CaBn{x'#Fl!Hw_U
-    AE;[7Cwra]}l*zla+jA>*EHRpC-_kU7aXD=1mCY-~x'v[!lYBx]n-jnn{sC"x1o,=7>_we$[5Ci*
-    %5W1oWG2]XlWQ{O*lU\>z|I<*>=CVX}pvI*]<Z[KO!Rp?$7GUnBiW;#}W,D_$EZl3U|sp!U[eD5J
-    xk3lb$^Ujl*Iu3ek~Q![@]O+DEjCl^XT>rGKmx@Z3$@=XIipQM<AY-1>WB3aB]O+J;s!GoIU}Tzx
-    m?p>~H>'737?-5?n@ousv7zG<K@Y@;a,G$O'#HcjIwoN;I}$ll^eBW]s[U['q0E"[p{~ekKBjXXJ
-    GiRzOA}-]\\AOopiQ1]Bj*=Wrjn^lxx7~IBZ~{o~uEjQON-*E]IWl3vsB~1emBGx=;KAe}Ys7>;C
-    RiyUO7zo~'I^RvaUQ*W/:{&v<1{7#CJK*Q*GWX]^+ZIX-VT;-+H1m,$]DJ^j2U{qL=YE\aHlR~vk
-    k;<]GJSI2R\M'QZ4[KlpU=xr[$5-JliZm_s;*[B[BQ'p$A}}3xipW=J}Bov\mC?,XA2^>z}7j,z[
-    'DI7^e}o-vHz=T!*^K-wB?W;2]@X>oo]De5A^5DOs/|;*n#f<[B=Epx+q;,<,Ew$uij}7?pnl+_J
-    \ACn7'j\l\us{>\WYu7j2R;IT<1aYOrT^5}kT9!>}CYrr2r*@Y=>VBOmDIO,@7UAR~TGYpZD#,ia
-    CU1z<2Qro5U*WRK57D;B-KOWW'cCW~CA]kRB>]Xmvs{mE,Y^;!}Cn1=m[iC%u,']1Ya+>xlvza@>
-    J5=vrjas=3BVnsa^GFV;x+R7DrW=ZCZA}UF1X}ZE$DEG5u$2=]aWj+~x,~?e{\T=m*K<UTm~$i@E
-    YNA}D1]s5nB>^E_!As#7W_UCsJ?-'$/'e2ei7vk+$'Z}E!A'B^Q^#C]->C'@]$3O[<W~lVK@>p$Z
-    HWzWRV,YA5p%xo_]IkWOI!}uqo1@s$Z^u^DUXk>G4SN]\S=[T3_}?7k[UoYxTJ^jG7jHQ}t^O$p_
-    [n1QKUsuY#-[a2A}*}RsR#!!XK'o[3*6R+BrG**{$l>=[rv}*asm>Cxniv^-=JDDV+@+j*~>v<ol
-    I_WUo1^,M7lr#53]Q5;=?mDo#q*uD}J*#=V?Xa!aAp+\mj#C_?\Y#!p#+TeC-sNQ=(,iJjvH={_'
-    +Qm-o']@p;M|]{r5,G1+w5+K15?r(&_$j>m+-UV/g2SUEG]<vs=uX!X2H{+V@C-[J3DhX=]UZX~n
-    pKVx[je<*,KO=1xn;p}RiI&Ko{kD\}IIHVnlk1TZT!\&GYB@iCC17e#~HU}GIn\'VR*C]K!<$#Tj
-    Zx[};CTYQ5Er$w^IJ]@QBa@Uw=!3$J{wcg\;,JB][;pIvK4)]R,{r@*3<V_'0r[wu&VD_^,'+zG[
-    ;DH1\#8a$AB3v5<iH>p$m~'3OvoVZ~$v+n<=!7WwYe^sEzi\'[$1k}k7p7Ta=3T~YzAXXA@$+QKM
-    !Ox[x\+7'mDUIl~R:[sYp~{-rlHGT_^Km;-Bp7@}>dW>7rVdnD$BTzsw-RZUlunU1JsJm-AZ?[+V
-    93'+{[]JKi{eUATJCmsX]QA^U},XUlWpW>^}oGEkaEw<$)#_*EJD2uE!{\[oiT/X\sm'e/"[ZD'G
-    v?2$#I]51*!a]@aW7J~.lu=}e+QanB;*u^Qpa72RAAQkD$3z+ICa1s->Hj[~^$m+IazmZGm+y'ji
-    u,l;^x#CulaI}@}KsNo7_51@rwH*rT}\$rR$nEi}#m?_BV5yDpT]}mO?N:zkQoZx}plA5R$1#]lY
-    UK\]A}
-`endprotected
-//pragma protect end
+// IP Decryptor end
 
 
-//pragma protect
-//pragma protect begin
-`protected
-
-    MTI!#u*E1*up5}u^~__k@x@5[3$mxv'AuR@=V|eZ+G7m*Q5hvIi$77x_"U[-$ly7eVEB>O_e$;;x
-    QK;dX[+2U{){Ck;G$k\s{ErsSKwJUz^;};<VnzxHX<QAVIYrsK7#v[m7=lrkaJO1so!~E74RZ@~G
-    pV\[Vi!N*>U*Cm3rEA=unY7BoqGVOvf[R3*Be!17ZXO+=pOF3UuT$~+GG<IE]BoJr~oZ\UBiT-$~
-    u^R$GpH!kQ[$R\<K7i1elFlBjK}3K{QKJ2sO*oz#OOo?*A=}#<Vx&p^OaY57l{vE23L\,*Rxk7\s
-    _saI+jQ]p\['@G#1V53-H-@zCT,la;?i157Mip5J]vUKGI*{m,3=1IV<s$^=#TBYis<[73xo=mH5
-    #R1A!Xu-VHBDVv\@R?QY#O1vKrz#0{]$k{$qMOL>UA^DIB>,3r?+XQ<eapm>\[Z-e>u[J\1JC@aU
-    G7\@vunNAUG<}mnj$iXp$]-@uDks_wKzk$X@;RZ3E~Dj<_Rm'DwpVAGDWwj$$oU?Er=TevTU53xo
-    ,_XmYs;Z5}rQ+TDE;A}^Q23,,^'{CG,j7^?jwTxlalUs>r'T$xT~_{vXRpe!WA,51O}z$U$K09Ge
-    ukf73O@oj#*I&sO]rVXY7^Qmu,@Bz[37+pI~U4XE+>aR*iY@G$wG~pQ<
-`endprotected
-//pragma protect end
 
 
-//pragma protect
-//pragma protect begin
-`protected
 
-    MTI!#=>G-~}vA{IXv%R\X3r+sD{_<I2*!D1Idh?E!["G[pk>o5kvxWus'V[g,'poKIYUaj{=V};R
-    u$kuo-Cs~{BBY6+1$'Q,AmOoXA31,['>Kj^-1V-]@]CiBzICV*siCm;TxT*-{*Rf'tQ;DO[<1W+U
-    $-X[?{GZJo[2Ezaa{1o?~v(s_3C.T5JDcL;CYIWnB]4[$Xjv#sC}TO?Dpx]}{QTs?GJ>rsV1TAHZ
-    IVns#W]-5e_0=D^2HrD2sK3H';7CxJl~T{[>{n-~B2'5iw$n-w5R@G2O+=$x]O5QhTp'+eDs[Hz#
-    u0Z]<m)GWZ@veAr\z];dlp[JH7E]p>C;%M([Z*H7]u37Sg,eXAw7o7xS40+NBJ3m2pe$D=x2{rr^
-    vuC}1l;YpiU\F_O3uX5=ZKT5eC@!7}3'$G35kS{p}C-<-}+QH^QT\[6%w[[KO*p|1o<lmC\1Yke~
-    M\J_UBZ$<+o+!NN^JnkY+~W~-VA+C7<x!2,-7C2<*d=kwHl{2ZY<DiQUr]emZ}<1$Y86AH$O(x2B
-    JT[@GlnDHn7<V7EewmAvIlGUI#<Z>)'=kGujaO+7<u6vmTX=T<Ca[*B=a^VTQ#wI1Rp(zvz7E?pQ
-    cK1zla15xEv>sV'!<Ha<1k'^kT[mk&~tCD[<p+Isrj*2OsYkY!zk;[lwC[K*s;!'*sX5T\VJ6{YG
-    rB\e=4l@mC;'Z?QIWkp*#E_DxAqc)?BwUk}}=UpJT~[_;?}I3sj[C*u]kJB'WGAR^nCa!!Yi2usT
-    3p5X<-_,<zW,#]xDs.!}Ts=i{zv!YW3Bu1Om'B5IXn=QU'wo?o'{D{I=Z\6\+1RBHY^|*@o72*3Z
-    Kr}I*=ru{rTr2YW7k1{u?}QszZ_3C*~_AH${e1Y!D<@R.JrxzUG$Rzs+1=*YjvvUuOVu\?RT$xIv
-    $}+lR.mI'CG\<#jY1$.,R,pVK+vUYllPJjVi(\5la@R[z*zs{T+GkRe{X[a5CsoDET\7Vln+KR<o
-    ~wDW2U$rZ;E\Ix<==~1>uV-G^{<C2w{T^7*[ia-Re[ejDUzeU}*5j}Ge!Kw\IYQ,pqp+1Gc'$T{x
-    ;K-E?r;,mDarWQl7$k[{1+DLOv/)[!vBg;BX!kUw=?^el;BCGQ_uB\$#sgIQTo53Bs,WYUZ-;xsm
-    C?CsuHRP)-Qo1KE=_n5u$j1a\}Y[^|/Ur}v~HU!^yK+~Gw*rY3[~Q2oiwI~}]>R>u,jO3]Bk75pK
-    ]Y-uo?AvZ']JnTv~l>GXVw7r~{,2Jw_1Kk'2'D-mY|5[XQ[3a_/eRCZxK'afnjHn9(W=}33j*IiU
-    2z,I\U'2VE51~+K}_lU{x=x@AxCo>E;z-~Z}]U!,aK*jZG\Ye7!+$2FuA~_o,Q~=Te#DR>X<5<Ve
-    xBA{QrA<\2;}WCiZ,R}{zvkQ;ju=Z}'sz>?i1aa>75[@xr'_$-eQvAj?oBoA'QB,~_wZ^'m3DC?F
-    E5e}~z^>m5[a1;BAB~!vz6\xH$~5JweAE^7=aOpj1T5<;];E5pwTI]R_2mQcKr?CZsZpDjnZc?Q]
-    k]W,D#X,~j<e3VJj@J1'aKv^!j@5e-jIkBK{T5;zB*<-pv;~UQ5uz!E<{j7{_+D$O}_mOQ^OZN~X
-    T]THuCbkeUKa]-{KrKXsC)nAKevA*T|_^5p3<UB"C8IwxGmTYA'ORw\K-TIVsWQ],,2]>V'V]psD
-    1IHj^EoeGQel=Aesa=;Cw*YXXR^mHo\[lxWAj}7XJmKCw-hQ]Y3+A-rBCHzI5Ye73Z5oj@QIW]5:
-    6Q;=$_,5D$a1=l;VQHlC3#HpQ}%-e?+qBE+'yej#Tl7o[+QA!>rTAE3K'eX3^&Ql+@2RW_Krva~\
-    #w#$oB]H*<vl^YAwA^Gl>'IAsAaeC-#o+J'-m<e_8#UIOI6W\~1l={@}Be#57G[]~RQ<QK=Z'\1J
-    E2sw${wU+p=;{n+7\@TzIsl1~Vs,UE[Po'UOVA!^1n{KlNHvjJvKO<rzOs3*?X;<~^lD3nUzp;1?
-    5rXTxTa=@H4$2v]AOXDDr\XS,'YR{><W_[+VD#xTe<S-'_rMvQkKi1_i!U,=ZE2}H\;p:Q+=;\I]
-    UN+wDk6DV}I}-j!;E*R]r~uf3Aj#;-KYHA23--$jCWYAkXH#F6j-]}Oe$3InV[V+Rmxe3]V#'7d&
-    DYjYFA=/V23T-]}Vgr.e;!!-vsGBx>DoD\![nz3oXR,e3n>G@Q-zrOT'aTzTopxx-aI_^Ouu>jKx
-    @,5_,Om8]K^>GRJ[>U>\Oq'D=~.'ujCv}?e^{DsWE>E#o_ZMI7u$RQ*Db-XX},e7Wn,!7}aps^#*
-    !H[B-Y~Rw)OsOv$_{[YpK*?UuxC,XK@X^Y89fv3ZU5lX@W=}B@x$Tu,u3Y(AojZxJ^sB)GTE}Jw[
-    p*I3esk,@}Q>YG23{}ji!l2'U>{r!lTajxE*o{O'[=OZ+]Bl3GO!;^!G@aEK?:1Wo3a8^q@_Xs^=
-    [n)1{{BXD1~EmzX)#<UrF3o>lO3+K.WY~GIjx$Q<J#b;x72K<}wkn1!'~l7mvs7wn;u3,A]CQ*vn
-    rQ!2[Y^is~u&BEjAGjZr=HjsrlJs{wm{JRZ={El7$kps1?$J'GE$gAR-u\}Q?c'^J}*Xem<{@UDn
-    zIWoj~7_EWOeJaSw=*^$P[w}pkws>]_mXle;w}X@Rw+!-lW5YU$UUe5}zYuBEeoaw'soa,EVX]KR
-    w\nYor<e],@m1I"z1[Rv+B=a_'jlU<[j*o7JSiaGU:wQmC!CVpCr!?=~raGU\!wH>r<XK{:=>>xm
-    =1XuDBD*wzo-\'msEV7S6z~}nRnYJ5]J}va5;mQ'j~aDUU'l,/,a]+E^7+kXl_f~QXv?A=k!O_o^
-    Z2w5QJ;I#}eI]OHhz23vxX;Y}X2E1FKQ1EUR5RCYuw{|+wAxIwK>\I{Hv-!J6J_u!ea+\jQn+{O{
-    $mwGxaTeCua=Q~RXu{j;J$IDVGElA^H<ZlvTlQCTRo+Ul$kUHO+7'Yz7i#v,JM$+oj^i7A2RA#;{
-    n3N{{B^Y<{VhHHVaI$-x5ooJxnR?-G--AYY-:mRmx3BAIVUWGioO}'RIj3[=;8#\AC^eUak1RBW}
-    -j3}[m?a[+=<=;7AK3]u>Hp5zaXa!Q*pVGns'J4Q\>Kn[xAiD1;P1CwU\ovU-55U$-lnR3xZ}-R^
-    _XCpzGK{y.z1xY5ApiOD,aiHKC\n}{\-{'C[aQIo=i'C>Dhszl#*p\EQ>1niRTYAOKoxkBEOE1*Y
-    !^i\E$lj}QkQ5Iv15~?d*KoH;VDEtGw@?RTrmnp51-=\~@{ra@>1TM5{UswxjBUj+v\kO++O#_\E
-    EaYD^wx7sBZA@wue?1IaZU'ZY]!ES"Ts?^xwep-BiR#7Ix2VGIo3xCT$Ynu+BYbul#~}#KOUBZpi
-    DjYBmls:Dxm?s}BQl?{>}YksE5mIkAR\GiC3zCV$I!X!E5nB\;H[;5{#TDD=YkCZLRkmVxGu{\E!
-    QYDiayHX}iGJZnQ^ZCv1kvGn[C/knuwmV3TDB}JVkO[R[}iC1a^+D+ug>a*O7Z*GVIkscw$_r]An
-    '^QBDE7+;7R1]Wz~ul-KG^;U-QZ<#Eo$T}va;[e)]aoB[+Cm'}AQgWVD[>_#-B@jivBC+zE1AMo<
-    $}|m{1iIw<=+1?R]kz_<5?U-O*zcsBp1vvQ[x32>N]\uj&>Hj-?eE$8'G=TCOmztFIZ[jj}1GxDC
-    [-p?KE>H?~*u}?oVI=!V'fZl^rZrvkj'_kjG3nsHU!H57TpVgF4Qxe1'R\-s>+m1?wn<$1BiDCgK
-    YlCda{R+<O!~o7_$]ETuDs@{#Q5U!\KpdwGU3W\}xnvEp}H@wZ_[I{+p2U'~77zo]#eIO@-sju}+
-    7Cv?@=Yx,#>$DK5Cv*VX?$>^k,W;2'iaD$wW=Qxa3J]IsuQ=@'+XW6=o5x@Y^Y}E#7=9DRK=]$j^
-    eRHXw5}CCZ<75lToSI?'ClwWn}YBK[XIHA7XTC_<H-rIWjR~aw7G+[nsTe3e#n{TK[5!YoRi+A+'
-    R.OV-Jk>Ovx~JIv[m',Q7lsrjj<sou'7'{hnX~@v$p,=W-zuj+<<D5]{GnHY+5<-<\uY$]5^enaj
-    3D$H1-3!]]O>x]C#rBOk5[R:^YZC$oh$'=A[X3X^+U7D2zKDHC@<jI]G\$\<EJ#*~*!R\5D$H3?V
-    <]R]7_?7B<5]@{CV_*@(x=?oxDKmeiO3I?e'$E5lx*7noU}I$D1H]\W]A(.v^sODvxp'BkO1AClj
-    iUU^?s$p^$o9^K{TOA_#YH>XH\#~*Yv671DO$Gj!PvTT!?,}CE_,5v$ve{Bm}<Iop[D?;5CzvN1?
-    YeC^?ujz+D~>Z'{<][\HCOm*G?-{~YpRA=oVGoXUll*#A@DD=^DZ>'.1Bw}F'Ieo?>!#YGR'O$aO
-    Ver>n-E>W_@'=B@1c:lY^^,wTZ+5lEGumeIJZCJA}YDz+~i-AvyY5#U7},G1_O}]xe5Ax[AR{_I^
-    =>^>oH!<$;s2^HH3,1;ZQRup;AKux{Rr*n}pOn!D*JC]wRkso5,E)[lm=<7V*;[OkpX'<HlUzr5~
-    s&1[nY$D\pi7HV+e~3OB-,iaOvCr~!{_HR]v{@b5vK[VD,^a1z_z6[z32?OXYT^\$-o!jG*Zxj!W
-    2k5RJjeBz6lX@K]T]#rSU=-rBxG]XRxOY@'?35E,}n'[~,DK#re=5*$XB-]K(DTnYRn\7u[~\7-!
-    >:LR@<~zV[;0Pq\lQjZv^<e{!WZQ}]lG7j5zsGf^G'Z*k]+\?UREX=a{l]AmQ{RB^j^7K_JVH}Jw
-    G{j~1=K9qInxBkh4WIil#}i!{\=kjsWH_Opku-]2!sTrI{xuB~w+wVpkeH[C,m!e>Y5nz<1x\<vk
-    vR<2K>1<Y{X_)'sX~=#sYl+Wo!,zjDV\+Q3-niw],f#vs-EAO]xenJ)_u>oGR^v#D7Z.~{$5@orH
-    +s!ofWBXepYauH-B{@=WovZp\C~^IYZx2^C\Wjl3<^W{>S5ETT}nW=raO2^arJ}$12Bs_UgIG$oh
-    Qx,JC{E-I!B;$Yj3wl;J3CWo~l1l{-Ru7C*I{xGaY+3;pw}w?\C2R,^O1i~X\'@^j]]oorYZ:DY3
-    zusW2_j{xuI{kr-Zm3wwXvG<e],-'EV!_Y>Y#Ok'BG#a1/w_,kTU@\_>[O}]]k[QjJ-VAC:i'DkJ
-    B?jHo=eR2@-QJ{\gQBpY1}7w?EW,e]Y;Y>mksZT5Y!{;zi]#5Gz7RkDRPQ.HB5k*C2m^~77s]~K+
-    _U<ZR_3OnC]{heGX^T+]GKH=Kx\@U_=Zj']Xvo?;A?HZx7J+Elu{seY?7DXQinr2A}1lGeS\!wO@
-    >vxA7
-`endprotected
-//pragma protect end
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_native_if) # (
+    parameter USER_DBW          = 16,
+    parameter USER_DMW          = USER_DBW / 8,
+    parameter USER_WFD          = 256,
+    parameter USER_RFD          = 256,
+    parameter RAM_DBW           = 16,
+    parameter RAM_ABW           = 32
+)(
+    input  wire                    user_clk,
+    input  wire                    user_rst_n,
+    input  wire                    ram_clk,
+    input  wire                    ram_rst_n,
+    input  wire                    user_ram_rdwr,
+    input  wire                    user_ram_en,
+    input  wire [USER_DBW-1:0]     user_wr_data,
+    input  wire [(USER_DBW/8)-1:0] user_wr_datamask,
+    input  wire [31:0]             user_wr_address,
+    input  wire                    user_wr_en,
+    input  wire [10:0]             user_wr_burst_len,
+    output wire                    user_wr_buf_ready,
+    output wire [USER_DBW-1:0]     user_rd_data,
+    output wire                    user_rd_valid,
+    output reg                     ctrl_idle,
+    input  wire                    h_pause,
+    input  wire                    h_ready,
+    input  wire                    h_wrdy,
+    output wire                    h_req,
+    output wire [RAM_ABW-1:0]      h_addr,
+    output wire [RAM_DBW*2-1:0]    h_wdata,
+    output wire [RAM_DBW/4-1:0]    h_wdm,
+    output wire                    h_ctc,
+    output wire                    h_last,
+    output wire                    h_btype,
+    output wire                    h_atype,
+    output wire                    h_rwen,
+    input  wire                    h_mrdy,
+    input  wire [RAM_DBW*2-1:0]    h_rdata,
+    input  wire                    h_rdav
+);
+parameter IDLE       = 0,
+          PRE_WR_OP  = 1,
+          WR_INIT    = 2,
+          WR_OP      = 3,
+          DONE       = 4,
+          RD_INIT    = 5,
+          RD_OP      = 6;
+localparam WR_WIDTH      = USER_DBW + USER_DMW;
+localparam WR_GRP_RATIO  = USER_DBW/(RAM_DBW*2);
+localparam U2C_TOTALW    = WR_WIDTH / WR_GRP_RATIO;
+localparam DBW_GRP_WIDTH = USER_DBW / WR_GRP_RATIO;
+localparam DBM_GRP_WIDTH = USER_DMW / WR_GRP_RATIO;
+localparam WR_ASYM_RATIO = (USER_DBW/(RAM_DBW*2) == 16) ? 0 :
+                           (USER_DBW/(RAM_DBW*2) == 8)  ? 1 :
+                           (USER_DBW/(RAM_DBW*2) == 4)  ? 2 :
+                           (USER_DBW/(RAM_DBW*2) == 2)  ? 3 : 4;
+localparam RD_ASYM_RATIO = (USER_DBW/(RAM_DBW*2) == 16) ? 8 :
+                           (USER_DBW/(RAM_DBW*2) == 8)  ? 7 :
+                           (USER_DBW/(RAM_DBW*2) == 4)  ? 6 :
+                           (USER_DBW/(RAM_DBW*2) == 2)  ? 5 : 4;
+reg [3:0]  state;
+reg [3:0]  next_state;
+reg [11:0] wr_data_cnt;
+reg        int_hram_idle;
+reg        occupy_ctrl;
+reg        op_done;
+reg        wr_burst_en;
+reg        r_native_empty_r;
+reg		   rd_operation;
+wire [WR_WIDTH-1:0]   wr_native_info;
+wire                  fifo_rst;
+wire                  wr_burst_completed;
+wire                  w_data_full;
+wire [U2C_TOTALW-1:0] rd_wdata;
+wire [10:0]           h_burst_len;
+wire [43:0]           native_control_data;
+wire [43:0]           r_native_data;
+wire                  native_control_rden;
+wire                  op_done_sync;
+wire                  ctrl_idle_sync;
+wire                  r_native_empty;
+wire                  ram_read_empty;
+wire                  rd_wfifo;
+assign fifo_rst    = ~(user_rst_n | ram_rst_n);
+assign h_ctc       = 1'b0;
+assign h_req       = occupy_ctrl;
+assign h_wdm       = rd_wdata[U2C_TOTALW-1:RAM_DBW*2];
+assign h_last      = wr_burst_completed;
+assign h_btype     = r_native_data[31];
+assign h_atype     = r_native_data[30];
+assign h_addr      = r_native_data[RAM_ABW-1:0];
+assign h_burst_len = r_native_data[42:32];
+assign h_rwen      = r_native_data[43];
+assign h_wdata     = wr_burst_en ? rd_wdata[RAM_DBW*2-1:0] : 'h0;
+assign user_wr_buf_ready = ~w_data_full;
+`IP_MODULE_NAME(efx_bit_sync) xop_done_sync    (.clk (user_clk), .rstn (user_rst_n), .din (op_done),   .dout (op_done_sync));
+`IP_MODULE_NAME(efx_bit_sync) xctrl_idle_sync  (.clk (ram_clk),  .rstn (ram_rst_n),  .din (ctrl_idle), .dout (ctrl_idle_sync));
+reg hold_ram_en;
+always @ (posedge user_clk or negedge user_rst_n) begin
+    if (~user_rst_n) begin
+        hold_ram_en <= 1'b0;
+    end
+    else if (user_ram_en) begin
+        hold_ram_en <= 1'b1;
+    end
+    else if (~op_done_sync) begin
+        hold_ram_en <= 1'b0;
+    end
+end
+always @ (posedge user_clk or negedge user_rst_n) begin
+    if (~user_rst_n) begin
+        ctrl_idle <= 1'b1;
+    end
+    else if (hold_ram_en & ~op_done_sync) begin
+        ctrl_idle <= 1'b0;
+    end
+    else if (op_done_sync) begin
+        ctrl_idle <= 1'b1;
+    end
+end
+assign native_control_data = {user_ram_rdwr,user_wr_burst_len,user_wr_address};
+assign native_control_rden = ~r_native_empty & int_hram_idle;
+`IP_MODULE_NAME(efx_fifo_top) #(
+    .SYNC_CLK           (0),
+    .OUTPUT_REG         (0),
+    .MODE               ("STANDARD"),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (4),
+    .DATA_WIDTH         (44),
+    .DEPTH              (4)
+) user2ram_fifo (
+    .a_rst_i        (fifo_rst),
+    .wr_clk_i       (user_clk),
+    .wr_en_i        (user_ram_en),
+    .wdata          (native_control_data),
+    .rd_clk_i       (ram_clk),
+    .rd_en_i        (native_control_rden),
+    .rdata          (r_native_data),
+    .rd_valid_o     (),
+    .empty_o        (r_native_empty)
+);
+genvar i;
+generate
+    for (i=0;i<WR_GRP_RATIO;i=i+1) begin
+        assign wr_native_info[(U2C_TOTALW*i)+:U2C_TOTALW] = {~user_wr_datamask[(DBM_GRP_WIDTH*i)+:DBM_GRP_WIDTH],user_wr_data[(DBW_GRP_WIDTH*i)+:DBW_GRP_WIDTH]};
+    end
+endgenerate
+assign rd_wfifo    = wr_burst_en & (wr_data_cnt <= h_burst_len-1);
+wire rd_valid_debug;
+`IP_MODULE_NAME(efx_fifo_top) #(
+	.FAMILY 			("TITANIUM"),
+    .SYNC_CLK           (0),
+    .OUTPUT_REG         (0),
+    .MODE               ("STANDARD"),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (WR_ASYM_RATIO),
+    .DATA_WIDTH         (WR_WIDTH),
+    .DEPTH              (USER_WFD)
+) w_data_inst (
+    .a_rst_i        (fifo_rst),
+    .a_wr_rst_i     (1'b0),
+    .a_rd_rst_i     (1'b0),
+    .rst_busy       (),
+    .clk_i          (1'b0),
+    .wr_clk_i       (user_clk),
+    .wr_en_i        (user_wr_en),
+    .wdata          (wr_native_info),
+    .rd_clk_i       (ram_clk),
+    .rd_en_i        (rd_wfifo),
+    .rdata          (rd_wdata),
+    .rd_valid_o     (rd_valid_debug),
+    .full_o         (w_data_full)
+);
+assign wr_rdfifo = h_mrdy & h_rdav & rd_operation & (wr_data_cnt <= h_burst_len-1); 
+`IP_MODULE_NAME(efx_fifo_top) #(
+	.FAMILY 			("TITANIUM"),
+    .SYNC_CLK           (0),
+    .OUTPUT_REG         (0),
+    .MODE               ("STANDARD"),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (RD_ASYM_RATIO),
+    .DATA_WIDTH         (RAM_DBW*2),
+    .DEPTH              (USER_WFD)
+) r_data_inst (
+    .a_rst_i        (fifo_rst),
+    .wr_clk_i       (ram_clk),
+    .rd_clk_i       (user_clk),
+    .wr_en_i        (wr_rdfifo),
+    .wdata          (h_rdata),
+    .rd_en_i        (~ram_read_empty),
+    .rdata          (user_rd_data),
+    .rd_valid_o     (user_rd_valid),
+    .empty_o        (ram_read_empty)
+);
+assign wr_burst_completed = (wr_data_cnt == h_burst_len);
+always @ (posedge ram_clk or negedge ram_rst_n) begin
+    if (~ram_rst_n) begin
+        wr_data_cnt <= 'd0;
+    end
+    else if (wr_burst_en | h_rdav) begin
+        wr_data_cnt <= wr_data_cnt + 1'd1;
+    end
+    else begin
+        wr_data_cnt <= 'd0;
+    end
+end
+always @ (posedge ram_clk or negedge ram_rst_n) begin
+    if (~ram_rst_n) begin
+        state <= IDLE;
+    end
+    else begin
+        state <= next_state;
+    end
+end
+always @ (posedge ram_clk) begin
+    r_native_empty_r <= ~r_native_empty;
+end
+always @ (*) begin
+    case (state)
+        IDLE    : begin if (r_native_empty_r && h_rwen) next_state = RD_INIT; else if (r_native_empty_r && ~h_rwen) next_state = WR_INIT; else next_state = IDLE;    end
+        WR_INIT : begin if (h_wrdy)                     next_state = WR_OP;                                                               else next_state = WR_INIT; end
+        WR_OP   : begin if (wr_burst_completed)         next_state = DONE;                                                                else next_state = WR_OP;   end
+        RD_INIT : begin                                                                                                                        next_state = RD_OP;   end
+        RD_OP   : begin if (wr_burst_completed)         next_state = DONE;                                                                else next_state = RD_OP;   end
+        DONE    : begin if (ctrl_idle_sync)             next_state = IDLE;                                                                else next_state = DONE;    end
+        default : begin                                                                                                                        next_state = IDLE;    end
+    endcase
+end
+always @ (*) begin
+    int_hram_idle = 1'b0;
+    occupy_ctrl   = 1'b0;
+    wr_burst_en   = 1'b0;
+    rd_operation  = 1'b0;
+    op_done       = 1'b0;
+    case (state)
+        IDLE    : begin int_hram_idle = 1'b1;                     end
+        WR_INIT : begin occupy_ctrl   = 1'b1;                     end
+        WR_OP   : begin occupy_ctrl   = 1'b1; wr_burst_en = 1'b1; end
+        RD_INIT : begin occupy_ctrl   = 1'b1;                     end
+        RD_OP	: begin rd_operation  = 1'b1; 					  end
+        DONE    : begin op_done       = 1'b1;                     end
+    endcase
+end
+endmodule
+//##END PROTECT##
+`endprotect
 
 
-//pragma protect
-//pragma protect begin
-`protected
+// IP Decryptor end
 
-    MTI!##sm_!Bw]G\sA@,^Y5no~VU{VI3;AD^~*No;D'="[r~R,x5UpmW!JBp[5!Xu$B'R&=Q-{[oW
-    K;TT]V-ns~{BBY6+1$'Q,AmOoXA31,['>Kj^-1V-]-]>-n#x'\=}V@ew<22eG&$Z^z[TID?X+$vA
-    KoR~sX~7p~*HjT^5#rA\?GxzvoT}[aJri$kD]!iIXTso==4R|cv*x^TrZvl3>Iz=W<6D!]_+AY@]
-    e>rr7o<vo_JQ=#Y/7@j-Q}IK7@jO#+xGB#-OG5lwa{Umko5[s->UTE~-J'=<mhZG>7+zKnshsTjG
-    v2a**jK!+oU{dBp'uC!*@ow{zDT-RpGO3H[~j=?,;XO{v_5GB*#[noG\]<{\rzBv*A>DmEnApR~m
-    lQxsx_2slvl+sL$v-WY61o3K~Ul{!Riwn-{^hg*u_3JEA,smuv2]Y@_K~^?[T>^3\!$s*,sRY[G}
-    Gi<<$T^mjiD232VZ~[QT\Y_?n#1Ou[Z$;ls@}O}m*j4f71esI>+>;$##Q,$!zv!E_,=naTO7K$X-
-    i$_Wqc$5p[=ml;|*Oi\#{xCeokT#l'n_(f
-`endprotected
-//pragma protect end
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(mux_delay) (
+        input           in      ,
+        input   [2:0]   s       ,
+	input           clk     ,
+        output          out
+   );
+   reg    s_0, s_1, s_2, s_3, s_4, s_5, s_6;
+   reg [6:0] s_reg;
+   wire   i0_0, i0_1, i0_2, i0_3, i0_4, i0_5, i0_6, i0_7;
+   wire   i1_0, i1_1, i1_2, i1_3, i1_4, i1_5, i1_6, i1_7;
+   wire   o_0;
+   wire   o_1;
+   wire   o_2;
+   wire   o_3;
+   wire   o_4;
+   wire   o_5;
+   wire   o_6;
+   wire   o_7;
+   assign out = o_0;
+   assign i0_0 = in;
+   assign i0_1 = in;
+   assign i0_2 = in;
+   assign i0_3 = in;
+   assign i0_4 = in;
+   assign i0_5 = in;
+   assign i0_6 = in;
+   assign i0_7 = in;
+   assign i1_0 = o_1;
+   assign i1_1 = o_2;
+   assign i1_2 = o_3;
+   assign i1_3 = o_4;
+   assign i1_4 = o_5;
+   assign i1_5 = o_6;
+   assign i1_6 = o_7;
+   assign i1_7 = 1'b0;
+   always @(*) begin
+      case (s[2:0] )
+        3'b000:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_0000;
+        3'b001:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_0001;
+        3'b010:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_0011;
+        3'b011:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_0111;
+        3'b100:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_1111;
+        3'b101:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b001_1111;
+        3'b110:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b011_1111;
+        3'b111:  {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b111_1111;
+        default: {s_6, s_5, s_4, s_3, s_2, s_1, s_0} = 7'b000_0000;
+      endcase
+   end
+   always @(posedge clk)
+     s_reg = {s_6, s_5, s_4, s_3, s_2, s_1, s_0};
+   EFX_LUT4 # (
+              .LUTMASK(16'hE4E4) 
+             )
+               MUX2TO1_inst0
+             (
+                .O      (o_0      ),
+                .I0     (s_reg[0] ),
+                .I1     (i0_0     ),
+                .I2     (i1_0     ),
+                .I3     (1'b1     )
+             );
+   EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst1
+             (
+                .O      (o_1      ),
+                .I0     (s_reg[1] ),
+                .I1     (i0_1     ),
+                .I2     (i1_1     ),
+                .I3     (1'b1     )
+             );
+   EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst2
+             (
+                .O      (o_2      ),
+                .I0     (s_reg[2] ),
+                .I1     (i0_2     ),
+                .I2     (i1_2     ),
+                .I3     (1'b1     )
+             );
+   EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst3
+             (
+                .O      (o_3      ),
+                .I0     (s_reg[3] ),
+                .I1     (i0_3     ),
+                .I2     (i1_3     ),
+                .I3     (1'b1     )
+             );
+    EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst4
+             (
+                .O      (o_4      ),
+                .I0     (s_reg[4] ),
+                .I1     (i0_4     ),
+                .I2     (i1_4     ),
+                .I3     (1'b1     )
+             );
+    EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst5
+             (
+                .O      (o_5      ),
+                .I0     (s_reg[5] ),
+                .I1     (i0_5     ),
+                .I2     (i1_5     ),
+                .I3     (1'b1     )
+             );
+    EFX_LUT4 # (
+              .LUTMASK(16'hE4E4)
+             )
+               MUX2TO1_inst6
+             (
+                .O      (o_6      ),
+                .I0     (s_reg[6] ),
+                .I1     (i0_6     ),
+                .I2     (i1_6     ),
+                .I3     (1'b1     )
+             );
+    EFX_LUT4 # (
+              .LUTMASK(16'hCCE4) 
+             )
+               MUX2TO1_inst7
+             (
+                .O      (o_7      ),
+                .I0     (1'b1     ),
+                .I1     (i0_7     ),
+                .I2     (i1_7     ),
+                .I3     (1'b1     )
+             );
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+`timescale 100ps/10ps
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_cal_slv) #(
+	parameter CAL_BYTES	 = 'h100,
+	parameter RAM_DBW	 = 8,
+	parameter RAM_ABW	 = 25,
+	parameter RWDS_STEPS 	 = 8,
+  	parameter DQ_STEPS 	 = 8,
+  	parameter DQ_DLY_W 	 = 3,
+  	parameter RWDS_DLY_W 	 = 3,
+  	parameter CAL_MODE	= 2,
+  	parameter DUAL_RAM	 = 1,
+  	parameter RAM_DBW_CAL		= (DUAL_RAM == 1)? RAM_DBW*2 : RAM_DBW,
+  	parameter INDIVI_DUAL_CAL = 1
+) (
+     input                      	clk,
+     input                      	rst_n,
+     output                     	cal_req,
+     output                     	cal_last,
+     output [RAM_ABW-1:0]          	cal_addr,
+     output                     	cal_rwen,
+     output [RAM_DBW_CAL*2-1:0]     cal_wdata,
+     input                      	cal_wrdy, 
+     input  [RAM_DBW_CAL*2-1:0]     cal_rdata,
+     input                      	cal_rdav, 
+     input                      	cal_en,
+     output                     	cal_done,
+     output                     	cal_fail,
+     output [RWDS_DLY_W-1:0]    	cal_rwds_delay,
+     output [RWDS_DLY_W-1:0]    	cal_rwds_delay_HI,
+     output [RWDS_DLY_W-1:0]    	cal_rwds_delay_LO, 
+     output [DQ_DLY_W*RAM_DBW-1:0]	cal_dq_delay,
+     output [26:0]					cal_debug_info
+);
+function integer  partialsum_arith;
+   input [31:0]   min_value;  
+   input [31:0]   difference; 
+   input [31:0]   index;      
+   begin
+      partialsum_arith = (index * (2*min_value + difference * (index - 1))) / 2;
+   end
+endfunction
+localparam CAL_START	  	= 'h000000;
+localparam CAL_END	  		= CAL_BYTES;
+localparam CHECK_NUM 	  	= CAL_END-CAL_START;
+localparam CHECK_CW 	  	= $clog2(CHECK_NUM+1);
+localparam INIT		  		= 1'b0;
+localparam CHECK	  		= 1'b1;
+localparam SAMPLE_DATA 	  	= (DUAL_RAM == 1)? {RAM_DBW/8{16'h33cc,16'h6699, 16'h55aa, 16'hff00}} : {RAM_DBW/8{16'h55aa, 16'hff00}};
+localparam SAMPLE_DATA_DUM  = {RAM_DBW/8{16'hcccc,16'h3399,16'h5500, 16'hfff1}};
+localparam DQ_DLY_SUM_W   	= $clog2(partialsum_arith(0, 1, DQ_STEPS));
+localparam DQ_DLY_CNT_W   	= $clog2(DQ_STEPS+1);
+localparam RWDS_DLY_SUM_W 	= $clog2(partialsum_arith(0, 1, RWDS_STEPS));
+localparam RWDS_DLY_CNT_W 	= $clog2(RWDS_STEPS+1);
+reg 			  			cal_en_1r;
+wire 			  			init_trig;
+reg 			  			cal_state;
+reg  [5:0] 		  			cal_done_delay;
+reg  [CHECK_CW-1:0] 	  	check_cnt;
+reg  [CHECK_CW-1:0] 	  	check_cnt_1r;
+wire [RAM_DBW_CAL-1:0] 	  	dq_delay_count_pass;
+reg  [RWDS_DLY_CNT_W-1:0] 	rwds_delay_count;
+reg 			  			init_done;
+wire 			  			init_cal_req;
+wire 			  			init_cal_last;
+wire 			  			init_cal_rwen;
+reg 			  			check_trig;
+reg  [RAM_DBW_CAL-1:0] 	  	check_error_bit;
+wire 			  			check_error;
+reg 			  			check_error_1r;
+wire 			  			check_restart;
+wire 			  			check_cal_req;
+wire 			  			check_cal_last;
+wire 			  			check_cal_rwen;
+reg  [RWDS_DLY_W:0] 	  	check_rwds_delay;
+reg  [DQ_DLY_W-1:0] 	  	check_dq_delaymax;
+reg  [DQ_DLY_W-1:0] 	  	check_dq_delay [RAM_DBW-1:0];
+reg  [RWDS_DLY_W:0] 	  	check_rwds_delay_HI;
+reg  [RWDS_DLY_W:0] 	  	check_rwds_delay_LO;
+wire 			  			adj_trig;
+reg 			  			adj_flag;
+reg  [6:0] 		  			adj_cnt;
+reg 			  			check_fail;
+reg 			  			check_done;
+reg 			  			last_check;
+reg  [DQ_DLY_W-1:0] 	  	error_dq_delaymax;
+reg  [RWDS_DLY_W-1:0]	  	rwds_delay_ave;   
+reg  			  			rwds_sel_start;   
+reg 	     		  		rwds_sel_1r;
+reg [3:0] rwds_count_final_HI;
+reg [3:0] rwds_count_final_LO;
+reg [3:0] rwds_delay_ave_HI;
+reg [3:0] rwds_delay_ave_LO;
+wire [RAM_DBW_CAL-1:0] 	  		dq_bit_pass;      
+reg  [RWDS_DLY_SUM_W-1:0] 	rwds_delay_sum;   
+reg 			  			rwds_pass_tog;    
+reg 			  			rwds_delay_push;
+reg 			  			data_tog;
+reg 			  			data_compl_tog;
+reg			  				step_passed;
+reg [RWDS_STEPS-1:0]	  	step_passed_indicator;
+reg [RWDS_STEPS-1:0] 		step_passed_indicator_LO;
+reg [RWDS_STEPS-1:0] 		step_passed_indicator_HI;
+reg			  				cal_done_reg;
+reg			  				cal_pass_reg;
+reg [RWDS_DLY_W-1:0]	  	locked_rwds_delay;
+reg [RWDS_DLY_W-1:0]	  	locked_rwds_delay_HI;
+reg [RWDS_DLY_W-1:0]	  	locked_rwds_delay_LO;
+reg [3:0] 				rwds_count_temp;
+reg [3:0] 				rwds_count_final;
+reg 					pass_push;
+reg [4:0] 				window_counter;
+reg [RWDS_DLY_SUM_W-1:0] rwds_delay_sum_new;
+reg [RWDS_DLY_SUM_W-1:0] rwds_delay_sum_temp;
+reg [3:0] 				rwds_delay_ave_new;
+reg [5:0] 				req_cntr;
+reg						req_cntr_hit;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          cal_en_1r <=  1'b0;
+     end
+     else begin
+          cal_en_1r <=  cal_en;
+     end
+end
+assign init_trig = ~cal_en_1r & cal_en;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          cal_state <=  INIT;
+     end
+     else if (init_trig)
+          cal_state <=  INIT;
+     else if (init_done) begin
+          cal_state <=  CHECK;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          check_cnt <=  'd0;
+          data_tog <= 1'b0;
+          data_compl_tog <= 1'b0;
+     end
+     else if (init_trig | init_done | check_restart) begin
+          check_cnt <=  'd0;
+          data_tog <= 1'b0;
+          data_compl_tog <= 1'b0;
+     end
+     else if (cal_wrdy) begin
+         if (cal_state == INIT) begin
+         	 check_cnt <=  check_cnt + (check_cnt<CHECK_NUM);
+         	 data_tog <= ~data_tog;
+         	 if (data_tog) begin
+         	 	 data_compl_tog <= ~data_compl_tog;
+         	 end
+         end
+     end
+     else if (cal_rdav || req_cntr_hit)begin
+          if (cal_state == CHECK) begin
+               check_cnt <=  check_cnt + (check_cnt<CHECK_NUM);
+               data_tog <= ~data_tog;
+               if (data_tog) begin
+               	   data_compl_tog <= ~data_compl_tog;
+               end
+          end
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+         req_cntr <=  6'b0;
+         req_cntr_hit <= 1'b0;
+     end
+     else if (cal_last) begin
+     	 req_cntr 		<= 6'b0;
+     	 req_cntr_hit 	<= 1'b0;
+     end
+     else if (req_cntr == 'd39) begin
+     	 req_cntr 		<= req_cntr;
+		 req_cntr_hit 	<= 1'b1;
+     end
+     else if (check_cnt == 0) begin
+         req_cntr <= req_cntr + 1;
+     end
+end
+assign cal_addr  = CAL_START;
+assign cal_req   = (cal_state==INIT)? init_cal_req  : check_cal_req;
+assign cal_last  = (cal_state==INIT)? init_cal_last : check_cal_last;
+assign cal_rwen  = (cal_state==INIT)? init_cal_rwen : check_cal_rwen; 
+assign cal_wdata = {RAM_DBW_CAL*2{data_compl_tog}} ^ ( data_tog ?  SAMPLE_DATA[RAM_DBW_CAL*2 +: RAM_DBW_CAL*2] : SAMPLE_DATA[0 +: RAM_DBW_CAL*2]);
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          cal_done_delay <=  6'h00;
+     end
+     else if (init_trig | check_restart) begin
+          cal_done_delay <=  6'h00;
+     end
+     else if (cal_done_delay != 6'h3f) begin
+          cal_done_delay <=  cal_done_delay + check_done;
+     end
+end
+assign cal_done = cal_done_delay[5]; 
+assign cal_fail = check_fail;
+assign cal_rwds_delay = check_rwds_delay[2:0];
+generate
+if (INDIVI_DUAL_CAL == 1) begin
+	assign cal_rwds_delay_HI = check_rwds_delay_HI[2:0];
+	assign cal_rwds_delay_LO = check_rwds_delay_LO[2:0];
+end
+endgenerate
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+          init_done <=  1'b0;
+     end
+     else begin
+          init_done <=  (cal_state==INIT) && (check_cnt==CHECK_NUM-2);
+     end
+end
+assign init_cal_req = init_trig;
+assign init_cal_last = init_done;
+assign init_cal_rwen = 1'b0;
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+         check_trig <=  1'b0;
+     end
+     else begin
+         check_trig <=  init_done | check_restart;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+         check_done <= 1'b0;
+     end
+     else if (last_check) begin
+     	 check_done <= 1'b1;
+     end
+end
+assign check_cal_req  = check_trig;
+assign check_cal_last = adj_trig;
+assign check_cal_rwen = 1'b1;
+always @ (posedge clk or negedge rst_n)
+begin
+      if (!rst_n) begin
+      	  error_dq_delaymax <= {DQ_DLY_W{1'b0}};
+      end
+      else if (cal_state==CHECK) begin
+		  if (check_restart | (check_cnt==CHECK_NUM)) begin
+			  error_dq_delaymax <= check_dq_delaymax;
+		  end
+      end
+end
+	reg  [RAM_DBW-1:0] 	  		check_error_bit_HI;
+	reg  [RAM_DBW-1:0] 	  		check_error_bit_LO;
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	genvar j;
+   for (j=0; j<RAM_DBW; j=j+1) begin
+	 always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			 check_error_bit_HI[j] <=  1'b0;
+			 check_error_bit_LO[j] <=  1'b0;
+		end
+		else if (cal_state==CHECK) begin
+			if (check_restart|(check_cnt==CHECK_NUM)) begin
+				check_error_bit_HI[j] <=  1'b0;
+				check_error_bit_LO[j] <= 1'b0;
+			end
+			else if ((cal_rdav || req_cntr_hit) && (check_cnt<CHECK_NUM))begin
+				if (error_dq_delaymax == check_dq_delaymax) begin
+					if (data_tog) begin 
+						check_error_bit_HI[j] <=  ~({cal_rdata[j+RAM_DBW*3],cal_rdata[j+RAM_DBW*2]} == ({2{data_compl_tog}} ^ {SAMPLE_DATA[j+(RAM_DBW*3)],SAMPLE_DATA[j+(RAM_DBW*2)]}));
+					end
+					else begin 
+						check_error_bit_LO[j] <=  ~({cal_rdata[j+RAM_DBW],cal_rdata[j]} == ({2{data_compl_tog}} ^ {SAMPLE_DATA[j+RAM_DBW],SAMPLE_DATA[j]}));
+					end
+				end
+			end
+		end
+	 end
+   end
+end
+else begin
+   genvar j;
+   for (j=0; j<RAM_DBW_CAL; j=j+1) begin
+	 always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			 check_error_bit[j] <=  1'b0;
+		end
+		else if (cal_state==CHECK) begin
+			if (check_restart|(check_cnt==CHECK_NUM)) begin
+				check_error_bit[j] <=  1'b0;
+			end
+			else if ((cal_rdav || req_cntr_hit) && (check_cnt<CHECK_NUM))begin
+				if (error_dq_delaymax == check_dq_delaymax) begin
+					if (data_tog) begin 
+						check_error_bit[j] <=  ~({cal_rdata[j+RAM_DBW_CAL],cal_rdata[j]} == ({2{data_compl_tog}} ^ {SAMPLE_DATA[j+(RAM_DBW_CAL*3)],SAMPLE_DATA[j+(RAM_DBW_CAL*2)]}));
+					end
+					else begin
+						check_error_bit[j] <=  ~({cal_rdata[j+RAM_DBW_CAL],cal_rdata[j]} == ({2{data_compl_tog}} ^ {SAMPLE_DATA[j+RAM_DBW_CAL],SAMPLE_DATA[j]}));
+					end
+				end
+			end
+		end
+	 end
+   end
+end
+endgenerate
+always @ (posedge clk or negedge rst_n)
+begin
+      if (!rst_n) begin
+      	  check_cnt_1r <= 'd0;
+      end
+      else begin
+      	  check_cnt_1r <= check_cnt;
+      end
+end
+assign check_error = (check_cnt==CHECK_NUM) && (cal_state == CHECK);
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          check_error_1r <=  1'b0;
+     end
+     else begin
+          check_error_1r <=   check_error;
+     end
+end
+assign adj_trig = ~check_error_1r & check_error;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          adj_flag<=  1'b0;
+     end
+     else if (adj_trig) begin
+          adj_flag <=  1'b1;
+     end
+     else if (adj_cnt== 'd127) begin
+          adj_flag <=  1'b0;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          adj_cnt <=  'd0;
+     end
+     else if ((cal_state==CHECK)) begin
+          if (!adj_flag) begin
+               adj_cnt <=  'd0;
+          end
+          else if (adj_flag) begin
+               adj_cnt <=  adj_cnt + 1'b1;
+          end
+     end
+end
+assign check_restart = (adj_cnt == 'd126) & ~last_check;
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always @ (posedge clk or negedge rst_n) begin 
+		 if (!rst_n) begin
+			  check_rwds_delay_HI <=   {(RWDS_DLY_W+1){1'b0}};
+			  check_rwds_delay_LO <=   {(RWDS_DLY_W+1){1'b0}};
+			  rwds_sel_start <= 1'b0;
+			  rwds_sel_1r <= 1'b0;
+		 end
+		 else if (init_trig) begin
+			  check_rwds_delay_HI <=   {(RWDS_DLY_W+1){1'b0}};
+			  check_rwds_delay_LO <=   {(RWDS_DLY_W+1){1'b0}};
+			  rwds_sel_start <= 1'b0;
+			  rwds_sel_1r <= 1'b0;
+		 end
+		 else if (last_check & ~cal_done) begin 
+			if (adj_cnt[6:2] != {5{1'b0}}) begin
+			   if (~rwds_sel_start && window_counter == 'd17) begin
+				  rwds_sel_start <= 1'b1;
+				  if (rwds_delay_ave_HI > 7) begin
+					  check_rwds_delay_HI <= rwds_delay_ave_HI - 'd8; 
+				  end
+				  else begin
+					  check_rwds_delay_HI <= rwds_delay_ave_HI;
+				  end
+				  if (rwds_delay_ave_LO > 7) begin
+					  check_rwds_delay_LO <= rwds_delay_ave_LO - 'd8; 
+				  end
+				  else begin
+					  check_rwds_delay_LO <= rwds_delay_ave_LO;
+				  end
+			   end
+			   else if (~rwds_sel_1r) begin
+				  check_rwds_delay_HI <= check_rwds_delay_HI;
+				  check_rwds_delay_LO <= check_rwds_delay_LO;
+			   end
+			   rwds_sel_1r <= ~rwds_sel_1r;
+			end
+		 end
+		 else if ((adj_cnt == 'd1)&(check_rwds_delay_HI != RWDS_STEPS-1) &(check_rwds_delay_LO != RWDS_STEPS-1)) begin
+			 if (check_dq_delaymax == DQ_STEPS-1) begin
+				 check_rwds_delay_HI <=  check_rwds_delay_HI + 1'b1;
+				 check_rwds_delay_LO <=  check_rwds_delay_LO + 1'b1;
+			 end
+		 end
+	end
+end
+else begin
+	always @ (posedge clk or negedge rst_n) begin 
+		 if (!rst_n) begin
+			  check_rwds_delay <=   {RWDS_DLY_W{1'b0}};
+			  rwds_sel_start <= 1'b0;
+			  rwds_sel_1r <= 1'b0;
+		 end
+		 else if (init_trig) begin
+			  check_rwds_delay <=   {RWDS_DLY_W{1'b0}};
+			  rwds_sel_start <= 1'b0;
+			  rwds_sel_1r <= 1'b0;
+		 end
+		 else if (last_check & ~cal_done) begin 
+			if (adj_cnt[6:2] != {5{1'b0}}) begin
+			   if (~rwds_sel_start && window_counter == 'd17) begin
+				  rwds_sel_start <= 1'b1;
+				  if (rwds_delay_ave_new > 7) begin
+					  check_rwds_delay <= rwds_delay_ave_new - 'd8; 
+				  end
+				  else begin
+					  check_rwds_delay <= rwds_delay_ave_new;
+				  end
+			   end
+			   else if (~rwds_sel_1r) begin
+				  check_rwds_delay <= check_rwds_delay;
+			   end
+			   rwds_sel_1r <= ~rwds_sel_1r;
+			end
+		 end
+		 else if ((adj_cnt == 'd1)&(check_rwds_delay != RWDS_STEPS-1)) begin
+			 if (check_dq_delaymax == DQ_STEPS-1) 
+				 check_rwds_delay <=  check_rwds_delay + 1'b1;
+		 end
+	end
+end
+endgenerate
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always @ (posedge clk or negedge rst_n) begin
+		  if (!rst_n) begin
+			   check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+		  else if (init_trig)begin
+			   check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+		  else if (adj_cnt == 'd1) begin
+			 if (check_dq_delaymax != DQ_STEPS-1)
+				 check_dq_delaymax <= check_dq_delaymax + 1'b1;
+			 else if ((check_rwds_delay_HI != RWDS_STEPS-1) &&  (check_rwds_delay_LO != RWDS_STEPS-1))
+				 check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+	end
+end
+else begin
+	always @ (posedge clk or negedge rst_n) begin
+		  if (!rst_n) begin
+			   check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+		  else if (init_trig)begin
+			   check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+		  else if (adj_cnt == 'd1) begin
+			 if (check_dq_delaymax != DQ_STEPS-1)
+				 check_dq_delaymax <= check_dq_delaymax + 1'b1;
+			 else if (check_rwds_delay != RWDS_STEPS-1)
+				 check_dq_delaymax <= {DQ_DLY_W{1'b0}};
+		  end
+    end
+end
+endgenerate
+reg 	[RAM_DBW_CAL-1:0] dq_bit_err;
+reg 	[RAM_DBW-1:0] dq_bit_err_HI;
+reg 	[RAM_DBW-1:0] dq_bit_err_LO;
+generate
+	if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+		genvar k;
+	   for (k=0; k<RAM_DBW; k=k+1) begin
+		  assign dq_bit_pass[k+RAM_DBW] 	= ~dq_bit_err_HI[k] ;
+		  assign dq_bit_pass[k] 			= ~dq_bit_err_LO[k] ;
+		  always @ (posedge clk or negedge rst_n) begin
+				if (!rst_n) begin
+					dq_bit_err_HI[k] 	<= 1'b0;
+				end
+				else if (init_trig) begin
+					dq_bit_err_HI[k] 	<= 1'b0;
+				end
+				else begin
+					if (check_restart) begin
+						dq_bit_err_HI[k] <= 1'b0;
+					end
+					else begin
+						case (check_error_bit_HI[k])
+					   	   1'b0: dq_bit_err_HI[k] <= dq_bit_err_HI[k];
+					   	   default : dq_bit_err_HI[k] <= 1'b1;
+					   	endcase
+					end
+				end
+		  end
+		  always @ (posedge clk or negedge rst_n) begin
+				if (!rst_n) begin
+					dq_bit_err_LO[k] 	<= 1'b0;
+				end
+				else if (init_trig) begin
+					dq_bit_err_LO[k] 	<= 1'b0;
+				end
+				else begin
+					if (check_restart) begin
+					   dq_bit_err_LO[k] <= 1'b0;
+					end
+					else begin
+					   case (check_error_bit_LO[k])
+					   	   1'b0: dq_bit_err_LO[k] <= dq_bit_err_LO[k];
+					   	   default : dq_bit_err_LO[k] <= 1'b1;
+					   endcase
+					end
+				end
+		  end
+	   end
+	end
+	else if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 0) begin
+		reg 	[RAM_DBW_CAL-1:0] dq_bit_err;
+		genvar k;
+	   for (k=0; k<RAM_DBW_CAL; k=k+1) begin
+		  assign dq_bit_pass[k] = ~dq_bit_err[k] ;
+		  always @ (posedge clk or negedge rst_n) begin
+				 if (!rst_n) begin
+					dq_bit_err[k] 	<= 1'b0;
+				 end
+				 else if (init_trig) begin
+					dq_bit_err[k] 	<= 1'b0;
+				 end
+				 else begin
+					if (check_restart) begin
+					   dq_bit_err[k] <= 1'b0;
+					end
+					else begin
+					   case (check_error_bit[k])
+					   	   1'b0: dq_bit_err[k] <= dq_bit_err[k];
+					   	   default : dq_bit_err[k] <= 1'b1;
+					   endcase
+					end
+				end
+		  end
+	   end
+	end
+	else begin
+	   genvar k;
+	   for (k=0; k<RAM_DBW; k=k+1) begin
+		  reg [DQ_DLY_W-1:0] 			dq_delay_temp;      
+		  reg [DQ_DLY_SUM_W-1:0] 		dq_delay_sum;  	    
+		  reg 							dq_bit_err;         
+		  reg 							dq_bit_pass_tog;    
+		  reg [DQ_DLY_CNT_W-1:0] 		dq_delay_count;	    
+		  reg [(DQ_DLY_W*RAM_DBW)-1:0] 	dq_delay_ave_rwds;  
+		  reg 							dq_delay_push;
+		  assign dq_bit_pass[k] = ~dq_bit_err & ~dq_bit_pass_tog;
+		  assign dq_delay_count_pass[k] = (dq_delay_count != {DQ_DLY_CNT_W{1'b0}});
+		  always @ (posedge clk or negedge rst_n) begin
+			 if (!rst_n) begin
+				dq_delay_temp 	<= {DQ_DLY_W{1'b0}};
+				dq_delay_sum 	<= {DQ_DLY_SUM_W{1'b0}};
+				dq_bit_err 		<= 1'b0;
+				dq_bit_pass_tog 	<= 1'b0;
+				dq_delay_count 	<= {DQ_DLY_CNT_W{1'b0}};
+				dq_delay_ave_rwds	<= {DQ_DLY_W*RAM_DBW{1'b0}};
+				dq_delay_push 	<= 1'b0;
+			 end
+			 else if (init_trig) begin
+				dq_delay_temp 	<= {DQ_DLY_W{1'b0}};
+				dq_delay_sum 	<= {DQ_DLY_SUM_W{1'b0}};
+				dq_bit_err 		<= 1'b0;
+				dq_bit_pass_tog 	<= 1'b0;
+				dq_delay_count 	<= {DQ_DLY_CNT_W{1'b0}};
+				dq_delay_ave_rwds 	<= {DQ_DLY_W*RAM_DBW{1'b0}};
+				dq_delay_push 	<= 1'b0;
+			 end
+			 else begin
+				if (check_restart) begin
+				   dq_bit_err <= 1'b0;
+				end
+				else begin 
+				   case (check_error_bit[k])
+					   1'b0: dq_bit_err <= dq_bit_err;
+					   default : dq_bit_err <= 1'b1;
+					endcase
+				end
+				if (adj_cnt == 'd1) begin 
+				   if (check_dq_delaymax != DQ_STEPS-1) begin
+					   dq_delay_temp <= dq_delay_temp + 1'b1;
+				   end
+				   else if (check_rwds_delay != RWDS_STEPS-1) begin
+					   dq_delay_temp <= {DQ_DLY_W{1'b0}};
+				   end
+				   if ((check_dq_delaymax == DQ_STEPS-1) & (check_rwds_delay != RWDS_STEPS-1)) begin
+					  dq_delay_sum <= {DQ_DLY_SUM_W{1'b0}};
+					  dq_delay_count <= {DQ_DLY_CNT_W{1'b0}};
+					  dq_bit_pass_tog <= 1'b0;
+					  dq_delay_push <= 1'b0;
+				   end
+				   else if (dq_bit_pass[k]) begin
+					  dq_delay_push <= 1'b1;
+					  if (~dq_delay_push) begin
+						 dq_delay_sum <= check_dq_delaymax;
+					  end
+					  dq_delay_count <= dq_delay_count + 1'b1; 
+				   end
+				   else if (dq_delay_count != {DQ_DLY_CNT_W{1'b0}}) begin
+					   dq_bit_pass_tog <= 1'b1;
+				   end
+				   if (check_dq_delaymax == DQ_STEPS-1) begin
+					   if (dq_bit_pass[k]) begin
+						   if (dq_delay_count != {DQ_DLY_CNT_W{1'b0}}) begin
+							   dq_delay_ave_rwds[(check_rwds_delay*DQ_DLY_W)+:DQ_DLY_W] <= dq_delay_sum + (dq_delay_count >> 1);
+						   end
+						   else begin
+							   dq_delay_ave_rwds[(check_rwds_delay*DQ_DLY_W)+:DQ_DLY_W] <= check_dq_delaymax;
+						   end
+					   end
+					   else if (dq_delay_count != {DQ_DLY_CNT_W{1'b0}}) begin
+						   dq_delay_ave_rwds[(check_rwds_delay*DQ_DLY_W)+:DQ_DLY_W] <= dq_delay_sum + ((dq_delay_count - 1'b1) >> 1);
+					   end
+				   end
+				end
+			 end
+		  end
+		  always @ (posedge clk or negedge rst_n) begin
+			 if (!rst_n) begin
+				check_dq_delay[k] <= {DQ_DLY_W{1'b0}};
+			 end
+			 else if (init_trig) begin
+				check_dq_delay[k] <= {DQ_DLY_W{1'b0}};
+			 end
+			 else if (~last_check) begin
+				check_dq_delay[k] <= dq_delay_temp;
+			 end
+			 else if ((adj_cnt[6:1] != {6{1'b0}}) & ~cal_done) begin
+				check_dq_delay[k] <= dq_delay_ave_rwds[(check_rwds_delay*DQ_DLY_W)+:DQ_DLY_W];
+			 end
+		  end
+		  assign cal_dq_delay[k*DQ_DLY_W+(DQ_DLY_W-1) -: DQ_DLY_W]  = check_dq_delay[k];
+	end
+   end
+endgenerate
+generate
+if (INDIVI_DUAL_CAL == 0) begin
+always @ (posedge clk or negedge rst_n)
+begin
+      if (!rst_n) begin
+		   rwds_delay_sum <= {RWDS_DLY_SUM_W{1'b0}};
+		   rwds_delay_count <= {RWDS_DLY_CNT_W{1'b0}};
+		   rwds_pass_tog <= 1'b0;
+		   rwds_delay_push <= 1'b0;
+      end
+      else if (init_trig) begin
+		   rwds_delay_sum <= {RWDS_DLY_SUM_W{1'b0}};
+		   rwds_delay_count <= {RWDS_DLY_CNT_W{1'b0}};
+		   rwds_pass_tog <= 1'b0;
+		   rwds_delay_push <= 1'b0;
+      end
+      else if (adj_cnt == 'd1) begin
+		 if (check_dq_delaymax == DQ_STEPS-1) begin 
+			if (((dq_bit_pass == {RAM_DBW_CAL{1'b1}}) | (dq_delay_count_pass == {RAM_DBW_CAL{1'b1}})) & ~rwds_pass_tog) begin
+				rwds_delay_push <= 1'b1;
+			   if (~rwds_delay_push) begin
+				   rwds_delay_sum <= check_rwds_delay;
+			   end
+			   rwds_delay_count <= rwds_delay_count + 1'b1;
+			end
+			else if (rwds_delay_count != {RWDS_DLY_CNT_W{1'b0}}) begin 
+			   rwds_pass_tog <= 1'b1; 
+			end
+			if (check_rwds_delay == RWDS_STEPS-1) begin 
+			   if (((dq_bit_pass == {RAM_DBW_CAL{1'b1}}) | (dq_delay_count_pass == {RAM_DBW_CAL{1'b1}})) & ~rwds_pass_tog) begin
+				   if (rwds_delay_count != {RWDS_DLY_CNT_W{1'b0}}) begin  
+					   rwds_delay_ave <= rwds_delay_sum + (rwds_delay_count >> 1);
+				   end
+				   else begin
+					   rwds_delay_ave <= check_rwds_delay;
+				   end
+			   end
+			   else if (rwds_delay_count != {RWDS_DLY_CNT_W{1'b0}}) begin 
+				   rwds_delay_ave <= rwds_delay_sum + ((rwds_delay_count) >> 1);
+			   end
+			end
+		end
+	end
+end
+end
+endgenerate
+reg 			calc_start;
+always @ (posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        calc_start <= 1'b0;
+    end else begin
+        calc_start <= check_done;
+    end
+end
+	wire [15:0] 	step_pass_combine_HI;
+	wire [15:0] 	step_pass_combine_LO;
+	reg  [15:0] 	step_pass_combine_HI_r;
+	reg  [15:0] 	step_pass_combine_LO_r;
+	reg [3:0] 	rwds_count_temp_HI;
+	reg [3:0]	rwds_count_temp_LO;
+	reg [2:0] 	rwds_delay_sum_HI;
+	reg [2:0] 	rwds_delay_sum_LO;
+	reg [2:0] 	rwds_delay_sum_temp_HI;
+	reg [2:0] 	rwds_delay_sum_temp_LO;
+	reg 		pass_push_HI;
+	reg 		pass_push_LO;
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	assign step_pass_combine_HI = {step_passed_indicator_HI,step_passed_indicator_HI};
+	assign step_pass_combine_LO = {step_passed_indicator_LO,step_passed_indicator_LO};
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			step_pass_combine_HI_r <= 0;
+			step_pass_combine_LO_r <= 0;
+		end
+		else if (calc_start && adj_cnt == 'd4) begin
+			step_pass_combine_HI_r <= step_pass_combine_HI;
+			step_pass_combine_LO_r <= step_pass_combine_LO;
+		end
+		else if (calc_start && (adj_cnt[6:3] != 4'b0)) begin
+			step_pass_combine_HI_r <= step_pass_combine_HI_r >> 1;
+			step_pass_combine_LO_r <= step_pass_combine_LO_r >> 1;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			rwds_count_temp_HI		<= 'b0;
+			rwds_count_temp_LO		<= 'b0;
+			pass_push_HI 			<= 'b0;
+			pass_push_LO 			<= 'b0;
+			rwds_delay_sum_temp_HI 		<= 'b0;
+			rwds_delay_sum_temp_LO		<= 'b0;
+		end
+		else if (adj_cnt[6:3] != 4'b0) begin 
+			if (step_pass_combine_HI_r[0]) begin 
+				rwds_count_temp_HI 	<= rwds_count_temp_HI + 1'b1;
+				if (!pass_push_HI) begin
+					rwds_delay_sum_temp_HI 	<= window_counter[3:0];
+					pass_push_HI 			<= 1'b1;
+				end
+			end
+			else if (!step_pass_combine_HI_r[0]) begin
+				rwds_count_temp_HI 		<= 'b0;
+				pass_push_HI 			<= 'b0;
+			end
+			if (step_pass_combine_LO_r[0]) begin 
+				rwds_count_temp_LO 	<= rwds_count_temp_LO + 1'b1;
+				if (!pass_push_LO) begin
+					rwds_delay_sum_temp_LO 	<= window_counter[3:0];
+					pass_push_LO 			<= 1'b1;
+				end
+			end
+			else if (!step_pass_combine_LO_r[0]) begin
+				rwds_count_temp_LO 		<= 'b0;
+				pass_push_LO 			<= 1'b0;
+			end
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin 
+		if (!rst_n) begin
+			rwds_count_final_HI		<= 'b0;
+			rwds_delay_sum_HI 		<= rwds_delay_sum_temp_HI;
+		end
+		else if ((rwds_count_temp_HI > rwds_count_final_HI) && calc_start) begin
+			rwds_count_final_HI 	<= rwds_count_temp_HI;
+			rwds_delay_sum_HI 		<= rwds_delay_sum_temp_HI;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin 
+		if (!rst_n) begin
+			rwds_count_final_LO		<= 'b0;
+			rwds_delay_sum_LO 		<= 'b0;
+		end
+		else if ((rwds_count_temp_LO > rwds_count_final_LO) && calc_start) begin
+			rwds_count_final_LO 	<= rwds_count_temp_LO;
+			rwds_delay_sum_LO 		<= rwds_delay_sum_temp_LO;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			rwds_delay_ave_HI <= 'b0;
+		end
+		else if (window_counter == 'd16) begin
+			rwds_delay_ave_HI <= rwds_delay_sum_HI + (rwds_count_final_HI >> 1);
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			rwds_delay_ave_LO <= 'b0;
+		end
+		else if (window_counter == 'd16) begin
+			rwds_delay_ave_LO <= rwds_delay_sum_LO + (rwds_count_final_LO >> 1);
+		end
+	end
+end
+else begin 
+	wire [15:0] 	step_pass_combine;
+	reg  [15:0] 	step_pass_combine_r;
+	assign step_pass_combine = {step_passed_indicator,step_passed_indicator};
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			step_pass_combine_r <= 'd0;
+		end
+		else if (calc_start && adj_cnt == 'd4) begin
+			step_pass_combine_r <= step_pass_combine;
+		end
+		else if (calc_start && (adj_cnt[6:3] != 4'b0)) begin
+			step_pass_combine_r <= step_pass_combine_r >> 1;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			rwds_count_temp		<= 'b0;
+			pass_push 			<= 1'b0;
+			rwds_delay_sum_temp 	<= 'b0;
+		end
+		else if (adj_cnt[6:3] != 4'b0) begin 
+			if (step_pass_combine_r[0]) begin 
+				rwds_count_temp 	<= rwds_count_temp + 1'b1;
+				if (!pass_push) begin
+					rwds_delay_sum_temp 	<= window_counter;
+					pass_push 			<= 1'b1;
+				end
+			end
+			else if (!step_pass_combine_r[0]) begin
+				rwds_count_temp 	<= 'b0;
+				pass_push 			<= 1'b0;
+			end
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin 
+		if (!rst_n) begin
+			rwds_count_final	<= 'b0;
+			rwds_delay_sum_new 	<= 'b0;
+		end
+		else if ((rwds_count_temp > rwds_count_final) && calc_start) begin
+			rwds_count_final 	<= rwds_count_temp;
+			rwds_delay_sum_new 	<= rwds_delay_sum_temp;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			rwds_delay_ave_new <= 'b0;
+		end
+		else if (window_counter == 'd16) begin
+			rwds_delay_ave_new <= rwds_delay_sum_new + (rwds_count_final >> 1);
+		end
+	end
+end
+endgenerate
+always @ (posedge clk or negedge rst_n) begin
+	if (!rst_n) begin
+		window_counter <= 0;
+	end
+	else if (calc_start && (adj_cnt[6:3] != 4'b0) && window_counter !=5'b11111) begin
+		window_counter <= window_counter + 1'b1;
+	end
+end
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always @ (posedge clk or negedge rst_n) begin
+		  if (!rst_n) begin
+			  last_check <= 1'b0;
+		  end
+		  else if (init_trig)begin
+			  last_check <= 1'b0;
+		  end
+		  else if (((check_rwds_delay_HI=='d7)|(check_rwds_delay_LO=='d7)) & (adj_cnt == 'd1) & (check_dq_delaymax==DQ_STEPS-1)) begin
+			  last_check <= 1'b1;
+		  end
+    end
+	always @ (posedge clk or negedge rst_n) begin
+		 if (!rst_n) begin
+			  check_fail <=   1'b0;
+		 end
+		 else if (init_trig)begin
+			  check_fail <=  1'b0;
+		 end
+		 else if(last_check & ((step_passed_indicator_HI == 8'b0) || (step_passed_indicator_LO == 8'b0))) begin
+			  check_fail <=   1'b1;
+		 end
+	end
+end
+else begin
+	always @ (posedge clk or negedge rst_n) begin
+		  if (!rst_n) begin
+			  last_check <= 1'b0;
+		  end
+		  else if (init_trig)begin
+			  last_check <= 1'b0;
+		  end
+		  else if ((check_rwds_delay==RWDS_STEPS-1) & (adj_cnt == 'd1) & (check_dq_delaymax==DQ_STEPS-1)) begin
+			  last_check <= 1'b1;
+		  end
+    end
+	always @ (posedge clk or negedge rst_n) begin
+		 if (!rst_n) begin
+			  check_fail <=   1'b0;
+		 end
+		 else if (init_trig)begin
+			  check_fail <=  1'b0;
+		 end
+		 else if(last_check & (rwds_delay_count == {RWDS_DLY_CNT_W{1'b0}})) begin
+			  check_fail <=   1'b1;
+		 end
+	end
+end
+endgenerate
+reg step_passed_HI;
+reg step_passed_LO;
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always @ (posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed_HI <= 1'b0;
+		end
+		else begin
+			if(check_cal_last && dq_bit_pass[RAM_DBW_CAL-1:RAM_DBW] == {RAM_DBW{1'b1}} && check_dq_delaymax == {DQ_DLY_W{1'b1}})
+				step_passed_HI <= 1'b1;
+			else
+				step_passed_HI <= 1'b0;
+		end
+	end
+	always @ (posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed_LO <= 1'b0;
+		end
+		else begin
+			if(check_cal_last && dq_bit_pass[RAM_DBW-1:0] == {RAM_DBW{1'b1}} && check_dq_delaymax == {DQ_DLY_W{1'b1}})
+				step_passed_LO <= 1'b1;
+			else
+				step_passed_LO <= 1'b0;
+		end
+	end
+end
+else begin
+	always @ (posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed <= 1'b0;
+		end
+		else begin
+			if(check_cal_last && dq_bit_pass == {RAM_DBW_CAL{1'b1}} && check_dq_delaymax == {DQ_DLY_W{1'b1}})
+				step_passed <= 1'b1;
+			else
+				step_passed <= 1'b0;
+		end
+	end
+end
+endgenerate
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	genvar p;
+	for (p=0; p<RWDS_STEPS; p=p+1) begin
+	always @(posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed_indicator_HI[p] <= 1'b0;
+		end
+		else begin
+			if(step_passed_HI && check_rwds_delay_HI == p)
+				step_passed_indicator_HI[p] <= 1'b1;
+			else
+				step_passed_indicator_HI[p] <= step_passed_indicator_HI[p];
+		end
+	end
+	always @(posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed_indicator_LO[p] <= 1'b0;
+		end
+		else begin
+			if(step_passed_LO && check_rwds_delay_LO == p)
+				step_passed_indicator_LO[p] <= 1'b1;
+			else
+				step_passed_indicator_LO[p] <= step_passed_indicator_LO[p];
+		end
+	end
+	end
+end
+else begin
+   genvar p;
+	for (p=0; p<RWDS_STEPS; p=p+1) begin
+	always @(posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			step_passed_indicator[p] <= 1'b0;
+		end
+		else begin
+			if(step_passed && check_rwds_delay == p)
+				step_passed_indicator[p] <= 1'b1;
+			else
+				step_passed_indicator[p] <= step_passed_indicator[p];
+		end
+	end
+	end
+end
+endgenerate
+always @(posedge clk or negedge rst_n) begin
+	if (!rst_n) begin
+		cal_done_reg <= 1'b0;
+	end
+	else begin
+		cal_done_reg <= cal_done;
+	end
+end
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always @(posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			locked_rwds_delay_HI <= 'b0;
+		end
+		else if(cal_done_reg) begin
+			locked_rwds_delay_HI  <= cal_rwds_delay_HI;
+		end
+		else begin
+			locked_rwds_delay_HI <= locked_rwds_delay_HI;
+		end
+	end
+	always @(posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			locked_rwds_delay_LO <= 'b0;
+		end
+		else if(cal_done_reg) begin
+			locked_rwds_delay_LO  <= cal_rwds_delay_LO;
+		end
+		else begin
+			locked_rwds_delay_LO <= locked_rwds_delay_LO;
+		end
+	end
+	always @(posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			cal_pass_reg <= 'b0;
+		end
+		else if(cal_done_reg && (step_passed_indicator_HI != {RWDS_STEPS{1'b0}} || step_passed_indicator_LO != {RWDS_STEPS{1'b0}})) begin
+			cal_pass_reg <= ~cal_fail;
+		end
+		else begin
+			cal_pass_reg <= cal_pass_reg;
+		end
+	end
+	assign cal_debug_info = {step_passed_indicator_HI,  locked_rwds_delay_HI, step_passed_indicator_LO, locked_rwds_delay_LO, 3'b000, cal_pass_reg, cal_done_reg};
+end
+else begin
+	always @(posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			cal_pass_reg 		<= 'b0;
+			locked_rwds_delay 	<= 'b0;
+		end
+		else if(cal_done_reg && step_passed_indicator != {RWDS_STEPS{1'b0}}) begin
+			cal_pass_reg 		<= ~cal_fail;
+			locked_rwds_delay  	<= cal_rwds_delay;
+		end
+		else begin
+			cal_pass_reg 		<= cal_pass_reg;
+			locked_rwds_delay 	<= locked_rwds_delay;
+		end
+	end
+	assign cal_debug_info = {11'b00000000000, step_passed_indicator, locked_rwds_delay, 3'b000, cal_pass_reg, cal_done_reg};
+end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_cal_mst)
+(
+	input			clk,
+	input			rst_n,
+	input			init_rdy,
+	output reg		cal_rstn,
+	output			cal_en,
+	input			cal_done,
+	input			cal_fail,
+	output			mst_cal_done,
+	output			mst_cal_fail,
+	input 			shift_done
+);
+localparam [1:0]	CAL_IDLE  = 'b00,
+			CAL_OP	  = 'b01,
+			CAL_POST  = 'b10,
+			CAL_DONE  = 'b11;
+reg  [1:0]		cal_state,
+			cal_next;
+reg  [3:0]		checkin_cnt;
+reg  [2:0]		cal_rst_cnt;
+reg			cal_fail_r;
+wire			cal_check ;
+wire			cal_run   ;
+reg [4:0] shift_done_delay;
+always@ (posedge clk or negedge rst_n)
+begin
+	if(!rst_n)
+		cal_state <= CAL_IDLE;
+	else
+		cal_state <= cal_next;
+end
+always@ (*)
+begin
+	cal_next = cal_state;
+	case(cal_state)
+	CAL_IDLE:
+	begin
+		if(init_rdy)
+			cal_next = CAL_OP;
+		else
+			cal_next = CAL_IDLE;
+	end
+	CAL_OP:
+	begin
+		if(cal_done && !cal_fail)
+			cal_next = CAL_DONE;
+		else if(cal_done && cal_fail)
+		begin
+				cal_next = CAL_DONE;
+		end
+		else
+			cal_next = CAL_OP;
+	end
+	CAL_POST: 
+	begin
+		if(shift_done_delay[4] == 1'b1)
+			cal_next = CAL_DONE;
+		else
+			cal_next = CAL_POST;
+	end
+	CAL_DONE:
+	begin
+		if(!init_rdy)
+			cal_next = CAL_IDLE;
+		else
+			cal_next = CAL_DONE;
+	end
+	default : cal_next = CAL_IDLE;
+	endcase
+end
+assign cal_run      = (cal_state == CAL_OP || cal_state == CAL_DONE);
+assign cal_check    = (cal_state == CAL_POST);
+assign cal_en 	    = (checkin_cnt == 'h0);
+assign cal_complete = cal_run & cal_done & shift_done_delay[4];
+always@ (posedge clk or negedge cal_run) begin
+    if (!cal_run)
+        cal_rstn <= 'h0;
+    else
+        cal_rstn <= cal_run;
+end
+always@ (posedge clk or negedge rst_n)
+begin
+	if(!rst_n)
+		checkin_cnt <= {4{1'b1}};
+	else begin
+		if (cal_complete)
+			checkin_cnt <= {4{1'b1}};
+		else if( cal_run && checkin_cnt != 'h0 )
+			checkin_cnt <= checkin_cnt - 1'b1;
+		else
+			checkin_cnt <= checkin_cnt;
+	end
+end
+always@ (posedge clk or negedge cal_run) begin
+    if (!cal_run) begin
+        shift_done_delay <= 'h0;
+    end
+    else if (shift_done && !shift_done_delay[4]) begin
+        shift_done_delay <= shift_done_delay + 1'b1;
+    end
+    else begin
+    	shift_done_delay <= shift_done_delay;
+    end
+end
+always@ (posedge clk or negedge rst_n)
+begin
+	if(!rst_n)
+		cal_fail_r <= 1'b0;
+	else if(cal_run & cal_done)
+		cal_fail_r <= cal_fail;
+	else
+		cal_fail_r <= cal_fail_r;
+end
+assign mst_cal_done = (cal_state == CAL_DONE) && shift_done_delay[4];
+assign mst_cal_fail = mst_cal_done ? cal_fail_r : 1'b0;
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_cal_ctrl) #(
+    parameter        CAL_MODE  = 0,
+    parameter        RAM_DBW   = 8,
+    parameter        RAM_ABW   = 25,
+    parameter [15:0] CFG_CR0   = 0,
+    parameter [3:0]  CR0_ILC        = 4'b0010,
+    parameter [15:0] CFG_CR1   = 0,
+    parameter [47:0] CR0W_CA   = 0,
+    parameter [47:0] CR1W_CA   = 0,
+    parameter        DQIN_MODE = "RESYNC",
+    parameter        SMODE     = 1,
+    parameter        TCYC      = 10000,
+    parameter        TCSM      = 4000000,
+    parameter        TVCS      = 150000000,
+    parameter        TRH       = 200000,
+    parameter        TRTR      = 40000,
+    parameter		 DUAL_RAM  = 1,
+    parameter 		 INDIVI_DUAL_CAL = 1,
+    parameter		 RAM_DBW_TWO = (DUAL_RAM == 1)? RAM_DBW*2 : RAM_DBW
+) (
+    input                      	clk               , 
+    input                      	clk_cal           ,
+    input						clk_cal_2		  , 
+    input                      	rst_n             , 
+    input                      	calrst_n          , 
+    input                      	calrst_n_2        , 
+    input                      	h_rst_n           , 
+    input                      	h_req             , 
+    input                      	h_last            , 
+    input   [RAM_ABW-1:0]   	h_addr            , 
+    input                   	h_btype           , 
+    input                   	h_atype           , 
+    input                   	h_rwen            , 
+    output                  	h_mrdy            , 
+    input   [RAM_DBW_TWO/4-1:0] h_wdm             , 
+    input   [RAM_DBW_TWO*2-1:0] h_wdata           , 
+    output                  	h_wrdy            , 
+    output  [RAM_DBW_TWO*2-1:0] h_rdata           , 
+    output                  	h_rdav            , 
+    output                  	h_pause           , 
+    input                   	h_ctc             , 
+    input                   	cal_req           , 
+    input                   	cal_last          , 
+    input                   	cal_done          , 
+    input   [RAM_ABW-1:0]   	cal_addr          , 
+    input                   	cal_rwen          , 
+    input   [RAM_DBW_TWO*2-1:0] cal_wdata         , 
+    output                  	cal_wrdy          , 
+    output  [RAM_DBW_TWO*2-1:0] cal_rdata         , 
+    output                  	cal_rdav          , 
+    input 						mst_cal_done	  ,
+    output                     	hbc_rst_n         , 
+    output reg                 	hbc_cs_n          , 
+    output reg                 	hbc_ck_p_HI       , 
+    output reg                 	hbc_ck_p_LO       , 
+    output reg                 	hbc_ck_n_HI       , 
+    output reg                 	hbc_ck_n_LO       , 
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OUT_HI   , 
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OUT_LO   , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_HI       , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_LO       , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_delay ,
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OE       , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OUT_HI     , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OUT_LO     , 
+    input      [RAM_DBW-1:0]   	hbc_dq_IN_HI      , 
+    input      [RAM_DBW-1:0]   	hbc_dq_IN_LO      , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OE         , 
+    output                     	hbc_rst_n_2         , 
+    output reg                 	hbc_cs_n_2          , 
+    output reg                 	hbc_ck_p_HI_2       , 
+    output reg                 	hbc_ck_p_LO_2       , 
+    output reg                 	hbc_ck_n_HI_2       , 
+    output reg                 	hbc_ck_n_LO_2       , 
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OUT_HI_2   , 
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OUT_LO_2   , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_HI_2    , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_LO_2    , 
+    input      [RAM_DBW/8-1:0] 	hbc_rwds_IN_delay_2 ,
+    output reg [RAM_DBW/8-1:0] 	hbc_rwds_OE_2       , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OUT_HI_2     , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OUT_LO_2     , 
+    input      [RAM_DBW-1:0]   	hbc_dq_IN_HI_2      , 
+    input      [RAM_DBW-1:0]   	hbc_dq_IN_LO_2      , 
+    output reg [RAM_DBW-1:0]   	hbc_dq_OE_2           
+);
+localparam     HBC_POR_STB_DLY     = TVCS%TCYC   ?
+                                     TVCS/TCYC+1 :
+                                     TVCS/TCYC   ;               
+localparam     HBC_POR_STB_CW      = $clog2(HBC_POR_STB_DLY);    
+localparam     HBC_RST_STB_DLY     = TRH%TCYC    ?
+                                     TRH/TCYC+1  :
+                                     TRH/TCYC    ;               
+localparam     HBC_RST_STB_CW      = $clog2(HBC_RST_STB_DLY);    
+localparam     tRTR_C              = TRTR/TCYC+1 ;
+localparam     tRTR_CW             = $clog2(tRTR_C);
+localparam     tCSM_C              = TCSM/TCYC   ;
+localparam     tCSM_CW             = $clog2(tCSM_C) ;            
+localparam     ILC_C               = (CR0_ILC==4'b0000)?  
+                                     5:(CR0_ILC==4'b0001)?
+                                     6:(CR0_ILC==4'b0010)?
+                                     7:(CR0_ILC==4'b1110)?
+                                     3:(CR0_ILC==4'b1111)?
+                                     4:7;
+localparam     INIT                = 4'b0001;                    
+localparam     STBY                = 4'b0010;                    
+localparam     MCWR                = 4'b0100;                    
+localparam     MCRD                = 4'b1000;                    
+reg              			hbc_por_standby;           
+reg [HBC_POR_STB_CW-1:0] 	hbc_por_cnt;               
+reg              			hbc_rst_standby;           
+reg [HBC_RST_STB_CW-1:0] 	hbc_rst_cnt;               
+reg              			hbc_stanby;                
+wire                      	i_req;
+wire                      	i_last;
+wire [RAM_ABW-1:0]          i_addr;
+wire                      	i_btype;
+wire                      	i_atype;
+wire                      	i_rwen;
+wire [RAM_DBW_TWO/4-1:0]    i_wdm;
+wire [RAM_DBW_TWO*2-1:0]    i_wdata;
+reg                       	i_wrdy;
+reg                  		f_wrdy;
+reg  [RAM_DBW_TWO*2-1:0]    i_rdata;
+wire [RAM_DBW_TWO*2-1:0]    rd_fifo_rdata;
+wire [RAM_DBW*2-1:0]    wr_fifo_rdata;
+wire [RAM_DBW*2-1:0]    wr_fifo_rdata_2;
+wire rd_fifo_empty;
+reg              i_rdav;
+wire             o_rdav;
+wire             fifo_rdav;
+reg  [3:0]       state;
+reg              atype_req;
+reg              btype_req;
+reg              rwen_req;
+reg              mcwr_req;
+reg              mcrd_req;
+reg              init_done;
+reg              tRTR_rdy;
+reg              mcwr_done;
+reg              mcrd_done;
+reg              init_flag;
+reg              stby_flag;
+reg              mcwr_flag;
+reg              mcrd_flag;
+wire             i_req_latch;
+reg              i_req_1r;
+reg  [5:0]       init_cnt;
+wire [15:0]      init_cr0;
+wire [15:0]      init_cr1;
+reg              init_cs_n;
+reg                     init_ck_en;
+reg  [RAM_DBW-1:0]  init_dq_OUT_HI;
+reg  [RAM_DBW-1:0]  init_dq_OUT_LO;
+wire [RAM_DBW-1:0]  init_dq_OE;
+reg  [tRTR_CW-1:0]     	stby_cnt;
+reg              		addr_cnt_load;
+reg  [tCSM_CW-1:0]      tCSM_cnt;
+wire              		i_ctc;
+wire              		i_read_cp;
+reg  [4:0]          	latency;
+reg             		latency_updated;
+reg  [tCSM_CW-1:0]      addr_cnt;
+wire [31:RAM_ABW]      	ca_addr_HI;
+reg  [RAM_ABW-1:0]      ca_addr_LO;
+wire [31:0]          	ca_addr;
+reg  [RAM_DBW-1:0]  ca [0:5];
+reg                     	mcwr_cs_n;
+reg                     	mcwr_ck_en;
+reg  [RAM_DBW/8-1:0]    	mcwr_rwds_OE;
+wire [RAM_DBW/8-1:0]    	mcwr_rwds_OUT_HI;
+wire [RAM_DBW/8-1:0]    	mcwr_rwds_OUT_LO;
+reg  [RAM_DBW-1:0]      	mcwr_dq_OUT_HI;
+reg  [RAM_DBW-1:0]      	mcwr_dq_OUT_LO;
+reg  [RAM_DBW-1:0]      	mcwr_dq_OE;
+reg                     	mcrd_cs_n;
+reg                     	mcrd_ck_en;
+reg  [RAM_DBW-1:0]      	mcrd_dq_OUT_HI;
+reg  [RAM_DBW-1:0]      	mcrd_dq_OUT_LO;
+reg  [RAM_DBW-1:0]      	mcrd_dq_OE;
+reg  [RAM_DBW-1:0]      	hbc_dq_IN_HI_reg;
+reg  [RAM_DBW-1:0]      	hbc_dq_IN_LO_reg;
+wire                    	hbc_ck_en;
+wire hbc_cs_n_en;
+reg  [RAM_DBW/8-1:0]    	mcwr_rwds_OE_2;
+wire [RAM_DBW/8-1:0]    	mcwr_rwds_OUT_HI_2;
+wire [RAM_DBW/8-1:0]    	mcwr_rwds_OUT_LO_2;
+reg  [RAM_DBW-1:0]      mcwr_dq_OUT_HI_2;
+reg  [RAM_DBW-1:0]      mcwr_dq_OUT_LO_2;
+reg  [RAM_DBW-1:0]      mcwr_dq_OE_2;
+reg  [RAM_DBW-1:0]      hbc_dq_IN_HI_reg_2;
+reg  [RAM_DBW-1:0]      hbc_dq_IN_LO_reg_2;
+wire                    hbc_ck_en_2;
+reg fifo_wr_en;
+reg fifo_rd_en_1;
+reg fifo_rd_en_2;
+wire i_rdav_fifo;
+wire rdfifo_rdav_1;
+wire rdfifo_rdav_2;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          hbc_por_cnt <=  'd0;
+     end
+     else if (hbc_por_cnt < HBC_POR_STB_DLY) begin
+          hbc_por_cnt <=  hbc_por_cnt + 1'b1;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+          hbc_por_standby <=  1'b0;
+     end
+     else begin
+          hbc_por_standby <=  hbc_por_cnt == HBC_POR_STB_DLY;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          hbc_rst_cnt <=  'd0;
+     end
+     else if (!h_rst_n) begin
+          hbc_rst_cnt <=  'd0;
+     end
+     else if (hbc_rst_cnt < HBC_RST_STB_DLY) begin
+          hbc_rst_cnt <=  hbc_rst_cnt + 1'b1;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+          hbc_rst_standby <=  1'b0;
+     end
+     else begin
+          hbc_rst_standby <=  hbc_rst_cnt == HBC_RST_STB_DLY;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if(!rst_n) begin
+          hbc_stanby <=  1'b0;
+     end
+     else begin
+          hbc_stanby <=  hbc_por_standby & hbc_rst_standby;
+     end
+end
+assign hbc_rst_n = h_rst_n;
+assign hbc_rst_n_2 = h_rst_n;
+assign i_req     = cal_done ? h_req  : cal_req;
+assign i_last    = cal_done ? h_last : cal_last;
+assign i_addr    = cal_done ? h_addr : cal_addr;
+assign i_btype   = cal_done ? h_btype: 1'b1;
+assign i_atype   = cal_done ? h_atype: 1'b0;
+assign i_rwen    = cal_done ? h_rwen : cal_rwen;
+assign i_wdm     = cal_done ? h_wdm  : {(RAM_DBW_TWO/4){1'b0}};
+assign i_wdata   = cal_done ? h_wdata: cal_wdata;
+assign h_wrdy    = f_wrdy;
+assign cal_wrdy  = cal_done ? 1'b0   : i_wrdy;
+wire h_rdav_test;
+reg i_rdav_final;
+generate
+   if (SMODE==0) begin  
+         assign h_rdata   = cal_done ? i_rdata : 1'b0;
+         assign cal_rdata = cal_done ? 32'd0  : i_rdata;
+         assign h_rdav    = cal_done ? i_rdav : 1'b0;
+         assign cal_rdav  = cal_done ? 1'b0   : i_rdav;
+   end
+  else if (SMODE==1 && DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin  
+         assign h_rdata   = cal_done ? rd_fifo_rdata : 32'b0;
+         assign cal_rdata = cal_done ? 32'd0  : rd_fifo_rdata;
+         assign h_rdav    = cal_done ? rdfifo_rdav_1 && rdfifo_rdav_2   : 1'b0;
+         assign cal_rdav  = cal_done ? 1'b0   : rdfifo_rdav_1 || rdfifo_rdav_2  ;
+   end
+   else begin
+   	     assign h_rdata   = cal_done ? rd_fifo_rdata : 16'b0;
+         assign cal_rdata = cal_done ? 16'd0  : rd_fifo_rdata;
+         assign h_rdav    = cal_done ? i_rdav_fifo : 1'b0;
+         assign cal_rdav  = cal_done ? 1'b0   : i_rdav_fifo;
+   end
+endgenerate
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          i_req_1r <=  1'b0;
+     end
+     else begin
+         i_req_1r <= i_req;
+     end
+end
+assign i_req_latch = i_req & ~i_req_1r ;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          btype_req <=  1'b0;
+          atype_req <=  1'b0;
+          rwen_req <=  1'b0;
+          mcwr_req <=  1'b0;
+          mcrd_req <=  1'b0;
+     end
+     else if(i_req_latch) begin
+          btype_req <=  i_btype;
+          atype_req <=  i_atype;
+          rwen_req <=  i_rwen;
+          mcwr_req <=  i_req&~i_rwen;
+          mcrd_req <=  i_req&i_rwen;
+     end
+     else if (i_last) begin
+          mcwr_req <=  1'b0;
+          mcrd_req <=  1'b0;
+     end
+end
+always @ ( * )
+begin
+     init_flag <= state[0];
+         stby_flag <= state[1];
+         mcwr_flag <= state[2];
+         mcrd_flag <= state[3];
+    end
+    assign h_mrdy = ~init_flag;
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if (!rst_n) begin
+          state <=  INIT;
+         end
+         else begin
+          case (state)
+               INIT:
+                if (init_done)
+                 state <=  STBY;
+                else
+                 state <=  INIT;
+               STBY:
+                if (!hbc_stanby)
+                 state <=  INIT;
+                else if(mcwr_req&tRTR_rdy)
+                 state <=  MCWR;
+                else if(mcrd_req&tRTR_rdy)
+                 state <=  MCRD;
+                else
+                 state <=  STBY;
+               MCWR:
+                if (!hbc_stanby)
+                 state <=  INIT;
+                else if(mcwr_done)
+                 state <=  STBY;
+                else
+                 state <=  MCWR;
+               MCRD:
+                if (!hbc_stanby)
+                 state <=  INIT;
+                else if(mcrd_done)
+                 state <=  STBY;
+                else
+                 state <=  MCRD;
+               default:
+                state <=  INIT;
+          endcase
+         end
+    end
+    assign init_cr0 = CFG_CR0;
+    assign init_cr1 = CFG_CR1;
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if (!rst_n) begin
+          init_cnt <=  6'd0;
+         end
+         else if(!hbc_stanby) begin
+          init_cnt <=  6'd0;
+         end
+         else if(init_cnt<5'd31) begin
+          init_cnt <=  init_cnt + 1'b1;
+         end
+    end
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if (!rst_n) begin
+          init_done <=  1'b0;
+         end
+         else begin
+          init_done <=  init_cnt == 5'd30;
+         end
+    end
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if (!rst_n) begin
+          init_cs_n <=  1'b1;
+         end
+         else begin
+          init_cs_n <=  ~((init_cnt>=5'd1 & init_cnt<=5'd6) | (init_cnt>=5'd18 & init_cnt<=5'd23));
+         end
+    end
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if (!rst_n) begin
+          init_ck_en <=  1'b0;
+         end
+         else begin
+          init_ck_en <=  ((init_cnt>=5'd2 & init_cnt<=5'd5) | (init_cnt>=5'd19 & init_cnt<=5'd22));
+         end
+    end
+    assign init_dq_OE = {RAM_DBW{1'b1}};
+    always @ (posedge clk or negedge rst_n)
+    begin
+         if(!rst_n) begin
+          init_dq_OUT_HI <=  {RAM_DBW{1'b0}};
+          init_dq_OUT_LO <=  {RAM_DBW{1'b0}};
+         end
+         else begin
+               case (init_cnt)
+               5'd2:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR0W_CA[7:0]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR0W_CA[15:8]}};
+                end
+               5'd3:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR0W_CA[23:16]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR0W_CA[31:24]}};
+                end
+               5'd4:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR0W_CA[39:32]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR0W_CA[47:40]}};
+                end
+               5'd5:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{init_cr0[15:8]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{init_cr0[7:0]}};
+                end
+               5'd19:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR1W_CA[7:0]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR1W_CA[15:8]}};
+                end
+               5'd20:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR1W_CA[23:16]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR1W_CA[31:24]}};
+                end
+               5'd21:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{CR1W_CA[39:32]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{CR1W_CA[47:40]}};
+                end
+               5'd22:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW/8{init_cr1[15:8]}};
+                 init_dq_OUT_LO <=  {RAM_DBW/8{init_cr1[7:0]}};
+                end
+               default:
+                begin
+                 init_dq_OUT_HI <=  {RAM_DBW{1'b0}};
+                 init_dq_OUT_LO <=  {RAM_DBW{1'b0}};
+                end
+          endcase
+         end
+    end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          stby_cnt <=  {tRTR_CW{1'b0}};
+     end
+     else if (stby_flag) begin
+          if (stby_cnt == {tRTR_CW{1'b1}})begin
+               stby_cnt <=  stby_cnt;
+          end
+          else begin
+               stby_cnt <=  stby_cnt + 1'b1;
+          end
+     end
+     else begin
+          stby_cnt <=  {tRTR_CW{1'b0}};
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          tRTR_rdy <=  1'b0;
+     end
+     else begin
+          tRTR_rdy <=  stby_cnt >= tRTR_C-4;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          addr_cnt_load <=  1'b0;
+     end
+     else begin
+          addr_cnt_load <=  stby_cnt == tRTR_C-3;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          tCSM_cnt <=  'd0;
+     end
+     else if (i_ctc) begin
+          tCSM_cnt <=  'd0;
+     end
+     else if (mcwr_flag|mcrd_flag) begin
+          tCSM_cnt <=  tCSM_cnt + 1'b1;
+     end
+     else begin
+          tCSM_cnt <=  'd0;
+     end
+end
+assign i_ctc = i_last | h_ctc;
+assign h_pause = (tCSM_cnt == tCSM_C-10);
+assign i_read_cp = i_last | h_ctc;
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          latency <=  2+2*ILC_C;
+     end
+     else begin
+          latency <= 2+2*ILC_C; 
+     end
+end
+always @(posedge clk or negedge rst_n)
+begin
+    if(!rst_n)
+        latency_updated <= 1'b0;
+    else if (mcrd_done || mcwr_done)
+        latency_updated <= 1'b0;
+    else if(tCSM_cnt == 'd3 || atype_req&mcwr_flag)
+        latency_updated <= 1'b1;
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          addr_cnt <=  'd0;
+     end
+     else if (i_req_latch) begin
+          addr_cnt <=  'd0;
+     end
+     else if (mcwr_flag&i_ctc) begin
+          addr_cnt <=  tCSM_cnt - latency ;
+     end
+     else if (mcrd_flag&i_ctc) begin
+          addr_cnt <=  tCSM_cnt - (latency/* + 1*/) ;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          ca_addr_LO <=  'd0;
+     end
+     else if (i_req_latch) begin
+          ca_addr_LO <=  i_addr;
+     end
+     else if (addr_cnt_load) begin
+          ca_addr_LO <=   ca_addr_LO[RAM_ABW-1:0] + addr_cnt;
+     end
+end
+assign ca_addr = ca_addr_LO;
+always @ ( * )
+begin
+     ca[0] = {rwen_req,atype_req,btype_req,ca_addr[31:27]};
+     ca[1] = ca_addr[26:19];
+     ca[2] = ca_addr[18:11];
+     ca[3] = ca_addr[10:3];
+     ca[4] = 8'b00000000;
+     ca[5] = {5'b00000,ca_addr[2:0]};
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          mcwr_done <=  1'b0;
+     end
+     else begin
+          mcwr_done <=  i_ctc;
+     end
+end
+reg i_ctc_p;
+always @ (posedge clk or negedge rst_n) begin
+	if (!rst_n) begin
+         i_ctc_p <=  1'b0;
+     end
+     else begin
+         i_ctc_p <= i_ctc;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+         mcwr_cs_n <=  1'b1;
+     end
+     else if(i_ctc_p) begin
+         mcwr_cs_n <=  1'b1;
+     end
+     else if(mcwr_req&tRTR_rdy) begin
+         mcwr_cs_n <=  1'b0;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          mcwr_ck_en <=  1'b0;
+     end
+     else if(mcwr_flag&tRTR_rdy) begin
+          mcwr_ck_en <=  1'b1;
+     end
+     else if(i_ctc) begin
+          mcwr_ck_en <=  1'b0;
+     end
+end
+always @ ( * )
+begin
+     if(atype_req) begin
+          mcwr_rwds_OE <= {RAM_DBW/8{1'b0}};
+     end
+     else begin
+          mcwr_rwds_OE <= {RAM_DBW/8{tCSM_cnt >={5'b0,latency}}};
+     end
+end
+generate
+genvar i;
+for (i=0;i < RAM_DBW/8;i=i+1) begin:MCWR_RWDS_OUT_GEN
+     assign mcwr_rwds_OUT_LO[i] = i_wdm[i+(RAM_DBW/8)] & ~(tCSM_cnt == {5'b0,latency});
+     assign mcwr_rwds_OUT_HI[i] = i_wdm[i]  & ~(tCSM_cnt == {5'b0,latency});
+     if (DUAL_RAM == 1 && RAM_DBW == 16) begin
+     	 assign mcwr_rwds_OUT_LO_2[i] = i_wdm[i+(RAM_DBW_TWO/8)+2] & ~(tCSM_cnt == {5'b0,latency});
+     	 assign mcwr_rwds_OUT_HI_2[i] = i_wdm[i+(RAM_DBW_TWO/8)]  & ~(tCSM_cnt == {5'b0,latency});
+     end
+     else if (DUAL_RAM == 1 && RAM_DBW == 8) begin
+     	 assign mcwr_rwds_OUT_LO_2[i] = i_wdm[i+(RAM_DBW_TWO/8)+1] & ~(tCSM_cnt == {5'b0,latency});
+     	 assign mcwr_rwds_OUT_HI_2[i] = i_wdm[i+(RAM_DBW_TWO/8)]  & ~(tCSM_cnt == {5'b0,latency});
+     end
+end
+endgenerate
+always @ ( * )
+begin
+     mcwr_dq_OE <= {RAM_DBW{(tCSM_cnt>='d1 & tCSM_cnt<='d3)|(tCSM_cnt>{5'b0,latency})}};
+end
+generate
+	if (DUAL_RAM == 1) begin
+		genvar j;
+		for (j=0;j < RAM_DBW;j=j+1) begin:mcwr_dq_OUT_GEN_DUAL_RAM
+			 always @ ( * ) begin
+			  case(tCSM_cnt)
+				   'd1:
+						begin 
+							 mcwr_dq_OUT_HI[j] 			<= ca[0][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[1][j];
+							 mcwr_dq_OUT_HI_2[j] 		<= ca[0][j];
+							 mcwr_dq_OUT_LO_2[j] 		<= ca[1][j];
+						end
+				   'd2:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= ca[2][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[3][j];
+							 mcwr_dq_OUT_HI_2[j] 		<= ca[2][j];
+							 mcwr_dq_OUT_LO_2[j] 		<= ca[3][j];
+						end
+				   'd3:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= ca[4][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[5][j];
+							 mcwr_dq_OUT_HI_2[j] 		<= ca[4][j];
+							 mcwr_dq_OUT_LO_2[j] 		<= ca[5][j];
+						end
+				   default:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= i_wdata[j+RAM_DBW];				
+							 mcwr_dq_OUT_LO[j] 			<= i_wdata[j];						
+							 mcwr_dq_OUT_HI_2[j] 		<= i_wdata[j+RAM_DBW_TWO+RAM_DBW]; 	
+							 mcwr_dq_OUT_LO_2[j] 		<= i_wdata[j+RAM_DBW_TWO];			
+						end
+			  endcase
+			 end
+		end
+    end
+    else begin 
+		genvar j;
+		for (j=0;j < RAM_DBW;j=j+1) begin:mcwr_dq_OUT_GEN
+			 always @ ( * ) begin
+			  case(tCSM_cnt)
+				   'd1:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= ca[0][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[1][j];
+						end
+				   'd2:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= ca[2][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[3][j];
+						end
+				   'd3:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= ca[4][j];
+							 mcwr_dq_OUT_LO[j] 			<= ca[5][j];
+						end
+				   default:
+						begin
+							 mcwr_dq_OUT_HI[j] 			<= i_wdata[j+RAM_DBW];
+							 mcwr_dq_OUT_LO[j] 			<= i_wdata[j];
+						end
+			  endcase
+			 end
+		end
+    end
+endgenerate
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          i_wrdy <=  1'b0;
+     end
+     else if(i_ctc) begin
+          i_wrdy <=  1'b0;
+     end
+     else if(tCSM_cnt == latency && latency_updated) begin
+          i_wrdy <=  mcwr_flag;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          f_wrdy <=  1'b0;
+     end
+     else if(i_ctc) begin
+          f_wrdy <=  1'b0;
+     end
+     else if(tCSM_cnt == latency - 2 && latency_updated) begin
+          f_wrdy <=  1'b1;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          mcrd_done <=  1'b0;
+     end
+     else begin
+          mcrd_done <=  i_ctc;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          mcrd_cs_n <=  1'b1;
+     end
+     else if(i_ctc_p) begin
+          mcrd_cs_n <=  1'b1;
+     end
+     else if(mcrd_req&tRTR_rdy) begin
+          mcrd_cs_n <=  1'b0;
+     end
+end
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          mcrd_ck_en <=  1'b0;
+     end
+     else if(mcrd_flag&tRTR_rdy) begin
+          mcrd_ck_en <=  1'b1;
+     end
+     else if(i_ctc) begin
+          mcrd_ck_en <=  1'b0;
+     end
+end
+always @ ( * )
+begin
+     mcrd_dq_OE <= {RAM_DBW{tCSM_cnt>='d1 & tCSM_cnt<='d3}};
+end
+always @ ( * ) 
+begin
+     case(tCSM_cnt)
+          'd1:
+               begin
+                    mcrd_dq_OUT_HI <= ca[0];
+                    mcrd_dq_OUT_LO <= ca[1];
+               end
+          'd2:
+               begin
+                    mcrd_dq_OUT_HI <= ca[2];
+                    mcrd_dq_OUT_LO <= ca[3];
+               end
+          'd3:
+               begin
+                    mcrd_dq_OUT_HI <= ca[4];
+                    mcrd_dq_OUT_LO <= ca[5];
+               end
+          default:
+               begin
+                    mcrd_dq_OUT_HI <= 'd0;
+                    mcrd_dq_OUT_LO <= 'd0;
+               end
+     endcase
+end
+(*syn_preserve="true"*) reg  [RAM_DBW-1:0]       hbc_dq_IN_HI_reg_p0;
+(*syn_preserve="true"*) reg  [RAM_DBW/8-1:0]     hbc_rwds_IN_HI_reg_p0;
+(*syn_preserve="true"*) reg  [RAM_DBW/8-1:0]     hbc_rwds_IN_LO_reg_p0;
+(*syn_preserve="true"*) reg  [RAM_DBW-1:0]       hbc_dq_IN_HI_reg_p0_2;
+(*syn_preserve="true"*) reg  [RAM_DBW/8-1:0]     hbc_rwds_IN_HI_reg_p0_2;
+(*syn_preserve="true"*) reg  [RAM_DBW/8-1:0]     hbc_rwds_IN_LO_reg_p0_2;
+generate
+genvar k;
+if(CAL_MODE == 1) begin 
+    for (k=0;k<RAM_DBW/8;k=k+1) begin : i_rdata_strb
+           if (DQIN_MODE == "NORMAL") begin
+                  always @(posedge hbc_rwds_IN_delay[k]) begin hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI[k*8+7 -: 8]; end
+                  always @(posedge hbc_rwds_IN_delay[k]) begin hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO[k*8+7 -: 8]; end
+           end
+           else if (DQIN_MODE == "RESYNC") begin
+                  always @(posedge hbc_rwds_IN_delay[k]) begin hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI[k*8+7 -: 8]; end
+                  always @(*)                            begin hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO[k*8+7 -: 8]; end
+           end
+           else begin 
+                  always @(*) begin hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI[k*8+7 -: 8]; end
+                  always @(*) begin hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO[k*8+7 -: 8]; end
+           end
+    end
+end
+else if(CAL_MODE ==  3 || CAL_MODE == 2)
+begin
+    for (k=0;k<RAM_DBW/8;k=k+1) begin : i_rdata_strb_auto
+		if(DQIN_MODE == "NORMAL") begin
+			always @(posedge clk_cal or negedge rst_n) begin
+				if(!rst_n) begin
+					hbc_dq_IN_HI_reg[k*8+7 -: 8] <= 'h0;
+					hbc_dq_IN_LO_reg[k*8+7 -: 8] <= 'h0;
+				end
+				else begin
+					if(hbc_rwds_IN_HI[k] && (!hbc_rwds_IN_LO[k])) begin
+						hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI[k*8+7 -: 8];
+						hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO[k*8+7 -: 8];
+					end
+					else begin
+						hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI_reg[k*8+7 -: 8];
+						hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO_reg[k*8+7 -: 8];
+					end
+				end
+			end
+			if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+				always @(posedge clk_cal or negedge rst_n) begin
+					if(!rst_n) begin
+						hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= 'h0;
+						hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						if(hbc_rwds_IN_HI_2[k] && (!hbc_rwds_IN_LO_2[k])) begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_2[k*8+7 -: 8];
+						end
+						else begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_reg_2[k*8+7 -: 8];
+						end
+					end
+				end
+			end
+			else if (DUAL_RAM == 1) begin
+				always @(posedge clk_cal or negedge rst_n) begin
+					if(!rst_n) begin
+						hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= 'h0;
+						hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						if(hbc_rwds_IN_HI_2[k] && (!hbc_rwds_IN_LO_2[k])) begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_2[k*8+7 -: 8];
+						end
+						else begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_reg_2[k*8+7 -: 8];
+						end
+					end
+				end
+			end
+		end
+		else if(DQIN_MODE == "RESYNC") begin
+			always @(posedge clk_cal or negedge calrst_n) begin
+				if(!calrst_n) begin
+					hbc_dq_IN_HI_reg[k*8+7 -: 8] <= 'h0;
+					hbc_dq_IN_LO_reg[k*8+7 -: 8] <= 'h0;
+				end
+				else begin
+					if(hbc_rwds_IN_HI_reg_p0[k] && (!hbc_rwds_IN_LO[k])) begin
+						hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_p0[k*8+7 -: 8];
+						hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO[k*8+7 -: 8];
+					end
+					else begin
+						hbc_dq_IN_HI_reg[k*8+7 -: 8] <= hbc_dq_IN_HI_reg[k*8+7 -: 8];
+						hbc_dq_IN_LO_reg[k*8+7 -: 8] <= hbc_dq_IN_LO_reg[k*8+7 -: 8];
+					end
+				end
+			end
+			always @(posedge clk_cal or negedge calrst_n) begin
+				if(!calrst_n) begin
+					hbc_rwds_IN_HI_reg_p0[k] 		<= 'b0;
+					hbc_rwds_IN_LO_reg_p0[k] 		<= 'b0;
+					hbc_dq_IN_HI_reg_p0[k*8+7 -: 8] <= 'h0;
+				end
+				else begin
+					hbc_rwds_IN_HI_reg_p0[k]     	<= hbc_rwds_IN_HI[k];
+					hbc_rwds_IN_LO_reg_p0[k]     	<= hbc_rwds_IN_LO[k];
+					hbc_dq_IN_HI_reg_p0[k*8+7 -: 8] <= hbc_dq_IN_HI[k*8+7 -: 8];
+				end
+			end
+			if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+				always @(posedge clk_cal_2 or negedge calrst_n_2) begin 
+					if(!calrst_n_2) begin
+						hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= 'h0;
+						hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						if(hbc_rwds_IN_HI_reg_p0_2[k] && (!hbc_rwds_IN_LO_2[k])) begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_2[k*8+7 -: 8];
+						end
+						else begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_reg_2[k*8+7 -: 8];
+						end
+					end
+				end
+				always @ (posedge clk_cal_2 or negedge calrst_n_2) begin 
+					if(!calrst_n_2) begin
+						hbc_rwds_IN_HI_reg_p0_2[k] 		<= 'b0;
+						hbc_rwds_IN_LO_reg_p0_2[k] 		<= 'b0;
+						hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						hbc_rwds_IN_HI_reg_p0_2[k]     	<= hbc_rwds_IN_HI_2[k];
+						hbc_rwds_IN_LO_reg_p0_2[k]     	<= hbc_rwds_IN_LO_2[k];
+						hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8] <= hbc_dq_IN_HI_2[k*8+7 -: 8];
+					end
+				end
+			end
+			else if (DUAL_RAM == 1) begin
+				always @(posedge clk_cal or negedge calrst_n_2) begin 
+					if(!calrst_n_2) begin
+						hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= 'h0;
+						hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						if(hbc_rwds_IN_HI_reg_p0_2[k] && (!hbc_rwds_IN_LO_2[k])) begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_2[k*8+7 -: 8];
+						end
+						else begin
+							hbc_dq_IN_HI_reg_2[k*8+7 -: 8] <= hbc_dq_IN_HI_reg_2[k*8+7 -: 8];
+							hbc_dq_IN_LO_reg_2[k*8+7 -: 8] <= hbc_dq_IN_LO_reg_2[k*8+7 -: 8];
+						end
+					end
+				end
+				always @ (posedge clk_cal or negedge calrst_n_2) begin 
+					if(!calrst_n_2) begin
+						hbc_rwds_IN_HI_reg_p0_2[k] 		<= 'b0;
+						hbc_rwds_IN_LO_reg_p0_2[k] 		<= 'b0;
+						hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8] <= 'h0;
+					end
+					else begin
+						hbc_rwds_IN_HI_reg_p0_2[k]     	<= hbc_rwds_IN_HI_2[k];
+						hbc_rwds_IN_LO_reg_p0_2[k]     	<= hbc_rwds_IN_LO_2[k];
+						hbc_dq_IN_HI_reg_p0_2[k*8+7 -: 8] <= hbc_dq_IN_HI_2[k*8+7 -: 8];
+					end
+				end
+			end
+		end
+    end
+end
+endgenerate
+generate
+	reg rdfifo_wr_en_1;
+	reg rdfifo_wr_en_2;
+	reg rdfifo_wr_en;
+	if (DUAL_RAM == 1 && CAL_MODE == 2) begin
+		if (DQIN_MODE == "RESYNC") begin
+			always @(posedge clk_cal or negedge calrst_n) begin
+				if (!calrst_n) begin
+					rdfifo_wr_en_1 <= 0;
+				end
+				else if (hbc_rwds_IN_HI_reg_p0 && !hbc_rwds_IN_LO && !hbc_rwds_IN_LO_reg_p0) begin
+					rdfifo_wr_en_1 <= 1;
+				end
+				else begin
+					rdfifo_wr_en_1 <= 0;
+				end
+			end
+			if (INDIVI_DUAL_CAL == 1) begin
+				always @(posedge clk_cal_2 or negedge calrst_n_2) begin
+					if (!calrst_n_2) begin
+						rdfifo_wr_en_2 <= 0;
+					end
+					else if (hbc_rwds_IN_HI_reg_p0_2 && (!hbc_rwds_IN_LO_2) && !hbc_rwds_IN_LO_reg_p0_2) begin
+						rdfifo_wr_en_2 <= 1;
+					end
+					else begin
+						rdfifo_wr_en_2 <= 0;
+					end
+				end
+			end else begin 
+				always @(posedge clk_cal or negedge calrst_n_2) begin
+					if (!calrst_n_2) begin
+						rdfifo_wr_en_2 <= 0;
+					end
+					else if (hbc_rwds_IN_HI_reg_p0_2 && (!hbc_rwds_IN_LO_2) && !hbc_rwds_IN_LO_reg_p0_2) begin
+						rdfifo_wr_en_2 <= 1;
+					end
+					else begin
+						rdfifo_wr_en_2 <= 0;
+					end
+				end
+			end
+		end
+		else if (DQIN_MODE == "NORMAL") begin
+			always @(posedge clk_cal or negedge calrst_n) begin
+				if (!calrst_n) begin
+					rdfifo_wr_en_1 <= 0;
+				end
+				else if (hbc_rwds_IN_HI && (!hbc_rwds_IN_LO)) begin
+					rdfifo_wr_en_1 <= 1;
+				end
+				else begin
+					rdfifo_wr_en_1 <= 0;
+				end
+			end
+			always @(posedge clk_cal_2 or negedge calrst_n_2) begin
+				if (!calrst_n_2) begin
+					rdfifo_wr_en_2 <= 0;
+				end
+				else if (hbc_rwds_IN_HI_2 && (!hbc_rwds_IN_LO_2)) begin
+					rdfifo_wr_en_2 <= 1;
+				end
+				else begin
+					rdfifo_wr_en_2 <= 0;
+				end
+			end
+		end
+	end
+	else begin
+		always @ (posedge clk_cal or negedge calrst_n) begin
+			if (!calrst_n) begin
+				rdfifo_wr_en <= 0;
+			end
+			else if (hbc_rwds_IN_HI_reg_p0 && !hbc_rwds_IN_LO && !hbc_rwds_IN_LO_reg_p0) begin 
+				rdfifo_wr_en <= 1;
+			end
+			else begin
+				rdfifo_wr_en <= 0;
+			end
+		end
+	end
+endgenerate
+generate
+	if (SMODE == 0) begin
+	always @ (posedge clk) begin
+				i_rdata[RAM_DBW  +: RAM_DBW]  <=  hbc_dq_IN_HI_reg[0 +: RAM_DBW];
+				i_rdata[0        +: RAM_DBW]  <=  hbc_dq_IN_LO_reg[0 +: RAM_DBW];
+	end
+	end
+endgenerate
+wire rdfifo_empty_1;
+wire rdfifo_empty_2;
+wire rdfifo_full_1;
+wire rdfifo_full_2;
+wire rdfifo_wr_en_w;
+wire prog_empty_1;
+wire prog_empty_2;
+generate
+   if (SMODE==1) begin
+	  assign wr_fifo_rdata[0 +: RAM_DBW] 			= hbc_dq_IN_LO_reg[0 +: RAM_DBW];
+	  assign wr_fifo_rdata[RAM_DBW  +: RAM_DBW]  	= hbc_dq_IN_HI_reg[0 +: RAM_DBW];
+	  if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin 
+	  	  assign wr_fifo_rdata_2[0 +: RAM_DBW] 			= hbc_dq_IN_LO_reg_2[0 +: RAM_DBW];
+	  	  assign wr_fifo_rdata_2[RAM_DBW  +: RAM_DBW]  	= hbc_dq_IN_HI_reg_2[0 +: RAM_DBW];
+		  always @(posedge clk or negedge rst_n) begin 
+				if (!rst_n) begin
+					fifo_rd_en_1 <= 1'b0;
+				end
+				else if (~rdfifo_empty_1 && ~rdfifo_empty_2) begin
+					fifo_rd_en_1 <= 1'b1;
+				end
+				else if (~prog_empty_1 && rdfifo_empty_2) begin
+					fifo_rd_en_1 <= 1'b1;
+				end
+				else if (~rdfifo_empty_1) begin
+					fifo_rd_en_1 <= fifo_rd_en_1;
+				end
+				else if (rdfifo_empty_1 && rdfifo_empty_2) begin
+					fifo_rd_en_1 <= 1'b0;
+				end
+				else begin
+					fifo_rd_en_1 <= 1'b0;
+				end
+		  end
+	  	  always @(posedge clk or negedge rst_n) begin 
+				if (!rst_n) begin
+					fifo_rd_en_2 <= 1'b0;
+				end
+				else if (~rdfifo_empty_1 && ~rdfifo_empty_2) begin
+					fifo_rd_en_2 <= 1'b1;
+				end
+				else if (rdfifo_empty_1 && ~prog_empty_2) begin
+					fifo_rd_en_2 <= 1'b1;
+				end
+				else if (~rdfifo_empty_2) begin
+					fifo_rd_en_2 <= fifo_rd_en_2;
+				end
+				else if (rdfifo_empty_1 && rdfifo_empty_2) begin
+					fifo_rd_en_2 <= 1'b0;
+				end
+				else begin
+					fifo_rd_en_2 <= 1'b0;
+				end
+		  end
+	  	  `IP_MODULE_NAME(efx_fifo_top) #(
+	  	  	 .FAMILY 			 ("TITANIUM"),
+             .SYNC_CLK           (0),
+             .OUTPUT_REG         (0),
+             .MODE               ("STANDARD"),
+             .PIPELINE_REG       (1),
+             .OPTIONAL_FLAGS     (1),
+             .PROGRAMMABLE_FULL  ("NONE"),
+             .PROG_EMPTY_ASSERT 	(5),
+             .PROGRAMMABLE_EMPTY  	("STATIC_SINGLE"),
+             .PROG_EMPTY_NEGATE 	(5),
+             .ASYM_WIDTH_RATIO   (4),
+             .DATA_WIDTH         (RAM_DBW_TWO),
+             .DEPTH              (16)
+         ) rd_data_fifo_1 (
+             .a_rst_i        (~rst_n),
+             .wr_clk_i       (clk_cal),
+             .rd_clk_i       (clk),
+             .wr_en_i        (rdfifo_wr_en_1),
+             .wdata          (wr_fifo_rdata),
+             .rd_en_i        (fifo_rd_en_1),
+             .rdata          (rd_fifo_rdata[RAM_DBW_TWO-1:0]),
+             .rd_valid_o     (rdfifo_rdav_1),
+             .prog_empty_o 	(prog_empty_1),
+             .empty_o        (rdfifo_empty_1)
+         );
+         `IP_MODULE_NAME(efx_fifo_top) #(
+         	 .FAMILY 			 ("TITANIUM"),
+             .SYNC_CLK           (0),
+             .OUTPUT_REG         (0),
+             .MODE               ("STANDARD"),
+             .PIPELINE_REG       (1),
+             .OPTIONAL_FLAGS     (1),
+             .PROGRAMMABLE_FULL  ("NONE"),
+             .PROG_EMPTY_ASSERT 	(5),
+             .PROGRAMMABLE_EMPTY  	("STATIC_SINGLE"),
+             .PROG_EMPTY_NEGATE 	(5),
+             .ASYM_WIDTH_RATIO   (4),
+             .DATA_WIDTH         (RAM_DBW_TWO),
+             .DEPTH              (16)
+         ) rd_data_fifo_2 (
+             .a_rst_i        (~rst_n),
+             .wr_clk_i       (clk_cal_2),
+             .rd_clk_i       (clk),
+             .wr_en_i        (rdfifo_wr_en_2),
+             .wdata          (wr_fifo_rdata_2),
+             .rd_en_i        (fifo_rd_en_2),
+             .rdata          (rd_fifo_rdata [(RAM_DBW_TWO*2)-1:RAM_DBW_TWO]),
+             .rd_valid_o     (rdfifo_rdav_2),
+             .prog_empty_o 	(prog_empty_2),
+             .empty_o        (rdfifo_empty_2)
+         );
+	  end
+	  else if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 0) begin 
+		  assign rdfifo_wr_en_w = rdfifo_wr_en_1 || rdfifo_wr_en_2;
+		  assign wr_fifo_rdata_2[0 +: RAM_DBW] 			= hbc_dq_IN_LO_reg_2[0 +: RAM_DBW];
+		  assign wr_fifo_rdata_2[RAM_DBW  +: RAM_DBW]  	= hbc_dq_IN_HI_reg_2[0 +: RAM_DBW];
+         `IP_MODULE_NAME(efx_fifo_top) #(
+             .SYNC_CLK           (0),
+             .OUTPUT_REG         (0),
+             .MODE               ("STANDARD"),
+             .PIPELINE_REG       (1),
+             .OPTIONAL_FLAGS     (1),
+             .PROGRAMMABLE_FULL  ("NONE"),
+             .PROGRAMMABLE_EMPTY ("NONE"),
+             .ASYM_WIDTH_RATIO   (4),
+             .DATA_WIDTH         (RAM_DBW_TWO*2),
+             .DEPTH              (16)
+         ) rd_data_fifo (
+             .a_rst_i        (~rst_n),
+             .wr_clk_i       (clk_cal),
+             .rd_clk_i       (clk),
+             .wr_en_i        (rdfifo_wr_en_w),
+             .wdata          ({wr_fifo_rdata_2,wr_fifo_rdata}),
+             .rd_en_i        (~rd_fifo_empty),
+             .rdata          (rd_fifo_rdata),
+             .rd_valid_o     (i_rdav_fifo),
+             .full_o         (),
+             .prog_full_o    (),
+             .empty_o        (rd_fifo_empty)
+         );
+      end
+      else begin
+         `IP_MODULE_NAME(efx_fifo_top) #(
+             .SYNC_CLK           (0),
+             .OUTPUT_REG         (0),
+             .MODE               ("STANDARD"),
+             .PIPELINE_REG       (1),
+             .OPTIONAL_FLAGS     (1),
+             .PROGRAMMABLE_FULL  ("NONE"),
+             .PROGRAMMABLE_EMPTY ("NONE"),
+             .ASYM_WIDTH_RATIO   (4),
+             .DATA_WIDTH         (RAM_DBW_TWO*2),
+             .DEPTH              (16)
+         ) rd_data_fifo (
+             .a_rst_i        (~rst_n),
+             .wr_clk_i       (clk_cal),
+             .rd_clk_i       (clk),
+             .wr_en_i        (rdfifo_wr_en),
+             .wdata          (wr_fifo_rdata),
+             .rd_en_i        (~rd_fifo_empty),
+             .rdata          (rd_fifo_rdata),
+             .rd_valid_o     (i_rdav_fifo),
+             .full_o         (),
+             .prog_full_o    (),
+             .empty_o        (rd_fifo_empty)
+         );
+         end
+     end
+endgenerate
+assign hbc_cs_n_en = (init_cs_n | ~init_flag) & (mcwr_cs_n | ~mcwr_flag) & (mcrd_cs_n | ~mcrd_flag); 
+assign hbc_ck_en = (init_ck_en & init_flag) | (mcwr_ck_en & mcwr_flag) | (mcrd_ck_en & mcrd_flag);
+always @ (*) begin
+	if (!rst_n) begin hbc_cs_n           <=  1'b1; end
+	else begin hbc_cs_n        <=  hbc_cs_n_en; end
+end 
+always @ (posedge clk or negedge rst_n)
+begin
+     if (!rst_n) begin
+          hbc_ck_p_HI        <=  1'b0;
+          hbc_ck_p_LO        <=  1'b0;
+          hbc_ck_n_HI        <=  1'b0;
+          hbc_ck_n_LO        <=  1'b0;
+          hbc_rwds_OUT_HI <=  {RAM_DBW/8{1'b0}};
+          hbc_rwds_OUT_LO <=  {RAM_DBW/8{1'b0}};
+          hbc_rwds_OE       <=  {RAM_DBW/8{1'b0}};
+          hbc_dq_OUT_HI   <=  {RAM_DBW{1'b0}};
+          hbc_dq_OUT_LO   <=  {RAM_DBW{1'b0}};
+          hbc_dq_OE       <=  {RAM_DBW{1'b0}};
+     end
+     else begin
+          hbc_ck_p_HI     <=  hbc_ck_en;
+          hbc_ck_p_LO     <=  1'b0;
+          hbc_ck_n_HI     <=  1'b0;
+          hbc_ck_n_LO     <=  hbc_ck_en;
+          hbc_rwds_OUT_HI <=  mcwr_rwds_OUT_HI[(RAM_DBW/8)-1:0] & {RAM_DBW/8{mcwr_flag}};
+          hbc_rwds_OUT_LO <=  mcwr_rwds_OUT_LO[(RAM_DBW/8)-1:0] & {RAM_DBW/8{mcwr_flag}};
+          hbc_rwds_OE       <=  mcwr_rwds_OE & {RAM_DBW/8{mcwr_flag}};
+          hbc_dq_OUT_HI   <=  (init_dq_OUT_HI & {RAM_DBW{init_flag}}) | (mcwr_dq_OUT_HI & {RAM_DBW{mcwr_flag}})  | (mcrd_dq_OUT_HI & {RAM_DBW{mcrd_flag}});
+          hbc_dq_OUT_LO   <=  (init_dq_OUT_LO & {RAM_DBW{init_flag}}) | (mcwr_dq_OUT_LO & {RAM_DBW{mcwr_flag}})  | (mcrd_dq_OUT_LO & {RAM_DBW{mcrd_flag}});
+          hbc_dq_OE       <=  (init_dq_OE & {RAM_DBW{init_flag}})     | (mcwr_dq_OE & {RAM_DBW{mcwr_flag}})      | (mcrd_dq_OE & {RAM_DBW{mcrd_flag}});
+     end
+end
+generate
+if (DUAL_RAM == 1) begin
+	always @ (*) begin
+		if (!rst_n) begin hbc_cs_n_2           <=  1'b1; end
+		else begin hbc_cs_n_2        <=  hbc_cs_n_en;end
+	end 
+	always @ (posedge clk or negedge rst_n) begin
+		 if (!rst_n) begin
+			  hbc_ck_p_HI_2        <=  1'b0;
+			  hbc_ck_p_LO_2        <=  1'b0;
+			  hbc_ck_n_HI_2        <=  1'b0;
+			  hbc_ck_n_LO_2        <=  1'b0;
+			  hbc_rwds_OUT_HI_2 <=  {RAM_DBW/8{1'b0}};
+			  hbc_rwds_OUT_LO_2 <=  {RAM_DBW/8{1'b0}};
+			  hbc_rwds_OE_2       <=  {RAM_DBW/8{1'b0}};
+			  hbc_dq_OUT_HI_2   <=  {RAM_DBW{1'b0}};
+			  hbc_dq_OUT_LO_2   <=  {RAM_DBW{1'b0}};
+			  hbc_dq_OE_2       <=  {RAM_DBW{1'b0}};
+		 end
+		 else begin
+			  hbc_ck_p_HI_2     <=  hbc_ck_en;
+			  hbc_ck_p_LO_2     <=  1'b0;
+			  hbc_ck_n_HI_2     <=  1'b0;
+			  hbc_ck_n_LO_2     <=  hbc_ck_en;
+			  hbc_rwds_OUT_HI_2 <=  mcwr_rwds_OUT_HI[(RAM_DBW/8)-1:0] & {RAM_DBW/8{mcwr_flag}};
+			  hbc_rwds_OUT_LO_2 <=  mcwr_rwds_OUT_LO & {RAM_DBW/8{mcwr_flag}};
+			  hbc_rwds_OE_2       <=  mcwr_rwds_OE & {RAM_DBW/8{mcwr_flag}};
+			  hbc_dq_OUT_HI_2   <=  (init_dq_OUT_HI & {RAM_DBW{init_flag}}) | (mcwr_dq_OUT_HI_2 & {RAM_DBW{mcwr_flag}})  | (mcrd_dq_OUT_HI & {RAM_DBW{mcrd_flag}});
+			  hbc_dq_OUT_LO_2   <=  (init_dq_OUT_LO & {RAM_DBW{init_flag}}) | (mcwr_dq_OUT_LO_2 & {RAM_DBW{mcwr_flag}})  | (mcrd_dq_OUT_LO & {RAM_DBW{mcrd_flag}});
+			  hbc_dq_OE_2       <=  (init_dq_OE & {RAM_DBW{init_flag}})     | (mcwr_dq_OE & {RAM_DBW{mcwr_flag}})      | (mcrd_dq_OE & {RAM_DBW{mcrd_flag}});
+		 end
+	end
+end
+endgenerate
+`ifdef SIM
+initial
+begin
+    ca[0] = 'h0;
+    ca[1] = 'h0;
+    ca[2] = 'h0;
+    ca[3] = 'h0;
+    ca[4] = 'h0;
+    ca[5] = 'h0;
+end
+`endif
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+`timescale 100ps/10ps
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_cal_controller_top) #(
+    parameter        CAL_MODE       = 0,
+    parameter        CAL_BYTES      = 'h100,
+    parameter        RAM_DBW        = 8,
+    parameter        RAM_ABW        = 25,
+    parameter        DQ_CAL_STEPS   = 8,
+    parameter        DQ_DLY_W       = 3,
+    parameter        RWDS_CAL_STEPS = 8,
+    parameter        RWDS_DLY_W     = 3,
+    parameter [15:0] CFG_CR0        = 0,
+    parameter [3:0]  CR0_ILC        = 4'b0010,
+    parameter [15:0] CFG_CR1        = 0,
+    parameter [47:0] CR0W_CA        = 0,
+    parameter [47:0] CR1W_CA        = 0,
+    parameter        DQIN_MODE      = "",
+    parameter        TCYC           = 10000,
+    parameter        TCSM           = 4000000,
+    parameter        TVCS           = 150000000,
+    parameter        TRH            = 200000,
+    parameter        TRTR           = 40000,
+    parameter        PLL_MANUAL     = 0,
+    parameter		 DUAL_RAM 		= 1,
+    parameter		 INDIVI_DUAL_CAL 	= 1,
+    parameter		 RAM_DBW_CAL 	= (DUAL_RAM == 1)? RAM_DBW *2 : RAM_DBW
+) (
+    input  wire                        clk, 
+    input  wire                        clk_cal, 
+    input  wire						   clk_cal_2, 
+    input  wire                        rst_n, 
+    input  wire                        calrst_n, 
+    input  wire                        calrst_n_2, 
+    input  wire                        h_rst_n, 
+    input  wire                        h_ctc,
+    output wire                        h_pause,
+    output wire                        h_cal_en,
+    input  wire                        h_req            , 
+    input  wire                        h_last           , 
+    input  wire [RAM_ABW-1:0]          h_addr           , 
+    input  wire                        h_btype          , 
+    input  wire                        h_atype          , 
+    input  wire                        h_rwen           , 
+    output reg                         h_mrdy, 
+    input  wire [RAM_DBW_CAL/4-1:0]    h_wdm, 
+    input  wire [RAM_DBW_CAL*2-1:0]    h_wdata, 
+    output wire                        h_wrdy, 
+    output wire [RAM_DBW_CAL*2-1:0]    h_rdata, 
+    output wire                        h_rdav, 
+    input  wire                        dyn_pll_phase_en,
+    input  wire [RWDS_DLY_W-1:0]       dyn_pll_phase_sel,
+    output wire [RWDS_DLY_W-1:0]       rwds_delay,
+    output wire [RWDS_DLY_W-1:0]       rwds_delay_HI,
+    output wire [RWDS_DLY_W-1:0]       rwds_delay_LO,
+    output wire [DQ_DLY_W*RAM_DBW-1:0] dq_delay,
+    output wire [26:0]                 debug_info, 
+    input wire shift_done,
+    output wire                        hbc_rst_n        , 
+    output wire                        hbc_cs_n         , 
+    output wire                        hbc_ck_p_HI      , 
+    output wire                        hbc_ck_p_LO      , 
+    output wire                        hbc_ck_n_HI      , 
+    output wire                        hbc_ck_n_LO      , 
+    output wire [RAM_DBW/8-1:0]        hbc_rwds_OUT_HI  , 
+    output wire [RAM_DBW/8-1:0]        hbc_rwds_OUT_LO  , 
+    input  wire [RAM_DBW/8-1:0]        hbc_rwds_IN_HI   , 
+    input  wire [RAM_DBW/8-1:0]        hbc_rwds_IN_LO   , 
+    input  wire [RAM_DBW/8-1:0]        hbc_rwds_IN_delay,
+    output wire [RAM_DBW/8-1:0]        hbc_rwds_OE      , 
+    output wire [RAM_DBW-1:0]          hbc_dq_OUT_HI    , 
+    output wire [RAM_DBW-1:0]          hbc_dq_OUT_LO    , 
+    input  wire [RAM_DBW-1:0]          hbc_dq_IN_HI     , 
+    input  wire [RAM_DBW-1:0]          hbc_dq_IN_LO     , 
+    output wire [RAM_DBW-1:0]          hbc_dq_OE,          
+	output wire                 hbc_rst_n_2,
+    output wire                 hbc_cs_n_2,
+    output wire                 hbc_ck_p_HI_2,
+    output wire                 hbc_ck_p_LO_2,
+    output wire                 hbc_ck_n_HI_2,
+    output wire                 hbc_ck_n_LO_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_HI_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_LO_2,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_HI_2,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_LO_2,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_delay_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OE_2,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_LO_2,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_HI_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_HI_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_LO_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OE_2
+);
+wire                 init_rdy;
+wire                 cal_rstn;
+wire                 cal_en;
+wire                 cal_req;
+wire                 cal_last;
+wire [RAM_ABW-1:0]   cal_addr;
+wire                 cal_rwen;
+wire                 cal_wrdy;
+wire                 cal_rdav;
+wire                 mst_cal_done;
+wire                 mst_cal_fail;
+wire                 cal_done;
+wire                 cal_fail;
+wire [RAM_DBW_CAL*2-1:0] cal_wdata;
+wire [RAM_DBW_CAL*2-1:0] cal_rdata;
+`IP_MODULE_NAME(hbram_cal_ctrl) #(
+    .CAL_MODE  (CAL_MODE),
+    .RAM_DBW   (RAM_DBW),
+    .RAM_ABW   (RAM_ABW),
+    .CFG_CR0   (CFG_CR0),
+    .CR0_ILC   (CR0_ILC),
+    .CFG_CR1   (CFG_CR1),
+    .CR0W_CA   (CR0W_CA),
+    .CR1W_CA   (CR1W_CA),
+    .DQIN_MODE (DQIN_MODE),
+    .TCYC      (TCYC),
+    .TCSM      (TCSM),
+    .TVCS      (TVCS),
+    .TRH       (TRH),
+    .TRTR      (TRTR),
+    .DUAL_RAM  (DUAL_RAM),
+    .INDIVI_DUAL_CAL (INDIVI_DUAL_CAL)
+) hbram_cal_ctrl_inst (
+    .clk               (clk),
+    .clk_cal           (clk_cal),
+    .clk_cal_2		   (clk_cal_2),
+    .rst_n             (rst_n),
+    .calrst_n          (calrst_n),
+    .calrst_n_2		   (calrst_n_2),
+    .h_rst_n           (h_rst_n),
+    .h_req             (h_req),
+    .h_last            (h_last),
+    .h_addr            (h_addr),
+    .h_btype           (h_btype),
+    .h_atype           (h_atype),
+    .h_rwen            (h_rwen),
+    .h_mrdy            (init_rdy),
+    .h_wdm             (h_wdm),
+    .h_wdata           (h_wdata),
+    .h_wrdy            (h_wrdy),
+    .h_rdata           (h_rdata),
+    .h_rdav            (h_rdav),
+    .h_ctc             (h_ctc),
+    .h_pause           (h_pause),
+    .cal_req           (cal_req),
+    .cal_last          (cal_last),
+    .cal_done          (cal_done),
+    .cal_addr          (cal_addr),
+    .cal_rwen          (cal_rwen),
+    .cal_wdata         (cal_wdata),
+    .cal_wrdy          (cal_wrdy),
+    .cal_rdata         (cal_rdata),
+    .cal_rdav          (cal_rdav),
+    .mst_cal_done 	   (mst_cal_done),
+    .hbc_rst_n         (hbc_rst_n),
+    .hbc_cs_n          (hbc_cs_n),
+    .hbc_ck_p_HI       (hbc_ck_p_HI),
+    .hbc_ck_p_LO       (hbc_ck_p_LO),
+    .hbc_ck_n_HI       (hbc_ck_n_HI),
+    .hbc_ck_n_LO       (hbc_ck_n_LO),
+    .hbc_rwds_OUT_HI   (hbc_rwds_OUT_HI),
+    .hbc_rwds_OUT_LO   (hbc_rwds_OUT_LO),
+    .hbc_rwds_IN_HI    (hbc_rwds_IN_HI),
+    .hbc_rwds_IN_LO    (hbc_rwds_IN_LO),
+    .hbc_rwds_IN_delay (hbc_rwds_IN_delay),
+    .hbc_rwds_OE       (hbc_rwds_OE),
+    .hbc_dq_OUT_HI     (hbc_dq_OUT_HI),
+    .hbc_dq_OUT_LO     (hbc_dq_OUT_LO),
+    .hbc_dq_IN_HI      (hbc_dq_IN_HI),
+    .hbc_dq_IN_LO      (hbc_dq_IN_LO),
+    .hbc_dq_OE         (hbc_dq_OE),
+    .hbc_rst_n_2           (hbc_rst_n_2),
+    .hbc_cs_n_2            (hbc_cs_n_2),
+	.hbc_ck_p_HI_2         (hbc_ck_p_HI_2),
+	.hbc_ck_p_LO_2         (hbc_ck_p_LO_2),
+	.hbc_ck_n_HI_2         (hbc_ck_n_HI_2),
+	.hbc_ck_n_LO_2         (hbc_ck_n_LO_2),
+	.hbc_rwds_OUT_HI_2     (hbc_rwds_OUT_HI_2),
+	.hbc_rwds_OUT_LO_2     (hbc_rwds_OUT_LO_2),
+	.hbc_rwds_IN_HI_2      (hbc_rwds_IN_HI_2),
+	.hbc_rwds_IN_LO_2      (hbc_rwds_IN_LO_2),
+	.hbc_rwds_IN_delay_2   (hbc_rwds_IN_delay_2),
+	.hbc_rwds_OE_2         (hbc_rwds_OE_2),
+	.hbc_dq_OUT_HI_2       (hbc_dq_OUT_HI_2),
+	.hbc_dq_OUT_LO_2       (hbc_dq_OUT_LO_2),
+	.hbc_dq_IN_HI_2        (hbc_dq_IN_HI_2),
+	.hbc_dq_IN_LO_2        (hbc_dq_IN_LO_2),
+	.hbc_dq_OE_2           (hbc_dq_OE_2)
+);
+generate
+    if (PLL_MANUAL) begin
+        assign rwds_delay   = dyn_pll_phase_sel;
+        assign h_cal_en     = dyn_pll_phase_en;
+        assign cal_done     = init_rdy;
+        assign cal_req      = 1'b0;
+        assign cal_last     = 1'b0;
+        assign cal_addr     = 'h0;
+        assign cal_rwen     = 1'b0;
+        assign cal_wdata    = 'h0;
+        assign debug_info   = {11'd0,3'b0,2'd0};
+        always@ (posedge clk) begin
+            h_mrdy <= init_rdy;
+        end
+    end
+    else begin
+		always@ (posedge clk or negedge rst_n) begin
+			if (!rst_n) begin
+				h_mrdy <= 'd0;
+			end else begin
+				h_mrdy <= mst_cal_done & ~mst_cal_fail; 
+			end
+		end
+        assign h_cal_en     = cal_en;
+        `IP_MODULE_NAME(hbram_cal_mst) hbram_cal_mst_inst (
+            .clk          (clk),
+            .rst_n        (rst_n),
+            .init_rdy     (init_rdy),
+            .cal_rstn     (cal_rstn),
+            .cal_en       (cal_en),
+            .cal_done     (cal_done),
+            .cal_fail     (cal_fail),
+            .shift_done	(shift_done),
+            .mst_cal_done (mst_cal_done),
+            .mst_cal_fail (mst_cal_fail)
+        );
+        `IP_MODULE_NAME(hbram_cal_slv) #(
+            .CAL_BYTES      (CAL_BYTES),
+            .RAM_DBW        (RAM_DBW),
+            .RAM_ABW        (RAM_ABW),
+            .DQ_STEPS       (DQ_CAL_STEPS),
+            .DQ_DLY_W       (DQ_DLY_W),
+            .RWDS_STEPS     (RWDS_CAL_STEPS),
+            .RWDS_DLY_W     (RWDS_DLY_W),
+            .CAL_MODE		(CAL_MODE),
+            .DUAL_RAM		(DUAL_RAM),
+            .INDIVI_DUAL_CAL 	(INDIVI_DUAL_CAL)
+        ) hbram_cal_slv_inst (
+            .clk            	(clk),
+            .rst_n          	(cal_rstn),
+            .cal_req        	(cal_req),
+            .cal_last       	(cal_last),
+            .cal_done       	(cal_done),
+            .cal_fail       	(cal_fail),
+            .cal_addr       	(cal_addr),
+            .cal_rwen       	(cal_rwen),
+            .cal_wdata      	(cal_wdata),
+            .cal_wrdy       	(cal_wrdy),
+            .cal_rdata      	(cal_rdata),
+            .cal_rdav       	(cal_rdav),
+            .cal_en         	(cal_en),
+            .cal_rwds_delay 	(rwds_delay),
+            .cal_rwds_delay_HI 	(rwds_delay_HI),
+            .cal_rwds_delay_LO 	(rwds_delay_LO),
+            .cal_dq_delay   	(dq_delay),
+            .cal_debug_info 	(debug_info)
+        );
+end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_cal_axi_top) #(
+    parameter        RAM_DBW        = 8,
+    parameter        RAM_ABW        = 32,
+    parameter [15:0] CFG_CR0        = 0,
+    parameter		 CR0_ILC		= 1'b1,
+    parameter [15:0] CFG_CR1        = 0,
+    parameter        AXI_IF         = 1,
+    parameter        AXI_DBW        = 32,
+    parameter        AXI_SBW        = AXI_DBW/8,
+    parameter        AXI_AWR_DEPTH  = 16,
+    parameter        AXI_W_DEPTH    = 256,
+    parameter        AXI_R_DEPTH    = 256,
+    parameter        DQIN_MODE      = "",
+    parameter [4:0]  CAL_CLK_CH     = 5'b00001,
+    parameter        CAL_MODE       = 2,
+    parameter        CAL_DQ_STEPS   = 8,
+    parameter        CAL_RWDS_STEPS = 8,
+    parameter        CAL_BYTES      = 'h100,
+    parameter        TCYC           = 100000,
+    parameter        TCSM           = 4000000,
+    parameter        TVCS           = 150000000,
+    parameter        TRH            = 200000,
+    parameter        TRTR           = 40000,
+    parameter        RWDS_DLY_W     = $clog2(CAL_RWDS_STEPS),
+    parameter        PLL_MANUAL     = 0,
+    parameter		 DUAL_RAM		= 1,
+    parameter		 INDIVI_DUAL_CAL		= 1,
+    parameter [4:0]  CAL_CLK_CH_LO     = 5'b00001,
+    parameter [4:0]  CAL_CLK_CH_HI     = 5'b00010
+) (
+    input  wire                 rst,
+    input  wire                 ram_clk,
+    input  wire                 ram_clk_cal,
+    input  wire                 ram_clk_cal_2,
+    input  wire                 io_axi_clk,
+    input  wire                 io_arw_valid,
+    input  wire [31:0]          io_arw_payload_addr,
+    input  wire [7:0]           io_arw_payload_id,
+    input  wire [7:0]           io_arw_payload_len,
+    input  wire [2:0]           io_arw_payload_size,
+    input  wire [1:0]           io_arw_payload_burst,
+    input  wire [1:0]           io_arw_payload_lock,
+    input  wire                 io_arw_payload_write,
+    output wire                 io_arw_ready,
+    input  wire [7:0]           io_w_payload_id,
+    input  wire                 io_w_valid,
+    input  wire [AXI_DBW-1:0]   io_w_payload_data,
+    input  wire [AXI_SBW-1:0]   io_w_payload_strb,
+    input  wire                 io_w_payload_last,
+    output wire                 io_w_ready,
+    input  wire                 io_b_ready,
+    output wire                 io_b_valid,
+    output wire [7:0]           io_b_payload_id,
+    input  wire                 io_r_ready,
+    output wire                 io_r_valid,
+    output wire [AXI_DBW-1:0]   io_r_payload_data,
+    output wire [7:0]           io_r_payload_id,
+    output wire [1:0]           io_r_payload_resp,
+    output wire                 io_r_payload_last,
+    input  wire                 native_ram_rdwr,
+    input  wire                 native_ram_en,
+    input  wire [AXI_DBW-1:0]   native_wr_data,
+    input  wire [AXI_SBW-1:0]   native_wr_datamask,
+    input  wire [31:0]          native_wr_address,
+    input  wire                 native_wr_en,
+    input  wire [10:0]          native_wr_burst_len,
+    output wire                 native_wr_buf_ready,
+    output wire [AXI_DBW-1:0]   native_rd_data,
+    output wire                 native_rd_valid,
+    output wire                 native_ctrl_idle,
+    input  wire                 dyn_pll_phase_en,
+    input  wire [2:0]           dyn_pll_phase_sel,
+    output wire                 hbc_cal_SHIFT_ENA,
+    output wire [2:0]           hbc_cal_SHIFT,
+    output wire [2:0]           hbc_cal_SHIFT_HI,
+    output wire [2:0]           hbc_cal_SHIFT_LO,
+    output wire [4:0]           hbc_cal_SHIFT_SEL,
+    output wire [26:0]          hbc_cal_debug_info,
+    output wire                 hbc_rst_n,
+    output wire                 hbc_cs_n,
+    output wire                 hbc_ck_p_HI,
+    output wire                 hbc_ck_p_LO,
+    output wire                 hbc_ck_n_HI,
+    output wire                 hbc_ck_n_LO,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_HI,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_LO,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_HI,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_LO,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OE,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_HI,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_LO,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_HI,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_LO,
+    output wire [RAM_DBW-1:0]   hbc_dq_OE,
+	output wire                 hbc_rst_n_2,
+    output wire                 hbc_cs_n_2,
+    output wire                 hbc_ck_p_HI_2,
+    output wire                 hbc_ck_p_LO_2,
+    output wire                 hbc_ck_n_HI_2,
+    output wire                 hbc_ck_n_LO_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_HI_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OUT_LO_2,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_HI_2,
+    input  wire [RAM_DBW/8-1:0] hbc_rwds_IN_LO_2,
+    output wire [RAM_DBW/8-1:0] hbc_rwds_OE_2,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_LO_2,
+    input  wire [RAM_DBW-1:0]   hbc_dq_IN_HI_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_HI_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OUT_LO_2,
+    output wire [RAM_DBW-1:0]   hbc_dq_OE_2,
+    output wire                 hbc_cal_pass
+);
+localparam DQ_DLY_W       = $clog2(CAL_DQ_STEPS);
+localparam [47:0] CR0W_CA = {8'h00, 8'h00, 8'h00, 8'h01, 8'h00, 8'h60};
+localparam [47:0] CR1W_CA = {8'h01, 8'h00, 8'h00, 8'h01, 8'h00, 8'h60};
+localparam RAM_DBW_TWO = (DUAL_RAM == 1)? RAM_DBW*2 : RAM_DBW;
+wire                        h_cal_en;
+wire                        h_req;
+wire                        h_last;
+wire [RAM_ABW-1:0]          h_addr;
+wire                        h_btype;
+wire                        h_atype;
+wire                        h_rwen;
+wire                        h_mrdy;
+wire [RAM_DBW_TWO/4-1:0]        h_wdm;
+wire [RAM_DBW_TWO*2-1:0]        h_wdata;
+wire                        h_wrdy;
+wire [RAM_DBW_TWO*2-1:0]        h_rdata;
+wire                        h_rdav;
+wire                        h_ctc;
+wire                        h_pause;
+wire                        io_axi_rstn;
+wire                        ram_rstn;
+wire [RWDS_DLY_W-1:0]       rwds_delay_w;
+wire [RWDS_DLY_W-1:0]       rwds_delay_w_HI;
+wire [RWDS_DLY_W-1:0]       rwds_delay_w_LO;
+wire [DQ_DLY_W*RAM_DBW-1:0] dq_delay_w;
+wire 						io_axi_rst_w;
+wire 						ram_rst_w;
+wire 						ramcal_rst_w;
+wire 						ramcal_rst_w2;
+wire [4:0] 					hbc_cal_SHIFT_SEL_user;
+(* async_reg = "true" *) reg  [2:0]                  axi_rst_sync;
+(* async_reg = "true" *) reg  [2:0]                  ram_rst_sync;
+(* async_reg = "true" *) reg  [2:0]                 ramcal_rst_sync;
+(* async_reg = "true" *) reg  [2:0]                 ramcal_rst_sync_2;
+reg  [RWDS_DLY_W-1:0]       hbc_rwds_delay;
+reg  [RWDS_DLY_W-1:0]       hbc_rwds_delay_HI;
+reg  [RWDS_DLY_W-1:0]       hbc_rwds_delay_LO;
+reg  [DQ_DLY_W*RAM_DBW-1:0] hbc_dq_delay ;
+reg [4:0] shift_clk_cnt;
+reg shift_done;
+`IP_MODULE_NAME(efx_resetsync) #(
+	.ASYNC_STAGE 	(2),
+	.ACTIVE_LOW 	(0)
+) axi_rst_syncronizer (
+	.clk 	(io_axi_clk),
+	.reset 	(rst),
+	.d_o 	(io_axi_rst_w)
+);
+assign io_axi_rstn = ~io_axi_rst_w;
+`IP_MODULE_NAME(efx_resetsync) #(
+	.ASYNC_STAGE 	(2),
+	.ACTIVE_LOW 	(0)
+) ram_rst_syncronizer (
+	.clk 	(ram_clk),
+	.reset 	(rst),
+	.d_o 	(ram_rst_w)
+);
+assign ram_rstn = ~ram_rst_w;
+`IP_MODULE_NAME(efx_resetsync) #(
+	.ASYNC_STAGE 	(2),
+	.ACTIVE_LOW 	(0)
+) ramcal_rst_syncronizer (
+	.clk 	(ram_clk_cal),
+	.reset 	(rst),
+	.d_o 	(ramcal_rst_w)
+);
+assign ramcal_rstn = ~ramcal_rst_w;
+`IP_MODULE_NAME(efx_resetsync) #(
+	.ASYNC_STAGE 	(2),
+	.ACTIVE_LOW 	(0)
+) ramcal_rst_syncronizer_2 (
+	.clk 	(ram_clk_cal_2),
+	.reset 	(rst),
+	.d_o 	(ramcal_rst_w2)
+);
+assign ramcal_rstn_2 = ~ramcal_rst_w2;
+assign hbc_cal_pass = h_mrdy;
+wire shift_done_w;
+assign shift_done_w = shift_done;
+reg shift_ena;
+always @ (posedge ram_clk or posedge ram_rst_w) begin
+	if (ram_rst_w) begin
+		shift_done <= 0;
+	end
+	else if (shift_clk_cnt == 'd13) begin
+		shift_done <= 1;
+	end
+	else begin
+		shift_done <= shift_done;
+	end
+end
+always @ (posedge ram_clk or posedge ram_rst_w) begin
+	if (ram_rst_w) begin
+		shift_clk_cnt <= 0;
+	end
+	else if (shift_clk_cnt == 'b11111 ) begin
+		shift_clk_cnt <= shift_clk_cnt;
+	end
+	else if (hbc_cal_debug_info[0]) begin
+		shift_clk_cnt <= shift_clk_cnt + 1'b1;
+	end
+end
+always @ (posedge ram_clk or posedge ram_rst_w) begin
+	if (ram_rst_w) begin
+		shift_ena <= 0;
+	end
+	else if ((shift_clk_cnt > 'd4 && shift_clk_cnt < 'd13) || (shift_clk_cnt > 'd16 && shift_clk_cnt < 'd25)) begin 
+		shift_ena <= 1;
+	end
+	else begin
+		shift_ena <= 0;
+	end
+end
+generate
+if (DUAL_RAM == 1 && INDIVI_DUAL_CAL == 1) begin
+	always@(posedge ram_clk or negedge ram_rstn) begin
+		if (!ram_rstn) begin
+			hbc_rwds_delay_HI <= 'b0;
+			hbc_rwds_delay_LO <= 'b0;
+		end
+		else begin
+			hbc_rwds_delay_HI <= rwds_delay_w_HI;
+			hbc_rwds_delay_LO <= rwds_delay_w_LO;
+		end
+	end
+	assign hbc_cal_SHIFT_ENA 		= (hbc_cal_debug_info[0])? shift_ena:h_cal_en;
+	assign hbc_cal_SHIFT     		= (shift_done)? hbc_rwds_delay_LO : hbc_rwds_delay_HI;
+	assign hbc_cal_SHIFT_SEL 		= (~hbc_cal_debug_info[0])? (CAL_CLK_CH_HI|CAL_CLK_CH_LO) : hbc_cal_SHIFT_SEL_user;
+	assign hbc_cal_SHIFT_SEL_user 	= (shift_done)? CAL_CLK_CH_HI : CAL_CLK_CH_LO;
+	assign hbc_cal_SHIFT_HI     	= hbc_rwds_delay_HI;
+	assign hbc_cal_SHIFT_LO    	 	= hbc_rwds_delay_LO;
+end
+else begin
+	always@(posedge ram_clk)
+	begin
+		hbc_rwds_delay <= rwds_delay_w;
+		hbc_dq_delay   <= dq_delay_w;
+	end
+	assign hbc_cal_SHIFT_ENA = h_cal_en;
+	assign hbc_cal_SHIFT     = hbc_rwds_delay;
+	assign hbc_cal_SHIFT_SEL = CAL_CLK_CH;
+end
+endgenerate
+generate
+    if (AXI_IF) begin
+        `IP_MODULE_NAME(hbram_axi_wrapper) #(
+            .RAM_DBW       (RAM_DBW),
+            .RAM_ABW       (RAM_ABW),
+            .AXI_DBW       (AXI_DBW),
+            .AXI_AWR_DEPTH (AXI_AWR_DEPTH),
+            .AXI_W_DEPTH   (AXI_W_DEPTH),
+            .AXI_R_DEPTH   (AXI_R_DEPTH),
+            .DUAL_RAM		(DUAL_RAM)
+        ) hbram_axi_wrapper_inst (
+            .ram_clk               (ram_clk),
+            .ram_rstn              (ram_rstn),
+            .io_axi_clk            (io_axi_clk),
+            .io_axi_rstn           (io_axi_rstn),
+            .io_arw_valid          (io_arw_valid),
+            .io_arw_ready          (io_arw_ready),
+            .io_arw_payload_addr   (io_arw_payload_addr),
+            .io_arw_payload_id     (io_arw_payload_id),
+            .io_arw_payload_len    (io_arw_payload_len),
+            .io_arw_payload_size   (io_arw_payload_size),
+            .io_arw_payload_burst  (io_arw_payload_burst),
+            .io_arw_payload_write  (io_arw_payload_write),
+            .io_w_payload_id       (io_w_payload_id),
+            .io_w_valid            (io_w_valid),
+            .io_w_ready            (io_w_ready),
+            .io_w_payload_data     (io_w_payload_data),
+            .io_w_payload_strb     (io_w_payload_strb),
+            .io_w_payload_last     (io_w_payload_last),
+            .io_b_valid            (io_b_valid),
+            .io_b_ready            (io_b_ready),
+            .io_b_payload_id       (io_b_payload_id),
+            .io_r_valid            (io_r_valid),
+            .io_r_ready            (io_r_ready),
+            .io_r_payload_data     (io_r_payload_data),
+            .io_r_payload_id       (io_r_payload_id),
+            .io_r_payload_resp     (io_r_payload_resp),
+            .io_r_payload_last     (io_r_payload_last),
+            .h_ctc                 (h_ctc),
+            .h_pause               (h_pause),
+            .h_req                 (h_req),
+            .h_last                (h_last),
+            .h_addr                (h_addr),
+            .h_btype               (h_btype),
+            .h_atype               (h_atype),
+            .h_rwen                (h_rwen),
+            .h_mrdy                (h_mrdy),
+            .h_wdm                 (h_wdm),
+            .h_wdata               (h_wdata),
+            .h_wrdy                (h_wrdy),
+            .h_rdata               (h_rdata),
+            .h_rdav                (h_rdav)
+        );
+    end
+    else begin
+        `IP_MODULE_NAME(hbram_native_if) # (
+            .USER_DBW          (AXI_DBW),
+            .USER_WFD          (AXI_W_DEPTH),
+            .USER_RFD          (AXI_R_DEPTH),
+            .RAM_DBW           (RAM_DBW),
+            .RAM_ABW           (RAM_ABW)
+        ) hbram_native_if_inst (
+            .user_clk          (io_axi_clk),
+            .user_rst_n        (io_axi_rstn),
+            .ram_clk           (ram_clk),
+            .ram_rst_n         (ram_rstn),
+            .user_ram_rdwr     (native_ram_rdwr),
+            .user_ram_en       (native_ram_en),
+            .user_wr_data      (native_wr_data),
+            .user_wr_burst_len (native_wr_burst_len),
+            .user_wr_datamask  (native_wr_datamask),
+            .user_wr_address   (native_wr_address),
+            .user_wr_en        (native_wr_en),
+            .user_wr_buf_ready (native_wr_buf_ready),
+            .user_rd_data      (native_rd_data),
+            .user_rd_valid     (native_rd_valid),
+            .ctrl_idle         (native_ctrl_idle),
+            .h_ready           (hbc_cal_pass ),
+            .h_ctc             (h_ctc),
+            .h_pause           (h_pause),
+            .h_req             (h_req),
+            .h_last            (h_last),
+            .h_addr            (h_addr),
+            .h_btype           (h_btype),
+            .h_atype           (h_atype),
+            .h_rwen            (h_rwen),
+            .h_mrdy            (h_mrdy),
+            .h_wdm             (h_wdm),
+            .h_wdata           (h_wdata),
+            .h_wrdy            (h_wrdy),
+            .h_rdata           (h_rdata),
+            .h_rdav            (h_rdav)
+        );
+    end
+endgenerate
+generate
+wire [RAM_DBW-1:0]   hbc_dq_IN_delay;
+wire [RAM_DBW-1:0]   hbc_dq_IN_LO_ddio;
+wire [RAM_DBW-1:0]   hbc_dq_IN_HI_ddio;
+wire [RAM_DBW/8-1:0] int_rwds_IN_delay;
+if (CAL_MODE == 3) begin
+    `IP_MODULE_NAME(hbram_cal_controller_top) #(
+        .CAL_MODE       (CAL_MODE),
+        .CAL_BYTES      (CAL_BYTES),
+        .RAM_DBW        (RAM_DBW),
+        .RAM_ABW        (RAM_ABW),
+        .CFG_CR0        (CFG_CR0),
+        .CR0_ILC		(CR0_ILC),
+        .CFG_CR1        (CFG_CR1),
+        .CR0W_CA        (CR0W_CA),
+        .CR1W_CA        (CR1W_CA),
+        .DQIN_MODE      (DQIN_MODE),
+        .TCYC           (TCYC),
+        .TCSM           (TCSM),
+        .TVCS           (TVCS),
+        .TRH            (TRH),
+        .TRTR           (TRTR),
+        .DQ_CAL_STEPS   (CAL_DQ_STEPS),
+        .DQ_DLY_W       (DQ_DLY_W),
+        .RWDS_CAL_STEPS (CAL_RWDS_STEPS),
+        .RWDS_DLY_W     (RWDS_DLY_W),
+        .PLL_MANUAL     (1),
+        .DUAL_RAM		(DUAL_RAM),
+        .INDIVI_DUAL_CAL		(INDIVI_DUAL_CAL)
+    ) hbram_cal_top_inst (
+        .clk               (ram_clk),
+        .clk_cal           (ram_clk_cal),
+        .clk_cal_2		   (ram_clk_cal_2),
+        .rst_n             (ram_rstn),
+        .calrst_n          (ramcal_rstn),
+        .calrst_n_2        (ramcal_rstn_2),
+        .h_rst_n           (ram_rstn),
+        .h_cal_en          (h_cal_en),
+        .h_ctc             (h_ctc),
+        .h_pause           (h_pause),
+        .h_req             (h_req),
+        .h_last            (h_last),
+        .h_addr            (h_addr),
+        .h_btype           (h_btype),
+        .h_atype           (h_atype),
+        .h_rwen            (h_rwen),
+        .h_mrdy            (h_mrdy),
+        .h_wdm             (h_wdm),
+        .h_wdata           (h_wdata),
+        .h_wrdy            (h_wrdy),
+        .h_rdata           (h_rdata),
+        .h_rdav            (h_rdav),
+        .dyn_pll_phase_en  (dyn_pll_phase_en),
+        .dyn_pll_phase_sel (dyn_pll_phase_sel),
+        .rwds_delay        (rwds_delay_w),
+        .dq_delay          (dq_delay_w),
+        .debug_info        (hbc_cal_debug_info),
+        .hbc_rst_n         (hbc_rst_n),
+        .hbc_cs_n          (hbc_cs_n),
+        .hbc_ck_p_HI       (hbc_ck_p_HI),
+        .hbc_ck_p_LO       (hbc_ck_p_LO),
+        .hbc_ck_n_HI       (hbc_ck_n_HI),
+        .hbc_ck_n_LO       (hbc_ck_n_LO),
+        .hbc_rwds_OUT_HI   (hbc_rwds_OUT_HI),
+        .hbc_rwds_OUT_LO   (hbc_rwds_OUT_LO),
+        .hbc_rwds_IN_HI    (hbc_rwds_IN_HI),
+        .hbc_rwds_IN_LO    (hbc_rwds_IN_LO),
+        .hbc_rwds_IN_delay (),
+        .hbc_rwds_OE       (hbc_rwds_OE),
+        .hbc_dq_OUT_HI     (hbc_dq_OUT_HI),
+        .hbc_dq_OUT_LO     (hbc_dq_OUT_LO),
+        .hbc_dq_IN_HI      (hbc_dq_IN_HI),
+        .hbc_dq_IN_LO      (hbc_dq_IN_LO),
+        .hbc_dq_OE         (hbc_dq_OE)
+    );
+end
+else if (CAL_MODE == 1) begin
+    `IP_MODULE_NAME(hbram_cal_controller_top) #(
+        .CAL_MODE       (CAL_MODE),
+        .CAL_BYTES      (CAL_BYTES),
+        .RAM_DBW        (RAM_DBW),
+        .RAM_ABW        (RAM_ABW),
+        .CFG_CR0        (CFG_CR0),
+        .CR0_ILC		(CR0_ILC),
+        .CFG_CR1        (CFG_CR1),
+        .CR0W_CA        (CR0W_CA),
+        .CR1W_CA        (CR1W_CA),
+        .DQIN_MODE      (DQIN_MODE),
+        .TCYC           (TCYC),
+        .TCSM           (TCSM),
+        .TVCS           (TVCS),
+        .TRH            (TRH),
+        .TRTR           (TRTR),
+        .DQ_CAL_STEPS   (CAL_DQ_STEPS),
+        .DQ_DLY_W       (DQ_DLY_W),
+        .RWDS_CAL_STEPS (CAL_RWDS_STEPS),
+        .RWDS_DLY_W     (RWDS_DLY_W        ),
+        .DUAL_RAM		(DUAL_RAM),
+        .INDIVI_DUAL_CAL		(INDIVI_DUAL_CAL)
+    ) hbram_cal_top_inst (
+        .clk                  (ram_clk),
+        .rst_n                (ram_rstn),
+        .calrst_n             (ramcal_rstn),
+        .h_rst_n              (ram_rstn),
+        .h_cal_en             (h_cal_en),
+        .h_ctc                (h_ctc),
+        .h_pause              (h_pause),
+        .h_req                (h_req),
+        .h_last               (h_last),
+        .h_addr               (h_addr),
+        .h_btype              (h_btype),
+        .h_atype              (h_atype),
+        .h_rwen               (h_rwen),
+        .h_mrdy               (h_mrdy),
+        .h_wdm                (h_wdm),
+        .h_wdata              (h_wdata),
+        .h_wrdy               (h_wrdy),
+        .h_rdata              (h_rdata),
+        .h_rdav               (h_rdav),
+        .rwds_delay           (rwds_delay_w),
+        .dq_delay             (dq_delay_w),
+        .debug_info           (hbc_cal_debug_info),
+        .hbc_rst_n            (hbc_rst_n),
+        .hbc_cs_n             (hbc_cs_n),
+        .hbc_ck_p_HI          (hbc_ck_p_HI),
+        .hbc_ck_p_LO          (hbc_ck_p_LO),
+        .hbc_ck_n_HI          (hbc_ck_n_HI),
+        .hbc_ck_n_LO          (hbc_ck_n_LO),
+        .hbc_rwds_OUT_HI      (hbc_rwds_OUT_HI),
+        .hbc_rwds_OUT_LO      (hbc_rwds_OUT_LO),
+        .hbc_rwds_IN_HI       (hbc_rwds_IN_HI),
+        .hbc_rwds_IN_LO       (),
+        .hbc_rwds_IN_delay    (int_rwds_IN_delay),
+        .hbc_rwds_OE          (hbc_rwds_OE),
+        .hbc_dq_OUT_HI        (hbc_dq_OUT_HI),
+        .hbc_dq_OUT_LO        (hbc_dq_OUT_LO),
+        .hbc_dq_IN_HI         (hbc_dq_IN_HI_ddio),
+        .hbc_dq_IN_LO         (hbc_dq_IN_LO_ddio),
+        .hbc_dq_OE            (hbc_dq_OE            ),
+        .hbc_rst_n_2          (hbc_rst_n_2),
+    	.hbc_cs_n_2           (hbc_cs_n_2),
+		.hbc_ck_p_HI_2        (hbc_ck_p_HI_2),
+		.hbc_ck_p_LO_2        (hbc_ck_p_LO_2),
+		.hbc_ck_n_HI_2        (hbc_ck_n_HI_2),
+		.hbc_ck_n_LO_2        (hbc_ck_n_LO_2),
+		.hbc_rwds_OUT_HI_2    (hbc_rwds_OUT_HI_2),
+		.hbc_rwds_OUT_LO_2    (hbc_rwds_OUT_LO_2),
+		.hbc_rwds_IN_HI_2     (hbc_rwds_IN_HI_2),
+		.hbc_rwds_IN_LO_2     (hbc_rwds_IN_LO_2),
+		.hbc_rwds_OE_2        (hbc_rwds_OE_2),
+		.hbc_dq_OUT_HI_2      (hbc_dq_OUT_HI_2),
+		.hbc_dq_OUT_LO_2      (hbc_dq_OUT_LO_2),
+		.hbc_dq_IN_HI_2       (hbc_dq_IN_HI_2),
+		.hbc_dq_IN_LO_2       (hbc_dq_IN_LO_2),
+		.hbc_dq_OE_2          (hbc_dq_OE_2)
+    );
+    genvar i,j,k;
+    `ifndef SIM
+    for (i=0; i< RAM_DBW/8; i=i+1) begin
+        `IP_MODULE_NAME(mux_delay) mux_delay_rwd (
+            .in  (hbc_rwds_IN_HI[i]),
+            .s   (hbc_rwds_delay),
+            .out (int_rwds_IN_delay[i]),
+            .clk (ram_clk)
+        );
+    end
+    for (j=0; j<RAM_DBW; j=j+1) begin
+        `IP_MODULE_NAME(mux_delay) mux_delay_dq (
+            .in  (hbc_dq_IN_HI[j]),
+            .s   (hbc_dq_delay[(j*$clog2(CAL_DQ_STEPS))+:$clog2(CAL_DQ_STEPS)]),
+            .out (hbc_dq_IN_delay[j]),
+            .clk (ram_clk)
+        );
+    end
+    for (k=0; k< RAM_DBW/8; k=k+1) begin
+    `IP_MODULE_NAME(soft_iddio) #(
+        .MODE (DQIN_MODE)
+    ) dq_iddio_inst (
+          .clk         (int_rwds_IN_delay[k]),
+          .ddr_din     (hbc_dq_IN_delay  [k*8+7 -: 8]),
+          .ddr_din_HI  (hbc_dq_IN_HI_ddio[k*8+7 -: 8]),
+          .ddr_din_LO  (hbc_dq_IN_LO_ddio[k*8+7 -: 8])
+    );
+    end
+    `else
+    for (k=0; k< RAM_DBW/8; k=k+1) begin
+    `IP_MODULE_NAME(soft_iddio) #(
+        .MODE (DQIN_MODE)
+    ) dq_iddio_inst (
+        .clk         (hbc_rwds_IN_HI[k]),
+        .ddr_din     (hbc_dq_IN_HI[k*8+7 -: 8]),
+        .ddr_din_HI  (hbc_dq_IN_HI_ddio[k*8+7 -: 8]),
+        .ddr_din_LO  (hbc_dq_IN_LO_ddio[k*8+7 -: 8])
+    );
+    assign int_rwds_IN_delay[k] = hbc_rwds_IN_HI[k];
+    end
+    `endif
+end
+else if (CAL_MODE == 2) begin
+    `IP_MODULE_NAME(hbram_cal_controller_top) #(
+        .CAL_MODE       (CAL_MODE),
+        .CAL_BYTES      (CAL_BYTES),
+        .RAM_DBW        (RAM_DBW),
+        .RAM_ABW        (RAM_ABW),
+        .CFG_CR0        (CFG_CR0),
+        .CR0_ILC		(CR0_ILC),
+        .CFG_CR1        (CFG_CR1),
+        .CR0W_CA        (CR0W_CA),
+        .CR1W_CA        (CR1W_CA),
+        .DQIN_MODE      (DQIN_MODE),
+        .TCYC           (TCYC),
+        .TCSM           (TCSM),
+        .TVCS           (TVCS),
+        .TRH            (TRH),
+        .TRTR           (TRTR),
+        .DQ_CAL_STEPS   (CAL_DQ_STEPS),
+        .DQ_DLY_W       (DQ_DLY_W),
+        .RWDS_CAL_STEPS (CAL_RWDS_STEPS),
+        .RWDS_DLY_W     (RWDS_DLY_W),
+        .PLL_MANUAL     (0),
+        .DUAL_RAM		(DUAL_RAM),
+        .INDIVI_DUAL_CAL		(INDIVI_DUAL_CAL)
+    ) hbram_cal_top_inst (
+        .clk               (ram_clk),
+        .clk_cal           (ram_clk_cal),
+        .clk_cal_2		   (ram_clk_cal_2),
+        .rst_n             (ram_rstn),
+        .calrst_n          (ramcal_rstn),
+        .calrst_n_2        (ramcal_rstn_2),
+        .h_rst_n           (ram_rstn),
+        .h_cal_en          (h_cal_en),
+        .h_ctc             (h_ctc),
+        .h_pause           (h_pause),
+        .h_req             (h_req),
+        .h_last            (h_last),
+        .h_addr            (h_addr),
+        .h_btype           (h_btype),
+        .h_atype           (h_atype),
+        .h_rwen            (h_rwen),
+        .h_mrdy            (h_mrdy),
+        .h_wdm             (h_wdm),
+        .h_wdata           (h_wdata),
+        .h_wrdy            (h_wrdy),
+        .h_rdata           (h_rdata),
+        .h_rdav            (h_rdav),
+        .dyn_pll_phase_en  (dyn_pll_phase_en),
+        .dyn_pll_phase_sel (dyn_pll_phase_sel),
+        .rwds_delay        (rwds_delay_w),
+        .rwds_delay_HI     (rwds_delay_w_HI),
+        .rwds_delay_LO     (rwds_delay_w_LO),
+        .dq_delay          (dq_delay_w),
+        .debug_info        (hbc_cal_debug_info),
+        .shift_done		   (shift_done_w),
+        .hbc_rst_n         (hbc_rst_n),
+        .hbc_cs_n          (hbc_cs_n),
+        .hbc_ck_p_HI       (hbc_ck_p_HI),
+        .hbc_ck_p_LO       (hbc_ck_p_LO),
+        .hbc_ck_n_HI       (hbc_ck_n_HI),
+        .hbc_ck_n_LO       (hbc_ck_n_LO),
+        .hbc_rwds_OUT_HI   (hbc_rwds_OUT_HI),
+        .hbc_rwds_OUT_LO   (hbc_rwds_OUT_LO),
+        .hbc_rwds_IN_HI    (hbc_rwds_IN_HI),
+        .hbc_rwds_IN_LO    (hbc_rwds_IN_LO),
+        .hbc_rwds_IN_delay (),
+        .hbc_rwds_OE       (hbc_rwds_OE),
+        .hbc_dq_OUT_HI     (hbc_dq_OUT_HI),
+        .hbc_dq_OUT_LO     (hbc_dq_OUT_LO),
+        .hbc_dq_IN_HI      (hbc_dq_IN_HI),
+        .hbc_dq_IN_LO      (hbc_dq_IN_LO),
+        .hbc_dq_OE         (hbc_dq_OE),
+        .hbc_rst_n_2          (hbc_rst_n_2),
+    	.hbc_cs_n_2            (hbc_cs_n_2),
+		.hbc_ck_p_HI_2         (hbc_ck_p_HI_2),
+		.hbc_ck_p_LO_2         (hbc_ck_p_LO_2),
+		.hbc_ck_n_HI_2         (hbc_ck_n_HI_2),
+		.hbc_ck_n_LO_2         (hbc_ck_n_LO_2),
+		.hbc_rwds_OUT_HI_2     (hbc_rwds_OUT_HI_2),
+		.hbc_rwds_OUT_LO_2     (hbc_rwds_OUT_LO_2),
+		.hbc_rwds_IN_HI_2      (hbc_rwds_IN_HI_2),
+		.hbc_rwds_IN_LO_2      (hbc_rwds_IN_LO_2),
+		.hbc_rwds_IN_delay_2   (),
+		.hbc_rwds_OE_2         (hbc_rwds_OE_2),
+		.hbc_dq_OUT_HI_2       (hbc_dq_OUT_HI_2),
+		.hbc_dq_OUT_LO_2       (hbc_dq_OUT_LO_2),
+		.hbc_dq_IN_HI_2        (hbc_dq_IN_HI_2),
+		.hbc_dq_IN_LO_2        (hbc_dq_IN_LO_2),
+		.hbc_dq_OE_2           (hbc_dq_OE_2)
+    );
+end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(hbram_axi_wrapper) #(
+    parameter RAM_DBW       = 8,
+    parameter RAM_2DBW      = RAM_DBW * 2,
+    parameter RAM_DMW       = RAM_2DBW / 8,
+    parameter RAM_ABW       = 25,
+    parameter AXI_DBW       = 16,
+    parameter AXI_SBW       = AXI_DBW / 8,
+    parameter AXI_AWR_DEPTH = 16,
+    parameter AXI_W_DEPTH   = 256,
+    parameter AXI_R_DEPTH   = 256,
+    parameter DUAL_RAM 		= 1,
+    parameter RAM_DBW_TWO   = (DUAL_RAM == 1)? RAM_DBW*4 : RAM_DBW * 2,
+    parameter RAM_DMW_TWO   = RAM_DBW_TWO / 8,
+    parameter D_RATIO       = AXI_DBW / RAM_DBW_TWO
+) (
+    input  wire               ram_clk,
+    input  wire               ram_rstn,
+    input  wire               io_axi_clk,
+    input  wire               io_axi_rstn,
+    input  wire               io_arw_valid,
+    input  wire [31:0]        io_arw_payload_addr,
+    input  wire [7:0]         io_arw_payload_id,
+    input  wire [7:0]         io_arw_payload_len,
+    input  wire [2:0]         io_arw_payload_size,
+    input  wire [1:0]         io_arw_payload_burst,
+    input  wire               io_arw_payload_write,
+    output wire               io_arw_ready,
+    input  wire [7:0]         io_w_payload_id,
+    input  wire               io_w_valid,
+    input  wire [AXI_DBW-1:0] io_w_payload_data,
+    input  wire [AXI_SBW-1:0] io_w_payload_strb,
+    input  wire               io_w_payload_last,
+    output wire               io_w_ready,
+    input  wire               io_b_ready,
+    output wire               io_b_valid,
+    output wire [7:0]         io_b_payload_id,
+    input  wire               io_r_ready,
+    output wire               io_r_valid,
+    output wire [AXI_DBW-1:0] io_r_payload_data,
+    output wire [7:0]         io_r_payload_id,
+    output wire [1:0]         io_r_payload_resp,
+    output wire               io_r_payload_last,
+    input  wire                h_wrdy,
+    input  wire                h_mrdy,
+    input  wire [RAM_DBW_TWO-1:0] h_rdata,
+    input  wire                h_rdav,
+    input  wire                h_pause,
+    output wire                h_rwen,
+    output wire                h_req,
+    output wire [31:0]         h_addr,
+    output wire [RAM_DBW_TWO-1:0] h_wdata,
+    output wire [RAM_DMW_TWO-1:0]  h_wdm,
+    output wire                h_last,
+    output wire                h_ctc,
+    output wire                h_btype,
+    output wire                h_atype
+);
+wire                s_ax_type;
+wire [7:0]          s_ax_id;
+wire [7:0]          s_ax_len;
+wire [2:0]          s_ax_size;
+wire [1:0]          s_ax_burst;
+wire [31:0]         s_ax_addr;
+wire                s_ax_valid;
+wire                s_ax_ready;
+wire                s_w_valid;
+wire [RAM_DBW_TWO-1:0] s_w_data;
+wire [RAM_DMW_TWO-1:0]  s_w_strb;
+wire                s_w_last;
+wire                s_w_ready;
+wire [7:0]          s_b_id;
+wire [1:0]          s_b_resp;
+wire                s_b_valid;
+wire                s_b_ready;
+wire                s_r_valid;
+wire [RAM_DBW_TWO-1:0] s_r_data;
+wire [7:0]          s_r_id;
+wire [1:0]          s_r_resp;
+wire                s_r_last;
+wire                s_r_ready;
+wire h_mrdy_sync;
+wire ax_ready;
+localparam CTRL_DBW2 = (DUAL_RAM == 1)? RAM_2DBW*2 : RAM_2DBW;
+assign io_arw_ready = h_mrdy_sync & ax_ready;
+`IP_MODULE_NAME(efx_asyncreg) # (
+    .ASYNC_STAGE (2),
+    .WIDTH (1),
+    .ACTIVE_LOW (1)
+) xh_mrdy (
+    .clk    	(io_axi_clk),
+    .reset_n    (io_axi_rstn),
+    .d_i  		(h_mrdy),
+    .d_o 		(h_mrdy_sync)
+);
+`IP_MODULE_NAME(efx_axi_amux_top) #(
+    .CTRL_DBW      (CTRL_DBW2),
+    .AXI_DBW       (AXI_DBW),
+    .AXI_SBW       (AXI_SBW),
+    .AXI_AWR_DEPTH (AXI_AWR_DEPTH),
+    .AXI_W_DEPTH   (AXI_W_DEPTH),
+    .AXI_R_DEPTH   (AXI_R_DEPTH),
+    .DUAL_RAM	   (DUAL_RAM)
+) xefx_axi_amux_top (
+    .axi_clk    (io_axi_clk),
+    .axi_rst_n  (io_axi_rstn),
+    .ctrl_clk   (ram_clk),
+    .ctrl_rst_n (ram_rstn),
+    .ax_valid   (io_arw_valid),
+    .ax_type    (io_arw_payload_write),
+    .ax_id      (io_arw_payload_id),
+    .ax_len     (io_arw_payload_len),
+    .ax_size    (io_arw_payload_size),
+    .ax_burst   (io_arw_payload_burst),
+    .ax_addr    (io_arw_payload_addr),
+    .ax_ready   (ax_ready),
+    .w_valid    (io_w_valid),
+    .w_id       (io_w_payload_id),
+    .w_data     (io_w_payload_data),
+    .w_strb     (io_w_payload_strb),
+    .w_last     (io_w_payload_last),
+    .w_ready    (io_w_ready),
+    .b_ready    (io_b_ready),
+    .b_id       (io_b_payload_id),
+    .b_valid    (io_b_valid),
+    .r_ready    (io_r_ready),
+    .r_valid    (io_r_valid),
+    .r_data     (io_r_payload_data),
+    .r_id       (io_r_payload_id),
+    .r_resp     (io_r_payload_resp),
+    .r_last     (io_r_payload_last),
+    .s_ax_type  (s_ax_type),
+    .s_ax_id    (s_ax_id),
+    .s_ax_len   (s_ax_len),
+    .s_ax_size  (s_ax_size),
+    .s_ax_burst (s_ax_burst),
+    .s_ax_addr  (s_ax_addr),
+    .s_ax_valid (s_ax_valid),
+    .s_ax_ready (s_ax_ready),
+    .s_w_valid  (s_w_valid),
+    .s_w_data   (s_w_data),
+    .s_w_strb   (s_w_strb),
+    .s_w_last   (s_w_last),
+    .s_w_ready  (s_w_ready),
+    .s_b_ready  (s_b_ready),
+    .s_b_id     (s_b_id),
+    .s_b_valid  (s_b_valid),
+    .s_b_resp   (s_b_resp),
+    .s_r_ready  (s_r_ready),
+    .s_r_valid  (s_r_valid),
+    .s_r_data   (s_r_data),
+    .s_r_id     (s_r_id),
+    .s_r_resp   (s_r_resp),
+    .s_r_last   (s_r_last),
+    .local_ax_ready (io_arw_ready)
+);
+`IP_MODULE_NAME(hbram_user_if) # (
+    .AXI_DBW  (AXI_DBW),
+    .RAM_DBW  (RAM_DBW),
+    .RAM_2DBW (RAM_DBW_TWO),
+    .RAM_DMW  (RAM_DMW_TWO),
+    .D_RATIO  (D_RATIO),
+    .DUAL_RAM (DUAL_RAM)
+) xhbram_user_if (
+    .clk      (ram_clk),
+    .rst_n    (ram_rstn),
+    .ax_valid (s_ax_valid),
+    .ax_type  (s_ax_type),
+    .ax_id    (s_ax_id),
+    .ax_len   (s_ax_len),
+    .ax_size  (s_ax_size),
+    .ax_burst (s_ax_burst),
+    .ax_addr  (s_ax_addr),
+    .ax_ready (s_ax_ready),
+    .w_valid  (s_w_valid),
+    .w_data   (s_w_data),
+    .w_strb   (s_w_strb),
+    .w_last   (s_w_last),
+    .w_ready  (s_w_ready),
+    .b_ready  (s_b_ready),
+    .b_id     (s_b_id),
+    .b_valid  (s_b_valid),
+    .b_resp   (s_b_resp),
+    .r_ready  (s_r_ready),
+    .r_valid  (s_r_valid),
+    .r_data   (s_r_data),
+    .r_id     (s_r_id),
+    .r_resp   (s_r_resp),
+    .r_last   (s_r_last),
+    .h_wrdy   (h_wrdy),
+    .h_mrdy   (h_mrdy),
+    .h_rdata  (h_rdata),
+    .h_rdav   (h_rdav),
+    .h_pause  (h_pause),
+    .h_rwen   (h_rwen),
+    .h_req    (h_req),
+    .h_addr   (h_addr),
+    .h_wdata  (h_wdata),
+    .h_wdm    (h_wdm),
+    .h_last   (h_last),
+    .h_ctc    (h_ctc),
+    .h_btype  (h_btype),
+    .h_atype  (h_atype)
+);
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(efx_bit_sync) (
+    input   wire clk,
+    input   wire rstn,
+    input   wire din,
+    output  wire dout
+);
+parameter STAGES = 2; 
+parameter RSTVAL = 0; 
+generate
+    if (STAGES > 1) begin : syn_mflop
+        reg [STAGES-1:0] sync_pipe;
+        always @(posedge clk or negedge rstn) begin
+            if (~rstn) begin
+                sync_pipe <= {(STAGES){(RSTVAL==0)? 1'b0 : 1'b1}};
+            end else begin
+                sync_pipe <= {sync_pipe[STAGES-2:0],din};
+            end
+        end
+        assign dout = sync_pipe[STAGES-1];
+    end else if (STAGES == 1) begin : syn_sflop
+        reg sync_pipe;
+        always @(posedge clk or negedge rstn) begin
+            if (~rstn) begin
+                sync_pipe <= (RSTVAL==0)? 1'b0 : 1'b1;
+            end else begin
+                sync_pipe <= din;
+            end
+        end
+        assign dout = sync_pipe;
+    end else begin : syn_nflop
+        assign dout = din;
+    end
+endgenerate
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(efx_axi_amux_top) #(
+    parameter CTRL_DBW      = 8,
+    parameter AXI_DBW       = 16,
+    parameter AXI_AWR_DEPTH = 16,
+    parameter AXI_W_DEPTH   = 256,
+    parameter AXI_R_DEPTH   = 256,
+    parameter AXI_SBW       = AXI_DBW / 8,
+    parameter DPARTITION    = AXI_DBW / CTRL_DBW,
+    parameter A2C_DBW       = AXI_DBW / DPARTITION,
+    parameter A2C_SBW       = CTRL_DBW / 8,
+    parameter EFF_AXI_R_DEPTH = AXI_R_DEPTH * DPARTITION,
+    parameter DUAL_RAM = 1
+) (
+    input  wire                axi_clk,
+    input  wire                axi_rst_n,
+    input  wire                ctrl_clk,
+    input  wire                ctrl_rst_n,
+    input  wire                ax_valid,
+    input  wire                ax_type,
+    input  wire [7:0]          ax_id,
+    input  wire [7:0]          ax_len,
+    input  wire [2:0]          ax_size,
+    input  wire [1:0]          ax_burst,
+    input  wire [31:0]         ax_addr,
+    output wire                ax_ready,
+    input  wire [7:0]          w_id,
+    input  wire                w_valid,
+    input  wire [AXI_DBW-1:0]  w_data,
+    input  wire [AXI_SBW-1:0]  w_strb,
+    input  wire                w_last,
+    output wire                w_ready,
+    input  wire                b_ready,
+    output wire [7:0]          b_id,
+    output wire [1:0]          b_resp,
+    output wire                b_valid,
+    input  wire                r_ready,
+    output wire                r_valid,
+    output wire [AXI_DBW-1:0]  r_data,
+    output wire [7:0]          r_id,
+    output wire [1:0]          r_resp,
+    output wire                r_last,
+    output wire                s_ax_type,
+    output wire [7:0]          s_ax_id,
+    output wire [7:0]          s_ax_len,
+    output wire [2:0]          s_ax_size,
+    output wire [1:0]          s_ax_burst,
+    output wire [31:0]         s_ax_addr,
+    output wire                s_ax_valid,
+    input  wire                s_ax_ready,
+    output wire                s_w_valid,
+    output wire [A2C_DBW-1:0]  s_w_data,
+    output wire [A2C_SBW-1:0]  s_w_strb,
+    output wire                s_w_last,
+    input  wire                s_w_ready,
+    input  wire [7:0]          s_b_id,
+    input  wire [1:0]          s_b_resp,
+    input  wire                s_b_valid,
+    output wire                s_b_ready,
+    input  wire                s_r_valid,
+    input  wire [CTRL_DBW-1:0] s_r_data,
+    input  wire [7:0]          s_r_id,
+    input  wire [1:0]          s_r_resp,
+    input  wire                s_r_last,
+    output wire                s_r_ready,
+    input  wire                local_ax_ready
+);
+localparam A_FIFO_WIDTH  = clog2(AXI_AWR_DEPTH);
+localparam A_CH_WIDTH    = 1+8+8+3+2+32;
+localparam W_CH_WIDTH    = AXI_DBW + AXI_SBW + DPARTITION;
+localparam R_CH_WIDTH    = AXI_DBW + DPARTITION + (8 * DPARTITION);
+localparam A2C_TOTALW    = W_CH_WIDTH / DPARTITION;
+localparam WR_ASYM_RATIO = (DPARTITION == 16) ? 0 :
+                           (DPARTITION == 8)  ? 1 :
+                           (DPARTITION == 4)  ? 2 :
+                           (DPARTITION == 2)  ? 3 : 4;
+localparam RD_ASYM_RATIO = (DPARTITION == 16) ? 8 :
+                           (DPARTITION == 8)  ? 7 :
+                           (DPARTITION == 4)  ? 6 :
+                           (DPARTITION == 2)  ? 5 : 4;
+localparam DP_WIDTH      = clog2(DPARTITION);
+wire                  rd_fifo_prog_full;
+wire                  rd_addr_ch_fifo;
+wire                  addr_fifo_empty;
+wire                  addr_fifo_full;
+wire                  rd_fifo_full;
+wire                  rd_fifo_empty;
+wire                  int_w_last;
+wire                  w_data_valid;
+wire                  s_w_valid_int;
+wire [W_CH_WIDTH-1:0] wr_wdata_fifo;
+wire                  wr_full;
+wire [4:0]            wr_wlast_cntr_b2g;
+wire [4:0]            wr_wlast_cntr_b2g_sync;
+wire [4:0]            wr_wlast_cntr_g2b;
+wire                  wr_resp_en;
+wire                  rd_bfifo;
+wire                  wlast_cont;
+wire [4:0]            wlast_minus;
+(* async_reg = "true" *) reg [4:0] rd_wlast_cntr_sync_1;
+(* async_reg = "true" *) reg [4:0] rd_wlast_cntr_sync_2;
+reg       s_b_valid_r;
+reg [4:0] wr_wlast_cntr;
+reg [4:0] rd_wlast_cntr;
+reg [1:0] s_w_valid_r;
+wire [4:0] rd_wlast_ctr_fifo_wire;
+reg [4:0] rd_wlast_ctr_fifo_r;
+wire rd_counter_fifo_empty;
+wire rd_counter_valid;
+assign rd_addr_ch_fifo = s_ax_ready & ~addr_fifo_empty & ~rd_fifo_prog_full;
+assign s_w_valid_int   = s_w_ready  & (wr_wlast_cntr_g2b - rd_wlast_cntr > 0);
+reg first_valid;
+always @(posedge axi_clk or negedge axi_rst_n) begin
+	 if (!axi_rst_n) begin
+	 	 first_valid <= 0;
+	 end else if (rd_counter_valid) begin
+	 	 first_valid <= 1;
+	 end
+end
+always @(posedge axi_clk or negedge axi_rst_n) begin
+	 if (!axi_rst_n) begin
+	 	 rd_wlast_ctr_fifo_r <= 0;
+	 end
+	 else if (~rd_counter_valid && ~first_valid) begin
+	 	 rd_wlast_ctr_fifo_r <= 0;
+	 end else begin
+	 	 rd_wlast_ctr_fifo_r <= rd_wlast_ctr_fifo_wire;
+	 end
+end
+wire rst_busy_wfifo;
+wire rst_busy_wfifo_sync;
+`IP_MODULE_NAME(efx_asyncreg)
+# (.ASYNC_STAGE(2), .WIDTH(1), .ACTIVE_LOW(1)) rst_busy_sync
+(.clk(axi_clk), .reset_n(axi_rst_n), .d_i(~rst_busy_wfifo), .d_o(rst_busy_wfifo_sync));
+assign s_w_valid       = (s_w_valid_int & s_w_valid_r == 2'b00) | w_data_valid;
+assign ax_ready        = ~addr_fifo_full;
+assign s_ax_valid      = ~addr_fifo_empty & ~rd_fifo_prog_full;
+assign wlast_minus     = wr_wlast_cntr - rd_wlast_ctr_fifo_r;
+assign wlast_cont      = wlast_minus >= 'd14; 
+assign w_ready         = ~wr_full & ~wlast_cont & rst_busy_wfifo_sync;
+`IP_MODULE_NAME(efx_fifo_top) # (
+    .FAMILY             ("TITANIUM"),
+    .SYNC_CLK           (0),
+    .BYPASS_RESET_SYNC  (0),
+    .MODE               ("STANDARD"),
+    .DEPTH              (AXI_AWR_DEPTH),
+    .DATA_WIDTH         (A_CH_WIDTH),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (1),
+    .OUTPUT_REG         (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (4)
+) addr_fifo (
+    .a_rst_i        (~axi_rst_n),
+    .wr_clk_i       (axi_clk),
+    .rd_clk_i       (ctrl_clk),
+    .wr_en_i        (ax_valid & local_ax_ready),
+    .rd_en_i        (rd_addr_ch_fifo),
+    .wdata          ({ax_type,ax_id,ax_len,ax_size,ax_burst,ax_addr}),
+    .full_o         (addr_fifo_full),
+    .empty_o        (addr_fifo_empty),
+    .almost_empty_o (),
+    .rd_valid_o     (),
+    .rdata          ({s_ax_type,s_ax_id,s_ax_len,s_ax_size,s_ax_burst,s_ax_addr})
+);
+genvar i;
+generate
+	for (i=0;i<DPARTITION;i=i+1) begin
+		assign wr_wdata_fifo[(A2C_TOTALW*(DPARTITION-1-i))+:A2C_TOTALW] = {{DPARTITION{w_last}},w_strb[(A2C_SBW*i)+:A2C_SBW],w_data[(A2C_DBW*i)+:A2C_DBW]};
+	end 
+endgenerate
+`IP_MODULE_NAME(efx_fifo_top) # (
+    .FAMILY             ("TITANIUM"),
+    .SYNC_CLK           (0),
+    .BYPASS_RESET_SYNC  (0),
+    .MODE               ("STANDARD"),
+    .DEPTH              (AXI_W_DEPTH),
+    .DATA_WIDTH         (W_CH_WIDTH),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (1),
+    .OUTPUT_REG         (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (WR_ASYM_RATIO)
+) wr_data_fifo (
+    .a_rst_i            (~axi_rst_n),
+    .wr_clk_i           (axi_clk),
+    .rd_clk_i           (ctrl_clk),
+    .wr_en_i            (w_valid & w_ready),
+    .rst_busy			(rst_busy_wfifo),
+    .rd_en_i            (s_w_valid_r[1]),
+    .wdata              (wr_wdata_fifo),
+    .full_o             (wr_full),
+    .empty_o            (),
+    .almost_empty_o     (),
+    .rd_valid_o         (w_data_valid),
+    .rdata              ({int_w_last,s_w_strb,s_w_data})
+);
+`IP_MODULE_NAME(efx_fifo_top) # (
+    .FAMILY             ("TITANIUM"),
+    .SYNC_CLK           (0),
+    .BYPASS_RESET_SYNC  (0),
+    .MODE               ("STANDARD"),
+    .DEPTH              (16),
+    .DATA_WIDTH         (5),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (1),
+    .OUTPUT_REG         (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (4)
+) rd_counter_fifo (
+    .a_rst_i            (~axi_rst_n),
+    .wr_clk_i           (ctrl_clk),
+    .rd_clk_i           (axi_clk),
+    .wr_en_i            (w_data_valid && s_w_last),
+    .rd_en_i            (~rd_counter_fifo_empty),
+    .wdata              (rd_wlast_cntr + 'd1),
+    .full_o             (),
+    .empty_o            (rd_counter_fifo_empty),
+    .almost_empty_o     (),
+    .rd_valid_o         (rd_counter_valid),
+    .rdata              (rd_wlast_ctr_fifo_wire)
+);
+always @ (posedge axi_clk or negedge axi_rst_n) begin
+    if (!axi_rst_n) begin
+        wr_wlast_cntr <= 'd0;
+    end
+    else if (w_last && w_valid && w_ready) begin
+        wr_wlast_cntr <= wr_wlast_cntr + 1'd1;
+    end
+end
+reg [4:0] wr_wlast_cntr_b2g_r;
+always @ (posedge axi_clk or negedge axi_rst_n) begin
+    if (!axi_rst_n) begin
+        wr_wlast_cntr_b2g_r <= 'h0;
+    end
+    else begin
+        wr_wlast_cntr_b2g_r <= wr_wlast_cntr_b2g;
+    end
+end
+`IP_MODULE_NAME(efx_fifo_bin2gray) # (.WIDTH(5)            ) wr2rd_bin2gray  (.bin_i(wr_wlast_cntr), .gray_o(wr_wlast_cntr_b2g));
+`IP_MODULE_NAME(efx_asyncreg) 	  # (.ASYNC_STAGE(2), .WIDTH(5), .ACTIVE_LOW(1)) wr2rd_addr_sync (.clk(ctrl_clk), .reset_n(ctrl_rst_n), .d_i(wr_wlast_cntr_b2g_r), .d_o(wr_wlast_cntr_b2g_sync));
+`IP_MODULE_NAME(efx_fifo_gray2bin) # (.WIDTH(5)            ) wr2rd_gray2bin  (.gray_i(wr_wlast_cntr_b2g_sync), .bin_o(wr_wlast_cntr_g2b));
+always @ (posedge ctrl_clk or negedge ctrl_rst_n) begin
+    if (!ctrl_rst_n) begin
+        rd_wlast_cntr <= 'd0;
+    end
+    else if (w_data_valid && s_w_last) begin
+        rd_wlast_cntr <= rd_wlast_cntr + 1'd1;
+    end
+end
+always @ (posedge ctrl_clk or negedge ctrl_rst_n) begin
+    if (!ctrl_rst_n) begin
+        s_w_valid_r <= 'd0;
+    end
+    else if (~s_w_valid_int && s_w_valid_r[1]) begin
+        s_w_valid_r <= 'd0;
+    end
+    else if (s_w_valid_int) begin
+        s_w_valid_r <= {s_w_valid_r[0],s_w_valid_int};
+    end
+end
+generate
+    if (AXI_DBW == CTRL_DBW) begin 
+        wire dpartition_count;
+        assign s_w_last        = int_w_last & (&dpartition_count);
+        assign dpartition_count = 1'b1;
+    end
+    else begin
+	reg  [DP_WIDTH-1:0] dpartition_count;
+	assign s_w_last        = int_w_last & (&dpartition_count);
+		always @ (posedge ctrl_clk or negedge ctrl_rst_n) begin
+			if (!ctrl_rst_n) begin
+				dpartition_count <= 'd0;
+			end
+			else if (s_b_valid_r) begin 
+				dpartition_count <= 'd0;
+			end
+			else if (w_data_valid) begin 
+				dpartition_count <= dpartition_count + 1'b1;
+			end
+		end
+    end
+endgenerate
+assign wr_resp_en = s_b_valid | s_b_valid_r;
+always @ (posedge ctrl_clk or negedge ctrl_rst_n) begin
+    if (!ctrl_rst_n) begin
+        s_b_valid_r <= 'd0;
+    end
+    else begin
+        s_b_valid_r <= s_b_valid;
+    end
+end
+wire [7:0] b_id_w;
+wire b_valid_w;
+wire b_fifo_valid;
+assign b_id = (b_fifo_valid)? b_id_w:8'b0;
+assign b_valid = (b_fifo_valid)? b_valid_w:1'b0;
+`IP_MODULE_NAME(efx_fifo_top) # (
+    .FAMILY             ("TITANIUM"),
+    .SYNC_CLK           (0),
+    .BYPASS_RESET_SYNC  (0),
+    .MODE               ("STANDARD"),
+    .DEPTH              (4),
+    .DATA_WIDTH         (11),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (1),
+    .OUTPUT_REG         (0),
+    .PROGRAMMABLE_FULL  ("NONE"),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (4)
+) wr_response_fifo (
+    .a_rst_i        (~axi_rst_n),
+    .wr_clk_i       (ctrl_clk),
+    .rd_clk_i       (axi_clk),
+    .wr_en_i        (wr_resp_en),
+    .rd_en_i        (~rd_bfifo),
+    .wdata          ({s_b_resp,s_b_id,s_b_valid}),
+    .full_o         (),
+    .empty_o        (rd_bfifo),
+    .almost_empty_o (),
+    .rd_valid_o     (b_fifo_valid),
+    .rdata          ({b_resp,b_id_w,b_valid_w})
+);
+wire [R_CH_WIDTH-1:0] rd_fifo_rdata;
+wire [DPARTITION-1:0] r_last_int;
+wire                  rd_rfifo;
+wire                  r_valid_int;
+reg                   r_valid_r;
+always @ (posedge axi_clk or negedge axi_rst_n) begin
+    if (~axi_rst_n) begin
+        r_valid_r <= 1'b0;
+    end
+    else if (r_valid && ~r_ready) begin
+        r_valid_r <= 1'b1;
+    end
+    else if (r_valid && r_ready) begin
+        r_valid_r <= 1'b0;
+    end
+end
+assign r_last   = |r_last_int & r_valid;
+assign r_id     = (r_valid_int)? rd_fifo_rdata[CTRL_DBW+8:CTRL_DBW+1]: 8'b0;
+assign r_resp   = 2'd0;
+assign r_valid  = r_valid_int | r_valid_r;
+assign rd_rfifo = r_ready & ~rd_fifo_empty;
+assign s_r_ready = ~rd_fifo_full;
+genvar j;
+generate
+    for (j=0;j<DPARTITION;j=j+1) begin
+        assign r_data[(CTRL_DBW*(DPARTITION-1-j))+:CTRL_DBW] = (r_valid_int)? rd_fifo_rdata[(CTRL_DBW+1+8)*j+:CTRL_DBW]:{CTRL_DBW{1'b0}};
+        assign r_last_int[j]                                 = rd_fifo_rdata[((CTRL_DBW+1+8)*j)+CTRL_DBW];
+    end
+endgenerate
+`IP_MODULE_NAME(efx_fifo_top) #(
+	.FAMILY 			("TITANIUM"),
+    .SYNC_CLK           (0),
+    .OUTPUT_REG         (0),
+    .MODE               ("STANDARD"),
+    .PIPELINE_REG       (1),
+    .OPTIONAL_FLAGS     (1),
+    .PROGRAMMABLE_FULL  ("STATIC_SINGLE"),
+    .PROG_FULL_ASSERT   (EFF_AXI_R_DEPTH/2),
+    .PROGRAMMABLE_EMPTY ("NONE"),
+    .ASYM_WIDTH_RATIO   (RD_ASYM_RATIO),
+    .DATA_WIDTH         (CTRL_DBW+1+8),
+    .DEPTH              (EFF_AXI_R_DEPTH)
+) rd_data_fifo (
+    .a_rst_i        (~axi_rst_n),
+    .wr_clk_i       (ctrl_clk),
+    .rd_clk_i       (axi_clk),
+    .wr_en_i        (s_r_valid),
+    .wdata          ({s_r_id,s_r_last,s_r_data}),
+    .rd_en_i        (rd_rfifo), 
+    .rdata          (rd_fifo_rdata),
+    .rd_valid_o     (r_valid_int),
+    .full_o         (rd_fifo_full),
+    .prog_full_o    (rd_fifo_prog_full),
+    .empty_o        (rd_fifo_empty)
+);
+function integer clog2;
+input integer value;
+begin
+    value = value-1;
+    for (clog2=0; value>0; clog2=clog2+1)
+        value = value>>1;
+end
+endfunction
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
+
+
+
+
+// IP Decryptor begin
+
+//##START PROTECT##
+module `IP_MODULE_NAME(efx_datasync) #(
+    parameter STAGE = 32,
+    parameter WIDTH = 4
+) (
+    input  wire             clk_i,
+    input  wire             rst_n,
+    input  wire [WIDTH-1:0] data_in,
+    output wire [WIDTH-1:0] data_out
+);
+(* async_reg = "true" *) reg [WIDTH-1:0] pipe_reg [STAGE-1:0];
+integer i;
+assign data_out = pipe_reg[STAGE-1];
+always @(posedge clk_i) begin
+    for (i=STAGE-1; i>0; i = i - 1) begin
+        pipe_reg[i] <= pipe_reg[i-1];
+    end
+    pipe_reg[0] <= data_in;
+end
+endmodule
+//##END PROTECT##
+`endprotect
+
+
+// IP Decryptor end
+
 
 `undef IP_UUID
 `undef IP_NAME_CONCAT

@@ -733,31 +733,61 @@ module example_top
 	);
 	assign w_hbram_bready = 1'b1; 
 	
-	AXI4_AWARMux #(.AID_LEN(4), .AADDR_LEN(32)) axi4_awar_mux (
-		.aclk_i			(sys_clk_i), 
-		.arst_i			(w_hbram_ui_rst), 
+	`ifdef SIMULATION
+		AXI4_AWARMux #(.AID_LEN(4), .AADDR_LEN(32)) axi4_awar_mux (
+			.aclk_i			(sys_clk_i), 
+			.arst_i			(w_hbram_ui_rst), 
 		
-		.awid_i			(w_hbram_awid),
-		.awaddr_i			(w_hbram_awaddr),
-		.awlen_i			(w_hbram_awlen),
-		//.awvalid_i			(w_hbram_awvalid && w_hbram_cal_pass),
-		.awvalid_i			(w_hbram_awvalid ),
-		.awready_o			(w_hbram_awready),
+			.awid_i			(w_hbram_awid),
+			.awaddr_i			(w_hbram_awaddr),
+			.awlen_i			(w_hbram_awlen),
+			//.awvalid_i			(w_hbram_awvalid && w_hbram_cal_pass),
+			.awvalid_i			(w_hbram_awvalid ),
+			.awready_o			(w_hbram_awready),
 		
-		.arid_i			(w_hbram_arid),
-		.araddr_i			(w_hbram_araddr),
-		.arlen_i			(w_hbram_arlen),
-		//.arvalid_i			(w_hbram_arvalid && w_hbram_cal_pass),
-		.arvalid_i			(w_hbram_arvalid ),
-		.arready_o			(w_hbram_arready),
+			.arid_i			(w_hbram_arid),
+			.araddr_i			(w_hbram_araddr),
+			.arlen_i			(w_hbram_arlen),
+			//.arvalid_i			(w_hbram_arvalid && w_hbram_cal_pass),
+			.arvalid_i			(w_hbram_arvalid ),
+			.arready_o			(w_hbram_arready),
 		
-		.aid_o			(w_hbram_aid),
-		.aaddr_o			(w_hbram_aaddr),
-		.alen_o			(w_hbram_alen),
-		.atype_o			(w_hbram_atype),
-		.avalid_o			(w_hbram_avalid),
-		.aready_i			(w_hbram_aready)
-	);
+			.aid_o			(w_hbram_aid),
+			.aaddr_o			(w_hbram_aaddr),
+			.alen_o			(w_hbram_alen),
+			.atype_o			(w_hbram_atype),
+			.avalid_o			(w_hbram_avalid),
+			.aready_i			(w_hbram_aready)
+		);
+
+	`else			
+		AXI4_AWARMux #(.AID_LEN(4), .AADDR_LEN(32)) axi4_awar_mux (
+			.aclk_i			(sys_clk_i), 
+			.arst_i			(w_hbram_ui_rst), 
+		
+			.awid_i			(w_hbram_awid),
+			.awaddr_i			(w_hbram_awaddr),
+			.awlen_i			(w_hbram_awlen),
+			//.awvalid_i			(w_hbram_awvalid && w_hbram_cal_pass),
+			.awvalid_i			(w_hbram_awvalid ),
+			.awready_o			(w_hbram_awready),
+		
+			.arid_i			(w_hbram_arid),
+			.araddr_i			(w_hbram_araddr),
+			.arlen_i			(w_hbram_arlen),
+			//.arvalid_i			(w_hbram_arvalid && w_hbram_cal_pass),
+			.arvalid_i			(w_hbram_arvalid ),
+			.arready_o			(w_hbram_arready),
+		
+			.aid_o			(w_hbram_aid),
+			.aaddr_o			(w_hbram_aaddr),
+			.alen_o			(w_hbram_alen),
+			.atype_o			(w_hbram_atype),
+			.avalid_o			(w_hbram_avalid),
+			.aready_i			(w_hbram_aready)
+		);
+	`endif	
+
 	assign w_hbram_asize = 4; 		//	Fixed 128 bits (16 bytes, size = 4)
 	assign w_hbram_aburst = 1; 
 	assign w_hbram_alock = 0; 
