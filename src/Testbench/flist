@@ -1,5 +1,6 @@
 +define+SIMULATION
 
+../interconnector.v
 ../ddr_rw_ctrl.v
 ../lcd_display.v
 ../lcd_driver.v
