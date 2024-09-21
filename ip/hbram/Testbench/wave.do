@@ -198,10 +198,65 @@ add wave -noupdate /tb_hbram/hard_dut/DUT/hbc_cal_SHIFT_int
 add wave -noupdate /tb_hbram/hard_dut/DUT/hbc_cal_SHIFT_ENA_int
 add wave -noupdate /tb_hbram/hard_dut/DUT/override
 add wave -noupdate /tb_hbram/hard_dut/DUT/clk_monitor
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/axi_clk
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rstn
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/start
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/aid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/aaddr
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/alen
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/asize
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/aburst
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/alock
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/avalid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/aready
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/atype
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wdata
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wstrb
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wlast
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wvalid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wready
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rdata
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rlast
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rvalid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rready
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rresp
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/bid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/bvalid
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/bready
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/one_round
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/test_fail
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/test_good
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/state
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/next_state
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/data_reg
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/mid_clear
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/op_idle
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wr_req
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rd_op
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rd_req
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rd_compare
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/updata_addr
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/cycle_done
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/burst_hit_r
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/burst_cnt
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/addr_counter
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/wlast_counter
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/toggle_cnt
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/addr_hit
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/loop_hit
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/burst_hit
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/axi_slave_wr_idle
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/rd_mismatch
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/burst_hit_pulse
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/crc_clear
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/crc_en
+add wave -noupdate /tb_hbram/hard_dut/DUT/genblk2/efx_ed_hyper_ram_axi_tc_inst/crc_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {210313646 ps} 0} {{Cursor 2} {258318301 ps} 0} {{Cursor 3} {429683982 ps} 0}
+WaveRestoreCursors {{Cursor 1} {0 ps} 0} {{Cursor 2} {205790245 ps} 0} {{Cursor 3} {474003436 ps} 0}
 quietly wave cursor active 3
-configure wave -namecolwidth 307
+configure wave -namecolwidth 461
 configure wave -valuecolwidth 248
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -215,4 +270,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {161615156 ps} {855223494 ps}
+WaveRestoreZoom {221444304 ps} {1346911211 ps}
