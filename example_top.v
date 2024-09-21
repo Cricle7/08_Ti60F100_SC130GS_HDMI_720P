@@ -613,55 +613,7 @@ module example_top
 	//	HyperRAM Controller
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	wire			w_hbram_ui_clk = w_sys_clk;
-	wire			w_hbram_ui_rst = w_sys_rst;
-	wire			w_hbram_ui_areset = w_sys_rst;
-	wire			w_hbram_ui_aresetn = w_sys_rstn;
-	
-	
-	//	General AXI Interface 
-	wire	[3:0] 	w_hbram_awid;
-	wire	[31:0]	w_hbram_awaddr;
-	wire	[7:0]		w_hbram_awlen;
-	wire			w_hbram_awvalid;
-	wire			w_hbram_awready;
-	
-	wire 	[3:0]  	w_hbram_wid;
-	wire 	[127:0] 	w_hbram_wdata;
-	wire 	[15:0]	w_hbram_wstrb;
-	wire			w_hbram_wlast;
-	wire			w_hbram_wvalid;
-	wire			w_hbram_wready;
-	
-	wire 	[3:0] 	w_hbram_bid;
-	wire 	[1:0] 	w_hbram_bresp;
-	wire			w_hbram_bvalid;
-	wire			w_hbram_bready;
-	
-	wire	[3:0] 	w_hbram_arid;
-	wire	[31:0]	w_hbram_araddr;
-	wire	[7:0]		w_hbram_arlen;
-	wire			w_hbram_arvalid;
-	wire			w_hbram_arready;
-	
-	wire 	[3:0] 	w_hbram_rid;
-	wire 	[127:0] 	w_hbram_rdata;
-	wire			w_hbram_rlast;
-	wire			w_hbram_rvalid;
-	wire			w_hbram_rready;
-	wire 	[1:0] 	w_hbram_rresp;
-	
-	
-	//	AXI Interface Request
-	wire 	[3:0] 	w_hbram_aid;
-	wire 	[31:0] 	w_hbram_aaddr;
-	wire 	[7:0]  	w_hbram_alen;
-	wire 	[2:0]  	w_hbram_asize;
-	wire 	[1:0]  	w_hbram_aburst;
-	wire 	[1:0]  	w_hbram_alock;
-	wire			w_hbram_avalid;
-	wire			w_hbram_aready;
-	wire			w_hbram_atype;
+
 	
 	wire 			w_hbram_cal_pass; 
 	wire 			w_hbram_cal_done = w_hbram_cal_pass; 
@@ -974,44 +926,44 @@ module example_top
 	
 	wire 	[7:0] 	w_axi_tp; 
 
-	
 	inter_connector #(
-        .TOP_DBW(16),          // 参数设置
-        .CSI_DATA_WIDTH(CSI_DATA_WIDTH)
-    ) u_inter_connector (
-        .w_sys_rst(w_sys_rst),                   // 输入信号连接
-        .sys_clk_i(sys_clk_i),
-        .hbramClk(hbramClk),
-        .hbramClk_Cal(hbramClk_Cal),
-        .hbramClk_shift(hbramClk_shift),         // 输出信号连接
-        .hbramClk_shift_sel(hbramClk_shift_sel),
-        .hbramClk_shift_ena(hbramClk_shift_ena),
-        .hbram_RST_N(hbram_RST_N),
-        .hbram_CS_N(hbram_CS_N),
-        .hbram_CK_P_HI(hbram_CK_P_HI),
-        .hbram_CK_P_LO(hbram_CK_P_LO),
-        .hbram_CK_N_HI(hbram_CK_N_HI),
-        .hbram_CK_N_LO(hbram_CK_N_LO),
-        .hbram_RWDS_OUT_HI(hbram_RWDS_OUT_HI),
-        .hbram_RWDS_OUT_LO(hbram_RWDS_OUT_LO),
-        .hbram_RWDS_IN_HI(hbram_RWDS_IN_HI),
-        .hbram_RWDS_IN_LO(hbram_RWDS_IN_LO),
-        .hbram_DQ_IN_LO(hbram_DQ_IN_LO),
-        .hbram_DQ_IN_HI(hbram_DQ_IN_HI),
-        .hbram_RWDS_OE(hbram_RWDS_OE),
-        .hbram_DQ_OUT_HI(hbram_DQ_OUT_HI),
-        .hbram_DQ_OUT_LO(hbram_DQ_OUT_LO),
-        .hbram_DQ_OE(hbram_DQ_OE),
-        .w_dev_rdata_i(w_dev_rdata_i),
-        .w_csi_rx_clk(w_csi_rx_clk),
-        .cmos_frame_vsync(cmos_frame_vsync),
-        .cmos_frame_href(cmos_frame_href),
-        .cmos_frame_Gray(cmos_frame_Gray),
-        .w_pixel_clk(w_pixel_clk),
-        .lcd_vs(lcd_vs),
-        .lcd_request(lcd_request),
-        .lcd_data(lcd_data)
-    );
+ 	    .TOP_DBW          (16),                  // 参数设置
+    	.CSI_DATA_WIDTH   (CSI_DATA_WIDTH)
+	) u_inter_connector (
+    	.w_sys_rst        (w_sys_rst),            // 输入信号连接
+    	.sys_clk_i        (sys_clk_i),
+    	.hbramClk         (hbramClk),
+    	.hbramClk_Cal     (hbramClk_Cal),
+    	.hbramClk_shift   (hbramClk_shift),       // 输出信号连接
+    	.hbramClk_shift_sel(hbramClk_shift_sel),
+    	.hbramClk_shift_ena(hbramClk_shift_ena),
+    	.hbram_RST_N      (hbram_RST_N),
+    	.hbram_CS_N       (hbram_CS_N),
+    	.hbram_CK_P_HI    (hbram_CK_P_HI),
+    	.hbram_CK_P_LO    (hbram_CK_P_LO),
+    	.hbram_CK_N_HI    (hbram_CK_N_HI),
+    	.hbram_CK_N_LO    (hbram_CK_N_LO),
+    	.hbram_RWDS_OUT_HI(hbram_RWDS_OUT_HI),
+    	.hbram_RWDS_OUT_LO(hbram_RWDS_OUT_LO),
+    	.hbram_RWDS_IN_HI (hbram_RWDS_IN_HI),
+    	.hbram_RWDS_IN_LO (hbram_RWDS_IN_LO),
+    	.hbram_DQ_IN_LO   (hbram_DQ_IN_LO),
+    	.hbram_DQ_IN_HI   (hbram_DQ_IN_HI),
+    	.hbram_RWDS_OE    (hbram_RWDS_OE),
+    	.hbram_DQ_OUT_HI  (hbram_DQ_OUT_HI),
+    	.hbram_DQ_OUT_LO  (hbram_DQ_OUT_LO),
+    	.hbram_DQ_OE      (hbram_DQ_OE),
+    	.w_dev_rdata_i    (w_dev_rdata_i),
+    	.w_csi_rx_clk     (w_csi_rx_clk),
+    	.cmos_frame_vsync (cmos_frame_vsync),
+    	.cmos_frame_href  (cmos_frame_href),
+    	.cmos_frame_Gray  (cmos_frame_Gray),
+    	.w_pixel_clk      (w_pixel_clk),
+    	.lcd_vs           (lcd_vs),
+    	.lcd_request      (lcd_request),
+    	.lcd_data         (lcd_data)
+	);
+
 	
 	////////////////////////////////////////////////////////////////
 	//  LCD Timing Driver
