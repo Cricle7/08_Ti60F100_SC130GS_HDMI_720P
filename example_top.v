@@ -607,20 +607,6 @@ module example_top
 	assign dsi_pwm_o = r_dsi_pwm_o; 
 	
 	
-	
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//	HyperRAM Controller
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-
-	
-	wire 			w_hbram_cal_pass; 
-	wire 			w_hbram_cal_done = w_hbram_cal_pass; 
-	wire 	[15:0] 	w_hbram_cal_dbg; 
-	
-	
-	
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	MIPI CSI RX (Use CSI0_BITFLIP For Bit Flip)
@@ -923,8 +909,6 @@ module example_top
 	wire            [7:0]           lcd_green, lcd_green2;
 	wire            [7:0]           lcd_blue, lcd_blue2;
 	wire            [15:0]          lcd_data;
-	
-	wire 	[7:0] 	w_axi_tp; 
 
 	inter_connector #(
  	    .TOP_DBW          (16),                  // 参数设置

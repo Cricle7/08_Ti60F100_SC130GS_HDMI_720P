@@ -44,10 +44,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 localparam ARB_MODE = "ROUND_ROBIN_2";
-localparam S_PORTS = 1;
+localparam S_PORTS = 4;
 localparam DATA_WIDTH = 128;
 localparam ADDR_WIDTH = 32;
-localparam M_PORTS = 4;
+localparam M_PORTS = 1;
 localparam ID_WIDTH = 8;
 localparam USER_WIDTH = 3;
-localparam PROTOCOL = "AXI3";
+localparam PROTOCOL = "AXI4_LITE";

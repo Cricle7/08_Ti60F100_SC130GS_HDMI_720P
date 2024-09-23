@@ -39,7 +39,16 @@ module inter_connector # (
     input  wire                 lcd_vs,
     input  wire                 lcd_request,
     output wire [15:0]          lcd_data 
-);
+);	
+	
+	localparam S_PORTS    = 4;    // Number of Slave Ports
+	localparam DATA_WIDTH = 128;  // Data Width for AXI interfaces
+	localparam ADDR_WIDTH = 32;   // Address Width for AXI interfaces
+	localparam M_PORTS    = 1;    // Number of Master Ports
+	localparam ID_WIDTH   = 8;    // ID Width for transactions
+	localparam USER_WIDTH = 3;    // User signal width (optional for AXI)
+
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	HyperRAM Controller
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,6 +59,30 @@ module inter_connector # (
 	wire	[7:0]		w_hbram_awlen;
 	wire			w_hbram_awvalid;
 	wire			w_hbram_awready;
+
+	wire	[3:0] 	cmos_aw_id;
+	wire	[31:0]	cmos_aw_addr;
+	wire	[7:0]	cmos_aw_len;
+	wire			cmos_aw_valid;
+	wire			cmos_aw_ready;
+		
+	wire	[3:0] 	dsamp_aw_id;
+	wire	[31:0]	dsamp_aw_addr;
+	wire	[7:0]	dsamp_aw_len;
+	wire			dsamp_aw_valid;
+	wire			dsamp_aw_ready;
+	
+	wire	[3:0] 	blur_aw_id;
+	wire	[31:0]	blur_aw_addr;
+	wire	[7:0]	blur_aw_len;
+	wire			blur_aw_valid;
+	wire			blur_aw_ready;
+	
+	wire	[3:0] 	lcd_aw_id;
+	wire	[31:0]	lcd_aw_addr;
+	wire	[7:0]	lcd_aw_len;
+	wire			lcd_aw_valid;
+	wire			lcd_aw_ready;
 	
 	wire 	[3:0]  	w_hbram_wid;
 	wire 	[127:0] 	w_hbram_wdata;
@@ -57,6 +90,35 @@ module inter_connector # (
 	wire			w_hbram_wlast;
 	wire			w_hbram_wvalid;
 	wire			w_hbram_wready;
+
+	wire 	[3:0]  	cmos_w_id;
+	wire 	[127:0] cmos_w_data;
+	wire 	[15:0]	cmos_w_strb;
+	wire			cmos_w_last;
+	wire			cmos_w_valid;
+	wire			cmos_w_ready;
+
+
+	wire 	[3:0]  	dsamp_w_id		=0;
+	wire 	[127:0] dsamp_w_data=0;
+	wire 	[15:0]	dsamp_w_strb;
+	wire			dsamp_w_last	=0;
+	wire			dsamp_w_valid	=0;
+	wire			dsamp_w_ready	;
+
+	wire 	[3:0]  	blur_w_id		=0;
+	wire 	[127:0] blur_w_data=0;
+	wire 	[15:0]	blur_w_strb;
+	wire			blur_w_last	=0;
+	wire			blur_w_valid	=0;
+	wire			blur_w_ready	;
+
+	wire 	[3:0]  	lcd_w_id		=0;
+	wire 	[127:0] lcd_w_data	=0;
+	wire 	[15:0]	lcd_w_strb;
+	wire			lcd_w_last		=0;
+	wire			lcd_w_valid	=0;
+	wire			lcd_w_ready	;
 	
 	wire 	[3:0] 	w_hbram_bid;
 	wire 	[1:0] 	w_hbram_bresp;
@@ -68,6 +130,30 @@ module inter_connector # (
 	wire	[7:0]		w_hbram_arlen;
 	wire			w_hbram_arvalid;
 	wire			w_hbram_arready;
+
+	wire	[3:0] 	cmos_ar_id;
+	wire	[31:0]	cmos_ar_addr;
+	wire	[7:0]	cmos_ar_len;
+	wire			cmos_ar_valid;
+	wire			cmos_ar_ready;
+		
+	wire	[3:0] 	dsamp_ar_id;
+	wire	[31:0]	dsamp_ar_addr;
+	wire	[7:0]	dsamp_ar_len;
+	wire			dsamp_ar_valid;
+	wire			dsamp_ar_ready;
+	
+	wire	[3:0] 	blur_ar_id;
+	wire	[31:0]	blur_ar_addr;
+	wire	[7:0]	blur_ar_len;
+	wire			blur_ar_valid;
+	wire			blur_ar_ready;
+	
+	wire	[3:0] 	lcd_ar_id;
+	wire	[31:0]	lcd_ar_addr;
+	wire	[7:0]	lcd_ar_len;
+	wire			lcd_ar_valid;
+	wire			lcd_ar_ready;
 	
 	wire 	[3:0] 	w_hbram_rid;
 	wire 	[127:0] 	w_hbram_rdata;
@@ -75,6 +161,34 @@ module inter_connector # (
 	wire			w_hbram_rvalid;
 	wire			w_hbram_rready;
 	wire 	[1:0] 	w_hbram_rresp;
+
+	wire 	[3:0] 	cmos_r_id;
+	wire 	[127:0] cmos_r_data;
+	wire			cmos_r_last;
+	wire			cmos_r_valid;
+	wire			cmos_r_ready;
+	wire 	[1:0] 	cmos_r_resp;
+	
+	wire 	[3:0] 	dsamp_r_id;
+	wire 	[127:0] dsamp_r_data = 0;
+	wire			dsamp_r_last = 0;
+	wire			dsamp_r_valid = 0;
+	wire			dsamp_r_ready;
+	wire 	[1:0] 	dsamp_r_resp;
+
+	wire 	[3:0] 	blur_r_id;
+	wire 	[127:0] blur_r_data = 0;
+	wire			blur_r_last = 0;
+	wire			blur_r_valid = 0;
+	wire			blur_r_ready;
+	wire 	[1:0] 	blur_r_resp;
+
+	wire 	[3:0] 	lcd_r_id;
+	wire 	[127:0] lcd_r_data = 0;
+	wire			lcd_r_last = 0;
+	wire			lcd_r_valid = 0;
+	wire			lcd_r_ready;
+	wire 	[1:0] 	lcd_r_resp;
 	
 	//	AXI Interface Request
 	wire 	[3:0] 	w_hbram_aid;
@@ -92,7 +206,87 @@ module inter_connector # (
 	wire 	[15:0] 	w_hbram_cal_dbg; 
 	
 	assign w_dev_rdata_i = {w_hbram_cal_dbg, 15'h0, w_hbram_cal_pass}; 
+
+
+	// AXI Slave Interface (s_axi)
+	wire [S_PORTS-1:0]            s_axi_awvalid;     // Address Write
+	wire [S_PORTS*ADDR_WIDTH-1:0] s_axi_awaddr;
+	wire [S_PORTS*2-1:0]          s_axi_awlock;      // Assume lock is 2 bits per port
+	wire [S_PORTS-1:0]            s_axi_awready;
+
+	wire [S_PORTS-1:0]            s_axi_wvalid;      // Write Data
+	wire [S_PORTS*DATA_WIDTH-1:0] s_axi_wdata;
+	wire [S_PORTS*(DATA_WIDTH/8)-1:0] s_axi_wstrb;   // Write strobe depends on data width
+	wire [S_PORTS-1:0]            s_axi_wlast;
+	wire [S_PORTS*ID_WIDTH-1:0]   s_axi_wid;
+	wire [S_PORTS-1:0]            s_axi_wready;
+
+	wire [S_PORTS-1:0]            s_axi_bready;      // Write Response
+	wire [S_PORTS*2-1:0]          s_axi_bresp;       // Assuming 2 bits for response
+	wire [S_PORTS-1:0]            s_axi_bvalid;
+	wire [S_PORTS*ID_WIDTH-1:0]   s_axi_bid;
+
+	wire [S_PORTS-1:0]            s_axi_arvalid;     // Address Read
+	wire [S_PORTS*ADDR_WIDTH-1:0] s_axi_araddr;
+	wire [S_PORTS*2-1:0]          s_axi_arlock;      // Assume lock is 2 bits per port
+	wire [S_PORTS-1:0]            s_axi_arready;
+
+	wire [S_PORTS-1:0]            s_axi_rready;      // Read Data
+	wire [S_PORTS*DATA_WIDTH-1:0] s_axi_rdata;
+	wire [S_PORTS*2-1:0]          s_axi_rresp;       // Assuming 2 bits for response
+	wire [S_PORTS-1:0]            s_axi_rvalid;
+	wire [S_PORTS*ID_WIDTH-1:0]   s_axi_rid;
+	wire [S_PORTS-1:0]            s_axi_rlast;
+
+
+	// AXI Master Interface (m_axi)
+	wire [M_PORTS-1:0]            m_axi_awvalid;     // Address Write
+	wire [M_PORTS*ADDR_WIDTH-1:0] m_axi_awaddr;
+	wire [M_PORTS*2-1:0]          m_axi_awlock;      // Assume lock is 2 bits per port
+	wire [M_PORTS-1:0]            m_axi_awready;
+
+	wire [M_PORTS-1:0]            m_axi_wvalid;      // Write Data
+	wire [M_PORTS*DATA_WIDTH-1:0] m_axi_wdata;
+	wire [M_PORTS*(DATA_WIDTH/8)-1:0] m_axi_wstrb;   // Write strobe depends on data width
+	wire [M_PORTS-1:0]            m_axi_wlast;
+	wire [M_PORTS-1:0]            m_axi_wready;
+
+	wire [M_PORTS-1:0]            m_axi_bready;      // Write Response
+	wire [M_PORTS*2-1:0]          m_axi_bresp;       // Assuming 2 bits for response
+	wire [M_PORTS-1:0]            m_axi_bvalid;
+	wire [M_PORTS*ID_WIDTH-1:0]   m_axi_bid;
+
+	wire [M_PORTS-1:0]            m_axi_arvalid;     // Address Read
+	wire [M_PORTS*ADDR_WIDTH-1:0] m_axi_araddr;
+	wire [M_PORTS*2-1:0]          m_axi_arlock;      // Assume lock is 2 bits per port
+	wire [M_PORTS-1:0]            m_axi_arready;
+
+	wire [M_PORTS-1:0]            m_axi_rready;      // Read Data
+	wire [M_PORTS*DATA_WIDTH-1:0] m_axi_rdata;
+	wire [M_PORTS*2-1:0]          m_axi_rresp;       // Assuming 2 bits for response
+	wire [M_PORTS-1:0]            m_axi_rvalid;
+	wire [M_PORTS*ID_WIDTH-1:0]   m_axi_rid;
+	wire [M_PORTS-1:0]            m_axi_rlast;
+
+	assign s_axi_wready = {lcd_w_ready,blur_w_ready,dsamp_w_ready,cmos_w_ready};
+	assign s_axi_wvalid = {lcd_w_valid,blur_w_valid,dsamp_w_valid,cmos_w_valid};
+	assign s_axi_wdata  = {lcd_w_data,blur_w_data,dsamp_w_data,cmos_w_data};
+	assign s_axi_wlast  = {lcd_w_last,blur_w_last,dsamp_w_last,cmos_w_last};
+	assign s_axi_wstrb  = {lcd_w_strb,blur_w_strb,dsamp_w_strb,cmos_w_strb};
 	
+	assign s_axi_rvalid = {lcd_r_valid,blur_r_valid,dsamp_r_valid,cmos_r_valid};
+	assign s_axi_rdata  = {lcd_r_data,blur_r_data,dsamp_r_data,cmos_r_data};
+	assign s_axi_rlast  = {lcd_r_last,blur_r_last,dsamp_r_last,cmos_r_last};
+	assign s_axi_rready  = {lcd_r_ready,blur_r_ready,dsamp_r_ready,cmos_r_ready};
+	
+	assign s_axi_awready = {lcd_aw_ready,blur_aw_ready,dsamp_aw_ready,cmos_aw_ready};
+	assign s_axi_awvalid = {lcd_aw_valid,blur_aw_valid,dsamp_aw_valid,cmos_aw_valid};
+	assign s_axi_awaddr  = {lcd_aw_addr,blur_aw_addr,dsamp_aw_addr,cmos_aw_addr};
+	
+	assign s_axi_arvalid = {lcd_ar_valid,blur_ar_valid,dsamp_ar_valid,cmos_ar_valid};
+	assign s_axi_araddr  = {lcd_ar_addr,blur_ar_addr,dsamp_ar_addr,cmos_ar_addr};
+	assign s_axi_arready = {lcd_ar_ready,blur_ar_ready,dsamp_ar_ready,cmos_ar_ready};
+	assign s_axi_arlock  = 0;
 	hbram u_hbram (		
 		.ram_clk			(hbramClk),			//	input ram_clk,
 		.ram_clk_cal		(hbramClk_Cal),		//	input ram_clk_cal,
@@ -185,8 +379,8 @@ module inter_connector # (
 	);
 
 	assign w_hbram_asize = 4; 		//	Fixed 128 bits (16 bytes, size = 4)
-	assign w_hbram_aburst = 1; 
-	assign w_hbram_alock = 0; 
+	assign w_hbram_aburst = 1;  	// INCR burst (递增突发)
+	assign w_hbram_alock = 0;  		// Normal access (非锁定访问)
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	DDR R/W Control
@@ -200,33 +394,33 @@ module inter_connector # (
 		.axi_clk        (sys_clk_i       ),
 		.axi_reset      (w_sys_rst       ),
 
-		.axi_awaddr     (w_hbram_awaddr       ),
-		.axi_awlen      (w_hbram_awlen        ),
-		.axi_awvalid    (w_hbram_awvalid      ),
-		.axi_awready    (w_hbram_awready      ),
+		.axi_awaddr     (cmos_aw_addr       ),
+		.axi_awlen      (cmos_aw_len        ),
+		.axi_awvalid    (cmos_aw_valid      ),
+		.axi_awready    (cmos_aw_ready      ),
 
-		.axi_wdata      (w_hbram_wdata        ),
-		.axi_wstrb      (w_hbram_wstrb        ),
-		.axi_wlast      (w_hbram_wlast        ),
-		.axi_wvalid     (w_hbram_wvalid       ),
-		.axi_wready     (w_hbram_wready       ),
+		.axi_wdata      (cmos_w_data        ),
+		.axi_wstrb      (cmos_w_strb        ),
+		.axi_wlast      (cmos_w_last        ),
+		.axi_wvalid     (cmos_w_valid       ),
+		.axi_wready     (cmos_w_ready       ),
 
 		.axi_bid        (0          ),
 		.axi_bresp      (0        ),
 		.axi_bvalid     (1       ),
 
 		.axi_arid       (w_hbram_arid         ),
-		.axi_araddr     (w_hbram_araddr       ),
+		.axi_araddr     (cmos_ar_addr       ),
 		.axi_arlen      (w_hbram_arlen        ),
 		.axi_arvalid    (w_hbram_arvalid      ),
 		.axi_arready    (w_hbram_arready      ),
 
 		.axi_rid        (w_hbram_rid          ),
-		.axi_rdata      (w_hbram_rdata        ),
+		.axi_rdata      (cmos_r_data        ),
 		.axi_rresp      (0        ),
-		.axi_rlast      (w_hbram_rlast        ),
-		.axi_rvalid     (w_hbram_rvalid       ),
-		.axi_rready     (w_hbram_rready		  ),
+		.axi_rlast      (cmos_r_last        ),
+		.axi_rvalid     (cmos_r_valid       ),
+		.axi_rready     (cmos_r_ready		  ),
 
 		.wframe_pclk    (w_csi_rx_clk          ),
 		.wframe_vsync   (cmos_frame_vsync), 	//w_wframe_vsync   ),		//	Writter VSync. Flush on rising edge. Connect to EOF. 
@@ -243,5 +437,136 @@ module inter_connector # (
 	);
 	assign w_hbram_awid = 0; 
 	assign w_hbram_wid = 0; 
+
+	hbram_interconnect  u_hbram_interconnect(
+		.rst_n 				( w_sys_rst ),
+		.clk 				( sys_clk_i ),
+		.s_axi_awvalid 		( w_hbram_awvalid ),
+		.s_axi_awaddr 		( w_hbram_awaddr ),//from axi_mux
+		.s_axi_awlock 		(  ),//
+		.s_axi_awready 		( w_hbram_awready ),
+
+		.s_axi_arvalid 		( w_hbram_arvalid ),
+		.s_axi_araddr 		( w_hbram_araddr ),
+		.s_axi_arlock 		( 0 ),
+		.s_axi_arready 		( w_hbram_arready ),
+
+		.s_axi_wvalid 		( w_hbram_wvalid ),
+		.s_axi_wlast 		( w_hbram_wlast ),
+		.s_axi_wid 			( w_hbram_wid ),
+		.s_axi_wdata 		( w_hbram_wdata ),
+		.s_axi_wready 		( w_hbram_wready ),
+		.s_axi_wstrb 		( w_hbram_wstrb ),
+		.s_axi_bresp 		(  ),
+		.s_axi_bready 		( w_hbram_bready ),
+		.s_axi_bid 			( w_hbram_bid ),
+		.s_axi_bvalid 		( w_hbram_bvalid ),
+		.s_axi_rid ( s_axi_rid ),
+		.s_axi_rready ( s_axi_rready ),
+		.s_axi_rdata ( s_axi_rdata ),
+		.s_axi_rresp ( s_axi_rresp ),
+		.s_axi_rvalid ( s_axi_rvalid ),
+		.s_axi_rlast ( s_axi_rlast ),
+
+		.m_axi_awvalid 		( m_axi_awvalid ),
+		.m_axi_awready 		( m_axi_awready ),
+		.m_axi_awaddr 		( m_axi_awaddr ),
+		.m_axi_awlock 		(  ),
+		.m_axi_arvalid 		( m_axi_arvalid ),
+		.m_axi_araddr 		( m_axi_araddr ),
+		.m_axi_arlock 		(  ),
+		.m_axi_arready 		( m_axi_arready ),
+		.m_axi_wvalid 		( m_axi_wvalid ),
+		.m_axi_wready 		( m_axi_wready ),
+		.m_axi_wdata 		( m_axi_wdata ),
+		.m_axi_wlast 		( m_axi_wlast ),
+		.m_axi_wstrb 		( m_axi_wstrb ),
+
+		.m_axi_bready ( m_axi_bready ),
+		.m_axi_bresp ( m_axi_bresp ),
+		.m_axi_bid ( m_axi_bid ),
+		.m_axi_bvalid ( m_axi_bvalid ),
+		.m_axi_rid ( m_axi_rid ),
+		.m_axi_rdata 		( m_axi_rdata ),
+		.m_axi_rresp 		( 0 ),
+		.m_axi_rready 		( m_axi_rready ),
+		.m_axi_rvalid 		( m_axi_rvalid ),
+		.m_axi_rlast 		( m_axi_rlast )
+	);
+
+hbram_interconnect u_hbram_interconnect (
+    .rst_n           ( ~w_sys_rst       ),
+    .clk             ( sys_clk_i              ),
+
+    // AXI Slave Interface (s_axi)
+    // AW channel (Address Write)
+    .s_axi_awvalid   ( s_axi_awvalid    ),
+    .s_axi_awaddr    ( s_axi_awaddr     ),
+    .s_axi_awlock    ( s_axi_awlock     ),//awlock
+    .s_axi_awready   ( s_axi_awready    ),
+
+    // W channel (Write Data)
+    .s_axi_wvalid    ( s_axi_wvalid     ),
+    .s_axi_wdata     ( s_axi_wdata      ),
+    .s_axi_wstrb     ( s_axi_wstrb      ),
+    .s_axi_wlast     ( s_axi_wlast      ),
+    .s_axi_wid       ( s_axi_wid        ),//wid
+    .s_axi_wready    ( s_axi_wready     ),
+
+    // B channel (Write Response)
+    .s_axi_bready    ( s_axi_bready     ),//bready
+    .s_axi_bresp     ( s_axi_bresp      ),//bresp
+    .s_axi_bvalid    ( s_axi_bvalid     ),//bvalid
+    .s_axi_bid       ( s_axi_bid        ),//bid
+
+    // AR channel (Address Read)
+    .s_axi_arvalid   ( s_axi_arvalid    ),
+    .s_axi_araddr    ( s_axi_araddr     ),
+    .s_axi_arlock    ( s_axi_arlock     ),//s_axi_arlock
+    .s_axi_arready   ( s_axi_arready    ),
+
+    // R channel (Read Data)
+    .s_axi_rready    ( s_axi_rready     ),
+    .s_axi_rdata     ( s_axi_rdata      ),
+    .s_axi_rresp     ( s_axi_rresp      ),//rresp
+    .s_axi_rvalid    ( s_axi_rvalid     ),
+    .s_axi_rid       ( s_axi_rid        ),//rid
+    .s_axi_rlast     ( s_axi_rlast      ),
+
+    // AXI Master Interface (m_axi)
+    // AW channel (Address Write)
+    .m_axi_awvalid   ( w_hbram_awvalid    ),
+    .m_axi_awaddr    ( w_hbram_awaddr     ),
+    .m_axi_awlock    ( m_axi_awlock     ),//awlock
+    .m_axi_awready   ( w_hbram_awready    ),
+
+    // W channel (Write Data)
+    .m_axi_wvalid    ( m_axi_wvalid     ),
+    .m_axi_wdata     ( m_axi_wdata      ),
+    .m_axi_wstrb     ( m_axi_wstrb      ),
+    .m_axi_wlast     ( m_axi_wlast      ),
+    .m_axi_wready    ( m_axi_wready     ),
+
+    // B channel (Write Response)
+    .m_axi_bready    ( m_axi_bready     ),
+    .m_axi_bresp     ( m_axi_bresp      ),
+    .m_axi_bvalid    ( m_axi_bvalid     ),
+    .m_axi_bid       ( m_axi_bid        ),
+
+    // AR channel (Address Read)
+    .m_axi_arvalid   ( m_axi_arvalid    ),
+    .m_axi_araddr    ( w_hbram_araddr     ),
+    .m_axi_arlock    ( m_axi_arlock     ),
+    .m_axi_arready   ( m_axi_arready    ),
+
+    // R channel (Read Data)
+    .m_axi_rready    ( m_axi_rready     ),
+    .m_axi_rdata     ( m_axi_rdata      ),
+    .m_axi_rresp     ( m_axi_rresp      ),
+    .m_axi_rvalid    ( m_axi_rvalid     ),
+    .m_axi_rid       ( m_axi_rid        ),
+    .m_axi_rlast     ( m_axi_rlast      )
+);
+
 
 endmodule
