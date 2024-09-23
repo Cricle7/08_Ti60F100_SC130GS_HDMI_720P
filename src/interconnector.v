@@ -70,19 +70,19 @@ module inter_connector # (
 	wire	[31:0]	dsamp_aw_addr = 0;
 	wire	[7:0]	dsamp_aw_len = 0;
 	wire			dsamp_aw_valid = 0;
-	wire			dsamp_aw_ready = 0;
+	wire			dsamp_aw_ready;
 	
 	wire	[3:0] 	blur_aw_id = 0;
 	wire	[31:0]	blur_aw_addr = 0;
 	wire	[7:0]	blur_aw_len = 0;
 	wire			blur_aw_valid = 0;
-	wire			blur_aw_ready = 0;
+	wire			blur_aw_ready;
 	
 	wire	[3:0] 	lcd_aw_id = 0;
 	wire	[31:0]	lcd_aw_addr = 0;
 	wire	[7:0]	lcd_aw_len = 0;
 	wire			lcd_aw_valid = 0;
-	wire			lcd_aw_ready = 0;
+	wire			lcd_aw_ready;
 	
 	wire 	[3:0]  	w_hbram_wid;
 	wire 	[127:0] 	w_hbram_wdata;
@@ -169,24 +169,24 @@ module inter_connector # (
 	wire			cmos_r_ready;
 	wire 	[1:0] 	cmos_r_resp;
 	
-	wire 	[3:0] 	dsamp_r_id = 0;
-	wire 	[127:0] dsamp_r_data = 0;
-	wire			dsamp_r_last = 0;
-	wire			dsamp_r_valid = 0;
+	wire 	[3:0] 	dsamp_r_id;
+	wire 	[127:0] dsamp_r_data;
+	wire			dsamp_r_last;
+	wire			dsamp_r_valid;
 	wire			dsamp_r_ready;
 	wire 	[1:0] 	dsamp_r_resp;
 
-	wire 	[3:0] 	blur_r_id = 0;
-	wire 	[127:0] blur_r_data = 0;
-	wire			blur_r_last = 0;
-	wire			blur_r_valid = 0;
+	wire 	[3:0] 	blur_r_id;
+	wire 	[127:0] blur_r_data;
+	wire			blur_r_last;
+	wire			blur_r_valid;
 	wire			blur_r_ready;
 	wire 	[1:0] 	blur_r_resp;
 
-	wire 	[3:0] 	lcd_r_id = 0;
-	wire 	[127:0] lcd_r_data = 0;
-	wire			lcd_r_last = 0;
-	wire			lcd_r_valid = 0;
+	wire 	[3:0] 	lcd_r_id;
+	wire 	[127:0] lcd_r_data;
+	wire			lcd_r_last;
+	wire			lcd_r_valid;
 	wire			lcd_r_ready;
 	wire 	[1:0] 	lcd_r_resp;
 	
@@ -195,6 +195,8 @@ module inter_connector # (
 	wire 	[31:0] 	w_hbram_aaddr;
 	wire 	[7:0]  	w_hbram_alen;
 	wire 	[2:0]  	w_hbram_asize;
+	wire 	[2:0]  	w_hbram_awsize;
+	wire 	[2:0]  	w_hbram_arsize;
 	wire 	[1:0]  	w_hbram_aburst;
 	wire 	[1:0]  	w_hbram_alock;
 	wire			w_hbram_avalid;
@@ -215,7 +217,6 @@ module inter_connector # (
 	wire [S_PORTS*2-1:0]            s_axi_awburst   ; // 突发类型
 	wire [S_PORTS*3-1:0]            s_axi_awsize    ; // 突发传输大小
 	wire [S_PORTS*ID_WIDTH-1:0]     s_axi_awlen     ; // 突发传输长度
-	wire [S_PORTS*3-1:0]            s_axi_awprot    ; // 保护类型
 
 	wire [S_PORTS-1:0]              s_axi_wvalid    ; // 写数据有效信号
 	wire [S_PORTS-1:0]              s_axi_wlast     ; // 最后一次写数据信号
@@ -237,7 +238,6 @@ module inter_connector # (
 	wire [S_PORTS*2-1:0]            s_axi_arburst   ; // 突发类型
 	wire [S_PORTS*3-1:0]            s_axi_arsize    ; // 突发传输大小
 	wire [S_PORTS*8-1:0]     		s_axi_arlen     ; // 突发传输长度
-	wire [S_PORTS*4-1:0]            s_axi_arprot    ; // 保护类型
 
 	wire [S_PORTS-1:0]              s_axi_rvalid    ; // 读数据有效信号
 	wire [S_PORTS-1:0]              s_axi_rlast     ; // 最后一次读数据信号
@@ -260,21 +260,21 @@ module inter_connector # (
 	wire [M_PORTS*4-1:0]            m_axi_arprot    ; // 保护类型
 
 	assign s_axi_wid  = {lcd_w_id,blur_w_id,dsamp_w_id,cmos_w_id};
-	assign s_axi_wready = {lcd_w_ready,blur_w_ready,dsamp_w_ready,cmos_w_ready};
+	assign {lcd_w_ready,blur_w_ready,dsamp_w_ready,cmos_w_ready} = s_axi_wready;
 	assign s_axi_wvalid = {lcd_w_valid,blur_w_valid,dsamp_w_valid,cmos_w_valid};
 	assign s_axi_wdata  = {lcd_w_data,blur_w_data,dsamp_w_data,cmos_w_data};
 	assign s_axi_wlast  = {lcd_w_last,blur_w_last,dsamp_w_last,cmos_w_last};
 	assign s_axi_wstrb  = {lcd_w_strb,blur_w_strb,dsamp_w_strb,cmos_w_strb};
 	
-	assign s_axi_rvalid = {lcd_r_valid,blur_r_valid,dsamp_r_valid,cmos_r_valid};
-	assign s_axi_rdata  = {lcd_r_data,blur_r_data,dsamp_r_data,cmos_r_data};
-	assign s_axi_rlast  = {lcd_r_last,blur_r_last,dsamp_r_last,cmos_r_last};
-	assign s_axi_rready  = {lcd_r_ready,blur_r_ready,dsamp_r_ready,cmos_r_ready};
-	assign s_axi_resp  = {lcd_r_esp,blur_r_esp,dsamp_r_esp,cmos_r_esp};
-	assign s_axi_rid  = {lcd_r_id,blur_r_id,dsamp_r_id,cmos_r_id};
+	assign {lcd_r_valid,blur_r_valid,dsamp_r_valid,cmos_r_valid} = s_axi_rvalid  ;
+	assign {lcd_r_data,blur_r_data,dsamp_r_data,cmos_r_data} = s_axi_rdata   ;
+	assign {lcd_r_last,blur_r_last,dsamp_r_last,cmos_r_last} = s_axi_rlast   ;
+	assign s_axi_rready = {lcd_r_ready,blur_r_ready,dsamp_r_ready,cmos_r_ready};
+	assign {lcd_r_resp,blur_r_resp,dsamp_r_resp,cmos_r_resp}  = s_axi_rresp;
+	assign {lcd_r_id,blur_r_id,dsamp_r_id,cmos_r_id}  = s_axi_rid;
 	
 	assign s_axi_awid = {lcd_aw_id,blur_aw_id,dsamp_aw_id,cmos_aw_id};
-	assign s_axi_awready = {lcd_aw_ready,blur_aw_ready,dsamp_aw_ready,cmos_aw_ready};
+	assign {lcd_aw_ready,blur_aw_ready,dsamp_aw_ready,cmos_aw_ready} = s_axi_awready;
 	assign s_axi_awvalid = {lcd_aw_valid,blur_aw_valid,dsamp_aw_valid,cmos_aw_valid};
 	assign s_axi_awaddr  = {lcd_aw_addr,blur_aw_addr,dsamp_aw_addr,cmos_aw_addr};
 	assign s_axi_awlen  = {lcd_aw_len,blur_aw_len,dsamp_aw_len,cmos_aw_len};
@@ -282,20 +282,18 @@ module inter_connector # (
 	assign s_axi_arid 	 = {lcd_ar_id,blur_ar_id,dsamp_ar_id,cmos_ar_id};
 	assign s_axi_arvalid = {lcd_ar_valid,blur_ar_valid,dsamp_ar_valid,cmos_ar_valid};
 	assign s_axi_araddr  = {lcd_ar_addr,blur_ar_addr,dsamp_ar_addr,cmos_ar_addr};
-	assign s_axi_arready = {lcd_ar_ready,blur_ar_ready,dsamp_ar_ready,cmos_ar_ready};
+	assign {lcd_ar_ready,blur_ar_ready,dsamp_ar_ready,cmos_ar_ready} = s_axi_arready;
 
 	assign m_axi_bresp   = 0;
 	assign s_axi_bready  = 1'b1;
 	assign s_axi_awlock  = 0;
 	assign s_axi_arlock  = 0;
-	assign s_axi_awsize  = w_hbram_asize;
-	assign s_axi_arsize  = w_hbram_asize;
-	assign s_axi_awprot	 = 0;	
+	assign s_axi_awsize  = 4; 		//	Fixed 128 bits (16 bytes, size = 4) 
+	assign s_axi_arsize  = 4; 		//	Fixed 128 bits (16 bytes, size = 4) 
 	assign s_axi_awburst = 1'b1;
-	assign m_axi_awlock	 = 0;	
-	assign m_axi_arlock	 = 0;	
-	assign m_axi_awprot	 = 0;	
-	assign m_axi_arprot	 = 0;	
+	assign s_axi_arburst = 1'b1;
+	assign w_hbram_asize = (w_hbram_atype)?w_hbram_awsize:w_hbram_arsize;
+	assign w_hbram_alock = (w_hbram_atype)?m_axi_awlock:m_axi_arlock;
 
 	hbram u_hbram (		
 		.ram_clk			(hbramClk),			//	input ram_clk,
@@ -387,9 +385,6 @@ module inter_connector # (
 		.aready_i			(w_hbram_aready)
 	);
 
-	assign w_hbram_asize = 4; 		//	Fixed 128 bits (16 bytes, size = 4)
-	assign w_hbram_aburst = 1;  	// INCR burst (递增突发)
-	assign w_hbram_alock = 0;  		// Normal access (非锁定访问)
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	DDR R/W Control
@@ -459,7 +454,6 @@ module inter_connector # (
     	.s_axi_awburst   ( s_axi_awburst    ),
     	.s_axi_awsize    ( s_axi_awsize     ),
     	.s_axi_awlen     ( s_axi_awlen      ),
-    	.s_axi_awprot    ( s_axi_awprot     ),
 
     	// Write Data Channel (W)
     	.s_axi_wvalid    ( s_axi_wvalid     ),
@@ -484,7 +478,6 @@ module inter_connector # (
     	.s_axi_arburst   ( s_axi_arburst    ),//
     	.s_axi_arsize    ( s_axi_arsize     ),//后续需要改成动态的
     	.s_axi_arlen     ( s_axi_arlen      ),//
-    	.s_axi_arprot    ( s_axi_arprot     ),//
 
     	// Read Data Channel (R)
     	.s_axi_rvalid    ( s_axi_rvalid     ),
@@ -502,7 +495,7 @@ module inter_connector # (
     	.m_axi_awready   ( w_hbram_awready  ),
     	.m_axi_awid      ( w_hbram_awid	    ),
     	.m_axi_awburst   ( w_hbram_aburst   ),
-    	.m_axi_awsize    ( w_hbram_asize    ),//后续需要改成动态的
+    	.m_axi_awsize    ( w_hbram_awsize    ),
     	.m_axi_awlen     ( w_hbram_awlen    ),
     	.m_axi_awprot    ( m_axi_awprot     ),//优先级
 
@@ -527,7 +520,7 @@ module inter_connector # (
     	.m_axi_arready   ( w_hbram_arready  ),
     	.m_axi_arid      ( w_hbram_arid     ),
     	.m_axi_arburst   ( w_hbram_aburst   ),
-    	.m_axi_arsize    ( w_hbram_asize     ),//后续需要改成动态的
+    	.m_axi_arsize    ( w_hbram_arsize     ),
     	.m_axi_arlen     ( w_hbram_arlen    ),
     	.m_axi_arprot    ( m_axi_arprot     ),
 
