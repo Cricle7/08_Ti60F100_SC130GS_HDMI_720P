@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _671a908b7cdd41188c67b60cf18f8683
+`define IP_UUID _e3ddd33e0c47464594847b36ae40724e
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
 module hbram_interconnect (
@@ -95,7 +95,27 @@ input [0:0] m_axi_rvalid,
 input [0:0] m_axi_rlast,
 output [15:0] m_axi_wstrb,
 input [0:0] m_axi_wready,
-output [3:0] s_axi_wready
+output [3:0] s_axi_wready,
+output [3:0] m_axi_awprot,
+input [31:0] s_axi_arid,
+input [11:0] s_axi_arsize,
+input [31:0] s_axi_arlen,
+input [7:0] s_axi_arburst,
+input [15:0] s_axi_arprot,
+input [31:0] s_axi_awid,
+input [7:0] s_axi_awburst,
+input [31:0] s_axi_awlen,
+input [11:0] s_axi_awsize,
+output [7:0] m_axi_awid,
+output [1:0] m_axi_awburst,
+output [7:0] m_axi_awlen,
+output [2:0] m_axi_awsize,
+output [3:0] m_axi_arprot,
+output [1:0] m_axi_arburst,
+output [7:0] m_axi_arlen,
+output [2:0] m_axi_arsize,
+output [7:0] m_axi_arid,
+output [7:0] m_axi_wid
 );
 `IP_MODULE_NAME(efx_axi_interconnect) #(
 .ARB_MODE ("ROUND_ROBIN_2"),
@@ -105,7 +125,7 @@ output [3:0] s_axi_wready
 .M_PORTS (1),
 .ID_WIDTH (8),
 .USER_WIDTH (3),
-.PROTOCOL ("AXI4_LITE")
+.PROTOCOL ("AXI3")
 ) u_efx_axi_interconnect(
 .rst_n ( rst_n ),
 .clk ( clk ),
@@ -155,7 +175,27 @@ output [3:0] s_axi_wready
 .m_axi_rlast ( m_axi_rlast ),
 .m_axi_wstrb ( m_axi_wstrb ),
 .m_axi_wready ( m_axi_wready ),
-.s_axi_wready ( s_axi_wready )
+.s_axi_wready ( s_axi_wready ),
+.m_axi_awprot ( m_axi_awprot ),
+.s_axi_arid ( s_axi_arid ),
+.s_axi_arsize ( s_axi_arsize ),
+.s_axi_arlen ( s_axi_arlen ),
+.s_axi_arburst ( s_axi_arburst ),
+.s_axi_arprot ( s_axi_arprot ),
+.s_axi_awid ( s_axi_awid ),
+.s_axi_awburst ( s_axi_awburst ),
+.s_axi_awlen ( s_axi_awlen ),
+.s_axi_awsize ( s_axi_awsize ),
+.m_axi_awid ( m_axi_awid ),
+.m_axi_awburst ( m_axi_awburst ),
+.m_axi_awlen ( m_axi_awlen ),
+.m_axi_awsize ( m_axi_awsize ),
+.m_axi_arprot ( m_axi_arprot ),
+.m_axi_arburst ( m_axi_arburst ),
+.m_axi_arlen ( m_axi_arlen ),
+.m_axi_arsize ( m_axi_arsize ),
+.m_axi_arid ( m_axi_arid ),
+.m_axi_wid ( m_axi_wid )
 );
 
 endmodule
