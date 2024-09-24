@@ -34,3 +34,12 @@
 ../../ip/csi_rx/csi_rx_bb.v
 ../../ip/W0_FIFO_128/W0_FIFO_128.v
 ../../ip/FIFO_W48R24/FIFO_W48R24.v
+
+../../ip/hbram_interconnect/Testbench/modelsim/hbram_interconnect.v
+../../ip/hbram_interconnect/Testbench/top.v
+../../ip/hbram_interconnect/Testbench/efx_crc32.v
+../../ip/hbram_interconnect/Testbench/efx_custom_master_model.v
+../../ip/hbram_interconnect/Testbench/efx_custom_slave_model.v
+../../ip/hbram_interconnect/Testbench/efx_fifo_top.modelsim.v
+../../ip/hbram_interconnect/Testbench/tb.v
+

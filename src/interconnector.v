@@ -60,7 +60,7 @@ module inter_connector # (
 	wire			w_hbram_awvalid;
 	wire			w_hbram_awready;
 
-	wire	[3:0] 	cmos_aw_id;
+	wire	[3:0] 	cmos_aw_id = 0;
 	wire	[31:0]	cmos_aw_addr;
 	wire	[7:0]	cmos_aw_len;
 	wire			cmos_aw_valid;
@@ -101,21 +101,21 @@ module inter_connector # (
 
 	wire 	[3:0]  	dsamp_w_id		=0;
 	wire 	[127:0] dsamp_w_data=0;
-	wire 	[15:0]	dsamp_w_strb;
+	wire 	[15:0]	dsamp_w_strb = 16'hFFFF;
 	wire			dsamp_w_last	=0;
 	wire			dsamp_w_valid	=0;
 	wire			dsamp_w_ready	;
 
 	wire 	[3:0]  	blur_w_id		=0;
 	wire 	[127:0] blur_w_data=0;
-	wire 	[15:0]	blur_w_strb;
+	wire 	[15:0]	blur_w_strb = 16'hFFFF;
 	wire			blur_w_last	=0;
 	wire			blur_w_valid	=0;
 	wire			blur_w_ready	;
 
 	wire 	[3:0]  	lcd_w_id		=0;
 	wire 	[127:0] lcd_w_data	=0;
-	wire 	[15:0]	lcd_w_strb;
+	wire 	[15:0]	lcd_w_strb = 16'hFFFF;
 	wire			lcd_w_last		=0;
 	wire			lcd_w_valid	=0;
 	wire			lcd_w_ready	;
@@ -138,21 +138,21 @@ module inter_connector # (
 	wire			cmos_ar_ready;
 		
 	wire	[3:0] 	dsamp_ar_id = 0;
-	wire	[31:0]	dsamp_ar_addr;
-	wire	[7:0]	dsamp_ar_len;
-	wire			dsamp_ar_valid;
+	wire	[31:0]	dsamp_ar_addr = 0;
+	wire	[7:0]	dsamp_ar_len = 0;
+	wire			dsamp_ar_valid = 0;
 	wire			dsamp_ar_ready;
 	
 	wire	[3:0] 	blur_ar_id = 0;
-	wire	[31:0]	blur_ar_addr;
-	wire	[7:0]	blur_ar_len;
-	wire			blur_ar_valid;
+	wire	[31:0]	blur_ar_addr = 0;
+	wire	[7:0]	blur_ar_len = 0;
+	wire			blur_ar_valid = 0;
 	wire			blur_ar_ready;
 	
 	wire	[3:0] 	lcd_ar_id = 0;
-	wire	[31:0]	lcd_ar_addr;
-	wire	[7:0]	lcd_ar_len;
-	wire			lcd_ar_valid;
+	wire	[31:0]	lcd_ar_addr = 0;
+	wire	[7:0]	lcd_ar_len = 0;
+	wire			lcd_ar_valid = 0;
 	wire			lcd_ar_ready;
 	
 	wire 	[3:0] 	w_hbram_rid;
@@ -173,21 +173,21 @@ module inter_connector # (
 	wire 	[127:0] dsamp_r_data;
 	wire			dsamp_r_last;
 	wire			dsamp_r_valid;
-	wire			dsamp_r_ready;
+	wire			dsamp_r_ready = 0;
 	wire 	[1:0] 	dsamp_r_resp;
 
 	wire 	[3:0] 	blur_r_id;
 	wire 	[127:0] blur_r_data;
 	wire			blur_r_last;
 	wire			blur_r_valid;
-	wire			blur_r_ready;
+	wire			blur_r_ready = 0;
 	wire 	[1:0] 	blur_r_resp;
 
 	wire 	[3:0] 	lcd_r_id;
 	wire 	[127:0] lcd_r_data;
 	wire			lcd_r_last;
 	wire			lcd_r_valid;
-	wire			lcd_r_ready;
+	wire			lcd_r_ready = 0;
 	wire 	[1:0] 	lcd_r_resp;
 	
 	//	AXI Interface Request
@@ -247,7 +247,6 @@ module inter_connector # (
 	wire [S_PORTS*2-1:0]            s_axi_rresp     ; // 读响应
 
 	wire [M_PORTS*2-1:0]            m_axi_awlock    ; // 锁信号
-	wire [M_PORTS*3-1:0]            m_axi_awsize    ; // 突发传输大小
 	wire [M_PORTS*4-1:0]            m_axi_awprot    ; // 保护类型
 
 	wire [M_PORTS-1:0]              m_axi_bvalid    ; // 写响应有效信号
@@ -256,7 +255,6 @@ module inter_connector # (
 	wire [M_PORTS*2-1:0]            m_axi_bresp     ; // 写响应
 
 	wire [M_PORTS*2-1:0]            m_axi_arlock    ; // 锁信号
-	wire [M_PORTS*3-1:0]            m_axi_arsize    ; // 突发传输大小
 	wire [M_PORTS*4-1:0]            m_axi_arprot    ; // 保护类型
 
 	assign s_axi_wid  = {lcd_w_id,blur_w_id,dsamp_w_id,cmos_w_id};
@@ -282,6 +280,7 @@ module inter_connector # (
 	assign s_axi_arid 	 = {lcd_ar_id,blur_ar_id,dsamp_ar_id,cmos_ar_id};
 	assign s_axi_arvalid = {lcd_ar_valid,blur_ar_valid,dsamp_ar_valid,cmos_ar_valid};
 	assign s_axi_araddr  = {lcd_ar_addr,blur_ar_addr,dsamp_ar_addr,cmos_ar_addr};
+	assign s_axi_arlen  = {lcd_ar_len,blur_ar_len,dsamp_ar_len,cmos_ar_len};
 	assign {lcd_ar_ready,blur_ar_ready,dsamp_ar_ready,cmos_ar_ready} = s_axi_arready;
 
 	assign m_axi_bresp   = 0;

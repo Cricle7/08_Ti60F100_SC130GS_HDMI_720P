@@ -19,11 +19,13 @@ vlog -sv -sv09compat +define+$SWITCH_1+$SWITCH_2 ../../ip/hbram/Testbench/models
 
 vlog -sv -sv09compat +define+$SWITCH_1 ../../ip/hbram/Testbench/W958D6NKY.modelsim.vp
 
-vlog -f flist +define+$SWITCH_1+$SWITCH_2 
+vlog +define+$SWITCH_1 -f flist 
 
 #Load the design.
 vsim -t ps +notimingchecks -gui -voptargs="+acc" work.tb_example_top
+add wave -position insertpoint sim:/tb_example_top/u_dut/u_inter_connector/*
 #do wave.do
+run -All
 #Run simulation
 #run 150ms
 #run 150ms
