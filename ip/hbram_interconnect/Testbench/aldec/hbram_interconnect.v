@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _e3ddd33e0c47464594847b36ae40724e
+`define IP_UUID _e166e2e3d2904aeead5aaaf03f5742cb
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
 module hbram_interconnect (
@@ -59,12 +59,12 @@ input [7:0] s_axi_arlock,
 output [3:0] s_axi_arready,
 input [3:0] s_axi_wvalid,
 input [3:0] s_axi_wlast,
-input [31:0] s_axi_wid,
+input [15:0] s_axi_wid,
 input [3:0] s_axi_bready,
 output [7:0] s_axi_bresp,
 input [3:0] s_axi_rready,
-output [31:0] s_axi_bid,
-output [31:0] s_axi_rid,
+output [15:0] s_axi_bid,
+output [15:0] s_axi_rid,
 input [511:0] s_axi_wdata,
 output [511:0] s_axi_rdata,
 output [7:0] s_axi_rresp,
@@ -85,8 +85,8 @@ output [0:0] m_axi_wlast,
 output [0:0] m_axi_bready,
 input [1:0] m_axi_bresp,
 output [0:0] m_axi_rready,
-input [7:0] m_axi_bid,
-input [7:0] m_axi_rid,
+input [3:0] m_axi_bid,
+input [3:0] m_axi_rid,
 output [127:0] m_axi_wdata,
 input [127:0] m_axi_rdata,
 input [1:0] m_axi_rresp,
@@ -97,16 +97,16 @@ output [15:0] m_axi_wstrb,
 input [0:0] m_axi_wready,
 output [3:0] s_axi_wready,
 output [3:0] m_axi_awprot,
-input [31:0] s_axi_arid,
+input [15:0] s_axi_arid,
 input [11:0] s_axi_arsize,
 input [31:0] s_axi_arlen,
 input [7:0] s_axi_arburst,
 input [15:0] s_axi_arprot,
-input [31:0] s_axi_awid,
+input [15:0] s_axi_awid,
 input [7:0] s_axi_awburst,
 input [31:0] s_axi_awlen,
 input [11:0] s_axi_awsize,
-output [7:0] m_axi_awid,
+output [3:0] m_axi_awid,
 output [1:0] m_axi_awburst,
 output [7:0] m_axi_awlen,
 output [2:0] m_axi_awsize,
@@ -114,8 +114,8 @@ output [3:0] m_axi_arprot,
 output [1:0] m_axi_arburst,
 output [7:0] m_axi_arlen,
 output [2:0] m_axi_arsize,
-output [7:0] m_axi_arid,
-output [7:0] m_axi_wid
+output [3:0] m_axi_arid,
+output [3:0] m_axi_wid
 );
 `IP_MODULE_NAME(efx_axi_interconnect) #(
 .ARB_MODE ("ROUND_ROBIN_2"),
@@ -123,7 +123,7 @@ output [7:0] m_axi_wid
 .DATA_WIDTH (128),
 .ADDR_WIDTH (32),
 .M_PORTS (1),
-.ID_WIDTH (8),
+.ID_WIDTH (4),
 .USER_WIDTH (3),
 .PROTOCOL ("AXI3")
 ) u_efx_axi_interconnect(

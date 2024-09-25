@@ -48,6 +48,6 @@ localparam S_PORTS = 4;
 localparam DATA_WIDTH = 128;
 localparam ADDR_WIDTH = 32;
 localparam M_PORTS = 1;
-localparam ID_WIDTH = 8;
+localparam ID_WIDTH = 4;
 localparam USER_WIDTH = 3;
 localparam PROTOCOL = "AXI3";

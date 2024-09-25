@@ -45,7 +45,7 @@ module inter_connector # (
 	localparam DATA_WIDTH = 128;  // Data Width for AXI interfaces
 	localparam ADDR_WIDTH = 32;   // Address Width for AXI interfaces
 	localparam M_PORTS    = 1;    // Number of Master Ports
-	localparam ID_WIDTH   = 8;    // ID Width for transactions
+	localparam ID_WIDTH   = 4;    // ID Width for transactions
 	localparam USER_WIDTH = 3;    // User signal width (optional for AXI)
 
 
@@ -247,7 +247,7 @@ module inter_connector # (
 	wire [S_PORTS*2-1:0]            s_axi_rresp     ; // 读响应
 
 	wire [M_PORTS*2-1:0]            m_axi_awlock    ; // 锁信号
-	wire [M_PORTS*4-1:0]            m_axi_awprot    ; // 保护类型
+	wire [M_PORTS*3-1:0]            m_axi_awprot    ; // 保护类型
 
 	wire [M_PORTS-1:0]              m_axi_bvalid    ; // 写响应有效信号
 	wire [M_PORTS-1:0]              m_axi_bready    ; // 写响应准备好信号
