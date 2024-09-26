@@ -249,9 +249,6 @@ module inter_connector # (
 	wire [M_PORTS*2-1:0]            m_axi_awlock    ; // 锁信号
 	wire [M_PORTS*3-1:0]            m_axi_awprot    ; // 保护类型
 
-	wire [M_PORTS-1:0]              m_axi_bvalid    ; // 写响应有效信号
-	wire [M_PORTS-1:0]              m_axi_bready    ; // 写响应准备好信号
-	wire [M_PORTS*ID_WIDTH-1:0]     m_axi_bid       ; // 写响应ID
 	wire [M_PORTS*2-1:0]            m_axi_bresp     ; // 写响应
 
 	wire [M_PORTS*2-1:0]            m_axi_arlock    ; // 锁信号

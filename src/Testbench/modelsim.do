@@ -23,8 +23,8 @@ vlog +define+$SWITCH_1 -f flist
 
 #Load the design.
 vsim -t ps +notimingchecks -gui -voptargs="+acc" work.tb_example_top
-add wave -position insertpoint sim:/tb_example_top/u_dut/u_inter_connector/*
-#do wave.do
+#add wave -position insertpoint sim:/tb_example_top/u_dut/u_inter_connector/*
+do wave.do
 run -All
 #Run simulation
 #run 150ms

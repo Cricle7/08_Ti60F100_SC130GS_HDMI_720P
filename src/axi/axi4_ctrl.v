@@ -449,7 +449,7 @@ module axi4_ctrl #(
 	
 	////////////////////////////////////////////////////////////////
 	//	AXI Read FIFO
-	wire 				w_rfifo_rst = (r_rframe_vsync == 2'b10) || axi_reset; 		//	Reset FIFO on START pulse. 
+	wire 				w_rfifo_rst = r_rframe_vsync == 2'b10; 		//	Reset FIFO on START pulse. 
 
 	wire 				w_rfifo_aempty;
 	wire 				w_rfifo_empty; 
