@@ -103,9 +103,6 @@ add wave -noupdate /tb_example_top/u_dut/u_inter_connector/s_axi_rdata
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/s_axi_rresp
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_awlock
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_awprot
-add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_bvalid
-add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_bready
-add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_bid
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_bresp
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_arlock
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/m_axi_arprot
@@ -206,8 +203,9 @@ add wave -noupdate /tb_example_top/u_dut/u_inter_connector/u_axi4_ctrl/w_rframe_
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/u_axi4_ctrl/rc_rfifo_rd
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/u_axi4_ctrl/w_rfifo_rend
 add wave -noupdate /tb_example_top/u_dut/u_inter_connector/u_axi4_ctrl/r_rframe_data_gen
+add wave -noupdate /tb_example_top/u_dut/led_o
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {518036434 ps} 0}
+WaveRestoreCursors {{Cursor 1} {668857168 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 472
 configure wave -valuecolwidth 100
