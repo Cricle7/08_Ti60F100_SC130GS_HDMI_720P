@@ -622,7 +622,7 @@ module example_top
 	wire 	[31:0] 	w_csi_axi_rdata; 
 	wire 			w_csi_axi_awready, w_csi_axi_wready, w_csi_axi_arready, w_csi_axi_rvalid; 
 	
-`define PRI_MIPI_IP
+`define PRI_MIPI_IP//use hard mipi
 	
 `ifdef PRI_MIPI_IP
 	//localparam 	CSI_DATA_WIDTH 	= 64; 	
