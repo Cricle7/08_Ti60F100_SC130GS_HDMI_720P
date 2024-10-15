@@ -45,7 +45,7 @@
 
 localparam SYNC_CLK = 1;
 localparam SYNC_STAGE = 2;
-localparam DATA_WIDTH = 16;
+localparam DATA_WIDTH = 18;
 localparam MODE = "FWFT";
 localparam OUTPUT_REG = 0;
 localparam PROG_FULL_ASSERT = 128;

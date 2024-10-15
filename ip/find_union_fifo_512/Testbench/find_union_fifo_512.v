@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _13e46c285df44b0cad5fd470667acd1c
+`define IP_UUID _8322b31e892341349c202a83943dd55c
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
 module find_union_fifo_512 (
@@ -52,16 +52,16 @@ output empty_o,
 input clk_i,
 input wr_en_i,
 input rd_en_i,
-input [15:0] wdata,
+input [17:0] wdata,
 output [8:0] datacount_o,
 output rst_busy,
-output [15:0] rdata,
+output [17:0] rdata,
 input a_rst_i
 );
 `IP_MODULE_NAME(efx_fifo_top) #(
 .SYNC_CLK (1),
 .SYNC_STAGE (2),
-.DATA_WIDTH (16),
+.DATA_WIDTH (18),
 .MODE ("FWFT"),
 .OUTPUT_REG (0),
 .PROG_FULL_ASSERT (128),

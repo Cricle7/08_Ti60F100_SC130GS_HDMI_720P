@@ -49,7 +49,6 @@ module two_pass_labeling #(
     );
 
     // Instantiate Union-Find Module
-    wire [1:0]            union_find_op;
     wire [ADDR_WIDTH-1:0] label_a, label_b;
     wire                  find_en;
     wire [ADDR_WIDTH-1:0] find_label_in;
@@ -58,32 +57,69 @@ module two_pass_labeling #(
     wire [ADDR_WIDTH-1:0] invalidate_label;
     wire                  valid_out;
 
+    wire rst_fifo;
+    wire fifo_full;
+    wire fifo_empty;
+    wire rst_busy;
+    wire [8:0] data_count_o;
+    wire rst_busy;
+    wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_wfifo;
+    wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_rfifo;
+
     union_find #(
         .N(MAX_LABELS),
         .ADDR_WIDTH(ADDR_WIDTH)
     ) u_union_find (
-        .clk              (clk),
-        .reset            (!rst_n),
-        .op               (op), // UNION operation//这里有问题
-        .node1            (label_a),
-        .node2            (label_b),
-        .result           (find_label_out),
-        .done             (valid_out)
+        .clk              (clk                                                      ),
+        .reset            (rst_fifo                                                 ),
+        .op               (find_union_req_rfifo[ADDR_WIDTH*2 + 2 - 1:ADDR_WIDTH*2]  ), // UNION operation//这里有问题
+        .node1            (find_union_req_rfifo[ADDR_WIDTH*2 - 1:ADDR_WIDTH]        ),
+        .node2            (find_union_req_rfifo[ADDR_WIDTH - 1:0]                   ),
+        .result           (find_label_out                                           ),
+        .done             (valid_out                                                )
     );
-    wire find_union_req;
-    wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_op;
-    assign find_union_op = {union_find_op, label_a, label_b};
+
+	reg 	[1:0] 	r_vsync_i = 0; 
+	always @(posedge clk) begin
+		r_vsync_i <= {r_vsync_i, matrix_frame_vsync}; 
+	end
+
+    assign rst_fifo = !rst_n || (r_vsync_i == 2'b01);
+    assign find_union_req_wfifo = {find_en,union_en, label_a, label_b};
+
+    wire [1:0] rfifo_en_idle;
+    wire [1:0] rfifo_en_req;
+    wire [1:0] rfifo_en_prog;
+
+    reg rfifo_en_state;
+    reg rfifo_en_next_state;
+
+    always @(posedge clk) begin
+        if(!rst_n)
+            rfifo_en_state <= rfifo_en_idle;
+        else begin
+            rfifo_en_state <= rfifo_en_next_state;
+        end
+    end
+
+    always @(*) begin
+        case(rfifo_en_state)
+            rfifo_en_idle:rfifo_en_next_state = fifo_empty ? rfifo_en_idle : rfifo_en_req;
+            rfifo_en_req:rfifo_en_next_state = rfifo_en_prog;
+            rfifo_en_prog:rfifo_en_next_state = valid_out ? rfifo_en_idle : rfifo_en_prog;
+        endcase
+    end
     find_union_fifo_512  u_find_union_fifo_512(
-    .full_o ( full_o ),
-    .empty_o ( empty_o ),
-    .clk_i ( clk_i ),
-    .wr_en_i ( find_en | union_en),
-    .rd_en_i ( rd_en_i ),
-    .wdata ( wdata ),
-    .datacount_o ( datacount_o ),
-    .rst_busy ( rst_busy ),
-    .rdata ( rdata ),
-    .a_rst_i ( a_rst_i )
+        .full_o ( fifo_full ),
+        .empty_o        ( fifo_empty                        ),
+        .clk_i          ( clk                               ),
+        .wr_en_i        ( find_en | union_en                ),
+        .rd_en_i        ( rfifo_en_state == rfifo_en_req    ),
+        .wdata          ( find_union_req_wfifo              ),
+        .datacount_o    ( datacount_o                       ),
+        .rst_busy       ( rst_busy                          ),
+        .rdata          ( find_union_req_rfifo              ),
+        .a_rst_i        ( rst_fifo                          )
     );
     // Instantiate Perimeter Calculation Module
     wire [3:0] perimeter_out;
@@ -104,13 +140,13 @@ module two_pass_labeling #(
     // Combinational logic for Labeling Process
     reg [ADDR_WIDTH-1:0]    current_label;
     reg [ADDR_WIDTH-1:0]    label_image      [0:IMG_HDISP-1];
-    reg [ADDR_WIDTH-1:0]    parent_label     [0:IMG_HDISP-1];//暂存的父label
     reg [ADDR_WIDTH-1:0]    prev_label_image [0:IMG_HDISP-1];
     reg [13:0]              x;
     reg [ADDR_WIDTH-1:0]    label_count;
     reg [31:0]              area             [0:MAX_LABELS-1];// Area for each label
     reg [31:0]              perimeter        [0:MAX_LABELS-1];// Perimeter for each label
     reg                     valid            [0:MAX_LABELS-1];// Validity of each label
+    reg                     prev_valid       [0:MAX_LABELS-1];// Validity of each label of upper hor
 
     wire [ADDR_WIDTH-1:0] left_label = (x == 0) ? 0 : label_image[x - 1];
     wire [ADDR_WIDTH-1:0] above_label = prev_label_image[x];
@@ -119,7 +155,17 @@ module two_pass_labeling #(
     wire [31:0] updated_perimeter;
     wire        new_valid;
 
-    assign next_label = (left_label == 0 && above_label == 0) ? label_count + 1 :
+    wire surrounded_by_invalid_label;
+//这里还要加上左边的像素
+    assign surrounded_by_invalid_label =    (x == 0) ? 
+                                            (prev_valid[x] & prev_valid[x+1] ? 0 : 1) : 
+                                            (x == 1) ? 
+                                            (prev_valid[x-1] & prev_valid[x] & vaild[x-1] ? 0 : 1) : 
+                                            (x == IMG_VDISP-1) ? 
+                                            (prev_valid[x-1] & prev_valid[x] & vaild[x-1] ? 0 : 1) : 
+                                            (prev_valid[x-1] & prev_valid[x] & prev_valid[x+1] & vaild[x-1] ? 0 : 1);
+
+    assign next_label = (left_label == 0 && above_label == 0) ? label_count + !surrounded_by_invalid_label :
                         (left_label != 0 && above_label == 0) ? left_label :
                         (left_label == 0 && above_label != 0) ? above_label :
                         (left_label < above_label) ? left_label : above_label;
@@ -134,12 +180,17 @@ module two_pass_labeling #(
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             integer i;
-            for (i = 0; i < MAX_LABELS; i = i + 1) begin
+            area[0] <= 0;
+            perimeter[0] <= 0;
+            valid[0] <= 0;
+            for (i = 1; i < MAX_LABELS; i = i + 1) begin
                 area[i] <= 0;
                 perimeter[i] <= 0;
                 valid[i] <= 1;
             end
             label_count <= 1;
+        end else if (matrix_frame_href && surrounded_by_invalid_label && matrix_p22 == 8'd255) begin
+            valid[next_label] <= 0;
         end else if (matrix_frame_href && matrix_p22 == 8'd255) begin
             area[next_label] <= updated_area;
             perimeter[next_label] <= updated_perimeter;
@@ -151,13 +202,12 @@ module two_pass_labeling #(
     end
 
     always @(*) begin
-        if (matrix_p22 == 8'd255) begin // Only label foreground pixels
-            label_image[x] = next_label;
-        end else begin
-            label_image[x] = 0; // Background pixels have no label
-        end
-
-        if (!per_frame_vsync) begin // Perform union operation at frame end
+        if (matrix_frame_href) begin
+            if (matrix_p22 == 8'd255) begin // Only label foreground pixels
+                label_image[x] = next_label;
+            end else begin
+                label_image[x] = 0; // Background pixels have no label
+            end
             if (left_label != above_label && left_label != 0 && above_label != 0) begin
                 union_en = 1;
                 label_a = left_label;
@@ -175,18 +225,15 @@ module two_pass_labeling #(
         if (!rst_n) begin
             x <= 0;
         end else if (~matrix_frame_href) begin
-            if (x == IMG_HDISP - 1) begin
-                x <= 0;
-                // Update previous line labels
-                integer i;
-                for (i = 0; i < IMG_HDISP; i = i + 1) begin
-                    prev_label_image[i] <= label_image[i];
-                end
-            end else begin
-                x <= x + 1;
+            x <= 0;
+            // Update previous line labels
+            integer i;
+            for (i = 0; i < IMG_HDISP; i = i + 1) begin
+                prev_label_image[i] <= label_image[i];
+                prev_valid[i] <= vaild[i];
             end
         end else begin
-            x <= 0;
+            x <= x + 1;
         end
     end
 
@@ -210,26 +257,6 @@ module two_pass_labeling #(
             end
         end else begin
             post_label <= 0;
-        end
-    end
-endmodule
-
-// Line Counter Module
-module line_counter (
-    input               clk,
-    input               rst_n,
-    input               per_frame_href, // Line sync signal
-    output reg [13:0]   line_count      // Line count output
-);
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            line_count <= 0;
-        end else if (!per_frame_href) begin
-            if (line_count == IMG_VDISP - 1) begin
-                line_count <= 0;
-            end else begin
-                line_count <= line_count + 1;
-            end
         end
     end
 endmodule
