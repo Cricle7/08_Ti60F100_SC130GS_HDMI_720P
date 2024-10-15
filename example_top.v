@@ -1055,6 +1055,11 @@ module example_top
 	// ); 
 		//-------------------------------------
 	//Digilent HDMI-TX IP Modified by CB elec.
+
+	wire                            post_img_vsync;
+	wire                            post_img_href;
+	wire            [7:0]           post_img_gray;
+
 	rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
 	(
 		.oe_i 		(1), 			//	Always enable output
@@ -1066,10 +1071,10 @@ module example_top
 		.PixelClk		(w_pixel_clk        ),
 		.SerialClk		(),
 		
-		.vid_pVSync		(lcd_vs), 
-		.vid_pHSync		(lcd_hs), 
+		.vid_pVSync		(post_img_vsync), 
+		.vid_pHSync		(post_img_href), 
 		.vid_pVDE		(lcd_de), 
-		.vid_pData		({lcd_data[7:0], lcd_data[7:0], lcd_data[7:0]}), 
+		.vid_pData		({post_img_gray[7:0], post_img_gray[7:0], post_img_gray[7:0]}), 
 		
 		.txc_o		(hdmi_txc_o), 
 		.txd0_o		(hdmi_txd0_o), 
@@ -1077,7 +1082,28 @@ module example_top
 		.txd2_o		(hdmi_txd2_o)
 	); 
 	
-	
+    localparam image_width  = 1280;
+    localparam image_height = 720 ;
+	downsample_proc
+	#(
+    	.IMG_HDISP  (image_width    ),
+    	.IMG_VDISP  (image_height   )
+	)
+	u_downsample_proc
+	(
+    	.clk            (clk            ),
+    	.rst_n          (w_pixel_rstn   ),
+    
+    	//  Image data prepared to be processed
+    	.per_img_vsync  (lcd_vs  ),       //  Prepared Image data vsync valid signal
+    	.per_img_href   (lcd_hs   ),       //  Prepared Image data href valid signal
+    	.per_img_gray   (lcd_data   ),       //  Prepared Image brightness input
+    
+    	//  Image data has been processed
+    	.post_img_vsync (post_img_vsync ),       //  Processed Image data vsync valid signal
+    	.post_img_href  (post_img_href  ),       //  Processed Image data href valid signal
+    	.post_img_gray  (post_img_gray  )        //  Processed Image brightness output
+	);
 	
 endmodule
 
