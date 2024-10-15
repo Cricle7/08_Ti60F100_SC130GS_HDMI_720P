@@ -27,5 +27,6 @@
 !.gitignore
 work_pnr
 work_syn
+work_dbg
 *template*
 *map*

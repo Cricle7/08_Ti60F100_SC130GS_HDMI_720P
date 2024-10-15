@@ -607,67 +607,6 @@ module example_top
 	assign dsi_pwm_o = r_dsi_pwm_o; 
 	
 	
-	
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//	HyperRAM Controller
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	wire			w_hbram_ui_clk = w_sys_clk;
-	wire			w_hbram_ui_rst = w_sys_rst;
-	wire			w_hbram_ui_areset = w_sys_rst;
-	wire			w_hbram_ui_aresetn = w_sys_rstn;
-	
-	
-	//	General AXI Interface 
-	wire	[3:0] 	w_hbram_awid;
-	wire	[31:0]	w_hbram_awaddr;
-	wire	[7:0]		w_hbram_awlen;
-	wire			w_hbram_awvalid;
-	wire			w_hbram_awready;
-	
-	wire 	[3:0]  	w_hbram_wid;
-	wire 	[127:0] 	w_hbram_wdata;
-	wire 	[15:0]	w_hbram_wstrb;
-	wire			w_hbram_wlast;
-	wire			w_hbram_wvalid;
-	wire			w_hbram_wready;
-	
-	wire 	[3:0] 	w_hbram_bid;
-	wire 	[1:0] 	w_hbram_bresp;
-	wire			w_hbram_bvalid;
-	wire			w_hbram_bready;
-	
-	wire	[3:0] 	w_hbram_arid;
-	wire	[31:0]	w_hbram_araddr;
-	wire	[7:0]		w_hbram_arlen;
-	wire			w_hbram_arvalid;
-	wire			w_hbram_arready;
-	
-	wire 	[3:0] 	w_hbram_rid;
-	wire 	[127:0] 	w_hbram_rdata;
-	wire			w_hbram_rlast;
-	wire			w_hbram_rvalid;
-	wire			w_hbram_rready;
-	wire 	[1:0] 	w_hbram_rresp;
-	
-	
-	//	AXI Interface Request
-	wire 	[3:0] 	w_hbram_aid;
-	wire 	[31:0] 	w_hbram_aaddr;
-	wire 	[7:0]  	w_hbram_alen;
-	wire 	[2:0]  	w_hbram_asize;
-	wire 	[1:0]  	w_hbram_aburst;
-	wire 	[1:0]  	w_hbram_alock;
-	wire			w_hbram_avalid;
-	wire			w_hbram_aready;
-	wire			w_hbram_atype;
-	
-	wire 			w_hbram_cal_pass; 
-	wire 			w_hbram_cal_done = w_hbram_cal_pass; 
-	wire 	[15:0] 	w_hbram_cal_dbg; 
-	
-	
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	MIPI CSI RX (Use CSI0_BITFLIP For Bit Flip)
@@ -683,7 +622,7 @@ module example_top
 	wire 	[31:0] 	w_csi_axi_rdata; 
 	wire 			w_csi_axi_awready, w_csi_axi_wready, w_csi_axi_arready, w_csi_axi_rvalid; 
 	
-//`define PRI_MIPI_IP
+`define PRI_MIPI_IP//use hard mipi
 	
 `ifdef PRI_MIPI_IP
 	//localparam 	CSI_DATA_WIDTH 	= 64; 	
@@ -921,7 +860,7 @@ module example_top
 	) u_sim_data (
 	    //  global clock
 	    .clk        (w_csi_rx_clk   ),
-	    .rst_n      (w_sys_rstn && sc2210_i2c_config_done), 
+	    .rst_n      (w_sys_rstn), 
 	    
 	    //  lcd interface
 	    .lcd_dclk   (               ),
@@ -957,16 +896,6 @@ module example_top
 
 
 
-	
-	
-
-
-
-
-
-
-
-
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	DDR R/W Control
@@ -980,47 +909,44 @@ module example_top
 	wire            [7:0]           lcd_green, lcd_green2;
 	wire            [7:0]           lcd_blue, lcd_blue2;
 	wire            [15:0]          lcd_data;
-	
 
-	
 	inter_connector #(
-        .TOP_DBW        (16),
-        .CSI_DATA_WIDTH (CSI_DATA_WIDTH)
-    ) u_inter_connector (
-        .w_sys_rst          (w_sys_rst),               // Global Reset
-        .sys_clk_i          (sys_clk_i),               // PLL Phase Settings
-        .hbramClk           (hbramClk),                // HBRAM Clock
-        .hbramClk_Cal       (hbramClk_Cal),            // HBRAM Calibration Clock
-        .hbramClk_shift     (hbramClk_shift),          // Output phase shift signals
-        .hbramClk_shift_sel (hbramClk_shift_sel),      // Output phase shift select
-        .hbramClk_shift_ena (hbramClk_shift_ena),      // Output phase shift enable
-        .hbram_RST_N        (hbram_RST_N),             // HBRAM reset signal
-        .hbram_CS_N         (hbram_CS_N),              // HBRAM chip select
-        .hbram_CK_P_HI      (hbram_CK_P_HI),           // HBRAM clock high
-        .hbram_CK_P_LO      (hbram_CK_P_LO),           // HBRAM clock low
-        .hbram_CK_N_HI      (hbram_CK_N_HI),           // HBRAM clock negative high
-        .hbram_CK_N_LO      (hbram_CK_N_LO),           // HBRAM clock negative low
-        .hbram_RWDS_OUT_HI  (hbram_RWDS_OUT_HI),       // HBRAM RWDS high output
-        .hbram_RWDS_OUT_LO  (hbram_RWDS_OUT_LO),       // HBRAM RWDS low output
-        .hbram_RWDS_IN_HI   (hbram_RWDS_IN_HI),        // HBRAM RWDS high input
-        .hbram_RWDS_IN_LO   (hbram_RWDS_IN_LO),        // HBRAM RWDS low input
-        .hbram_DQ_IN_LO     (hbram_DQ_IN_LO),          // HBRAM DQ low input
-        .hbram_DQ_IN_HI     (hbram_DQ_IN_HI),          // HBRAM DQ high input
-        .hbram_RWDS_OE      (hbram_RWDS_OE),           // HBRAM RWDS output enable
-        .hbram_DQ_OUT_HI    (hbram_DQ_OUT_HI),         // HBRAM DQ high output
-        .hbram_DQ_OUT_LO    (hbram_DQ_OUT_LO),         // HBRAM DQ low output
-        .hbram_DQ_OE        (hbram_DQ_OE),             // HBRAM DQ output enable
-        .w_dev_rdata_i      (w_dev_rdata_i),           // Device read data
-        .w_csi_rx_clk       (w_csi_rx_clk),            // CSI RX clock
-        .cmos_frame_vsync   (cmos_frame_vsync),        // CMOS frame sync
-        .cmos_frame_href    (cmos_frame_href),         // CMOS frame HREF
-        .cmos_frame_Gray    (cmos_frame_Gray),         // CMOS frame gray data
-        .w_pixel_clk        (w_pixel_clk),             // Pixel clock
-        .lcd_vs             (lcd_vs),                  // LCD vertical sync
-        .lcd_request        (lcd_request),             // LCD request
-        .lcd_data           (lcd_data)                 // LCD data output
-    );
-
+ 	    .TOP_DBW          (16),                  // 参数设置
+    	.CSI_DATA_WIDTH   (CSI_DATA_WIDTH)
+	) u_inter_connector (
+    	.w_sys_rst        (w_sys_rst),            // 输入信号连接
+    	.sys_clk_i        (sys_clk_i),
+    	.hbramClk         (hbramClk),
+    	.hbramClk_Cal     (hbramClk_Cal),
+    	.hbramClk_shift   (hbramClk_shift),       // 输出信号连接
+    	.hbramClk_shift_sel(hbramClk_shift_sel),
+    	.hbramClk_shift_ena(hbramClk_shift_ena),
+    	.hbram_RST_N      (hbram_RST_N),
+    	.hbram_CS_N       (hbram_CS_N),
+    	.hbram_CK_P_HI    (hbram_CK_P_HI),
+    	.hbram_CK_P_LO    (hbram_CK_P_LO),
+    	.hbram_CK_N_HI    (hbram_CK_N_HI),
+    	.hbram_CK_N_LO    (hbram_CK_N_LO),
+    	.hbram_RWDS_OUT_HI(hbram_RWDS_OUT_HI),
+    	.hbram_RWDS_OUT_LO(hbram_RWDS_OUT_LO),
+    	.hbram_RWDS_IN_HI (hbram_RWDS_IN_HI),
+    	.hbram_RWDS_IN_LO (hbram_RWDS_IN_LO),
+    	.hbram_DQ_IN_LO   (hbram_DQ_IN_LO),
+    	.hbram_DQ_IN_HI   (hbram_DQ_IN_HI),
+    	.hbram_RWDS_OE    (hbram_RWDS_OE),
+    	.hbram_DQ_OUT_HI  (hbram_DQ_OUT_HI),
+    	.hbram_DQ_OUT_LO  (hbram_DQ_OUT_LO),
+    	.hbram_DQ_OE      (hbram_DQ_OE),
+    	.w_dev_rdata_i    (w_dev_rdata_i),
+    	.w_csi_rx_clk     (w_csi_rx_clk),
+    	.cmos_frame_vsync (cmos_frame_vsync),
+    	.cmos_frame_href  (cmos_frame_href),
+    	.cmos_frame_Gray  (cmos_frame_Gray),
+    	.w_pixel_clk      (w_pixel_clk),
+    	.lcd_vs           (lcd_vs),
+    	.lcd_request      (lcd_request),
+    	.lcd_data         (lcd_data)
+	);
 
 	
 	////////////////////////////////////////////////////////////////
@@ -1129,6 +1055,11 @@ module example_top
 	// ); 
 		//-------------------------------------
 	//Digilent HDMI-TX IP Modified by CB elec.
+
+	wire                            post_img_vsync;
+	wire                            post_img_href;
+	wire            [7:0]           post_img_gray;
+
 	rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
 	(
 		.oe_i 		(1), 			//	Always enable output
@@ -1140,10 +1071,10 @@ module example_top
 		.PixelClk		(w_pixel_clk        ),
 		.SerialClk		(),
 		
-		.vid_pVSync		(lcd_vs), 
-		.vid_pHSync		(lcd_hs), 
+		.vid_pVSync		(post_img_vsync), 
+		.vid_pHSync		(post_img_href), 
 		.vid_pVDE		(lcd_de), 
-		.vid_pData		({lcd_data[7:0], lcd_data[7:0], lcd_data[7:0]}), 
+		.vid_pData		({post_img_gray[7:0], post_img_gray[7:0], post_img_gray[7:0]}), 
 		
 		.txc_o		(hdmi_txc_o), 
 		.txd0_o		(hdmi_txd0_o), 
@@ -1151,7 +1082,28 @@ module example_top
 		.txd2_o		(hdmi_txd2_o)
 	); 
 	
-	
+    localparam image_width  = 1280;
+    localparam image_height = 720 ;
+	downsample_proc
+	#(
+    	.IMG_HDISP  (image_width    ),
+    	.IMG_VDISP  (image_height   )
+	)
+	u_downsample_proc
+	(
+    	.clk            (clk            ),
+    	.rst_n          (w_pixel_rstn   ),
+    
+    	//  Image data prepared to be processed
+    	.per_img_vsync  (lcd_vs  ),       //  Prepared Image data vsync valid signal
+    	.per_img_href   (lcd_hs   ),       //  Prepared Image data href valid signal
+    	.per_img_gray   (lcd_data   ),       //  Prepared Image brightness input
+    
+    	//  Image data has been processed
+    	.post_img_vsync (post_img_vsync ),       //  Processed Image data vsync valid signal
+    	.post_img_href  (post_img_href  ),       //  Processed Image data href valid signal
+    	.post_img_gray  (post_img_gray  )        //  Processed Image brightness output
+	);
 	
 endmodule
 
