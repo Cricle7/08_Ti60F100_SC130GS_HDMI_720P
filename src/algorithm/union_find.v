@@ -4,8 +4,7 @@ module union_find_optimized #(
 )(
     input clk,
     input reset,
-    input start,
-    input [1:0] op,                    // 操作码：00 - find，01 - union
+    input [1:0] op,                    // 操作码：00 - idle，01 - union , 10 - find
     input [ADDR_WIDTH-1:0] node1,
     input [ADDR_WIDTH-1:0] node2,
     output reg [ADDR_WIDTH-1:0] result, // find操作的结果
@@ -48,15 +47,15 @@ module union_find_optimized #(
                     done   <= 0;
                     x_done <= 0;
                     y_done <= 0;
-                    if (start) begin
-                        if (op == 2'b00) begin // FIND操作
-                            x_curr <= node1;
-                            state  <= FIND;
-                        end else if (op == 2'b01) begin // UNION操作
-                            x_curr <= node1;
-                            y_curr <= node2;
-                            state  <= UNION_FIND;
-                        end
+                    if (op == 2'b00)// 无操作
+                        state  <= IDLE;
+                    else if (op == 2'b10) begin // FIND操作
+                        x_curr <= node1;
+                        state  <= FIND;
+                    end else if (op == 2'b01) begin // UNION操作
+                        x_curr <= node1;
+                        y_curr <= node2;
+                        state  <= UNION_FIND;
                     end
                 end
                 FIND: begin
