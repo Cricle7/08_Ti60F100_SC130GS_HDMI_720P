@@ -162,7 +162,8 @@ module two_pass_labeling #(
     reg [ADDR_WIDTH-1:0]    prev_label_image [0:IMG_HDISP-1];//previous hor
     wire [ADDR_WIDTH-1:0]   prev_valid       [0:IMG_HDISP-1];
 
-    reg [13:0]              x;
+    reg [10:0]              x;
+    reg [9:0]               y;
     reg [ADDR_WIDTH-1:0]    label_count;
     reg [ADDR_WIDTH-1:0]    find_label_count;
     //label information
@@ -170,31 +171,26 @@ module two_pass_labeling #(
     reg [LABEL_INF_WIDTH-1:0]   perimeter        [0:MAX_LABELS-1];// Perimeter for each label
     reg                         valid            [0:MAX_LABELS-1];// Validity of each label
 
-    wire [41:0] target_pos;// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
-    wire [41:0] updated_pos;// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
-
-    reg [9:0]                   bottom           [MAX_LABELS];       // 底部边界数组
-    reg [10:0]                  letf             [MAX_LABELS];       // 边界数组
-    reg [10:0]                  right            [MAX_LABELS];       // 右边界数组
-    reg [9:0]                   top              [MAX_LABELS];          // 顶部边界数组
+    reg [41:0]  target_pos[0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
 
     reg [LABEL_INF_WIDTH-1:0]   merged_area      [0:MAX_LABELS-1];// Area for each label
     reg [LABEL_INF_WIDTH-1:0]   merged_perimeter [0:MAX_LABELS-1];// Perimeter for each label
     reg                         merged_valid     [0:MAX_LABELS-1];// Validity of each label
     reg                         merged           [0:MAX_LABELS-1];// Whether the label is merged
-    reg [9:0]                   merged_bottom    [MAX_LABELS];       // 底部边界数组
-    reg [10:0]                  merged_letf      [MAX_LABELS];       // 边界数组
-    reg [10:0]                  merged_right     [MAX_LABELS];       // 右边界数组
-    reg [9:0]                   merged_top       [MAX_LABELS];       // 顶部边界数组
+    reg [41:0]                  merged_pos       [0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
 
 
-    wire [ADDR_WIDTH-1:0]       left_label = (x == 0) ? 0 : label_image[x - 1];
+    wire [ADDR_WIDTH-1:0]       left_label  = (x == 0) ? 0 : label_image[x - 1];
     wire [ADDR_WIDTH-1:0]       above_label = prev_label_image[x];
     wire [ADDR_WIDTH-1:0]       next_label;
 
 
     wire [LABEL_INF_WIDTH-1:0]  updated_area;
     wire [LABEL_INF_WIDTH-1:0]  updated_perimeter;
+    wire [9:0]                  update_bottom          ;       // 底部边界数组
+    wire [10:0]                 update_left            ;       // 边界数组
+    wire [10:0]                 update_right           ;       // 右边界数组
+    wire [9:0]                  update_top             ;       // 顶部边界数组
     wire                        new_valid;
 
     wire surrounded_by_invalid_label;
@@ -214,6 +210,11 @@ module two_pass_labeling #(
 
     assign updated_area = area[next_label] + 1;
     assign updated_perimeter = perimeter[next_label] + perimeter_out;
+
+    assign update_bottom = y;       // 底部边界数组
+    assign update_left = (left_label == 0 && above_label == 0) ? x : target_pos [next_label][10: 0];       // 边界数组
+    assign update_right = (x > target_pos [next_label][31:21]) ? x : target_pos [next_label][31:21];       // 右边界数组
+    assign update_top = (left_label == 0 && above_label == 0)? y : target_pos [next_label][20:11]           ;       // 顶部边界数组
 
     assign new_valid = (next_label == 1) ? 0 :
                        (updated_area > MAX_AREA || updated_area < MIN_AREA) ? 0 : 1;
@@ -246,88 +247,15 @@ module two_pass_labeling #(
         end
     end
 
-    always @(posedge clk or negedge rst_n) begin
+    always @(posedge clk) begin
         // 初始化各运动目标的边界为0
-        if (!rst_n) begin
-            target_pos1 <= {1'b0, 10'd0, 11'd0, 10'd0, 11'd0};
-            target_pos2 <= {1'b0, 10'd0, 11'd0, 10'd0, 11'd0};
-            new_target_flag <= 2'd0;
-            target_cnt <= 1'd0;
-        end
-    
-        // 在一帧开始进行初始化
-        else if(vsync_pos_flag) begin
-            target_pos1 <= {1'b0, 10'd0, 11'd0, 10'd0, 11'd0};
-            target_pos2 <= {1'b0, 10'd0, 11'd0, 10'd0, 11'd0};
-		    new_target_flag <= 2'd0;
-		    target_cnt <= 1'd0;
-        end
-        else begin
-            // 第一个时钟周期，找出标记为运动目标的像素点，由运动目标列表中的元素进行投票，判断是否为全新的运动目标
-            if(per_frame_clken && per_img_Bit ) begin
-			    if(target_flag[0] == 1'b0)			// 运动目标列表中的数据无效，则该元素投认定输入的灰度为新的最大值
-				    new_target_flag[0] <= 1'b1;
-			    else begin							// 运动目标列表中的数据有效，则判断当前像素是否落在该元素临域里
-				    if((x_cnt < target_left1 || x_cnt > target_right1 || y_cnt < target_top1 || y_cnt > target_bottom1))	//坐标距离超出目标临域范围，投票认定为新的目标
-					    new_target_flag[0] <= 1'b1;
-				    else
-					    new_target_flag[0] <= 1'b0;                
-		        end
-			
-			    if(target_flag[1] == 1'b0)			// 运动目标列表中的数据无效，则该元素投认定输入的灰度为新的最大值
-				    new_target_flag[1] <= 1'b1;
-			    else begin							// 运动目标列表中的数据有效，则判断当前像素是否落在该元素临域里
-				    if((x_cnt < target_left2 || x_cnt > target_right2 || y_cnt < target_top2 || y_cnt > target_bottom2))	//坐标距离超出目标临域范围，投票认定为新的目标
-					    new_target_flag[1] <= 1'b1;
-				    else
-					    new_target_flag[1] <= 1'b0;                
-		        end
+        if (rst_fifo) begin
+            for (i = 1; i < MAX_LABELS; i = i + 1) begin
+                target_pos[i] <= 0;
             end
-            else begin
-			    new_target_flag <= 2'b0;
-            end
-
-		
-            // 第二个时钟周期，根据投票结果，将候选数据更新到运动目标列表中
-            if(per_frame_clken_r && per_img_Bit_r) begin
-                if(new_target_flag == 2'b11) begin 	// 全票通过，标志着出现新的运动目标
-                    if(target_cnt == 1'b0)begin
-                        target_cnt <= target_cnt + 1'd1;
-                        target_pos1 <= {1'b1, y_cnt_r, x_cnt_r, y_cnt_r, x_cnt_r};
-                    end				
-                    else if(target_cnt == 1'b1 && target_pos2[42] != 1'b1)begin
-                        target_pos2 <= {1'b1, y_cnt_r, x_cnt_r, y_cnt_r, x_cnt_r};
-                    end
-                end
-                
-                else if (new_target_flag > 2'd0 && new_target_flag != 2'b11) begin // 出现被标记为运动目标的像素点，但是落在运动目标列表中某个元素的临域内
-                    if(new_target_flag[0] == 1'b0) begin // 未投票认定新目标的元素，表示当前像素位于它的临域内
-                    
-                        target_pos1[42] <= 1'b1;
-
-                        if(x_cnt_r < target_pos1[10: 0]) 	// 若X坐标小于左边界，则将其X坐标扩展为左边界
-                            target_pos1[10: 0] <= x_cnt_r;
-                        if(x_cnt_r > target_pos1[31:21]) 	// 若X坐标大于右边界，则将其X坐标扩展为右边界
-                            target_pos1[31:21] <= x_cnt_r;
-                        if(y_cnt_r < target_pos1[20:11]) 	// 若Y坐标小于上边界，则将其Y坐标扩展为上边界
-                            target_pos1[20:11] <= y_cnt_r;
-                        if(y_cnt_r > target_pos1[41:32]) 	// 若Y坐标大于下边界，则将其Y坐标扩展为下边界
-                            target_pos1[41:32] <= y_cnt_r;
-                    end
-                    else if(new_target_flag[1] == 1'b0) begin // 未投票认定新目标的元素，表示当前像素位于它的临域内
-                    
-                        target_pos2[42] <= 1'b1;
-
-                        if(x_cnt_r < target_pos2[10: 0]) 	// 若X坐标小于左边界，则将其X坐标扩展为左边界
-                            target_pos2[10: 0] <= x_cnt_r;
-                        if(x_cnt_r > target_pos2[31:21]) 	// 若X坐标大于右边界，则将其X坐标扩展为右边界
-                            target_pos2[31:21] <= x_cnt_r;
-                        if(y_cnt_r < target_pos2[20:11]) 	// 若Y坐标小于上边界，则将其Y坐标扩展为上边界
-                            target_pos2[20:11] <= y_cnt_r;
-                        if(y_cnt_r > target_pos2[41:32]) 	// 若Y坐标大于下边界，则将其Y坐标扩展为下边界
-                            target_pos2[41:32] <= y_cnt_r;
-                    end
-                end
+        end else begin
+            if(matrix_frame_href && matrix_p22 == 8'd255) begin
+                target_pos[next_label] <= {update_bottom,update_right,update_top,update_left};
             end
         end
     end
@@ -371,6 +299,17 @@ module two_pass_labeling #(
         end
     end
 
+	reg 	[1:0] 	r_href_i = 0; 
+    always @(posedge clk) begin
+		r_vsync_i <= {r_href_i, matrix_frame_href}; 
+        if (rst_fifo) begin
+            y <= 0;
+        end else if (r_href_i == 1) begin
+            y <= y + 1;
+        end
+    end
+
+
     wire [3:0] merge_stop   = 0;
     wire [3:0] merge_start  = 1;
     wire [3:0] merge_idle   = 2;
@@ -410,14 +349,35 @@ module two_pass_labeling #(
                find_label_count <= 0; 
             end else if (merge_state = merge_idle) begin
                 find_label_count = find_label_count + 1;
-                merged_area     [find_label_out]    <= area         [find_label_out];
-                merged_perimeter[find_label_out]    <= perimeter    [find_label_out];
-                merged_valid    [find_label_out]    <= valid        [find_label_out];
             end else if (merge_state = merge_done) begin
                 if (find_label_count != find_label_out) begin
                     merged_area     [find_label_out]    <= merged_area      [find_label_out] + merged_area      [find_label_count];
                     merged_perimeter[find_label_out]    <= updated_perimeter[find_label_out] + updated_perimeter[find_label_count];
                     merged_valid    [find_label_out]    <= merged_valid     [find_label_out] + merged_valid     [find_label_count];
+                        if () begin//筛选
+                            
+                        end
+					if(target_pos1[find_label_count][10: 0] > target_pos1[find_label_out][10: 0]) 	// 左边界
+                        merged_pos[find_label_count][10: 0] <= target_pos1[find_label_out][10: 0];
+                    else 
+                        merged_pos[find_label_count][10: 0] <= target_pos1[find_label_out][10: 0];
+					if(target_pos1[find_label_count][20:11] > target_pos1[find_label_out][20:11]) 	//  上边界
+                        merged_pos[find_label_count][20:11] <= target_pos1[find_label_out][20:11];
+                    else 
+                        merged_pos[find_label_count][20:11] <= target_pos1[find_label_out][20:11];
+					if(target_pos1[find_label_count][31:21] < target_pos1[find_label_out][31:21]) 	// 右边界
+                        merged_pos[find_label_count][31:21] <= target_pos1[find_label_out][31:21];
+                    else 
+                        merged_pos[find_label_count][31:21] <= target_pos1[find_label_out][31:21];
+					if(target_pos1[find_label_count][41:32] < target_pos1[find_label_out][41:32]) 	// 下边界
+                        merged_pos[find_label_count][41:32] <= target_pos1[find_label_out][41:32];
+                    else 
+                        merged_pos[find_label_count][41:32] <= target_pos1[find_label_out][41:32];
+                end else begin
+                    merged_area     [find_label_out]    <= area         [find_label_out];
+                    merged_perimeter[find_label_out]    <= perimeter    [find_label_out];
+                    merged_valid    [find_label_out]    <= valid        [find_label_out];
+                    merged_pos      [find_label_out]    <= target_pos   [find_label_out];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
                 end
             end
         end
