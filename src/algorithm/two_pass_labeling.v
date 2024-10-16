@@ -56,6 +56,7 @@ module two_pass_labeling #(
     wire                  invalidate_en;
     wire [ADDR_WIDTH-1:0] invalidate_label;
     wire                  valid_out;
+    wire                  union_find_idle;
 
     wire rst_fifo;
     wire fifo_full;
@@ -76,7 +77,8 @@ module two_pass_labeling #(
         .node1            (find_union_req_rfifo[ADDR_WIDTH*2 - 1:ADDR_WIDTH]        ),
         .node2            (find_union_req_rfifo[ADDR_WIDTH - 1:0]                   ),
         .result           (find_label_out                                           ),
-        .done             (valid_out                                                )
+        .done             (valid_out                                                ),
+        .idle             (union_find_idle                                          )
     );
 
 	reg 	[1:0] 	r_vsync_i = 0; 
@@ -87,12 +89,12 @@ module two_pass_labeling #(
     assign rst_fifo = !rst_n || (r_vsync_i == 2'b01);
     assign find_union_req_wfifo = {find_en,union_en, label_a, label_b};
 
-    wire [1:0] rfifo_en_idle;
-    wire [1:0] rfifo_en_req;
-    wire [1:0] rfifo_en_prog;
+    wire [1:0] rfifo_en_idle = 2'b00;
+    wire [1:0] rfifo_en_req = 2'b01;
+    wire [1:0] rfifo_en_prog = 2'b10;
 
-    reg rfifo_en_state;
-    reg rfifo_en_next_state;
+    reg [1:0] rfifo_en_state;
+    reg [1:0] rfifo_en_next_state;
 
     always @(posedge clk) begin
         if(!rst_n)
@@ -140,13 +142,18 @@ module two_pass_labeling #(
     // Combinational logic for Labeling Process
     reg [ADDR_WIDTH-1:0]    current_label;
     reg [ADDR_WIDTH-1:0]    label_image      [0:IMG_HDISP-1];
-    reg [ADDR_WIDTH-1:0]    prev_label_image [0:IMG_HDISP-1];
+    reg [ADDR_WIDTH-1:0]    prev_label_image [0:IMG_HDISP-1];//previous hor
+    wire [ADDR_WIDTH-1:0]   prev_valid       [0:IMG_HDISP-1];
+
     reg [13:0]              x;
     reg [ADDR_WIDTH-1:0]    label_count;
+    reg [ADDR_WIDTH-1:0]    find_label_count;
+    //label information
     reg [31:0]              area             [0:MAX_LABELS-1];// Area for each label
     reg [31:0]              perimeter        [0:MAX_LABELS-1];// Perimeter for each label
     reg                     valid            [0:MAX_LABELS-1];// Validity of each label
-    reg                     prev_valid       [0:MAX_LABELS-1];// Validity of each label of upper hor
+    reg                     merged           [0:MAX_LABELS-1];// Whether the label is merged
+
 
     wire [ADDR_WIDTH-1:0] left_label = (x == 0) ? 0 : label_image[x - 1];
     wire [ADDR_WIDTH-1:0] above_label = prev_label_image[x];
@@ -156,7 +163,7 @@ module two_pass_labeling #(
     wire        new_valid;
 
     wire surrounded_by_invalid_label;
-//这里还要加上左边的像素
+    assign prev_valid[x] = valid[label_image[x]];
     assign surrounded_by_invalid_label =    (x == 0) ? 
                                             (prev_valid[x] & prev_valid[x+1] ? 0 : 1) : 
                                             (x == 1) ? 
@@ -177,8 +184,8 @@ module two_pass_labeling #(
                        (updated_area > MAX_AREA || updated_area < MIN_AREA) ? 0 : 1;
 
     // Sequential logic for updating connected component features and label count
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    always @(posedge clk) begin
+        if (rst_fifo) begin
             integer i;
             area[0] <= 0;
             perimeter[0] <= 0;
@@ -189,8 +196,25 @@ module two_pass_labeling #(
                 valid[i] <= 1;
             end
             label_count <= 1;
-        end else if (matrix_frame_href && surrounded_by_invalid_label && matrix_p22 == 8'd255) begin
-            valid[next_label] <= 0;
+        //mark labels
+        end else if(matrix_frame_href && matrix_p22 == 8'd255) begin
+            if (surrounded_by_invalid_label) begin
+                valid[next_label] <= 0;
+            end else begin
+                area[next_label] <= updated_area;
+                perimeter[next_label] <= updated_perimeter;
+                valid[next_label] <= new_valid;
+                if (left_label == 0 && above_label == 0) begin
+                    label_count <= label_count + 1;
+                end
+            end
+        end
+        //merge labels and its information
+        else if (!matrix_frame_vsync) begin
+            if (merge_state = merge_req) begin
+                find_label_count = find_label_count + 1;
+                
+            end
         end else if (matrix_frame_href && matrix_p22 == 8'd255) begin
             area[next_label] <= updated_area;
             perimeter[next_label] <= updated_perimeter;
@@ -199,6 +223,8 @@ module two_pass_labeling #(
                 label_count <= label_count + 1;
             end
         end
+
+
     end
 
     always @(*) begin
@@ -221,32 +247,88 @@ module two_pass_labeling #(
     end
 
     // Move to next pixel
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    always @(posedge clk) begin
+        if (rst_fifo) begin
             x <= 0;
-        end else if (~matrix_frame_href) begin
+            integer i;
+            for (i = 0; i < IMG_HDISP; i = i + 1) begin
+                prev_label_image[i] <= 0;
+            end
+        end 
+        else if (~matrix_frame_href) begin
             x <= 0;
             // Update previous line labels
             integer i;
             for (i = 0; i < IMG_HDISP; i = i + 1) begin
                 prev_label_image[i] <= label_image[i];
-                prev_valid[i] <= vaild[i];
             end
         end else begin
             x <= x + 1;
         end
     end
 
-    // Immediate update of labels during first pass
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    wire [3:0] merge_stop = 2'b00;
+    wire [3:0] merge_start = 2'b00;
+    wire [3:0] merge_idle = 2'b00;
+    wire [3:0] merge_req = 2'b01;
+    wire [3:0] merge_prog = 2'b10;
+
+    reg [3:0] merge_state = 2'b10;
+    reg [3:0] merge_next_state = 2'b10;
+
+    always @(posedge clk) begin
+        if (rst_fifo) begin
+            merge_state <= merge_stop;
+        end else begin
+            merge_state <= merge_next_state;
+        end
+    end
+
+    always @(*) begin
+        case (merge_state) 
+            merge_stop  : merge_next_state  = (!matrix_frame_vsync) ? merge_idle : merge_stop; 
+            merge_idle  : merge_next_state  = (fifo_empty | union_find_idle) ? merge_req : merge_idle; 
+            merge_req   : merge_next_state  = ((find_label_count == label_count )|| matrix_frame_vsync ) ? merge_stop : merge_prog; 
+            merge_prog  : merge_next_state  = (valid_out)? merge_idle : merge_stop; 
+            default: merge_next_state       = merge_stop;
+        endcase;
+    end
+
+    always @(posedge clk) begin
+        if (rst_fifo) begin
             post_label <= 0;
             find_en <= 0;
-        end else if (!per_frame_vsync) begin // Perform union at the end of each frame
+            find_label_count <= 0;
+        end 
+        else if (!per_frame_vsync) begin // Perform union at the end of each frame
             // Find and update current pixel's label immediately
-            if (label_image[x] != 0) begin
+            if (label_image[find_label_count] != 0) begin
                 find_en <= 1;
-                find_label_in <= label_image[x];
+                find_label_in <= label_image[find_label_count];
+                post_label <= find_label_out;
+                if (!valid_out) begin
+                    post_label <= 0;
+                end
+            end else begin
+                find_en <= 0;
+                post_label <= 0;
+            end
+        end else begin
+            post_label <= 0;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (rst_fifo) begin
+            post_label <= 0;
+            find_en <= 0;
+            find_label_count <= 0;
+        end 
+        else if (!per_frame_vsync) begin // Perform union at the end of each frame
+            // Find and update current pixel's label immediately
+            if (label_image[find_label_count] != 0) begin
+                find_en <= 1;
+                find_label_in <= label_image[find_label_count];
                 post_label <= find_label_out;
                 if (!valid_out) begin
                     post_label <= 0;

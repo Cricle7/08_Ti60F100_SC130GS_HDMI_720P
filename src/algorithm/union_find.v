@@ -8,7 +8,8 @@ module union_find_optimized #(
     input [ADDR_WIDTH-1:0] node1,
     input [ADDR_WIDTH-1:0] node2,
     output reg [ADDR_WIDTH-1:0] result, // find操作的结果
-    output reg done                    // 操作完成标志
+    output reg done,                    // 操作完成标志
+    output wire idle                    // operation in idle state
 );
 
     // 父节点和秩的存储
@@ -17,16 +18,17 @@ module union_find_optimized #(
 
     // 状态机状态
     reg [2:0] state;
-    localparam IDLE        = 3'd0;
-    localparam FIND        = 3'd1;
-    localparam UNION_FIND  = 3'd2;
-    localparam UNION_MERGE = 3'd3;
+    wire IDLE        = 3'd0;
+    wire FIND        = 3'd1;
+    wire UNION_FIND  = 3'd2;
+    wire UNION_MERGE = 3'd3;
 
     // 临时变量
     reg [ADDR_WIDTH-1:0] x_root, y_root;
     reg [ADDR_WIDTH-1:0] x_curr, y_curr;
     reg x_done, y_done;
 
+    assign idle = (state == IDLE);
     integer i;
 
     // 初始化
