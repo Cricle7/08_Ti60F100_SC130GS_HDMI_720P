@@ -3,6 +3,8 @@ module two_pass_labeling #(
     parameter IMG_HDISP = 1280,      // Image width
     parameter IMG_VDISP = 720,       // Image height
     parameter MAX_LABELS = 512,     // Maximum number of labels
+    parameter MAX_AREA  = 2500,     // Maximum number of labels
+    parameter MAX_PERIMETER_CALC = 1024,     // Maximum number of labels
     parameter ADDR_WIDTH = 8,        // Address width for labels
     parameter LABEL_INF_WIDTH = 32
 ) (
@@ -344,6 +346,7 @@ module two_pass_labeling #(
             post_label <= 0;
             find_en <= 0;
             find_label_count <= 0;
+            merged <= 0;
         end else if (!matrix_frame_vsync) begin//merge labels and its information
             if (merge_state = merge_stop ) begin
                find_label_count <= 0; 
@@ -353,10 +356,11 @@ module two_pass_labeling #(
                 if (find_label_count != find_label_out) begin
                     merged_area     [find_label_out]    <= merged_area      [find_label_out] + merged_area      [find_label_count];
                     merged_perimeter[find_label_out]    <= updated_perimeter[find_label_out] + updated_perimeter[find_label_count];
-                    merged_valid    [find_label_out]    <= merged_valid     [find_label_out] + merged_valid     [find_label_count];
-                        if () begin//筛选
-                            
-                        end
+                    merged_valid    [find_label_out]    <= merged_valid     [find_label_out] | merged_valid     [find_label_count];
+                    merged     [find_label_count] <= 1'b1;
+                    if ( merged_area      [find_label_out] + merged_area      [find_label_count] > ) begin
+                        
+                    end
 					if(target_pos1[find_label_count][10: 0] > target_pos1[find_label_out][10: 0]) 	// 左边界
                         merged_pos[find_label_count][10: 0] <= target_pos1[find_label_out][10: 0];
                     else 
