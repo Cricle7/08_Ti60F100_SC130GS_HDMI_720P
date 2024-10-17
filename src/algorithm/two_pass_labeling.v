@@ -18,9 +18,20 @@ module two_pass_labeling #(
     // Output labeled image
     output              post_frame_vsync,
     output              post_frame_href,
-    output      [31:0]  post_label          // Output label (0 for background)
-    
+
+    output [LABEL_INF_WIDTH-1:0]   merged_area      [0:MAX_LABELS-1];// Area for each label
+    output [LABEL_INF_WIDTH-1:0]   merged_perimeter [0:MAX_LABELS-1];// Perimeter for each label
+    output                         merged_valid     [0:MAX_LABELS-1];// Validity of each label
+    output                         merged           [0:MAX_LABELS-1];// Whether the label is merged
+    output [41:0]                  merged_pos       [0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+
+
 );
+
+    always @(posedge clk) begin
+        post_frame_vsync <= matrix_frame_vsync;
+        post_frame_href <= matrix_frame_href;
+    end
 
     // Internal signal declarations
     wire                matrix_frame_vsync;
@@ -219,7 +230,7 @@ module two_pass_labeling #(
     assign update_top = (left_label == 0 && above_label == 0)? y : target_pos [next_label][20:11]           ;       // 顶部边界数组
 
     assign new_valid = (next_label == 1) ? 0 :
-                       (updated_area > MAX_AREA || updated_area < MIN_AREA) ? 0 : 1;
+                       (updated_area > MAX_AREA) ? 0 : 1;
 
     // Sequential logic for updating connected component features and label count
     always @(posedge clk) begin
@@ -358,8 +369,8 @@ module two_pass_labeling #(
                     merged_perimeter[find_label_out]    <= updated_perimeter[find_label_out] + updated_perimeter[find_label_count];
                     merged_valid    [find_label_out]    <= merged_valid     [find_label_out] | merged_valid     [find_label_count];
                     merged     [find_label_count] <= 1'b1;
-                    if ( merged_area      [find_label_out] + merged_area      [find_label_count] > ) begin
-                        
+                    if ( merged_area[find_label_out] + merged_area[find_label_count] > MAX_AREA) begin
+                        merged_valid    [find_label_out] <= 1'b0;
                     end
 					if(target_pos1[find_label_count][10: 0] > target_pos1[find_label_out][10: 0]) 	// 左边界
                         merged_pos[find_label_count][10: 0] <= target_pos1[find_label_out][10: 0];
