@@ -1,4 +1,4 @@
-module union_find_optimized #(
+module union_find #(
     parameter N = 256,                 // 元素数量
     parameter ADDR_WIDTH = 8           // 地址宽度
 )(
@@ -18,10 +18,10 @@ module union_find_optimized #(
 
     // 状态机状态
     reg [2:0] state;
-    wire IDLE        = 3'd0;
-    wire FIND        = 3'd1;
-    wire UNION_FIND  = 3'd2;
-    wire UNION_MERGE = 3'd3;
+    wire [2:0] IDLE        = 3'd0;
+    wire [2:0] FIND        = 3'd1;
+    wire [2:0] UNION_FIND  = 3'd2;
+    wire [2:0] UNION_MERGE = 3'd3;
 
     // 临时变量
     reg [ADDR_WIDTH-1:0] x_root, y_root;
@@ -49,9 +49,7 @@ module union_find_optimized #(
                     done   <= 0;
                     x_done <= 0;
                     y_done <= 0;
-                    if (op == 2'b00)// 无操作
-                        state  <= IDLE;
-                    else if (op == 2'b10) begin // FIND操作
+                    if (op == 2'b10) begin // FIND操作
                         x_curr <= node1;
                         state  <= FIND;
                     end else if (op == 2'b01) begin // UNION操作

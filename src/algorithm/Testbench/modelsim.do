@@ -8,7 +8,7 @@ vlib work
 vlog -f flist
 
 #Load the design.
-vsim -t ps +notimingchecks -gui -voptargs="+acc" work.testbench
+vsim -t ps +notimingchecks -gui -voptargs="+acc" work.union_find_tb
 #do wave.do
 #Run simulation
 #run -all
