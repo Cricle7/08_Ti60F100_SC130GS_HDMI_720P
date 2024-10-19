@@ -17,28 +17,77 @@ module two_pass_labeling #(
 
     // Output labeled image
     output  reg         post_frame_vsync,
-    output  reg         post_frame_href,
+    output  reg         post_frame_href
 
-    output              merged_area     ,// Area for each label
-    output              merged_perimeter,// Perimeter for each label
-    output              merged_valid    ,// Validity of each label
-    output              merged   ,        // Whether the label is merged
-    output              merged_pos  // {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+    //output              merged_area     ,// Area for each label
+    //output              merged_perimeter,// Perimeter for each label
+    //output              merged_valid    ,// Validity of each label
+    //output              merged   ,        // Whether the label is merged
+    //output              merged_pos  // {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
 
 
 );
-
-    always @(posedge clk) begin
-        post_frame_vsync <= matrix_frame_vsync;
-        post_frame_href <= matrix_frame_href;
-    end
-
     // Internal signal declarations
     wire                matrix_frame_vsync;
     wire                matrix_frame_href;
     wire        [7:0]   matrix_p11, matrix_p12, matrix_p13;
     wire        [7:0]   matrix_p21, matrix_p22, matrix_p23;
     wire        [7:0]   matrix_p31, matrix_p32, matrix_p33;
+
+    wire [3:0] merge_stop   = 0;
+    wire [3:0] merge_start  = 1;
+    wire [3:0] merge_idle   = 2;
+    wire [3:0] merge_req    = 3;
+    wire [3:0] merge_prog   = 5;
+    wire [3:0] merge_done   = 6;
+
+    reg [3:0] merge_state ;
+    reg [3:0] merge_next_state ;
+
+    // Combinational logic for Labeling Process
+    //reg [ADDR_WIDTH-1:0]    current_label;
+    //reg [ADDR_WIDTH-1:0]    label_image         [0:IMG_HDISP-1];
+    wire prev_valid_x;
+    reg prev_valid_x_1;
+
+    reg [10:0]              x;
+    reg [9:0]               y;
+    reg [ADDR_WIDTH-1:0]    label_count;
+    reg [ADDR_WIDTH-1:0]    find_label_count;
+    //label information
+    reg [LABEL_INF_WIDTH-1:0]   area             [0:MAX_LABELS-1];// Area for each label
+    reg [LABEL_INF_WIDTH-1:0]   perimeter        [0:MAX_LABELS-1];// Perimeter for each label
+    reg [MAX_LABELS-1:0]        valid            ;// Validity of each label
+
+    reg [41:0]  target_pos[0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+
+    reg [LABEL_INF_WIDTH-1:0]   merged_area      [0:MAX_LABELS-1];// Area for each label
+    reg [LABEL_INF_WIDTH-1:0]   merged_perimeter [0:MAX_LABELS-1];// Perimeter for each label
+    reg                         merged_valid     [0:MAX_LABELS-1];// Validity of each label
+    reg [MAX_LABELS-1:0]        merged           ;// Whether the label is merged
+    reg [41:0]                  merged_pos       [0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+
+
+    reg [ADDR_WIDTH-1:0]        left_label;
+    wire [ADDR_WIDTH-1:0]       above_label_reg;
+    wire [ADDR_WIDTH-1:0]       above_label = (y ==0 || y == 1) ? 0 : above_label_reg;
+    wire [ADDR_WIDTH-1:0]       next_label;
+
+
+    wire [LABEL_INF_WIDTH-1:0]  updated_area;
+    wire [LABEL_INF_WIDTH-1:0]  updated_perimeter;
+    wire [9:0]                  update_bottom          ;       // 底部边界数组
+    wire [10:0]                 update_left            ;       // 边界数组
+    wire [10:0]                 update_right           ;       // 右边界数组
+    wire [9:0]                  update_top             ;       // 顶部边界数组
+    wire                        new_valid;
+
+    reg surrounded_by_invalid_label;
+
+    always @(posedge clk) begin
+        post_frame_vsync <= matrix_frame_vsync;
+        post_frame_href <= matrix_frame_href;
+    end
 
     // Instantiate 3x3 Matrix Generator Module
     VIP_Matrix_Generate_3X3_8Bit #(
@@ -67,18 +116,13 @@ module two_pass_labeling #(
     reg [ADDR_WIDTH-1:0] label_a, label_b;
     reg                  find_en;
     reg                  union_en;
-    wire [ADDR_WIDTH-1:0] find_label_in;
     wire [ADDR_WIDTH-1:0] find_label_out;
-    wire                  invalidate_en;
-    wire [ADDR_WIDTH-1:0] invalidate_label;
     wire                  valid_out;
    
    
    
     wire fifo_full;
     wire fifo_empty;
-    wire rst_busy;
-    wire [8:0] data_count_o;
     wire rst_busy;
     wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_wfifo;
     wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_rfifo;
@@ -158,7 +202,7 @@ module two_pass_labeling #(
         .wr_en_i        ( find_en | union_en                ),
         .rd_en_i        ( rfifo_en_state == rfifo_en_req    ),
         .wdata          ( find_union_req_wfifo              ),
-        .datacount_o    ( datacount_o                       ),
+        .datacount_o    (                        ),
         .rst_busy       ( rst_busy                          ),
         .rdata          ( find_union_req_rfifo              ),
         .a_rst_i        ( rst_fifo                          )
@@ -179,44 +223,7 @@ module two_pass_labeling #(
         .perimeter_out  (perimeter_out)
     );
 
-    // Combinational logic for Labeling Process
-    reg [ADDR_WIDTH-1:0]    current_label;
-    reg [ADDR_WIDTH-1:0]    label_image         [0:IMG_HDISP-1];
-    wire prev_valid_x;
-    reg prev_valid_x_1;
 
-    reg [10:0]              x;
-    reg [9:0]               y;
-    reg [ADDR_WIDTH-1:0]    label_count;
-    reg [ADDR_WIDTH-1:0]    find_label_count;
-    //label information
-    reg [LABEL_INF_WIDTH-1:0]   area             [0:MAX_LABELS-1];// Area for each label
-    reg [LABEL_INF_WIDTH-1:0]   perimeter        [0:MAX_LABELS-1];// Perimeter for each label
-    reg [MAX_LABELS-1:0]        valid            ;// Validity of each label
-
-    reg [41:0]  target_pos[0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
-
-    reg [LABEL_INF_WIDTH-1:0]   merged_area      [0:MAX_LABELS-1];// Area for each label
-    reg [LABEL_INF_WIDTH-1:0]   merged_perimeter [0:MAX_LABELS-1];// Perimeter for each label
-    reg                         merged_valid     [0:MAX_LABELS-1];// Validity of each label
-    reg [MAX_LABELS-1:0]        merged           ;// Whether the label is merged
-    reg [41:0]                  merged_pos       [0:MAX_LABELS-1];// {ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
-
-
-    wire [ADDR_WIDTH-1:0]       left_label  = (x == 0) ? 0 : label_image[x - 1];
-    wire [ADDR_WIDTH-1:0]       above_label;
-    wire [ADDR_WIDTH-1:0]       next_label;
-
-
-    wire [LABEL_INF_WIDTH-1:0]  updated_area;
-    wire [LABEL_INF_WIDTH-1:0]  updated_perimeter;
-    wire [9:0]                  update_bottom          ;       // 底部边界数组
-    wire [10:0]                 update_left            ;       // 边界数组
-    wire [10:0]                 update_right           ;       // 右边界数组
-    wire [9:0]                  update_top             ;       // 顶部边界数组
-    wire                        new_valid;
-
-    reg surrounded_by_invalid_label;
 //    always @(*) begin
         //surrounded_by_invalid_label =    (x == 0) ? 
                                             //(prev_valid[x] & prev_valid[x+1] ? 0 : 1) : 
@@ -233,7 +240,12 @@ module two_pass_labeling #(
                                             (prev_valid_x_1 & prev_valid_x & valid[left_label] ? 0 : 1);
     end   
 
-    assign next_label = (left_label == 0 && above_label == 0) ? label_count + !surrounded_by_invalid_label :
+//    assign next_label = (left_label == 0 && above_label == 0) ? label_count + !surrounded_by_invalid_label :
+                        //(left_label != 0 && above_label == 0) ? left_label :
+                        //(left_label == 0 && above_label != 0) ? above_label :
+                        //(left_label < above_label) ? left_label : above_label;
+
+    assign next_label = (left_label == 0 && above_label == 0) ? label_count + 1 :
                         (left_label != 0 && above_label == 0) ? left_label :
                         (left_label == 0 && above_label != 0) ? above_label :
                         (left_label < above_label) ? left_label : above_label;
@@ -277,6 +289,11 @@ module two_pass_labeling #(
         end
     end
 
+    always @(posedge clk) begin
+        if (rst_fifo) left_label <= 0;
+        left_label <= next_label;
+    end
+
     integer j;
     always @(posedge clk) begin
         // 初始化各运动目标的边界为0
@@ -291,13 +308,22 @@ module two_pass_labeling #(
         end
     end
 
+//    integer k;
+    //always @(posedge clk) begin
+        //if (rst_fifo) begin
+            //for (k = 1; k < MAX_LABELS; k = k + 1) begin
+                //label_image[k] = 0;
+            //end
+        //end else if (matrix_frame_href) begin
+            //if (matrix_p22 == 8'd255) begin // Only label foreground pixels
+                //label_image[x] = next_label;
+            //end else begin
+                //label_image[x] = 0; // Background pixels have no label
+            //end
+        //end
+    //end
     always @(*) begin
         if (matrix_frame_href) begin
-            if (matrix_p22 == 8'd255) begin // Only label foreground pixels
-                label_image[x] = next_label;
-            end else begin
-                label_image[x] = 0; // Background pixels have no label
-            end
             if (left_label != above_label && left_label != 0 && above_label != 0) begin
                 union_en = 1;
                 label_a = left_label;
@@ -310,7 +336,6 @@ module two_pass_labeling #(
         end
     end
 
-    integer k;
     always @(posedge clk) begin
         if (rst_fifo) begin
             x <= 0;
@@ -333,7 +358,7 @@ module two_pass_labeling #(
         .rst_n      (rst_n      ),
         .clken      (matrix_frame_href),
         .din        (next_label ),
-        .dout       (above_label)
+        .dout       (above_label_reg)
     );
 
     Line_Shift_RAM_8Bit #(
@@ -345,7 +370,7 @@ module two_pass_labeling #(
         .clk        (clk        ),
         .rst_n      (rst_n      ),
         .clken      (matrix_frame_href),
-        .din        (valid[label_image[x]]),
+        .din        (valid[next_label]),
         .dout       (prev_valid_x)
     );
 
@@ -355,16 +380,6 @@ module two_pass_labeling #(
         end
     end
 
-
-    wire [3:0] merge_stop   = 0;
-    wire [3:0] merge_start  = 1;
-    wire [3:0] merge_idle   = 2;
-    wire [3:0] merge_req    = 3;
-    wire [3:0] merge_prog   = 5;
-    wire [3:0] merge_done   = 6;
-
-    reg [3:0] merge_state ;
-    reg [3:0] merge_next_state ;
 
     always @(posedge clk) begin
         if (rst_fifo) begin
@@ -382,7 +397,7 @@ module two_pass_labeling #(
             merge_prog  : merge_next_state  = (valid_out)? merge_done : merge_stop; 
             merge_done  : merge_next_state  = merge_idle; 
             default: merge_next_state       = merge_stop;
-        endcase;
+        endcase
     end
 
     integer ii;
