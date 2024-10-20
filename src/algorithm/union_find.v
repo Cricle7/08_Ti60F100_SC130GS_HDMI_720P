@@ -17,15 +17,18 @@ module union_find #(
     reg [ADDR_WIDTH-1:0] rank   [0:N-1];
 
     // 状态机状态
-    reg [2:0] state;
-    wire [2:0] IDLE        = 3'd0;
-    wire [2:0] FIND        = 3'd1;
-    wire [2:0] UNION_FIND  = 3'd2;
-    wire [2:0] UNION_MERGE = 3'd3;
+    reg [4:0] state;
+    wire [4:0] IDLE        = 0;
+    wire [4:0] FIND        = 1;
+    wire [4:0] FIND_PARENT = 2;
+    wire [4:0] UNION_FIND  = 3;
+    wire [4:0] UNION_PARENT= 4;
+    wire [4:0] UNION_MERGE = 5;
 
     // 临时变量
     reg [ADDR_WIDTH-1:0] x_root, y_root;
     reg [ADDR_WIDTH-1:0] x_curr, y_curr;
+    reg [ADDR_WIDTH-1:0] parent_x_curr, parent_y_curr;
     reg x_done, y_done;
 
     assign idle = (state == IDLE);
@@ -43,6 +46,8 @@ module union_find #(
             result  <= 0;
             x_done  <= 0;
             y_done  <= 0;
+            x_curr <= 0;
+            y_curr <= 0;
         end else begin
             case (state)
                 IDLE: begin
@@ -51,41 +56,50 @@ module union_find #(
                     y_done <= 0;
                     if (op == 2'b10) begin // FIND操作
                         x_curr <= node1;
-                        state  <= FIND;
+                        state  <= FIND_PARENT;
                     end else if (op == 2'b01) begin // UNION操作
                         x_curr <= node1;
                         y_curr <= node2;
-                        state  <= UNION_FIND;
+                        state  <= UNION_PARENT;
                     end
                 end
+                FIND_PARENT: begin
+                    parent_x_curr <= parent[x_curr];
+                    state  <= FIND;
+                end
+                UNION_PARENT: begin
+                    parent_x_curr <= parent[x_curr];
+                    parent_y_curr <= parent[x_curr];
+                    state  <= UNION_FIND;
+                end
                 FIND: begin
-                    if (parent[x_curr] == x_curr) begin
+                    if (parent_x_curr == x_curr) begin
                         result <= x_curr;
                         done   <= 1;
                         state  <= IDLE;
                     end else begin
-                        parent[x_curr] <= parent[parent[x_curr]]; // 路径压缩
-                        x_curr         <= parent[x_curr];
+                        parent[x_curr] <= parent[parent_x_curr]; // 路径压缩
+                        x_curr         <= parent_x_curr;
                     end
                 end
                 UNION_FIND: begin
                     // 同时寻找 x 和 y 的根节点
                     if (!x_done) begin
-                        if (parent[x_curr] == x_curr) begin
+                        if (parent_x_curr == x_curr) begin
                             x_root <= x_curr;
                             x_done <= 1;
                         end else begin
-                            parent[x_curr] <= parent[parent[x_curr]]; // 路径压缩
-                            x_curr         <= parent[x_curr];
+                            parent[x_curr] <= parent[parent_x_curr]; // 路径压缩
+                            x_curr         <= parent_x_curr;
                         end
                     end
                     if (!y_done) begin
-                        if (parent[y_curr] == y_curr) begin
+                        if (parent_y_curr == y_curr) begin
                             y_root <= y_curr;
                             y_done <= 1;
                         end else begin
-                            parent[y_curr] <= parent[parent[y_curr]]; // 路径压缩
-                            y_curr         <= parent[y_curr];
+                            parent[y_curr] <= parent[parent_y_curr]; // 路径压缩
+                            y_curr         <= parent_y_curr;
                         end
                     end
                     if (x_done && y_done) begin
@@ -107,6 +121,7 @@ module union_find #(
                     done  <= 1;
                     state <= IDLE;
                 end
+                default: state <= IDLE;
             endcase
         end
     end

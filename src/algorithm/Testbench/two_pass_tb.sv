@@ -42,7 +42,7 @@ task image_input;
     bit             [31:0]      row_cnt;
     bit             [31:0]      col_cnt;
     bit                         mem     [image_width*image_height-1:0];
-    $readmemh("img_Bin1.dat",mem);
+    $readmemh("img_Bin2.dat",mem);
     
     for(row_cnt = 0;row_cnt < image_height;row_cnt++)
     begin
@@ -150,7 +150,7 @@ endtask : image_result_check
 
 //----------------------------------------------------------------------
 
-    parameter MAX_LABELS = 50;        // Maximum number of labels
+    parameter MAX_LABELS = 1024;        // Maximum number of labels
     parameter MAX_AREA  = 2500;       // Maximum area for labels
     parameter MAX_PERIMETER_CALC = 1024; // Maximum perimeter for labels
     parameter ADDR_WIDTH = 8;         // Address width for labels

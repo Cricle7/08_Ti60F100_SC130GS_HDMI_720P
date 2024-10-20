@@ -2,7 +2,7 @@
 module two_pass_labeling #(
     parameter IMG_HDISP = 1280,      // Image width
     parameter IMG_VDISP = 720,       // Image height
-    parameter MAX_LABELS = 50,     // Maximum number of labels
+    parameter MAX_LABELS = 1024,     // Maximum number of labels
     parameter MAX_AREA  = 2500,     // Maximum number of labels
     parameter MAX_PERIMETER_CALC = 1024,     // Maximum number of labels
     parameter ADDR_WIDTH = 8,        // Address width for labels
@@ -16,8 +16,8 @@ module two_pass_labeling #(
     input       [7:0]   per_img_Y,          // Input pixel (0 or 255)
 
     // Output labeled image
-    output  reg         post_frame_vsync,
-    output  reg         post_frame_href
+    output           post_frame_vsync,
+    output           post_frame_href
 
     //output              merged_area     ,// Area for each label
     //output              merged_perimeter,// Perimeter for each label
@@ -72,6 +72,7 @@ module two_pass_labeling #(
     wire [ADDR_WIDTH-1:0]       above_label_reg;
     wire [ADDR_WIDTH-1:0]       above_label = (y ==0 || y == 1) ? 0 : above_label_reg;
     wire [ADDR_WIDTH-1:0]       next_label;
+    reg [ADDR_WIDTH-1:0]        next_label_d;
 
 
     wire [LABEL_INF_WIDTH-1:0]  updated_area;
@@ -84,11 +85,26 @@ module two_pass_labeling #(
 
     reg surrounded_by_invalid_label;
 
-    always @(posedge clk) begin
-        post_frame_vsync <= matrix_frame_vsync;
-        post_frame_href <= matrix_frame_href;
+    //lag 2 clocks signal sync  
+    reg [4:0]   per_frame_vsync_r;
+    reg [4:0]   per_frame_href_r;   
+    always@(posedge clk)begin
+        if(!rst_n) begin
+            per_frame_vsync_r <= 0;
+            per_frame_href_r <= 0;
+        end else begin
+            per_frame_vsync_r   <=  {per_frame_vsync_r[3:0],    per_frame_vsync};
+            per_frame_href_r    <=  {per_frame_href_r[3:0],     per_frame_href};
+        end
     end
 
+    //Give up the 1th and 2th row edge data caculate for simple process
+    //Give up the 1th and 2th point of 1 line for simple process
+    wire    read_frame_href     =   per_frame_href_r[0]|per_frame_href_r[1];    //RAM read href sync signal
+    wire  prev_frame_vsync_d2  =   per_frame_vsync_r[1];
+    wire  prev_frame_href_d2   =   per_frame_href_r[1];
+    assign  post_frame_vsync  =   per_frame_vsync_r[4];
+    assign  post_frame_href   =   per_frame_href_r[4];
     // Instantiate 3x3 Matrix Generator Module
     VIP_Matrix_Generate_3X3_8Bit #(
         .IMG_HDISP(IMG_HDISP),
@@ -125,6 +141,7 @@ module two_pass_labeling #(
     wire fifo_empty;
     wire rst_busy;
     wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_wfifo;
+    wire find_union_renfifo;
     wire [ADDR_WIDTH*2 + 2 - 1:0]find_union_req_rfifo;
 
     wire [1:0] op                       ;
@@ -134,9 +151,11 @@ module two_pass_labeling #(
     wire  [1:0] find_op                  ;
     wire  [ADDR_WIDTH-1:0]find_node1     ;
 
-    assign op = (merge_state == merge_stop) ?find_union_req_rfifo[ADDR_WIDTH*2 + 2 - 1:ADDR_WIDTH*2]    : find_op;
-    assign node1 = (merge_state == merge_stop) ?find_union_req_rfifo[ADDR_WIDTH*2 - 1:ADDR_WIDTH]       : find_node1;
-    assign node2 =find_union_req_rfifo[ADDR_WIDTH - 1:0];
+    assign op = (merge_state != merge_stop) ? find_op :
+                (find_union_renfifo)?find_union_req_rfifo[ADDR_WIDTH*2 + 2 - 1:ADDR_WIDTH*2] : 0 ;
+    assign node1 = (merge_state != merge_stop) ? find_node1 :
+                (find_union_renfifo)?find_union_req_rfifo[ADDR_WIDTH*2 - 1:ADDR_WIDTH] : 0;
+    assign node2 =(find_union_renfifo)?find_union_req_rfifo[ADDR_WIDTH - 1:0] : 0;
 
     assign find_node1 = find_label_count;
     assign find_op = {(merge_state == merge_req),0};
@@ -157,8 +176,10 @@ module two_pass_labeling #(
     );
 
 	reg 	[1:0] 	r_vsync_i = 0; 
+	reg 	[2:0] 	r_rst_busy_i = 0; 
 	always @(posedge clk) begin
 		r_vsync_i <= {r_vsync_i, matrix_frame_vsync}; 
+		r_rst_busy_i <= {r_rst_busy_i, rst_busy}; 
 	end
 
 	reg 	[1:0] 	r_href_i = 0; 
@@ -170,8 +191,6 @@ module two_pass_labeling #(
             y <= y + 1;
         end
     end
-    assign rst_fifo = !rst_n || (r_vsync_i == 2'b01);
-    assign find_union_req_wfifo = {find_en,union_en, label_a, label_b};
 
     wire [1:0] rfifo_en_idle = 2'b00;
     wire [1:0] rfifo_en_req = 2'b01;
@@ -179,28 +198,43 @@ module two_pass_labeling #(
 
     reg [1:0] rfifo_en_state;
     reg [1:0] rfifo_en_next_state;
+    reg rfifo_state_rst;
 
+    assign rst_fifo = !rst_n || (r_vsync_i == 2'b01);
+    assign find_union_req_wfifo = {find_en,union_en, label_a, label_b};
+    assign find_union_renfifo = (rfifo_en_state == rfifo_en_req)?1'b1:1'b0;
     always @(posedge clk) begin
-        if(!rst_n)
+        if(rfifo_state_rst | rfifo_state_rst)
             rfifo_en_state <= rfifo_en_idle;
         else begin
             rfifo_en_state <= rfifo_en_next_state;
         end
     end
 
+    always @(posedge clk) begin
+        if(rst_fifo)
+            rfifo_state_rst <= 1;
+        else if (r_rst_busy_i[2:1] == 2'b10) begin
+            rfifo_state_rst <= 0;
+        end
+    end
+
+
     always @(*) begin
         case(rfifo_en_state)
             rfifo_en_idle:rfifo_en_next_state = fifo_empty ? rfifo_en_idle : rfifo_en_req;
             rfifo_en_req:rfifo_en_next_state = rfifo_en_prog;
             rfifo_en_prog:rfifo_en_next_state = valid_out ? rfifo_en_idle : rfifo_en_prog;
+            default:rfifo_en_next_state = rfifo_en_idle;
         endcase
     end
+
     find_union_fifo_512  u_find_union_fifo_512(
         .full_o ( fifo_full ),
         .empty_o        ( fifo_empty                        ),
         .clk_i          ( clk                               ),
         .wr_en_i        ( find_en | union_en                ),
-        .rd_en_i        ( rfifo_en_state == rfifo_en_req    ),
+        .rd_en_i        ( find_union_renfifo                ),
         .wdata          ( find_union_req_wfifo              ),
         .datacount_o    (                        ),
         .rst_busy       ( rst_busy                          ),
@@ -235,17 +269,14 @@ module two_pass_labeling #(
     //end
 
     always @(*) begin
-        surrounded_by_invalid_label =    (x == 0) ? 
+        surrounded_by_invalid_label =   (matrix_p22 == 0)? 0 : 
+                                            (x == 0) ? 
                                             (prev_valid_x ? 0 : 1) : 
                                             (prev_valid_x_1 & prev_valid_x & valid[left_label] ? 0 : 1);
     end   
 
-//    assign next_label = (left_label == 0 && above_label == 0) ? label_count + !surrounded_by_invalid_label :
-                        //(left_label != 0 && above_label == 0) ? left_label :
-                        //(left_label == 0 && above_label != 0) ? above_label :
-                        //(left_label < above_label) ? left_label : above_label;
-
-    assign next_label = (left_label == 0 && above_label == 0) ? label_count + 1 :
+    assign next_label = (matrix_p22 == 0)? 0 :
+                        (left_label == 0 && above_label == 0) ? label_count + 1 :
                         (left_label != 0 && above_label == 0) ? left_label :
                         (left_label == 0 && above_label != 0) ? above_label :
                         (left_label < above_label) ? left_label : above_label;
@@ -276,22 +307,23 @@ module two_pass_labeling #(
             label_count <= 0;
         //mark labels
         end else if(matrix_frame_href && matrix_p22 == 8'd255) begin
-            if (surrounded_by_invalid_label) begin
-                valid[next_label] <= 0;
-            end else begin
+            //if (surrounded_by_invalid_label) begin
+                //valid[next_label] <= 0;
+            //end else begin
                 area[next_label] <= updated_area;
                 perimeter[next_label] <= updated_perimeter;
                 valid[next_label] <= new_valid;
                 if (left_label == 0 && above_label == 0) begin
                     label_count <= label_count + 1;
-                end
+                //end
             end
         end
     end
 
     always @(posedge clk) begin
         if (rst_fifo) left_label <= 0;
-        left_label <= next_label;
+        else if (x == 0 || matrix_p22 == 0) left_label <= 0;
+        else left_label <= next_label;
     end
 
     integer j;
@@ -355,8 +387,8 @@ module two_pass_labeling #(
         .DELAY_NUM  (0          )
     ) prev_image_label (
         .clk        (clk        ),
-        .rst_n      (rst_n      ),
-        .clken      (matrix_frame_href),
+        .rst_n      (!rst_fifo      ),
+        .clken      (prev_frame_href_d2),
         .din        (next_label ),
         .dout       (above_label_reg)
     );
@@ -368,8 +400,8 @@ module two_pass_labeling #(
         .DELAY_NUM  (0          )
     ) prev_image_valid (
         .clk        (clk        ),
-        .rst_n      (rst_n      ),
-        .clken      (matrix_frame_href),
+        .rst_n      (!rst_fifo      ),
+        .clken      (prev_frame_href_d2),
         .din        (valid[next_label]),
         .dout       (prev_valid_x)
     );
@@ -377,6 +409,7 @@ module two_pass_labeling #(
     always @(posedge clk) begin
         if (matrix_frame_href) begin
             prev_valid_x_1 <= prev_valid_x;
+            next_label_d <= next_label;
         end
     end
 
@@ -407,6 +440,10 @@ module two_pass_labeling #(
             find_label_count <= 0;
             for (ii = 1; ii < MAX_LABELS; ii = ii + 1) begin
                 merged <= 0;
+                merged_area     [ii]    <= 0;
+                merged_perimeter[ii]    <= 0;
+                merged_valid    [ii]    <= 0;
+                merged_pos      [ii]    <= 0;
             end
         end else if (!matrix_frame_vsync) begin//merge labels and its information
             if (merge_state == merge_stop ) begin
@@ -488,51 +525,51 @@ module perimeter_calc (
     end
 endmodule
 
-module ping_pong_ram #(
-    parameter DATA_WIDTH = 8,   // 数据宽度
-    parameter IMG_HDISP = 640   // 一行的像素数
-)(
-    input wire clk,
-    input wire rst,
-    input wire wr_en,           // 写使能信号
-    input wire [DATA_WIDTH-1:0] data_in, // 当前行的数据输入
-    input wire [$clog2(IMG_HDISP)-1:0] addr_in, // 地址输入 (范围从 0 到 IMG_HDISP-1)
-    output wire [DATA_WIDTH-1:0] data_out // 上一行的数据输出
-);
+//module ping_pong_ram #(
+    //parameter DATA_WIDTH = 8,   // 数据宽度
+    //parameter IMG_HDISP = 640   // 一行的像素数
+//)(
+    //input wire clk,
+    //input wire rst,
+    //input wire wr_en,           // 写使能信号
+    //input wire [DATA_WIDTH-1:0] data_in, // 当前行的数据输入
+    //input wire [$clog2(IMG_HDISP)-1:0] addr_in, // 地址输入 (范围从 0 到 IMG_HDISP-1)
+    //output wire [DATA_WIDTH-1:0] data_out // 上一行的数据输出
+//);
 
-    // 定义两个 RAM
-    reg [DATA_WIDTH-1:0] ram0 [0:IMG_HDISP-1]; // RAM 0
-    reg [DATA_WIDTH-1:0] ram1 [0:IMG_HDISP-1]; // RAM 1
+    //// 定义两个 RAM
+    //reg [DATA_WIDTH-1:0] ram0 [0:IMG_HDISP-1]; // RAM 0
+    //reg [DATA_WIDTH-1:0] ram1 [0:IMG_HDISP-1]; // RAM 1
 
-    reg select; // 用于选择当前使用的 RAM
+    //reg select; // 用于选择当前使用的 RAM
 
-    // 写入当前行数据
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            select <= 1'b0; // 复位时，选择RAM0作为初始写入
-        end else begin
-            if (wr_en) begin
-                if (select == 1'b0) begin
-                    ram0[addr_in] <= data_in; // 将当前行数据写入 RAM 0
-                end else begin
-                    ram1[addr_in] <= data_in; // 将当前行数据写入 RAM 1
-                end
-            end
-        end
-    end
+    //// 写入当前行数据
+    //always @(posedge clk or posedge rst) begin
+        //if (rst) begin
+            //select <= 1'b0; // 复位时，选择RAM0作为初始写入
+        //end else begin
+            //if (wr_en) begin
+                //if (select == 1'b0) begin
+                    //ram0[addr_in] <= data_in; // 将当前行数据写入 RAM 0
+                //end else begin
+                    //ram1[addr_in] <= data_in; // 将当前行数据写入 RAM 1
+                //end
+            //end
+        //end
+    //end
 
-    // 读取上一行数据
-    assign data_out = (select == 1'b0) ? ram1[addr_in] : ram0[addr_in];
+    //// 读取上一行数据
+    //assign data_out = (select == 1'b0) ? ram1[addr_in] : ram0[addr_in];
 
-    // 在每一行结束后切换 RAM
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            select <= 1'b0; // 复位时选择RAM0
-        end else begin
-            if (addr_in == IMG_HDISP - 1) begin
-                select <= ~select; // 每一行结束时切换 RAM
-            end
-        end
-    end
+    //// 在每一行结束后切换 RAM
+    //always @(posedge clk or posedge rst) begin
+        //if (rst) begin
+            //select <= 1'b0; // 复位时选择RAM0
+        //end else begin
+            //if (addr_in == IMG_HDISP - 1) begin
+                //select <= ~select; // 每一行结束时切换 RAM
+            //end
+        //end
+    //end
 
-endmodule
+//endmodule
