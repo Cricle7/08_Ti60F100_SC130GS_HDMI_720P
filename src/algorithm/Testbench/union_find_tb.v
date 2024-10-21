@@ -9,14 +9,15 @@ module union_find_tb;
     // Inputs to the DUT
     reg clk;
     reg reset;
-    reg start;
-    reg [1:0] op;  // Operation code: 00 - find, 01 - union
+    reg [1:0] op;  // Operation code: 00 - idle, 01 - union, 10 - find
     reg [ADDR_WIDTH-1:0] node1;
     reg [ADDR_WIDTH-1:0] node2;
 
     // Outputs from the DUT
     wire [ADDR_WIDTH-1:0] result;
     wire done;
+    wire idle;
+    reg frame_start;
 
     // Instantiate the DUT (Device Under Test)
     union_find #(
@@ -26,10 +27,12 @@ module union_find_tb;
         .clk(clk),
         .reset(reset),
         .op(op),
+        .frame_start(frame_start),                // 帧开始信号，高电平表示新的一帧开始
         .node1(node1),
         .node2(node2),
         .result(result),
-        .done(done)
+        .done(done),
+        .idle(idle)
     );
 
     // Clock generation
@@ -40,17 +43,22 @@ module union_find_tb;
     initial begin
         // Initialize inputs
         reset = 1;
-        start = 0;
         op = 0;
         node1 = 0;
         node2 = 0;
+        frame_start = 0;
 
         // Wait for reset
         #20;
         reset = 0;
 
-        // Wait for the DUT to initialize
-        #20;
+        // Start of frame
+        frame_start = 1;
+        #10;
+        frame_start = 0;
+
+            // Wait for the DUT to initialize
+        wait_for_idle();
 
         // Test sequence
         // Union(1, 2)
@@ -123,9 +131,8 @@ module union_find_tb;
         op <= op_code;
         node1 <= n1;
         node2 <= n2;
-        start <= 1;
         @(posedge clk);
-        start <= 0;
+        op <= 2'b00; // 将op信号重置为idle
     end
     endtask
 
@@ -134,6 +141,16 @@ module union_find_tb;
     begin
         @(posedge clk);
         while (!done) begin
+            @(posedge clk);
+        end
+    end
+    endtask
+
+    // Task to wait until the module is idle
+    task wait_for_idle;
+    begin
+        @(posedge clk);
+        while (!idle) begin
             @(posedge clk);
         end
     end

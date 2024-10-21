@@ -408,27 +408,25 @@ module two_pass_labeling #(
     //);
 
     pingpong_ram #(
-        .AWIDTH      (ADDR_WIDTH),   // 地址宽度
-        .DWIDTH      (11)    // 数据宽度
+        .ADDR_WIDTH      (ADDR_WIDTH),   // 地址宽度
+        .DATA_WIDTH      (11)    // 数据宽度
     ) prev_image_label (
         .clk         (clk), 
         .reset       (rst_fifo),     // 高电平复位
         .we          (prev_frame_href_d2), // 写使能
         .re          (prev_frame_href_d2), // 读使能，与你的 clken 信号相同
-        .addr        (address),      // 地址信号，按需求添加地址计数器
         .wdata       (next_label),   // 写入的数据
         .rdata       (above_label_reg) // 读出上一行的数据
     );
 
     pingpong_ram #(
-        .AWIDTH      (ADDR_WIDTH),   // 地址宽度
-        .DWIDTH      (1)             // 数据宽度为1位（有效性信号）
+        .ADDR_WIDTH      (ADDR_WIDTH),   // 地址宽度
+        .DATA_WIDTH      (1)             // 数据宽度为1位（有效性信号）
     ) prev_image_valid (
         .clk         (clk), 
         .reset       (rst_fifo),     // 高电平复位
         .we          (prev_frame_href_d2), // 写使能
         .re          (prev_frame_href_d2), // 读使能
-        .addr        (address),      // 地址信号
         .wdata       (valid[next_label]), // 写入的数据
         .rdata       (prev_valid_x)  // 读出上一行的有效性
     );
@@ -561,7 +559,7 @@ module pingpong_ram #(
     input we,                    // 写使能
     input re,                    // 读使能
     input [DATA_WIDTH-1:0] wdata, // 写入数据
-    output reg [DATA_WIDTH-1:0] rdata // 读取数据
+    output [DATA_WIDTH-1:0] rdata // 读取数据
 );
 
 // 写地址和读地址
