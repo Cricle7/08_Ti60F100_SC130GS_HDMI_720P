@@ -3,12 +3,13 @@
 module union_find_tb;
 
     // Parameters
-    parameter N = 8;
-    parameter ADDR_WIDTH = 3;
+    parameter N = 256;
+    parameter ADDR_WIDTH = 8;
 
-    // Inputs to the DUT
+    // Inputs to the DUT (Device Under Test)
     reg clk;
     reg reset;
+    reg frame_start;
     reg [1:0] op;  // Operation code: 00 - idle, 01 - union, 10 - find
     reg [ADDR_WIDTH-1:0] node1;
     reg [ADDR_WIDTH-1:0] node2;
@@ -17,7 +18,6 @@ module union_find_tb;
     wire [ADDR_WIDTH-1:0] result;
     wire done;
     wire idle;
-    reg frame_start;
 
     // Instantiate the DUT (Device Under Test)
     union_find #(
@@ -26,8 +26,8 @@ module union_find_tb;
     ) dut (
         .clk(clk),
         .reset(reset),
+        .frame_start(frame_start),
         .op(op),
-        .frame_start(frame_start),                // 帧开始信号，高电平表示新的一帧开始
         .node1(node1),
         .node2(node2),
         .result(result),
@@ -37,87 +37,74 @@ module union_find_tb;
 
     // Clock generation
     initial clk = 0;
-    always #5 clk = ~clk;  // 100MHz clock
+    always #5 clk = ~clk;  // Generate a 100MHz clock
 
     // Test sequence
     initial begin
         // Initialize inputs
         reset = 1;
-        op = 0;
+        frame_start = 0;
+        op = 2'b00;
         node1 = 0;
         node2 = 0;
-        frame_start = 0;
 
         // Wait for reset
         #20;
         reset = 0;
 
-        // Start of frame
+        // Wait for the DUT to initialize
+        #20;
+
+        // Start of a new frame
         frame_start = 1;
         #10;
         frame_start = 0;
 
-            // Wait for the DUT to initialize
+        // Wait for the DUT to complete initialization
         wait_for_idle();
 
         // Test sequence
         // Union(1, 2)
-        start_operation(2'b01, 1, 2);
+        start_operation(2'b01, 8'd1, 8'd2);
         wait_for_done();
 
         // Union(3, 4)
-        start_operation(2'b01, 3, 4);
+        start_operation(2'b01, 8'd3, 8'd4);
         wait_for_done();
 
-        // Now we have two separate sets: {1,2} and {3,4}
-
-        // Find(1) and Find(2)
-        start_operation(2'b10, 1, 0);
+        // Find(1)
+        start_operation(2'b10, 8'd1, 8'd0);
         wait_for_done();
         $display("Find(1): Root = %d", result);
 
-        start_operation(2'b10, 2, 0);
+        // Find(2)
+        start_operation(2'b10, 8'd2, 8'd0);
         wait_for_done();
         $display("Find(2): Root = %d", result);
 
-        // Find(3) and Find(4)
-        start_operation(2'b10, 3, 0);
+        // Find(3)
+        start_operation(2'b10, 8'd3, 8'd0);
         wait_for_done();
         $display("Find(3): Root = %d", result);
 
-        start_operation(2'b10, 4, 0);
+        // Find(4)
+        start_operation(2'b10, 8'd4, 8'd0);
         wait_for_done();
         $display("Find(4): Root = %d", result);
 
-        // Ensure that roots of (1,2) are the same and roots of (3,4) are the same but different from (1,2)
-
-        // Union(5, 6)
-        start_operation(2'b01, 5, 6);
+        // Union(1, 3) to connect both sets
+        start_operation(2'b01, 8'd1, 8'd3);
         wait_for_done();
 
-        // Union(5, 1)
-        start_operation(2'b01, 5, 1);
+        // Find(1) after union with 3
+        start_operation(2'b10, 8'd1, 8'd0);
         wait_for_done();
+        $display("Find(1): Root after union with 3 = %d", result);
 
-        // Now nodes 1,2,5,6 are in one set, and nodes 3,4 are in another set
-
-        // Find(5) and Find(6)
-        start_operation(2'b10, 5, 0);
+        // Find(4) should also yield the same root
+        start_operation(2'b10, 8'd4, 8'd0);
         wait_for_done();
-        $display("Find(5): Root = %d", result);
-
-        start_operation(2'b10, 6, 0);
-        wait_for_done();
-        $display("Find(6): Root = %d", result);
-
-        // Find(3) and Find(4) again to confirm they are still in a separate set
-        start_operation(2'b10, 3, 0);
-        wait_for_done();
-        $display("Find(3): Root = %d", result);
-
-        start_operation(2'b10, 4, 0);
-        wait_for_done();
-        $display("Find(4): Root = %d", result);
+        $display("Find(4): Root after union = %d", result);
 
         // Finish simulation
         #20;
@@ -132,7 +119,7 @@ module union_find_tb;
         node1 <= n1;
         node2 <= n2;
         @(posedge clk);
-        op <= 2'b00; // 将op信号重置为idle
+        op <= 2'b00; // Return to idle after issuing the operation
     end
     endtask
 
