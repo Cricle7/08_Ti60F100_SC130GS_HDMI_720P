@@ -2,10 +2,12 @@
 ../two_pass_labeling.v
 ../downsample_proc.v
 union_find_tb.v
+pingpong_ram_tb.v
 two_pass_tb.sv
 downsample_proc_tb.v
 ../../../ip/W0_FIFO_128/W0_FIFO_128.v
 ../../../ip/hor_fifo_1024/hor_fifo_1024.v
+../../../ip/hor_ram_2048/hor_ram_2048.v
 ../../../ip/find_union_fifo_512/find_union_fifo_512.v
 ../../isp/Line_Shift_RAM_8Bit.v
 ../../isp/VIP_Matrix_Generate_3X3_8Bit.v

@@ -103,6 +103,7 @@ module two_pass_labeling #(
     wire    read_frame_href     =   per_frame_href_r[0]|per_frame_href_r[1];    //RAM read href sync signal
     wire  prev_frame_vsync_d2  =   per_frame_vsync_r[1];
     wire  prev_frame_href_d2   =   per_frame_href_r[1];
+    wire  prev_frame_href_d1   =   per_frame_href_r[0];
     assign  post_frame_vsync  =   per_frame_vsync_r[4];
     assign  post_frame_href   =   per_frame_href_r[4];
     // Instantiate 3x3 Matrix Generator Module
@@ -380,30 +381,56 @@ module two_pass_labeling #(
         end
     end
 
-    Line_Shift_RAM_8Bit #(
-        .DATA_WIDTH (ADDR_WIDTH ),
-        .ADDR_WIDTH (11         ),
-        .DATA_DEPTH (IMG_HDISP  ),
-        .DELAY_NUM  (0          )
+    //Line_Shift_RAM_8Bit #(
+        //.DATA_WIDTH (ADDR_WIDTH ),
+        //.ADDR_WIDTH (11         ),
+        //.DATA_DEPTH (IMG_HDISP  ),
+        //.DELAY_NUM  (0          )
+    //) prev_image_label (
+        //.clk        (clk        ),
+        //.rst_n      (!rst_fifo      ),
+        //.clken      (prev_frame_href_d2),
+        //.din        (next_label ),
+        //.dout       (above_label_reg)
+    //);
+
+    //Line_Shift_RAM_8Bit #(
+        //.DATA_WIDTH (1          ),
+        //.ADDR_WIDTH (11         ),
+        //.DATA_DEPTH (IMG_HDISP  ),
+        //.DELAY_NUM  (0          )
+    //) prev_image_valid (
+        //.clk        (clk        ),
+        //.rst_n      (!rst_fifo      ),
+        //.clken      (prev_frame_href_d2),
+        //.din        (valid[next_label]),
+        //.dout       (prev_valid_x)
+    //);
+
+    pingpong_ram #(
+        .AWIDTH      (ADDR_WIDTH),   // 地址宽度
+        .DWIDTH      (11)    // 数据宽度
     ) prev_image_label (
-        .clk        (clk        ),
-        .rst_n      (!rst_fifo      ),
-        .clken      (prev_frame_href_d2),
-        .din        (next_label ),
-        .dout       (above_label_reg)
+        .clk         (clk), 
+        .reset       (rst_fifo),     // 高电平复位
+        .we          (prev_frame_href_d2), // 写使能
+        .re          (prev_frame_href_d2), // 读使能，与你的 clken 信号相同
+        .addr        (address),      // 地址信号，按需求添加地址计数器
+        .wdata       (next_label),   // 写入的数据
+        .rdata       (above_label_reg) // 读出上一行的数据
     );
 
-    Line_Shift_RAM_8Bit #(
-        .DATA_WIDTH (1          ),
-        .ADDR_WIDTH (11         ),
-        .DATA_DEPTH (IMG_HDISP  ),
-        .DELAY_NUM  (0          )
+    pingpong_ram #(
+        .AWIDTH      (ADDR_WIDTH),   // 地址宽度
+        .DWIDTH      (1)             // 数据宽度为1位（有效性信号）
     ) prev_image_valid (
-        .clk        (clk        ),
-        .rst_n      (!rst_fifo      ),
-        .clken      (prev_frame_href_d2),
-        .din        (valid[next_label]),
-        .dout       (prev_valid_x)
+        .clk         (clk), 
+        .reset       (rst_fifo),     // 高电平复位
+        .we          (prev_frame_href_d2), // 写使能
+        .re          (prev_frame_href_d2), // 读使能
+        .addr        (address),      // 地址信号
+        .wdata       (valid[next_label]), // 写入的数据
+        .rdata       (prev_valid_x)  // 读出上一行的有效性
     );
 
     always @(posedge clk) begin
@@ -525,51 +552,72 @@ module perimeter_calc (
     end
 endmodule
 
-//module ping_pong_ram #(
-    //parameter DATA_WIDTH = 8,   // 数据宽度
-    //parameter IMG_HDISP = 640   // 一行的像素数
-//)(
-    //input wire clk,
-    //input wire rst,
-    //input wire wr_en,           // 写使能信号
-    //input wire [DATA_WIDTH-1:0] data_in, // 当前行的数据输入
-    //input wire [$clog2(IMG_HDISP)-1:0] addr_in, // 地址输入 (范围从 0 到 IMG_HDISP-1)
-    //output wire [DATA_WIDTH-1:0] data_out // 上一行的数据输出
-//);
+module pingpong_ram #(
+    parameter ADDR_WIDTH = 11,  // 地址宽度
+    parameter DATA_WIDTH = 8    // 数据宽度
+)(
+    input clk,                   // 时钟信号
+    input reset,                 // 高电平复位
+    input we,                    // 写使能
+    input re,                    // 读使能
+    input [DATA_WIDTH-1:0] wdata, // 写入数据
+    output reg [DATA_WIDTH-1:0] rdata // 读取数据
+);
 
-    //// 定义两个 RAM
-    //reg [DATA_WIDTH-1:0] ram0 [0:IMG_HDISP-1]; // RAM 0
-    //reg [DATA_WIDTH-1:0] ram1 [0:IMG_HDISP-1]; // RAM 1
+// 写地址和读地址
+reg [ADDR_WIDTH-1:0] write_addr;
+reg [ADDR_WIDTH-1:0] read_addr;
 
-    //reg select; // 用于选择当前使用的 RAM
+// 乒乓切换信号
+reg current_ram;  // 0表示使用RAM A写当前行，读上一行RAM B；1表示反之
 
-    //// 写入当前行数据
-    //always @(posedge clk or posedge rst) begin
-        //if (rst) begin
-            //select <= 1'b0; // 复位时，选择RAM0作为初始写入
-        //end else begin
-            //if (wr_en) begin
-                //if (select == 1'b0) begin
-                    //ram0[addr_in] <= data_in; // 将当前行数据写入 RAM 0
-                //end else begin
-                    //ram1[addr_in] <= data_in; // 将当前行数据写入 RAM 1
-                //end
-            //end
-        //end
-    //end
+// RAM实例化
+// RAM A 用于当前行的读/写操作
+hor_ram_2048 u_hor_ram_A (
+    .clk(clk),
+    .addr(current_ram ? read_addr : write_addr), // 当current_ram为0时写入，current_ram为1时读取
+    .we(we && (current_ram == 1'b0)),            // 只有在current_ram为0时才写入
+    .re(re && (current_ram == 1'b1)),            // 只有在current_ram为1时才读取
+    .wdata_a(wdata),                             // 写入数据
+    .rdata_a(rdata)                              // 读取数据
+);
 
-    //// 读取上一行数据
-    //assign data_out = (select == 1'b0) ? ram1[addr_in] : ram0[addr_in];
+// RAM B 用于上一行的读/写操作
+hor_ram_2048 u_hor_ram_B (
+    .clk(clk),
+    .addr(current_ram ? write_addr : read_addr), // 当current_ram为1时写入，current_ram为0时读取
+    .we(we && (current_ram == 1'b1)),            // 只有在current_ram为1时才写入
+    .re(re && (current_ram == 1'b0)),            // 只有在current_ram为0时才读取
+    .wdata_a(wdata),                             // 写入数据
+    .rdata_a(rdata)                              // 读取数据
+);
 
-    //// 在每一行结束后切换 RAM
-    //always @(posedge clk or posedge rst) begin
-        //if (rst) begin
-            //select <= 1'b0; // 复位时选择RAM0
-        //end else begin
-            //if (addr_in == IMG_HDISP - 1) begin
-                //select <= ~select; // 每一行结束时切换 RAM
-            //end
-        //end
-    //end
+// 写地址生成器
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        write_addr <= 0;
+        current_ram <= 1'b0;  // 初始使用RAM A写
+    end else if (we) begin
+        if (write_addr == (1 << ADDR_WIDTH) - 1) begin
+            write_addr <= 0;
+            current_ram <= ~current_ram;  // 写完一行后切换RAM
+        end else begin
+            write_addr <= write_addr + 1;
+        end
+    end
+end
 
-//endmodule
+// 读地址生成器
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        read_addr <= 0;
+    end else if (re) begin
+        if (read_addr == (1 << ADDR_WIDTH) - 1) begin
+            read_addr <= 0;  // 读完一行后读地址重置
+        end else begin
+            read_addr <= read_addr + 1;
+        end
+    end
+end
+
+endmodule
