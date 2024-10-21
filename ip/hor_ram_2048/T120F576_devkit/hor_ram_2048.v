@@ -43,7 +43,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-`define IP_UUID _0ff383d61e324e2bbc2ff7fda009254a
+`define IP_UUID _67ec5cf0063b4781a7c057be7129d9fe
 `define IP_NAME_CONCAT(a,b) a``b
 `define IP_MODULE_NAME(name) `IP_NAME_CONCAT(name,`IP_UUID)
 module hor_ram_2048 (
@@ -52,7 +52,8 @@ input we,
 input [10:0] addr,
 input [7:0] wdata_a,
 output [7:0] rdata_a,
-input clk
+input clk,
+input wclke
 );
 `IP_MODULE_NAME(efx_bram) #(
 .ADDR_WIDTH_A (11),
@@ -109,7 +110,7 @@ input clk
 .ADDRENB_POLARITY (1),
 .WE_ENABLE (1),
 .WE_POLARITY (1),
-.WCLKE_ENABLE (0),
+.WCLKE_ENABLE (1),
 .WCLKE_POLARITY (1),
 .WCLK_POLARITY (1),
 .RESET_RAM_A ("ASYNC"),
@@ -118,7 +119,7 @@ input clk
 .OUTPUT_REG (0),
 .RE_POLARITY (1),
 .RE_ENABLE (1),
-.WRITE_MODE ("READ_FIRST"),
+.WRITE_MODE ("READ_UNKNOWN"),
 .RESET_OUTREG ("ASYNC"),
 .RESET_ENABLE (0),
 .RST_POLARITY (1),
@@ -130,7 +131,8 @@ input clk
 .addr ( addr ),
 .wdata_a ( wdata_a ),
 .rdata_a ( rdata_a ),
-.clk ( clk )
+.clk ( clk ),
+.wclke ( wclke )
 );
 
 endmodule

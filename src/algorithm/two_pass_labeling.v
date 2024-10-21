@@ -159,7 +159,7 @@ module two_pass_labeling #(
     assign node2 =(find_union_renfifo)?find_union_req_rfifo[ADDR_WIDTH - 1:0] : 0;
 
     assign find_node1 = find_label_count;
-    assign find_op = {(merge_state == merge_req),0};
+    assign find_op = {(merge_state == merge_req),1'b0};
 
 
     union_find #(

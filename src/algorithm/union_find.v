@@ -29,8 +29,7 @@ module union_find #(
     reg rank_we;
     reg [ADDR_WIDTH-1:0] rank_dout;    // 同步读
 
-    // 状态机状态
-    reg [5:0] state; // 扩展位宽以容纳更多状态
+    reg [5:0] state; 
     localparam IDLE              = 6'd0;
     localparam INIT_LOOP         = 6'd1;
     localparam FIND_START        = 6'd2;

@@ -3,6 +3,7 @@
 ../downsample_proc.v
 union_find_tb.v
 pingpong_ram_tb.sv
+../ping_pong_ram.v
 two_pass_tb.sv
 downsample_proc_tb.v
 ../../../ip/W0_FIFO_128/W0_FIFO_128.v
@@ -12,3 +13,17 @@ downsample_proc_tb.v
 ../../isp/Line_Shift_RAM_8Bit.v
 ../../isp/VIP_Matrix_Generate_3X3_8Bit.v
 ../../isp/FrameBoundCrop.v
+../../../ip/hor_ram_2048/Testbench/efx_ram_5k.v
+../../../ip/hor_ram_2048/Testbench/efx_ram10.v
+../../../ip/hor_ram_2048/Testbench/efx_dpram10.v
+../../../ip/hor_ram_2048/Testbench/efx_dpram_5k.v
+../../../ip/hor_ram_2048/Testbench/signal_gen_sp.v
+../../../ip/hor_ram_2048/Testbench/signal_gen_sprom.v
+../../../ip/hor_ram_2048/Testbench/signal_gen_sdp.v
+../../../ip/hor_ram_2048/Testbench/signal_gen_tdp.v
+../../../ip/hor_ram_2048/Testbench/tdp_test_pattern.v
+../../../ip/hor_ram_2048/Testbench/dp_test_pattern_rom.v
+../../../ip/hor_ram_2048/Testbench/monitor_sp.v
+../../../ip/hor_ram_2048/Testbench/monitor_sdp.v
+../../../ip/hor_ram_2048/Testbench/monitor_tdp.v
+

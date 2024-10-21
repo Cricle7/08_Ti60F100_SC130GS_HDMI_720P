@@ -1,10 +1,10 @@
-localparam TOTAL_SIZE_A = 2048;
-localparam TOTAL_SIZE_B = 2048;
+localparam TOTAL_SIZE_A = 8;
+localparam TOTAL_SIZE_B = 8;
 localparam GROUP_COLUMNS       = 1;
-parameter DECOMPOSE_WRITE_MODE = "READ_UNKNOWN";
+parameter DECOMPOSE_WRITE_MODE = "READ_FIRST";
 localparam bram_table_size = 1;
 localparam bram_table_loop_mode = 1;
-localparam bram_mapping_size = 2;
+localparam bram_mapping_size = 1;
 localparam rMux_mapping_A_size = 0;
 localparam rMux_mapping_B_size = 0;
 localparam wen_sel_mapping_A_size = 0;
@@ -35,7 +35,7 @@ function integer bram_decompose_table;
 input integer index;//Mode type 
 input integer val_; //Port A index, Port B Index, Number of Items in Loop, Port A Start, Port B Start, reserved 
 case (index)
-   0: bram_decompose_table=(val_==0)?   4:(val_==1)?   4:(val_==2)?   2:(val_==3)?   0:(val_==4)?   0:0;
+   0: bram_decompose_table=(val_==0)?   0:(val_==1)?   0:(val_==2)?   1:(val_==3)?   0:(val_==4)?   0:0;
    endcase
 endfunction  
 
@@ -44,8 +44,7 @@ function integer bram_mapping_table;
 input integer index;//Mode type 
 input integer val_;//            Y,              X,              DataA [MSB],    DataA [LSB],    DataA Repeat,   Read MuxA,      Wen0 SelA,      Wen1 SelA,      Byteen A,       DataB [MSB],    DataB [LSB],    DataB Repeat,   Read MuxB,      Wen0 SelB,      Wen1 SelB,      Byteen B,       Addr Width A    Data Width A    Addr Width B    Data Width B    
 case (index)
-   0: bram_mapping_table=(val_== 0)?   0:(val_== 1)?   0:(val_== 2)?   4:(val_== 3)?   0:(val_== 4)?   0:(val_== 5)?   0:(val_== 6)?   0:(val_== 7)?   0:(val_== 8)?   0:(val_== 9)?   4:(val_==10)?   0:(val_==11)?   0:(val_==12)?   0:(val_==13)?   0:(val_==14)?   0:(val_==15)?   0:(val_==16)?  11:(val_==17)?   5:(val_==18)?  11:(val_==19)?   5:0;
-   1: bram_mapping_table=(val_== 0)?   0:(val_== 1)?   1:(val_== 2)?   7:(val_== 3)?   5:(val_== 4)?   0:(val_== 5)?   0:(val_== 6)?   0:(val_== 7)?   0:(val_== 8)?   0:(val_== 9)?   7:(val_==10)?   5:(val_==11)?   0:(val_==12)?   0:(val_==13)?   0:(val_==14)?   0:(val_==15)?   0:(val_==16)?  11:(val_==17)?   5:(val_==18)?  11:(val_==19)?   5:0;
+   0: bram_mapping_table=(val_== 0)?   0:(val_== 1)?   0:(val_== 2)?  15:(val_== 3)?   0:(val_== 4)?   0:(val_== 5)?   0:(val_== 6)?   0:(val_== 7)?   0:(val_== 8)?   0:(val_== 9)?  15:(val_==10)?   0:(val_==11)?   0:(val_==12)?   0:(val_==13)?   0:(val_==14)?   0:(val_==15)?   0:(val_==16)?   9:(val_==17)?  20:(val_==18)?   9:(val_==19)?  20:0;
    endcase
 endfunction  
 

@@ -1,63 +1,131 @@
-module pingpong_ram_tb();
+`timescale 1ns/1ps
 
-// 参数定义
-parameter ADDR_WIDTH = 4;  // 地址宽度（小位宽用于测试）
-parameter DATA_WIDTH = 8;  // 数据宽度
+module ping_pong_ram_tb;
 
-// 信号定义
-reg clk;
-reg reset;
-reg we;                    // 写使能
-reg re;                    // 读使能
-reg [DATA_WIDTH-1:0] wdata; // 写入数据
-wire [DATA_WIDTH-1:0] rdata; // 读取数据
+    reg clk;
+    reg reset;
+    reg line_end;
+    reg we;
+    reg [10:0] write_addr;
+    reg [7:0] write_data;
+    reg re;
+    reg [10:0] read_addr;
+    wire [7:0] read_data;
 
-// 实例化被测试模块
-pingpong_ram #(
-    .ADDR_WIDTH(ADDR_WIDTH),
-    .DATA_WIDTH(DATA_WIDTH)
-) uut (
-    .clk(clk),
-    .reset(reset),
-    .we(we),
-    .re(re),
-    .wdata(wdata),
-    .rdata(rdata)
-);
+    // 实例化乒乓RAM模块
+    ping_pong_ram uut (
+        .clk(clk),
+        .reset(reset),
+        .line_end(line_end),
+        .we(we),
+        .write_addr(write_addr),
+        .write_data(write_data),
+        .re(re),
+        .read_addr(read_addr),
+        .read_data(read_data)
+    );
 
-// 时钟生成
-always #5 clk = ~clk;  // 10ns周期时钟
-
-// 测试例程
-initial begin
-    // 初始化
-    clk = 0;
-    we = 0;
-    re = 0;
-    wdata = 0;
-    reset = 1;
-
-    // 复位
-    #10 reset = 0;  // 释放复位信号
-
-    // 写入一行数据
-    we = 1;
-    for (int i = 0; i < 8; i = i + 1) begin
-        wdata = i[DATA_WIDTH-1:0];  // 写入从0到7的数值
-        #10;
+    // 时钟生成
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;  // 100MHz 时钟
     end
-    we = 0;
 
-    // 读取上一行数据
-    re = 1;
-    for (int i = 0; i < 8; i = i + 1) begin
-        #10;
-        $display("Address %d: Read Data = %h", i, rdata);  // 打印读取到的数据
+    // 测试刺激
+    initial begin
+        reset = 1;
+        line_end = 0;
+        we = 0;
+        write_addr = 11'd1;  // 避免使用地址0
+        write_data = 0;
+        re = 0;
+        read_addr = 11'd1;   // 避免使用地址0
+
+        #20;
+        reset = 0;
+
+        // 第一次写入数据，同时开始读取上一行数据（由于是初始状态，读取的数据可能不确定）
+        @(posedge clk);
+        we = 1;
+        re = 1;
+        write_addr = 11'd1;
+        write_data = 8'hAA;
+        read_addr = 11'd1;
+        @(posedge clk);
+        write_addr = 11'd2;
+        write_data = 8'hBB;
+        read_addr = 11'd2;
+        @(posedge clk);
+        write_addr = 11'd3;
+        write_data = 8'hCC;
+        read_addr = 11'd3;
+        @(posedge clk);
+        write_addr = 11'd4;
+        write_data = 8'hDD;
+        read_addr = 11'd4;
+        @(posedge clk);
+        we = 0;
+        re = 0;
+        line_end = 1; // 切换乒乓缓冲
+        @(posedge clk);
+        line_end = 0;
+
+        // 第二次写入，同时读取上一行的数据
+        @(posedge clk);
+        we = 1;
+        re = 1;
+        write_addr = 11'd1;
+        write_data = 8'h11;
+        read_addr = 11'd1;
+        @(posedge clk);
+        write_addr = 11'd2;
+        write_data = 8'h22;
+        read_addr = 11'd2;
+        @(posedge clk);
+        write_addr = 11'd3;
+        write_data = 8'h33;
+        read_addr = 11'd3;
+        @(posedge clk);
+        write_addr = 11'd4;
+        write_data = 8'h44;
+        read_addr = 11'd4;
+        @(posedge clk);
+        we = 0;
+        re = 0;
+        @(posedge clk);
+        line_end = 1; // 切换乒乓缓冲
+        @(posedge clk);
+        line_end = 0;
+
+        // 第三次写入，同时读取上一行的数据
+        @(posedge clk);
+        we = 1;
+        re = 1;
+        write_addr = 11'd1;
+        write_data = 8'h55;
+        read_addr = 11'd1;
+        @(posedge clk);
+        write_addr = 11'd2;
+        write_data = 8'h66;
+        read_addr = 11'd2;
+        @(posedge clk);
+        write_addr = 11'd3;
+        write_data = 8'h77;
+        read_addr = 11'd3;
+        @(posedge clk);
+        write_addr = 11'd4;
+        write_data = 8'h88;
+        read_addr = 11'd4;
+        @(posedge clk);
+        we = 0;
+        re = 0;
+        @(posedge clk);
+        line_end = 1; // 切换乒乓缓冲
+        @(posedge clk);
+        line_end = 0;
+
+        #100;
+        $finish;
     end
-    re = 0;
-
-    // 结束仿真
-    $finish;
-end
 
 endmodule
