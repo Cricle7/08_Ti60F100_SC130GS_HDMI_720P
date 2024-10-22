@@ -16,13 +16,12 @@ module ping_pong_ram_tb;
     ping_pong_ram uut (
         .clk(clk),
         .reset(reset),
-        .line_end(line_end),
         .we(we),
-        .write_addr(write_addr),
-        .write_data(write_data),
+        .waddr(write_addr),
+        .wdata(write_data),
         .re(re),
-        .read_addr(read_addr),
-        .read_data(read_data)
+        .raddr(read_addr),
+        .rdata_out(read_data)
     );
 
     // 时钟生成
@@ -33,6 +32,7 @@ module ping_pong_ram_tb;
 
     // 测试刺激
     initial begin
+        // 初始化输入信号
         reset = 1;
         line_end = 0;
         we = 0;
@@ -41,6 +41,7 @@ module ping_pong_ram_tb;
         re = 0;
         read_addr = 11'd1;   // 避免使用地址0
 
+        // 复位信号
         #20;
         reset = 0;
 
@@ -92,7 +93,6 @@ module ping_pong_ram_tb;
         @(posedge clk);
         we = 0;
         re = 0;
-        @(posedge clk);
         line_end = 1; // 切换乒乓缓冲
         @(posedge clk);
         line_end = 0;
@@ -119,13 +119,19 @@ module ping_pong_ram_tb;
         @(posedge clk);
         we = 0;
         re = 0;
-        @(posedge clk);
         line_end = 1; // 切换乒乓缓冲
         @(posedge clk);
         line_end = 0;
 
         #100;
         $finish;
+    end
+
+    // 监视读数据
+    always @(posedge clk) begin
+        if (re) begin
+            $display("Time: %t | Read Addr: %d | Read Data: %h", $time, read_addr, read_data);
+        end
     end
 
 endmodule

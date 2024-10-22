@@ -1,80 +1,68 @@
-// 乒乓RAM模块，写数据打一拍并延长写使能
-module ping_pong_ram(
-    input clk,
-    input reset,
-    input line_end, // 行结束信号，用于切换乒乓缓冲
-    input we,
-    input [10:0] write_addr,
-    input [7:0] write_data,
-    input re,
-    input [10:0] read_addr,
-    output [7:0] read_data
+module ping_pong_ram (
+    input wire clk,                  // 时钟信号
+    input wire reset,                // 高电平复位信号
+    input wire we,                   // 写使能信号
+    input wire re,                   // 读使能信号
+    input wire [10:0] waddr,         // 写地址（11位）
+    input wire [7:0] wdata,          // 写数据（8位）
+    input wire [10:0] raddr,         // 读地址（11位）
+    output wire [7:0] rdata_out       // 读数据输出（8位）
 );
 
-    reg ping_pong_flag;  // 乒乓标志位
+    // 控制信号，用于切换当前写入和读取的 RAM
+    reg toggle;
 
-    // 在行结束时切换乒乓标志位
+    // 用于检测 we 信号的下降沿
+    reg we_prev;
+
+    // 读取数据线
+    wire [7:0] rdata0;
+    wire [7:0] rdata1;
+
+    // 边沿检测和 toggle 逻辑
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            ping_pong_flag <= 0;
-        end else if (line_end) begin
-            ping_pong_flag <= ~ping_pong_flag;
-        end
-    end
-
-    // 写数据打一拍，并延长写使能
-    reg [7:0] write_data_d;
-    reg we_d;
-    reg [10:0] write_addr_d;
-
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            write_data_d <= 8'd0;
-            we_d <= 1'b0;
-            write_addr_d <= 11'd0;
+            we_prev <= 1'b0;
+            toggle <= 1'b0;
         end else begin
-            write_data_d <= write_data;
-            we_d <= we ;
-            write_addr_d <= write_addr;
+            we_prev <= we;
+            // 检测到 we 从高到低的变化
+            if (we_prev & ~we) begin
+                toggle <= ~toggle;
+            end
         end
     end
 
-    // RAM0和RAM1的控制信号和地址
-    wire we_ram0 = (we | we_d) & (~ping_pong_flag);
-    wire we_ram1 = (we | we_d) & ping_pong_flag;
-    wire re_ram0 = re & ping_pong_flag;
-    wire re_ram1 = re & (~ping_pong_flag);
+    // 根据 toggle 信号决定哪个 RAM 用于写入，哪个用于读取
+    wire we0 = we & ~toggle;
+    wire re0 = re & toggle;
 
-    wire [10:0] addr_ram0 = we_ram0 ? write_addr_d : read_addr;
-    wire [10:0] addr_ram1 = we_ram1 ? write_addr_d : read_addr;
-    wire [7:0] wdata_ram0 = write_data_d;
-    wire [7:0] wdata_ram1 = write_data_d;
-    wire [7:0] rdata_ram0;
-    wire [7:0] rdata_ram1;
+    wire we1 = we & toggle;
+    wire re1 = re & ~toggle;
 
-    // 实例化RAM0
-    hor_ram_2048 u_ram0 (
-        .clk(clk),
-        //.reset(reset),
-        .we(we_ram0),
-        .re(re_ram0),
-        .addr(addr_ram0),
-        .wdata_a(wdata_ram0),
-        .rdata_a(rdata_ram0)
+    // 实例化 RAM0
+    hor_dual_ram_2048 u_ram0 (
+        .re(re0),
+        .we(we0),
+        .waddr(waddr),
+        .wdata_a(wdata),
+        .rdata_b(rdata0),
+        .raddr(raddr),
+        .clk(clk)
     );
 
-    // 实例化RAM1
-    hor_ram_2048 u_ram1 (
-        .clk(clk),
-        //.reset(reset),
-        .we(we_ram1),
-        .re(re_ram1),
-        .addr(addr_ram1),
-        .wdata_a(wdata_ram1),
-        .rdata_a(rdata_ram1)
+    // 实例化 RAM1
+    hor_dual_ram_2048 u_ram1 (
+        .re(re1),
+        .we(we1),
+        .waddr(waddr),
+        .wdata_a(wdata),
+        .rdata_b(rdata1),
+        .raddr(raddr),
+        .clk(clk)
     );
 
-    // 根据乒乓标志位选择输出数据（组合逻辑）
-    assign read_data = (ping_pong_flag) ? rdata_ram0 : rdata_ram1;
+    // 选择读取的数据
+    assign rdata_out = toggle ? rdata0 : rdata1;
 
 endmodule

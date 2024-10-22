@@ -49,6 +49,7 @@ module two_pass_labeling #(
     //reg [ADDR_WIDTH-1:0]    label_image         [0:IMG_HDISP-1];
     wire prev_valid_x;
     reg prev_valid_x_1;
+    reg prev_valid_x_1_1;
 
     reg [10:0]              x;
     reg [9:0]               y;
@@ -70,7 +71,7 @@ module two_pass_labeling #(
 
     reg [ADDR_WIDTH-1:0]        left_label;
     wire [ADDR_WIDTH-1:0]       above_label_reg;
-    wire [ADDR_WIDTH-1:0]       above_label = (y ==0 || y == 1) ? 0 : above_label_reg;
+    wire [ADDR_WIDTH-1:0]       above_label = (y ==0) ? 0 : above_label_reg;
     wire [ADDR_WIDTH-1:0]       next_label;
     reg [ADDR_WIDTH-1:0]        next_label_d;
 
@@ -188,7 +189,7 @@ module two_pass_labeling #(
 		r_href_i <= {r_href_i, matrix_frame_href}; 
         if (rst_fifo) begin
             y <= 0;
-        end else if (r_href_i == 1) begin
+        end else if (r_href_i == 2) begin
             y <= y + 1;
         end
     end
@@ -259,22 +260,20 @@ module two_pass_labeling #(
     );
 
 
-//    always @(*) begin
-        //surrounded_by_invalid_label =    (x == 0) ? 
-                                            //(prev_valid[x] & prev_valid[x+1] ? 0 : 1) : 
-                                            //(x == 1) ? 
-                                            //(prev_valid[x-1] & prev_valid[x] & valid[left_label] ? 0 : 1) : 
-                                            //(x == IMG_VDISP-1) ? 
-                                            //(prev_valid[x-1] & prev_valid[x] & valid[left_label] ? 0 : 1) : 
-                                            //(prev_valid[x-1] & prev_valid[x] & prev_valid[x+1] & valid[left_label] ? 0 : 1);
-    //end
-
     always @(*) begin
-        surrounded_by_invalid_label =   (matrix_p22 == 0)? 0 : 
-                                            (x == 0) ? 
-                                            (prev_valid_x ? 0 : 1) : 
-                                            (prev_valid_x_1 & prev_valid_x & valid[left_label] ? 0 : 1);
-    end   
+        surrounded_by_invalid_label =       (matrix_p22 == 0)? 0 :(x == 0) ? 
+                                            (prev_valid_x_1 & prev_valid_x ? 0 : 1) : 
+                                            (x == IMG_VDISP-1) ? 
+                                            (prev_valid_x_1_1 & prev_valid_x_1 & valid[left_label] ? 0 : 1) : 
+                                            (prev_valid_x_1_1 & prev_valid_x_1 & prev_valid_x & valid[left_label] ? 0 : 1);
+    end
+
+//    always @(*) begin
+        //surrounded_by_invalid_label =   (matrix_p22 == 0)? 0 : 
+                                            //(x == 0) ? 
+                                            //(prev_valid_x ? 0 : 1) : 
+                                            //(prev_valid_x_1 & prev_valid_x & valid[left_label] ? 0 : 1);
+    //end   
 
     assign next_label = (matrix_p22 == 0)? 0 :
                         (left_label == 0 && above_label == 0) ? label_count + 1 :
@@ -285,7 +284,8 @@ module two_pass_labeling #(
     assign updated_area = area[next_label] + 1;
     assign updated_perimeter = perimeter[next_label] + perimeter_out;
 
-    assign update_bo2ttom = y;       // 底部边界数组
+    assign update_bo2ttom = y;       // 底部边界数组,y是从0开始
+    assign update_left_label = next_label;
     assign update_left = (left_label == 0 && above_label == 0) ? x : target_pos [next_label][10: 0];       // 边界数组
     assign update_right = (x > target_pos [next_label][31:21]) ? x : target_pos [next_label][31:21];       // 右边界数组
     assign update_top = (left_label == 0 && above_label == 0)? y : target_pos [next_label][20:11]           ;       // 顶部边界数组
@@ -308,9 +308,9 @@ module two_pass_labeling #(
             label_count <= 0;
         //mark labels
         end else if(matrix_frame_href && matrix_p22 == 8'd255) begin
-            //if (surrounded_by_invalid_label) begin
-                //valid[next_label] <= 0;
-            //end else begin
+            if (surrounded_by_invalid_label) begin
+                valid[next_label] <= 0;
+            end else begin
                 area[next_label] <= updated_area;
                 perimeter[next_label] <= updated_perimeter;
                 valid[next_label] <= new_valid;
@@ -376,7 +376,7 @@ module two_pass_labeling #(
         else if (r_href_i == 2) begin
             x <= 0;
             // Update previous line labels
-        end else begin
+        end else if (matrix_frame_href) begin
             x <= x + 1;
         end
     end
@@ -407,31 +407,35 @@ module two_pass_labeling #(
         //.dout       (prev_valid_x)
     //);
 
-    pingpong_ram #(
-        .ADDR_WIDTH      (ADDR_WIDTH),   // 地址宽度
-        .DATA_WIDTH      (11)    // 数据宽度
-    ) prev_image_label (
-        .clk         (clk), 
-        .reset       (rst_fifo),     // 高电平复位
-        .we          (prev_frame_href_d2), // 写使能
-        .re          (prev_frame_href_d2), // 读使能，与你的 clken 信号相同
-        .wdata       (next_label),   // 写入的数据
-        .rdata       (above_label_reg) // 读出上一行的数据
+    prev_img_fifo_4096  u_prev_img_fifo(
+        .full_o     (  ),
+        .empty_o    (  ),
+        .clk_i      ( clk ),
+        .wr_en_i    ( matrix_frame_href ),
+        .rd_en_i    (  y != 0 && matrix_frame_href ),
+        .wdata      ( next_label ),
+        .datacount_o (  ),
+        .rst_busy   (  ),
+        .rdata      ( above_label_reg ),
+        .a_rst_i    ( rst_fifo )
     );
 
-    pingpong_ram #(
-        .ADDR_WIDTH      (ADDR_WIDTH),   // 地址宽度
-        .DATA_WIDTH      (1)             // 数据宽度为1位（有效性信号）
-    ) prev_image_valid (
-        .clk         (clk), 
-        .reset       (rst_fifo),     // 高电平复位
-        .we          (prev_frame_href_d2), // 写使能
-        .re          (prev_frame_href_d2), // 读使能
-        .wdata       (valid[next_label]), // 写入的数据
-        .rdata       (prev_valid_x)  // 读出上一行的有效性
+    prev_valid_fifo  u_prev_valid_fifo(
+        .full_o     (  ),
+        .empty_o    (  ),
+        .clk_i      ( clk ),
+        .wr_en_i    ( matrix_frame_href ),
+        .rd_en_i    (  y != 0 && prev_frame_href_d2 ),
+        .wdata      ( valid[next_label] ),
+        .datacount_o (  ),
+        .rst_busy   (  ),
+        .rdata      ( prev_valid_x ),
+        .a_rst_i    ( rst_fifo )
     );
 
     always @(posedge clk) begin
+            prev_valid_x_1 <= prev_valid_x;
+            prev_valid_x_1_1 <= prev_valid_x_1;
         if (matrix_frame_href) begin
             prev_valid_x_1 <= prev_valid_x;
             next_label_d <= next_label;
@@ -548,74 +552,4 @@ module perimeter_calc (
         if (p21 != 8'd255) perimeter_out = perimeter_out + 1; // Top
         if (p23 != 8'd255) perimeter_out = perimeter_out + 1; // Bottom
     end
-endmodule
-
-module pingpong_ram #(
-    parameter ADDR_WIDTH = 11,  // 地址宽度
-    parameter DATA_WIDTH = 8    // 数据宽度
-)(
-    input clk,                   // 时钟信号
-    input reset,                 // 高电平复位
-    input we,                    // 写使能
-    input re,                    // 读使能
-    input [DATA_WIDTH-1:0] wdata, // 写入数据
-    output [DATA_WIDTH-1:0] rdata // 读取数据
-);
-
-// 写地址和读地址
-reg [ADDR_WIDTH-1:0] write_addr;
-reg [ADDR_WIDTH-1:0] read_addr;
-
-// 乒乓切换信号
-reg current_ram;  // 0表示使用RAM A写当前行，读上一行RAM B；1表示反之
-
-// RAM实例化
-// RAM A 用于当前行的读/写操作
-hor_ram_2048 u_hor_ram_A (
-    .clk(clk),
-    .addr(current_ram ? read_addr : write_addr), // 当current_ram为0时写入，current_ram为1时读取
-    .we(we && (current_ram == 1'b0)),            // 只有在current_ram为0时才写入
-    .re(re && (current_ram == 1'b1)),            // 只有在current_ram为1时才读取
-    .wdata_a(wdata),                             // 写入数据
-    .rdata_a(rdata)                              // 读取数据
-);
-
-// RAM B 用于上一行的读/写操作
-hor_ram_2048 u_hor_ram_B (
-    .clk(clk),
-    .addr(current_ram ? write_addr : read_addr), // 当current_ram为1时写入，current_ram为0时读取
-    .we(we && (current_ram == 1'b1)),            // 只有在current_ram为1时才写入
-    .re(re && (current_ram == 1'b0)),            // 只有在current_ram为0时才读取
-    .wdata_a(wdata),                             // 写入数据
-    .rdata_a(rdata)                              // 读取数据
-);
-
-// 写地址生成器
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
-        write_addr <= 0;
-        current_ram <= 1'b0;  // 初始使用RAM A写
-    end else if (we) begin
-        if (write_addr == (1 << ADDR_WIDTH) - 1) begin
-            write_addr <= 0;
-            current_ram <= ~current_ram;  // 写完一行后切换RAM
-        end else begin
-            write_addr <= write_addr + 1;
-        end
-    end
-end
-
-// 读地址生成器
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
-        read_addr <= 0;
-    end else if (re) begin
-        if (read_addr == (1 << ADDR_WIDTH) - 1) begin
-            read_addr <= 0;  // 读完一行后读地址重置
-        end else begin
-            read_addr <= read_addr + 1;
-        end
-    end
-end
-
 endmodule
