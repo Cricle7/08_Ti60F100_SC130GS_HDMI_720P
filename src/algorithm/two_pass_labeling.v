@@ -276,7 +276,7 @@ module two_pass_labeling #(
     //end   
 
     assign next_label = (matrix_p22 == 0)? 0 :
-                        (left_label == 0 && above_label == 0) ? label_count + 1 :
+                        (left_label == 0 && above_label == 0) ? label_count + !surrounded_by_invalid_label:
                         (left_label != 0 && above_label == 0) ? left_label :
                         (left_label == 0 && above_label != 0) ? above_label :
                         (left_label < above_label) ? left_label : above_label;
@@ -297,10 +297,7 @@ module two_pass_labeling #(
     integer i;
     always @(posedge clk) begin
         if (rst_fifo) begin
-            area[0] <= 0;
-            perimeter[0] <= 0;
-            valid[0] <= 0;
-            for (i = 1; i < MAX_LABELS; i = i + 1) begin
+            for (i = 0; i < MAX_LABELS; i = i + 1) begin
                 area[i] <= 0;
                 perimeter[i] <= 0;
                 valid[i] <= 1;
@@ -316,7 +313,7 @@ module two_pass_labeling #(
                 valid[next_label] <= new_valid;
                 if (left_label == 0 && above_label == 0) begin
                     label_count <= label_count + 1;
-                //end
+                end
             end
         end
     end
