@@ -1141,6 +1141,12 @@ module example_top
 		.txd2_o		(hdmi_txd2_o)
 	); 
 	
+	uart_top u_uart_top(
+    //input ports
+    	.clk		(w_pixel_clk),
+    	.uart_rx	(uart_rx_i),
+        .uart_tx	(uart_tx_o)
+	);
 	
 	
 endmodule

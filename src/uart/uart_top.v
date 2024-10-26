@@ -31,7 +31,7 @@ module uart_top(
     output        uart_tx
 );
 
-   parameter      BPS_NUM = 16'd434;
+   parameter      BPS_NUM = 1296;
    //  设置波特率为4800时，  bit位宽时钟周期个数:50MHz set 10417  40MHz set 8333
    //  设置波特率为9600时，  bit位宽时钟周期个数:50MHz set 5208   40MHz set 4167
    //  设置波特率为115200时，bit位宽时钟周期个数:50MHz set 434    40MHz set 347 12M set 104
