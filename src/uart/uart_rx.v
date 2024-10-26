@@ -23,9 +23,9 @@
 
 module uart_rx # (
     parameter            BPS_NUM     =    16'd434
-//  ÉèÖÃ²¨ÌØÂÊÎª4800Ê±£¬  bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 10417  40MHz set 8333
-//  ÉèÖÃ²¨ÌØÂÊÎª9600Ê±£¬  bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 5208   40MHz set 4167
-//  ÉèÖÃ²¨ÌØÂÊÎª115200Ê±£¬bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 434    40MHz set 347
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º4800æ—¶ï¼Œ  bitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 10417  40MHz set 8333
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º9600æ—¶ï¼Œ  bitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 5208   40MHz set 4167
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º115200æ—¶ï¼Œbitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 434    40MHz set 347
 )
 (
       //input ports
@@ -39,22 +39,22 @@ module uart_rx # (
 );
 
     // uart rx state machine's state
-    localparam  IDLE         = 4'h0;    //¿ÕÏĞ×´Ì¬£¬µÈ´ı¿ªÊ¼ĞÅºÅµ½À´.
-    localparam  RECEIV_START = 4'h1;    //½ÓÊÕUart¿ªÊ¼ĞÅºÅ£¬µÍµçÆ½Ò»¸ö²¨ÌØÖÜÆÚ.
-    localparam  RECEIV_DATA  = 4'h2;    //½ÓÊÕUart´«ÊäÊı¾İĞÅºÅ£¬´Ë¹¤³Ì¶¨Òå´«Êä8bit£¬Ã¿¸ö²¨ÌØÖÜÆÚÖĞ¼äÎ»ÖÃÈ¡Öµ£¬8¸öÖÜÆÚºóÌø×ªµ½stop×´Ì¬.
-    localparam  RECEIV_STOP  = 4'h3;    //Í£Ö¹×´Ì¬Êı¾İÏßÊÇ¸ßµçÆ½£¬Óë¿ÕÏĞ×´Ì¬ÊÇÒ»ÖÂµÄ°´ÕÕĞ­Òé±ê×¼ĞèÒªµÈ´ıÒ»¸öÍ£Ö¹Î»ÖÜÆÚÔÙ×ö×´Ì¬Ìø×ª.
-    localparam  RECEIV_END   = 4'h4;    //½áÊøÖĞ×ª×´Ì¬.
+    localparam  IDLE         = 4'h0;    //ç©ºé—²çŠ¶æ€ï¼Œç­‰å¾…å¼€å§‹ä¿¡å·åˆ°æ¥.
+    localparam  RECEIV_START = 4'h1;    //æ¥æ”¶Uartå¼€å§‹ä¿¡å·ï¼Œä½ç”µå¹³ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸ.
+    localparam  RECEIV_DATA  = 4'h2;    //æ¥æ”¶Uartä¼ è¾“æ•°æ®ä¿¡å·ï¼Œæ­¤å·¥ç¨‹å®šä¹‰ä¼ è¾“8bitï¼Œæ¯ä¸ªæ³¢ç‰¹å‘¨æœŸä¸­é—´ä½ç½®å–å€¼ï¼Œ8ä¸ªå‘¨æœŸåè·³è½¬åˆ°stopçŠ¶æ€.
+    localparam  RECEIV_STOP  = 4'h3;    //åœæ­¢çŠ¶æ€æ•°æ®çº¿æ˜¯é«˜ç”µå¹³ï¼Œä¸ç©ºé—²çŠ¶æ€æ˜¯ä¸€è‡´çš„æŒ‰ç…§åè®®æ ‡å‡†éœ€è¦ç­‰å¾…ä¸€ä¸ªåœæ­¢ä½å‘¨æœŸå†åšçŠ¶æ€è·³è½¬.
+    localparam  RECEIV_END   = 4'h4;    //ç»“æŸä¸­è½¬çŠ¶æ€.
 
     //==========================================================================
     //wire and reg in the module
     //==========================================================================
-    reg    [2:0]        rx_state=0;       //current state of tx state machine. µ±Ç°×´Ì¬
-    reg    [2:0]        rx_state_n=0;     //next state of tx state machine.    ÏÂÒ»¸ö×´Ì¬
-    reg    [7:0]        rx_data_reg;      //                                   ½ÓÊÕÊı¾İ»º³å¼Ä´æÆ÷
-    reg                 uart_rx_1d;       //save uart_rx one cycle.            ±£´æuart_rxÒ»¸öÊ±ÖÓÖÜÆÚ
-    reg                 uart_rx_2d;       //save uart_rx one cycle.±£´æuart_rx Ç°Á½¸öÊ±ÖÓÖÜÆÚ
-    wire                start;            //active when start a byte receive.  ¼ì²âµ½startĞÅºÅ±êÖ¾
-    reg    [15:0]       clk_div_cnt;      //count for division the clock.      ²¨ÌØÖÜÆÚ¼ÆÊıÆ÷
+    reg    [2:0]        rx_state=0;       //current state of tx state machine. å½“å‰çŠ¶æ€
+    reg    [2:0]        rx_state_n=0;     //next state of tx state machine.    ä¸‹ä¸€ä¸ªçŠ¶æ€
+    reg    [7:0]        rx_data_reg;      //                                   æ¥æ”¶æ•°æ®ç¼“å†²å¯„å­˜å™¨
+    reg                 uart_rx_1d;       //save uart_rx one cycle.            ä¿å­˜uart_rxä¸€ä¸ªæ—¶é’Ÿå‘¨æœŸ
+    reg                 uart_rx_2d;       //save uart_rx one cycle.ä¿å­˜uart_rx å‰ä¸¤ä¸ªæ—¶é’Ÿå‘¨æœŸ
+    wire                start;            //active when start a byte receive.  æ£€æµ‹åˆ°startä¿¡å·æ ‡å¿—
+    reg    [15:0]       clk_div_cnt;      //count for division the clock.      æ³¢ç‰¹å‘¨æœŸè®¡æ•°å™¨
 
     //==========================================================================
     //logic
@@ -71,7 +71,7 @@ module uart_rx # (
     assign rx_finish = (rx_state == RECEIV_END);
 
 
-    //division the clock to satisfy baud rate.²¨ÌØÖÜÆÚ¼ÆÊıÆ÷
+    //division the clock to satisfy baud rate.æ³¢ç‰¹å‘¨æœŸè®¡æ•°å™¨
     always @ (posedge clk)
     begin
         if(rx_state == IDLE || clk_div_cnt == BPS_NUM)
@@ -81,7 +81,7 @@ module uart_rx # (
     end
     
     // receive bit data numbers 
-    //ÔÚ½ÓÊÕÊı¾İ×´Ì¬ÖĞ£¬½ÓÊÕµÄbitÎ»¼ÆÊı£¬Ã¿Ò»¸ö²¨ÌØÖÜÆÚ¼ÆÊı¼Ó1
+    //åœ¨æ¥æ”¶æ•°æ®çŠ¶æ€ä¸­ï¼Œæ¥æ”¶çš„bitä½è®¡æ•°ï¼Œæ¯ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸè®¡æ•°åŠ 1
     reg    [2:0]      rx_bit_cnt=0;    //the bits number has transmited.
     always @ (posedge clk)
     begin
@@ -98,74 +98,74 @@ module uart_rx # (
 //==========================================================================
 //receive state machine
 //==========================================================================
-    //×´Ì¬»ú×´Ì¬Ìø×ª
+    //çŠ¶æ€æœºçŠ¶æ€è·³è½¬
     always @(posedge clk)
     begin
         rx_state <= rx_state_n;
     end
     
-    //×´Ì¬»ú×´Ì¬Ìø×ªÌõ¼ş¼°Ìø×ª¹æÂÉ
+    //çŠ¶æ€æœºçŠ¶æ€è·³è½¬æ¡ä»¶åŠè·³è½¬è§„å¾‹
     always @ (*)
     begin
       case(rx_state)
           IDLE       :  
           begin
-              if(start)                                     //¼à²âµ½startĞÅºÅµ½À´£¬ÏÂÒ»×´Ì¬Ìø×ªµ½start×´Ì¬
+              if(start)                                     //ç›‘æµ‹åˆ°startä¿¡å·åˆ°æ¥ï¼Œä¸‹ä¸€çŠ¶æ€è·³è½¬åˆ°startçŠ¶æ€
                   rx_state_n = RECEIV_START;
               else
                   rx_state_n = rx_state;
           end
           RECEIV_START    :  
           begin
-              if(clk_div_cnt == BPS_NUM)                     //ÒÑÍê³É½ÓÊÕstart±êÖ¾ĞÅºÅ
+              if(clk_div_cnt == BPS_NUM)                     //å·²å®Œæˆæ¥æ”¶startæ ‡å¿—ä¿¡å·
                   rx_state_n = RECEIV_DATA;
               else
                   rx_state_n = rx_state;
           end
           RECEIV_DATA    :  
           begin
-              if(rx_bit_cnt == 3'h7 && clk_div_cnt == BPS_NUM) //ÒÑÍê³É8bitÊı¾İµÄ´«Êä
+              if(rx_bit_cnt == 3'h7 && clk_div_cnt == BPS_NUM) //å·²å®Œæˆ8bitæ•°æ®çš„ä¼ è¾“
                   rx_state_n = RECEIV_STOP;
               else
                   rx_state_n = rx_state;
           end
           RECEIV_STOP    :  
           begin
-              if(clk_div_cnt == BPS_NUM)                       //ÒÑÍê³É½ÓÊÕstop±êÖ¾ĞÅºÅ
+              if(clk_div_cnt == BPS_NUM)                       //å·²å®Œæˆæ¥æ”¶stopæ ‡å¿—ä¿¡å·
                   rx_state_n = RECEIV_END;
               else
                   rx_state_n = rx_state;
           end
           RECEIV_END    :  
           begin
-              if(!uart_rx_1d)                                  //Êı¾İÏßÖØĞÂ±»À­µÍ£¬±íÊ¾ĞÂÊı¾İ´«ÊäÓÖ·¢ËÍstart±êÖ¾ĞÅºÅ£¬ĞèÒªÌø×ªµ½start×´Ì¬
+              if(!uart_rx_1d)                                  //æ•°æ®çº¿é‡æ–°è¢«æ‹‰ä½ï¼Œè¡¨ç¤ºæ–°æ•°æ®ä¼ è¾“åˆå‘é€startæ ‡å¿—ä¿¡å·ï¼Œéœ€è¦è·³è½¬åˆ°startçŠ¶æ€
                   rx_state_n = RECEIV_START;
-              else                                             //Ã»ÓĞÆäËû×´¿ö³öÏÖÊ±£¬»Øµ½¿ÕÏĞ×´Ì¬£¬µÈ´ıstartĞÅºÅµÄµ½À´
+              else                                             //æ²¡æœ‰å…¶ä»–çŠ¶å†µå‡ºç°æ—¶ï¼Œå›åˆ°ç©ºé—²çŠ¶æ€ï¼Œç­‰å¾…startä¿¡å·çš„åˆ°æ¥
                   rx_state_n = IDLE;
           end
           default    :  rx_state_n = IDLE;
       endcase
     end
     
-    // ×´Ì¬»úÊä³ö
+    // çŠ¶æ€æœºè¾“å‡º
     always @ (posedge clk)
     begin
         case(rx_state)
             IDLE         ,
-            RECEIV_START :                               //ÔÚ¿ÕÏĞºÍstart×´Ì¬Ê±½«½ÓÊÕÊı¾İ»º³å¼Ä´æÆ÷ºÍÊı¾İÊ¹ÄÜÖÃÎ»£»
+            RECEIV_START :                               //åœ¨ç©ºé—²å’ŒstartçŠ¶æ€æ—¶å°†æ¥æ”¶æ•°æ®ç¼“å†²å¯„å­˜å™¨å’Œæ•°æ®ä½¿èƒ½ç½®ä½ï¼›
             begin
                 rx_en <= `UD 1'b0;
                 rx_data_reg <= `UD 8'h0;
             end
             RECEIV_DATA  :  
             begin
-                if(clk_div_cnt == BPS_NUM[15:1])        //ÔÚÒ»¸ö²¨ÌØÖÜÆÚµÄÖĞ¼äÎ»ÖÃÈ¡Êı¾İÏßÉÏ´«ÊäµÄÊı¾İ£»
-                    rx_data_reg  <= `UD {uart_rx , rx_data_reg[7:1]};  //ÒÔÑ­»·ÓÒÒÆµÄ·½Ê½½«uart_rxÊı¾İÌîÈë»º³å¼Ä´æÆ÷µÄ×î¸ßÎ»£¨Uart´«ÊäµÍÎ»ÔÚÇ°£¬×îºóÒ»¸öbit¸ÕºÃÊÇ×î¸ßÎ»£©
+                if(clk_div_cnt == BPS_NUM[15:1])        //åœ¨ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸçš„ä¸­é—´ä½ç½®å–æ•°æ®çº¿ä¸Šä¼ è¾“çš„æ•°æ®ï¼›
+                    rx_data_reg  <= `UD {uart_rx , rx_data_reg[7:1]};  //ä»¥å¾ªç¯å³ç§»çš„æ–¹å¼å°†uart_rxæ•°æ®å¡«å…¥ç¼“å†²å¯„å­˜å™¨çš„æœ€é«˜ä½ï¼ˆUartä¼ è¾“ä½ä½åœ¨å‰ï¼Œæœ€åä¸€ä¸ªbitåˆšå¥½æ˜¯æœ€é«˜ä½ï¼‰
             end
             RECEIV_STOP  : 
             begin
-                rx_en   <= `UD 1'b1;                    // Êä³öÊ¹ÄÜĞÅºÅ£¬±íÊ¾×îĞÂµÄÊı¾İÊä³öÓĞĞ§
-                rx_data <= `UD rx_data_reg;             // ½«»º³å¼Ä´æÆ÷µÄÖµ¸³Öµ¸øÊä³ö¼Ä´æÆ÷
+                rx_en   <= `UD 1'b1;                    // è¾“å‡ºä½¿èƒ½ä¿¡å·ï¼Œè¡¨ç¤ºæœ€æ–°çš„æ•°æ®è¾“å‡ºæœ‰æ•ˆ
+                rx_data <= `UD rx_data_reg;             // å°†ç¼“å†²å¯„å­˜å™¨çš„å€¼èµ‹å€¼ç»™è¾“å‡ºå¯„å­˜å™¨
             end
             RECEIV_END    :  
             begin

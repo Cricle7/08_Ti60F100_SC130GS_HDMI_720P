@@ -23,17 +23,17 @@
 
 module uart_tx #(
     parameter            BPS_NUM  =    16'd434
-//  ÉèÖÃ²¨ÌØÂÊÎª4800Ê±£¬bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 10417  40MHz set 8333
-//  ÉèÖÃ²¨ÌØÂÊÎª9600Ê±£¬bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 5208   40MHz set 4167
-//  ÉèÖÃ²¨ÌØÂÊÎª115200Ê±£¬bitÎ»¿íÊ±ÖÓÖÜÆÚ¸öÊı:50MHz set 434  40MHz set 347 12M set 104
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º4800æ—¶ï¼Œbitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 10417  40MHz set 8333
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º9600æ—¶ï¼Œbitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 5208   40MHz set 4167
+//  è®¾ç½®æ³¢ç‰¹ç‡ä¸º115200æ—¶ï¼Œbitä½å®½æ—¶é’Ÿå‘¨æœŸä¸ªæ•°:50MHz set 434  40MHz set 347 12M set 104
 )
 (
-    input          clk,         // clock                                   Ê±ÖÓĞÅºÅ
-    input [7:0]    tx_data,     // uart tx data signal byte£»              µÈ´ı·¢ËÍµÄ×Ö½ÚÊı¾İ
-    input          tx_pluse,    // uart tx enable signal,rising is active; ·¢ËÍÄ£¿é·¢ËÍ´¥·¢ĞÅºÅ
+    input          clk,         // clock                                   æ—¶é’Ÿä¿¡å·
+    input [7:0]    tx_data,     // uart tx data signal byteï¼›              ç­‰å¾…å‘é€çš„å­—èŠ‚æ•°æ®
+    input          tx_pluse,    // uart tx enable signal,rising is active; å‘é€æ¨¡å—å‘é€è§¦å‘ä¿¡å·
                    
-    output reg     uart_tx,     // uart tx transmit data line              ·¢ËÍÄ£¿é´®¿Ú·¢ËÍĞÅºÅÏß
-    output         tx_busy      // uart tx module work states,high is busy;·¢ËÍÄ£¿éÃ¦×´Ì¬Ö¸Ê¾
+    output reg     uart_tx,     // uart tx transmit data line              å‘é€æ¨¡å—ä¸²å£å‘é€ä¿¡å·çº¿
+    output         tx_busy      // uart tx module work states,high is busy;å‘é€æ¨¡å—å¿™çŠ¶æ€æŒ‡ç¤º
 );
 
     //==========================================================================
@@ -50,11 +50,11 @@ module uart_tx #(
     reg             tx_en = 0;
 
     // uart tx state machine's state
-    localparam  IDLE	   = 4'h0;	//tx state machine's state.¿ÕÏĞ×´Ì¬
-    localparam  SEND_START = 4'h1;	//tx state machine's state.·¢ËÍstart×´Ì¬
-    localparam  SEND_DATA  = 4'h2;	//tx state machine's state.·¢ËÍÊı¾İ×´Ì¬
-    localparam  SEND_STOP  = 4'h3;	//tx state machine's state.·¢ËÍstop×´Ì¬
-    localparam  SEND_END   = 4'h4;	//tx state machine's state.·¢ËÍ½áÊø×´Ì¬
+    localparam  IDLE	   = 4'h0;	//tx state machine's state.ç©ºé—²çŠ¶æ€
+    localparam  SEND_START = 4'h1;	//tx state machine's state.å‘é€startçŠ¶æ€
+    localparam  SEND_DATA  = 4'h2;	//tx state machine's state.å‘é€æ•°æ®çŠ¶æ€
+    localparam  SEND_STOP  = 4'h3;	//tx state machine's state.å‘é€stopçŠ¶æ€
+    localparam  SEND_END   = 4'h4;	//tx state machine's state.å‘é€ç»“æŸçŠ¶æ€
     
     // uart bps set  the clk's frequency is 50MHz
     reg	[15:0]	  clk_div_cnt=0;	//count for division the clock. 
@@ -70,7 +70,7 @@ module uart_tx #(
         tx_pluse_reg <= `UD tx_pluse;
     end
     
-    // uart Ä£¿é·¢ËÍ¹¤×÷Ê¹ÄÜ±êÖ¾ĞÅºÅ
+    // uart æ¨¡å—å‘é€å·¥ä½œä½¿èƒ½æ ‡å¿—ä¿¡å·
     always @(posedge clk)
     begin
         if(~tx_pluse_reg & tx_pluse)
@@ -79,7 +79,7 @@ module uart_tx #(
             tx_en <= 1'b0;
     end
     
-    //division the clock to satisfy baud rate.²¨ÌØÖÜÆÚ¼ÆÊıÆ÷
+    //division the clock to satisfy baud rate.æ³¢ç‰¹å‘¨æœŸè®¡æ•°å™¨
     always @ (posedge clk)
     begin
         if(clk_div_cnt == BPS_NUM || (~tx_pluse_reg & tx_pluse))
@@ -88,7 +88,7 @@ module uart_tx #(
             clk_div_cnt   <= `UD clk_div_cnt + 16'h1;
     end
     
-    //count the number has transmited.·¢ËÍÊı¾İ×´Ì¬ÖĞ£¬·¢ËÍbitÎ»¼ÆÊı£¬ÒÔ²¨ÌØÖÜÆÚÀÛ¼Ó
+    //count the number has transmited.å‘é€æ•°æ®çŠ¶æ€ä¸­ï¼Œå‘é€bitä½è®¡æ•°ï¼Œä»¥æ³¢ç‰¹å‘¨æœŸç´¯åŠ 
     always @ (posedge clk)
     begin
         if(!tx_en)
@@ -105,40 +105,40 @@ module uart_tx #(
     //transmitter state machine
     //==========================================================================
     
-    //   state change ×´Ì¬Ìø×ª
+    //   state change çŠ¶æ€è·³è½¬
     always @(posedge clk)
     begin
         tx_state <= tx_state_n;
     end
     
-    //   state change condition ×´Ì¬Ìø×ªÌõ¼ş¼°¹æÂÉ
+    //   state change condition çŠ¶æ€è·³è½¬æ¡ä»¶åŠè§„å¾‹
     always @ (*)
     begin
       case(tx_state)
         IDLE   	:  
         begin
-            if(~tx_pluse_reg & tx_pluse)   //´¥·¢·¢ËÍ×ö16¸öÊ±ÖÓÖÜÆÚÑÓÊ±ºóÌø×ªµ½£¬·¢ËÍstart×´Ì¬
+            if(~tx_pluse_reg & tx_pluse)   //è§¦å‘å‘é€åš16ä¸ªæ—¶é’Ÿå‘¨æœŸå»¶æ—¶åè·³è½¬åˆ°ï¼Œå‘é€startçŠ¶æ€
     	        tx_state_n = SEND_START;
     	    else
     	        tx_state_n = tx_state;
     	end
         SEND_START	:  
         begin
-            if(clk_div_cnt == BPS_NUM)               //·¢ËÍÒ»¸ö²¨ÌØÖÜÆÚµÄµÍµçÆ½ºó½øÈë£¬·¢ËÍÊı¾İ×´Ì¬
+            if(clk_div_cnt == BPS_NUM)               //å‘é€ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸçš„ä½ç”µå¹³åè¿›å…¥ï¼Œå‘é€æ•°æ®çŠ¶æ€
     	        tx_state_n = SEND_DATA;
     	    else
     		    tx_state_n = tx_state;
     	end
         SEND_DATA	:  
         begin
-            if(tx_bit_cnt == 3'h7 && clk_div_cnt == BPS_NUM)    //¼ÆÊ±8¸ö²¨ÌØÖÜÆÚºó£¨·¢ËÍÁË8bitÊı¾İ£©£¬Ìø×ªµ½·¢ËÍstop×´Ì¬
+            if(tx_bit_cnt == 3'h7 && clk_div_cnt == BPS_NUM)    //è®¡æ—¶8ä¸ªæ³¢ç‰¹å‘¨æœŸåï¼ˆå‘é€äº†8bitæ•°æ®ï¼‰ï¼Œè·³è½¬åˆ°å‘é€stopçŠ¶æ€
     	        tx_state_n = SEND_STOP;
     	    else
     		    tx_state_n = tx_state;
     	end
         SEND_STOP	:  
         begin
-            if(clk_div_cnt == BPS_NUM)              //ÉèÖÃÍ£Ö¹Î»¿íÎª1¸ö²¨ÌØÖÜÆÚ£¬¼ÆÊı·¢ËÍÒ»¸ö²¨ÌØÖÜÆÚµÄ¸ßµçÆ½£¬Ö®ºóÌø×ªµ½·¢ËÍ½áÊø×´Ì¬
+            if(clk_div_cnt == BPS_NUM)              //è®¾ç½®åœæ­¢ä½å®½ä¸º1ä¸ªæ³¢ç‰¹å‘¨æœŸï¼Œè®¡æ•°å‘é€ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸçš„é«˜ç”µå¹³ï¼Œä¹‹åè·³è½¬åˆ°å‘é€ç»“æŸçŠ¶æ€
     	        tx_state_n = SEND_END;
     	    else
     		    tx_state_n = tx_state;
@@ -148,15 +148,15 @@ module uart_tx #(
       endcase
     end
     
-    //   logical ouput  ×´Ì¬»úÊä³ö
+    //   logical ouput  çŠ¶æ€æœºè¾“å‡º
     always @ (posedge clk)
     begin
       if(tx_en)
       begin
           case(tx_state)
-              IDLE       :  uart_tx  <= `UD 1'h1;           //¿ÕÏĞ×´Ì¬Êä³ö¸ßµçÆ½
-              SEND_START :  uart_tx  <= `UD 1'h0;           //start×´Ì¬·¢ËÍÒ»¸ö²¨ÌØÖÜÆÚµÄµÍµçÆ½
-              SEND_DATA  :                                  //·¢ËÍ×´Ì¬Ã¿¸ö²¨ÌØÖÜÆÚ·¢ËÍÒ»¸öbit£»
+              IDLE       :  uart_tx  <= `UD 1'h1;           //ç©ºé—²çŠ¶æ€è¾“å‡ºé«˜ç”µå¹³
+              SEND_START :  uart_tx  <= `UD 1'h0;           //startçŠ¶æ€å‘é€ä¸€ä¸ªæ³¢ç‰¹å‘¨æœŸçš„ä½ç”µå¹³
+              SEND_DATA  :                                  //å‘é€çŠ¶æ€æ¯ä¸ªæ³¢ç‰¹å‘¨æœŸå‘é€ä¸€ä¸ªbitï¼›
               begin
                   case(tx_bit_cnt)
                       3'h0  :  uart_tx  <= `UD tx_data[0];
@@ -170,8 +170,8 @@ module uart_tx #(
                       default: uart_tx  <= `UD 1'h1;
                   endcase
               end
-              SEND_STOP  :  uart_tx  <= `UD 1'h1;          //·¢ËÍÍ£Ö¹×´Ì¬ Êä³ö1¸ö²¨ÌØÖÜÆÚ¸ßµçÆ½
-              default    :  uart_tx  <= `UD 1'h1;          // ÆäËû×´Ì¬Ä¬ÈÏÓë¿ÕÏĞ×´Ì¬Ò»ÖÂ£¬±£³Ö¸ßµçÆ½Êä³ö
+              SEND_STOP  :  uart_tx  <= `UD 1'h1;          //å‘é€åœæ­¢çŠ¶æ€ è¾“å‡º1ä¸ªæ³¢ç‰¹å‘¨æœŸé«˜ç”µå¹³
+              default    :  uart_tx  <= `UD 1'h1;          // å…¶ä»–çŠ¶æ€é»˜è®¤ä¸ç©ºé—²çŠ¶æ€ä¸€è‡´ï¼Œä¿æŒé«˜ç”µå¹³è¾“å‡º
           endcase
       end
       else

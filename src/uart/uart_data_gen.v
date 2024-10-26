@@ -30,7 +30,7 @@ module uart_data_gen(
 );
     
     // set every second send a string,"====HELLO WORLD==="
-    // ÉèÖÃÔ¼Ã¿Ãë·¢ËÍÒ»¸ö×Ö·û´®
+    // è®¾ç½®çº¦æ¯ç§’å‘é€ä¸€ä¸ªå­—ç¬¦ä¸²
     reg [25:0] time_cnt=0;  
     reg [ 7:0] data_num;
     always @(posedge clk)
@@ -38,7 +38,7 @@ module uart_data_gen(
         time_cnt <= `UD time_cnt + 26'd1;
     end
     
-    // ÉèÖÃ´®¿Ú·¢Éä¹¤×÷Çø¼ä
+    // è®¾ç½®ä¸²å£å‘å°„å·¥ä½œåŒºé—´
     reg        work_en=0;
     reg        work_en_1d=0;
     always @(posedge clk)
@@ -54,14 +54,14 @@ module uart_data_gen(
         work_en_1d <= `UD work_en;
     end
 
-    // get the tx_busy¡®s falling edge   »ñÈ¡tx_busyµÄÏÂ½µÑØ
+    // get the tx_busyâ€˜s falling edge   è·å–tx_busyçš„ä¸‹é™æ²¿
     reg            tx_busy_reg=0;
     wire           tx_busy_f;
     always @ (posedge clk) tx_busy_reg <= `UD tx_busy;
     
     assign tx_busy_f = (!tx_busy) && (tx_busy_reg);
     
-    // ´®¿Ú·¢ÉäÊı¾İ´¥·¢ĞÅºÅ
+    // ä¸²å£å‘å°„æ•°æ®è§¦å‘ä¿¡å·
     reg write_pluse;
     always @ (posedge clk)
     begin
@@ -89,7 +89,7 @@ module uart_data_gen(
         write_en <= `UD write_pluse;
     end
 
-//  ×Ö·ûµÄ¶ÔÓ¦ASCIIÂë
+//  å­—ç¬¦çš„å¯¹åº”ASCIIç 
     always @ (posedge clk)
     begin
         case(data_num)
