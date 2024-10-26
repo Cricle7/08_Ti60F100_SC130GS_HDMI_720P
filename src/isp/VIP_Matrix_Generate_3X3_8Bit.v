@@ -34,8 +34,8 @@ Date            By          Version         Change Description
 `timescale 1ns/1ns
 module VIP_Matrix_Generate_3X3_8Bit
 #(
-    parameter   [13:0]  IMG_HDISP = 11'd1280,    //640*480
-    parameter   [13:0]  IMG_VDISP = 11'd720
+    parameter   [13:0]  IMG_HDISP = 11'd640,    //640*480
+    parameter   [13:0]  IMG_VDISP = 11'd480
 )
 (
     //global clock

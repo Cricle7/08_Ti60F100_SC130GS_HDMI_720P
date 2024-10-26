@@ -23,7 +23,5 @@ vlog -sv -sv09compat +define+$SWITCH_1 W958D6NKY.modelsim.vp
 #Load the design.
 vsim -t ps +notimingchecks -gui -voptargs="+acc" work.$TB_NAME
 
-do wave.do
 #Run simulation
 run -all
-run -1ms

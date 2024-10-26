@@ -27,8 +27,8 @@ initial begin
     $finish;
 end
 
-localparam hdmi_pixel_MHZ           = 148.5;
-localparam hdmi_pixel_10x_MHZ       = 742.5;
+localparam hdmi_pixel_MHZ           = 742.5;
+localparam hdmi_pixel_10x_MHZ       = 148.5;
 localparam sys_clk_MHZ              = 123.75;
 localparam sensor_xclk_MHZ          = 27;
 localparam dsi_serclk_MHZ           = 750.2344;

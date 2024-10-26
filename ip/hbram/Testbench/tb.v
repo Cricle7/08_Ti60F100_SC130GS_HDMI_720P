@@ -270,24 +270,6 @@ generate
             .hbc_dq_OUT_LO          (hbc_dq_OUT_LO          ),
             .hbc_dq_IN_HI           (hbc_dq_IN              ),
             .hbc_dq_OE              (hbc_dq_OE              ),
-            //axi interface
-            .io_w_payload_id     (io_w_payload_id),      // input [7:0] io_w_payload_id,
-            .io_w_payload_data   (io_w_payload_data),    // input [127:0] io_w_payload_data,
-            .io_w_payload_strb   (io_w_payload_strb),    // input [15:0] io_w_payload_strb,
-            .io_w_payload_last   (io_w_payload_last),    // input io_w_payload_last,
-            .io_w_valid          (io_w_valid),           // input io_w_valid,
-            .io_w_ready          (io_w_ready),           // output io_w_ready,
-
-            .io_b_payload_id     (io_b_payload_id),      // output [7:0] io_b_payload_id,
-            .io_b_valid          (io_b_valid),           // output io_b_valid,
-            .io_b_ready          (io_b_ready),           // input io_b_ready,
-
-            .io_r_payload_id     (io_r_payload_id),      // output [7:0] io_r_payload_id,
-            .io_r_payload_data   (io_r_payload_data),    // output [127:0] io_r_payload_data,
-            .io_r_payload_last   (io_r_payload_last),    // output io_r_payload_last,
-            .io_r_payload_resp   (io_r_payload_resp),    // output [1:0] io_r_payload_resp,
-            .io_r_valid          (io_r_valid),           // output io_r_valid,
-            .io_r_ready          (io_r_ready),           // input io_r_ready
             // ========== Monitor Output ==========	
             .one_round           (test_done),
             .test_fail           (test_fail)

@@ -6,7 +6,7 @@ module axi4_ctrl #(
 			C_BURST_LEN   = 128,			//	R / W of 128 bursts to improve throughput. 
 			
 			
-			C_DATA_LEN    = 8 * (2 ** C_DATA_SIZE), 	
+			C_DATA_LEN    = 8 * (2 ** C_DATA_SIZE), 	//128
 			C_STRB_LEN    = C_DATA_LEN / 8, 		
 			C_ADDR_INC    = C_BURST_LEN * C_STRB_LEN,	
 			
@@ -14,8 +14,8 @@ module axi4_ctrl #(
 			C_BUF_SIZE    = 22, 			//	Allocate 2^24 bytes (16MB) for 1080P24. The module takes 4*16MB by default. 
 			C_RD_END_ADDR = 1920 * 1080,
 			
-			C_W_WIDTH     = 24, 
-			C_R_WIDTH     = 24			//	Read of RGB888 only. 
+			C_W_WIDTH     = 24, //本demo中为64
+			C_R_WIDTH     = 24			//	Read of RGB888 only.   本demo为8
 )(
 	input 				axi_clk,
 	input 				axi_reset,
@@ -67,7 +67,7 @@ module axi4_ctrl #(
 	input 				wframe_pclk,
 	input 				wframe_vsync,		//	Writter VSync. Flush on falling edge. Connect to EOF. 
 	input 				wframe_data_en,
-	input 	[C_W_WIDTH-1:0] 	wframe_data,
+	input 	[C_W_WIDTH-1:0] 	wframe_data, //摄像头数据
 	
 	//	Reader Interface
 	input 				rframe_pclk,
@@ -211,7 +211,7 @@ module axi4_ctrl #(
 			end else begin
 			end
 			
-			case (rs_w)//现在始终是0100
+			case (rs_w)
 				ws_w_idle: begin
 						rc_burst <= 0; 
 						r_w_rst <= 0; 
@@ -288,10 +288,10 @@ module axi4_ctrl #(
 	
 	reg 	[C_DATA_LEN-1:0] 		r_wfifo_wdata = 0; 
 	//	For 24 bit mode drop the upper unused data bits. 
-	wire 	[C_DATA_LEN-1:0] 		w_wfifo_wdata = (C_W_WIDTH == 24) ? {wframe_data, r_wfifo_wdata[C_W_WIDTH*5-1:C_W_WIDTH]} : {wframe_data, r_wfifo_wdata[C_DATA_LEN-1:C_W_WIDTH]}; 
+	wire 	[C_DATA_LEN-1:0] 		w_wfifo_wdata = (C_W_WIDTH == 24) ? {wframe_data, r_wfifo_wdata[C_W_WIDTH*5-1:C_W_WIDTH]} : {wframe_data, r_wfifo_wdata[C_DATA_LEN-1:C_W_WIDTH]}; //本demo为后
 	
 	//	Add 24 bit mode. When 24 bit mode, output 5 words for 128 bits. 
-	localparam WFIFO_CNT_SIZE = (C_W_WIDTH == 8) ? 4 : (((C_W_WIDTH == 16) || (C_W_WIDTH == 24)) ? 3 : ((C_W_WIDTH == 32) ? 2 : 1)); 
+	localparam WFIFO_CNT_SIZE = (C_W_WIDTH == 8) ? 4 : (((C_W_WIDTH == 16) || (C_W_WIDTH == 24)) ? 3 : ((C_W_WIDTH == 32) ? 2 : 1)); //1
 	reg 	[WFIFO_CNT_SIZE-1:0] 	rc_wfifo_we = 0; 
 	
 	always @(posedge wframe_pclk) begin
@@ -323,7 +323,7 @@ module axi4_ctrl #(
 	W0_FIFO_128 u_W0_FIFO_128
 	(
 		.wr_clk_i 		(wframe_pclk ),
-		.wr_en_i 		(wframe_data_en && ((C_W_WIDTH == 24) ? (rc_wfifo_we == 4) : (&rc_wfifo_we))),	//	Write 5 words for 24 bit. 
+		.wr_en_i 		(wframe_data_en && ((C_W_WIDTH == 24) ? (rc_wfifo_we == 4) : (&rc_wfifo_we))),	//	后面值是we
 		.wdata 		(w_wfifo_wdata ),
 		.a_rst_i		(r_w_rst), 
 		.full_o		(), 
@@ -363,7 +363,7 @@ module axi4_ctrl #(
 	//	Input Trigger on VSYNC_F. 
 	reg 	[1:0] 	r_rframe_vsync = 0; 
 	
-	always @(posedge axi_clk) begin
+	always @(posedge axi_clk or posedge axi_reset) begin
 		if(axi_reset) begin
 			rc_r_ptr <= 0; 
 			axi_arvalid <= 0; 
@@ -449,7 +449,7 @@ module axi4_ctrl #(
 	
 	////////////////////////////////////////////////////////////////
 	//	AXI Read FIFO
-	wire 				w_rfifo_rst = r_rframe_vsync == 2'b10; 		//	Reset FIFO on START pulse. 
+	wire 				w_rfifo_rst = (r_rframe_vsync == 2'b10); 		//	Reset FIFO on START pulse. 
 
 	wire 				w_rfifo_aempty;
 	wire 				w_rfifo_empty; 
@@ -477,7 +477,7 @@ module axi4_ctrl #(
 	assign rframe_data_valid = ~w_rfifo_empty; 
 	
 	//	Assert RD only when ~empty. 
-	wire 				w_rframe_data_en = rframe_data_en & rframe_data_valid; 
+	wire 				w_rframe_data_en = rframe_data_en & rframe_data_valid; //FIFO不空且request为高
 	
 	
 	//	The FIFO must be FWFT type. Load data on first cycle. 
@@ -508,13 +508,10 @@ module axi4_ctrl #(
 	
 	reg 	[C_DATA_LEN-1:0] 	r_rframe_data_gen = 0; 
 	always @(posedge rframe_pclk) begin
-		if (axi_reset) begin
-			r_rframe_data_gen <= 0; 
-		end
-		else if(w_rframe_data_en_load) begin
+		if(w_rframe_data_en_load) begin
 			r_rframe_data_gen <= w_rframe_data_gen; 
 		end else if(w_rframe_data_en) begin
-			r_rframe_data_gen <= r_rframe_data_gen >> C_R_WIDTH; 
+			r_rframe_data_gen <= r_rframe_data_gen >> C_R_WIDTH; //右移8位
 		end else begin
 		end
 	end
