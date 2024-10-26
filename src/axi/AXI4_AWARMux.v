@@ -87,7 +87,7 @@ module AXI4_AWARMux #(
 					end
 				end
 			ws_req_inc: begin
-					r_reqtype <= r_reqtype + 1; 
+					r_reqtype <= r_reqtype + 1; //   r_reqtype0/1间变换，不断检测读写有效
 					rs_req <= ws_req_idle; 
 				end
 		endcase

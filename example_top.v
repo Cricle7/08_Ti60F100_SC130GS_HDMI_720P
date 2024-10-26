@@ -337,12 +337,8 @@ module example_top
 );
 	
 	genvar _i; 
-
-	`ifdef SIMULATION
-		parameter 	SIM_DATA 	= 1;
-	`else
-		parameter 	SIM_DATA 	= 0; 
-	`endif	
+	
+	parameter 	SIM_DATA 	= 0; 
 	
 	//	RXC Shall Not Be Inverted. 
 	parameter 	CSI0_BITFLIP 	= 5'b00011; 	//	[4]CLK, [3]D3, [2]D2, [1]D1, [0]D0
@@ -667,6 +663,102 @@ module example_top
 	wire 			w_hbram_cal_done = w_hbram_cal_pass; 
 	wire 	[15:0] 	w_hbram_cal_dbg; 
 	
+	assign w_dev_rdata_i = {w_hbram_cal_dbg, 15'h0, w_hbram_cal_pass}; 
+	
+	hbram u_hbram (		
+		.ram_clk			(hbramClk),			//	input ram_clk,
+		.ram_clk_cal		(hbramClk_Cal),		//	input ram_clk_cal,
+		.io_axi_clk			(sys_clk_i),		//	input io_axi_clk,
+		.rst				(w_hbram_ui_areset),	//	input rst,
+		
+		.hbc_cal_SHIFT_SEL	(hbramClk_shift_sel),	//	output [4:0] hbc_cal_SHIFT_SEL,
+		.hbc_cal_SHIFT		(hbramClk_shift),		//	output [2:0] hbc_cal_SHIFT,
+		.hbc_cal_SHIFT_ENA	(hbramClk_shift_ena),	//	output hbc_cal_SHIFT_ENA,
+		.hbc_cal_debug_info	(w_hbram_cal_dbg),		//	output [15:0] hbc_cal_debug_info,
+		.hbc_cal_pass		(w_hbram_cal_pass),	//	output hbc_cal_pass,
+		
+		.dyn_pll_phase_sel	(0),				//	input [2:0] dyn_pll_phase_sel,
+		.dyn_pll_phase_en		(0),				//	input dyn_pll_phase_en,
+		
+		.io_arw_payload_addr	(w_hbram_aaddr),		//	input [31:0] io_arw_payload_addr,
+		.io_arw_payload_id	(w_hbram_aid),		//	input [7:0] io_arw_payload_id,
+		.io_arw_payload_len	(w_hbram_alen),		//	input [7:0] io_arw_payload_len,
+		.io_arw_payload_size	(w_hbram_asize),		//	input [2:0] io_arw_payload_size,
+		.io_arw_payload_burst	(w_hbram_aburst),		//	input [1:0] io_arw_payload_burst,
+		.io_arw_payload_lock	(w_hbram_alock),		//	input [1:0] io_arw_payload_lock,
+		.io_arw_payload_write	(w_hbram_atype),		//	input io_arw_payload_write, 		//	0:Read. 1:Write
+		.io_arw_valid		(w_hbram_avalid),		//	input io_arw_valid,
+		.io_arw_ready		(w_hbram_aready),		//	output io_arw_ready,
+			
+		.io_w_payload_id		(w_hbram_wid),		//	input [7:0] io_w_payload_id,
+		.io_w_payload_data	(w_hbram_wdata),		//	input [127:0] io_w_payload_data,
+		.io_w_payload_strb	(w_hbram_wstrb),		//	input [15:0] io_w_payload_strb,
+		.io_w_payload_last 	(w_hbram_wlast),		//	input io_w_payload_last,	
+		.io_w_valid			(w_hbram_wvalid),		//	input io_w_valid,
+		.io_w_ready			(w_hbram_wready),		//	output io_w_ready,
+		
+		.io_b_payload_id		(w_hbram_bid),		//	output [7:0] io_b_payload_id,
+		.io_b_valid			(w_hbram_bvalid),		//	output io_b_valid,
+		.io_b_ready			(w_hbram_bready),		//	input io_b_ready,
+
+		.io_r_payload_id		(w_hbram_rid),		//	output [7:0] io_r_payload_id,
+		.io_r_payload_data	(w_hbram_rdata),		//	output [127:0] io_r_payload_data,
+		.io_r_payload_last	(w_hbram_rlast),		//	output io_r_payload_last,
+		.io_r_payload_resp	(w_hbram_rresp),		//	output [1:0] io_r_payload_resp
+		.io_r_valid			(w_hbram_rvalid),		//	output io_r_valid,
+		.io_r_ready			(w_hbram_rready),		//	input io_r_ready,
+		
+		.hbc_ck_p_HI		(hbram_CK_P_HI),		//	output hbc_ck_p_HI,
+		.hbc_ck_p_LO		(hbram_CK_P_LO),		//	output hbc_ck_p_LO,
+		.hbc_ck_n_HI		(hbram_CK_N_HI),		//	output hbc_ck_n_HI,
+		.hbc_ck_n_LO		(hbram_CK_N_LO),		//	output hbc_ck_n_LO,
+		.hbc_cs_n			(hbram_CS_N),		//	output hbc_cs_n,
+		.hbc_rst_n			(hbram_RST_N),		//	output hbc_rst_n,
+
+		.hbc_dq_OUT_HI		(hbram_DQ_OUT_HI),	//	output [15:0] hbc_dq_OUT_HI,
+		.hbc_dq_OUT_LO		(hbram_DQ_OUT_LO),	//	output [15:0] hbc_dq_OUT_LO,
+		.hbc_dq_OE			(hbram_DQ_OE),		//	output [15:0] hbc_dq_OE,
+		.hbc_dq_IN_HI		(hbram_DQ_IN_HI),		//	input [15:0] hbc_dq_IN_HI,
+		.hbc_dq_IN_LO		(hbram_DQ_IN_LO),		//	input [15:0] hbc_dq_IN_LO,
+		
+		.hbc_rwds_OUT_HI		(hbram_RWDS_OUT_HI),	//	output [1:0] hbc_rwds_OUT_HI,
+		.hbc_rwds_OUT_LO		(hbram_RWDS_OUT_LO),	//	output [1:0] hbc_rwds_OUT_LO,
+		.hbc_rwds_OE		(hbram_RWDS_OE),		//	output [1:0] hbc_rwds_OE,
+		.hbc_rwds_IN_HI		(hbram_RWDS_IN_HI),	//	input [1:0] hbc_rwds_IN_HI,
+		.hbc_rwds_IN_LO		(hbram_RWDS_IN_LO)	//	input [1:0] hbc_rwds_IN_LO,
+	);
+	assign w_hbram_bready = 1'b1; 
+	
+	//检测读写valid，半双工控制
+	AXI4_AWARMux #(.AID_LEN(4), .AADDR_LEN(32)) axi4_awar_mux (
+		.aclk_i			(sys_clk_i), 
+		.arst_i			(w_hbram_ui_rst), 
+		
+		.awid_i			(w_hbram_awid),
+		.awaddr_i			(w_hbram_awaddr),
+		.awlen_i			(w_hbram_awlen),
+		//.awvalid_i			(w_hbram_awvalid && w_hbram_cal_pass),
+		.awvalid_i			(w_hbram_awvalid ),
+		.awready_o			(w_hbram_awready),
+		
+		.arid_i			(w_hbram_arid),
+		.araddr_i			(w_hbram_araddr),
+		.arlen_i			(w_hbram_arlen),
+		//.arvalid_i			(w_hbram_arvalid && w_hbram_cal_pass),
+		.arvalid_i			(w_hbram_arvalid ),
+		.arready_o			(w_hbram_arready),
+		
+		.aid_o			(w_hbram_aid),
+		.aaddr_o			(w_hbram_aaddr),
+		.alen_o			(w_hbram_alen),
+		.atype_o			(w_hbram_atype),
+		.avalid_o			(w_hbram_avalid),
+		.aready_i			(w_hbram_aready)
+	);
+	assign w_hbram_asize = 4; 		//	Fixed 128 bits (16 bytes, size = 4)
+	assign w_hbram_aburst = 1; 
+	assign w_hbram_alock = 0; 
+	
 	
 	
 
@@ -750,7 +842,7 @@ module example_top
 		.clk				(w_csi_rx_clk), 
 		.reset_byte_HS_n		(w_sys_rstn), 
 		.clk_byte_HS		(csi_rxc_i), 
-		.reset_pixel_n		(r_reset_pixen_n), 	//w_sys_rstn, 
+		.reset_pixel_n		(r_reset_pixen_n), 	//w_sys_rstn), 
 		.clk_pixel			(w_csi_rx_clk), 
 		.Rx_LP_CLK_P		(csi_rxc_lp_p_i), 
 		.Rx_LP_CLK_N		(csi_rxc_lp_n_i), 
@@ -761,7 +853,7 @@ module example_top
 		//	Lane inversion affects HS & LP data only. 
 		.Rx_LP_D_P			({CSI0_BITFLIP[3] ? csi_rxd3_lp_n_i : csi_rxd3_lp_p_i, CSI0_BITFLIP[2] ? csi_rxd2_lp_n_i : csi_rxd2_lp_p_i, CSI0_BITFLIP[1] ? csi_rxd1_lp_n_i : csi_rxd1_lp_p_i, CSI0_BITFLIP[0] ? csi_rxd0_lp_n_i : csi_rxd0_lp_p_i}), 
 		.Rx_LP_D_N			({CSI0_BITFLIP[3] ? csi_rxd3_lp_p_i : csi_rxd3_lp_n_i, CSI0_BITFLIP[2] ? csi_rxd2_lp_p_i : csi_rxd2_lp_n_i, CSI0_BITFLIP[1] ? csi_rxd1_lp_p_i : csi_rxd1_lp_n_i, CSI0_BITFLIP[0] ? csi_rxd0_lp_p_i : csi_rxd0_lp_n_i}), 
-		.Rx_HS_D_0			((CSI0_BITFLIP[0] ? 8'hFF : 8'h00) ^ csi_rxd0_hs_i), 
+		.Rx_HS_D_0			((CSI0_BITFLIP[0] ? 8'hFF : 8'h00) ^ csi_rxd0_hs_i), //摄像头MIPI输入
 		.Rx_HS_D_1			((CSI0_BITFLIP[1] ? 8'hFF : 8'h00) ^ csi_rxd1_hs_i), 
 		.Rx_HS_D_2			((CSI0_BITFLIP[2] ? 8'hFF : 8'h00) ^ csi_rxd2_hs_i), 
 		.Rx_HS_D_3			((CSI0_BITFLIP[3] ? 8'hFF : 8'h00) ^ csi_rxd3_hs_i), 
@@ -799,7 +891,7 @@ module example_top
 		.irq				(), 
 		
 		.pixel_data_valid		(w_csi_rx_dvalid), 
-		.pixel_data			(w_csi_rx_data), 
+		.pixel_data			(w_csi_rx_data), //output摄像头信号
 		.pixel_per_clk		(), 
 		.datatype			(), 
 		.shortpkt_data_field	(), 
@@ -851,6 +943,17 @@ module example_top
 	assign csi_rxd1_rst_o = w_sys_rst; 
 	assign csi_rxd2_rst_o = w_sys_rst; 
 	assign csi_rxd3_rst_o = w_sys_rst; 
+	
+	//二值化
+	/* wire 	[63:0] 	data;
+	assign data[7:0] = (w_csi_rx_data[7:0] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[15:8] = (w_csi_rx_data[15:8] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[23:16] = (w_csi_rx_data[23:16] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[31:24] = (w_csi_rx_data[31:24] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[39:32] = (w_csi_rx_data[39:32] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[47:40] = (w_csi_rx_data[47:40] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[55:48] = (w_csi_rx_data[55:48] > 8'd100)? 8'b11_111_111:1'b0;
+	assign data[63:56] = (w_csi_rx_data[63:56] > 8'd100)? 8'b11_111_111:1'b0; */
 `endif
 	
 	
@@ -915,6 +1018,8 @@ module example_top
 	wire			cmos_frame_vsync = SIM_DATA ? w_sim_fv : w_csi_rx_vsync0;                     //  cmos frame data vsync valid signal
 	wire			cmos_frame_href = SIM_DATA ? w_sim_lv && w_sim_de : w_csi_rx_hsync0 && w_csi_rx_dvalid;	 //  cmos frame data href vaild  signal
 	wire	[63:0]	cmos_frame_Gray = SIM_DATA ? r_sim_data : w_csi_rx_data; 
+	//二值化
+	//wire	[63:0]	cmos_frame_Gray = SIM_DATA ? r_sim_data : data;
 	
 
 	lcd_driver #(
@@ -922,7 +1027,7 @@ module example_top
 	) u_sim_data (
 	    //  global clock
 	    .clk        (w_csi_rx_clk   ),
-	    .rst_n      (w_sys_rstn), 
+	    .rst_n      (1), 
 	    
 	    //  lcd interface
 	    .lcd_dclk   (               ),
@@ -939,13 +1044,7 @@ module example_top
 	);
 
 	always @(posedge w_csi_rx_clk) begin
-		if (~w_sys_rstn) begin
-			r_sim_data <= 0;	
-		end
-		else if(w_sim_lv && w_sim_de)
-			r_sim_data <= r_sim_data + 1'b1; 
-		else
-			r_sim_data <= 0;
+		r_sim_data <= r_sim_data + w_sim_lv && w_sim_de; 
 	end
 	
 	reg 	[1:0] 	r_vsync_i = 0; 
@@ -955,6 +1054,16 @@ module example_top
 		rc_vsync <= rc_vsync + (r_vsync_i == 2'b01); 
 	end
 	assign led_o = rc_vsync[3]; 
+
+
+
+	
+	
+
+
+
+
+
 
 
 
@@ -972,53 +1081,66 @@ module example_top
 	wire            [7:0]           lcd_blue, lcd_blue2;
 	wire            [15:0]          lcd_data;
 	
+	wire 			w_wframe_vsync; 
 	wire 	[7:0] 	w_axi_tp; 
+	axi4_ctrl #(.C_RD_END_ADDR(1280 * 720), .C_W_WIDTH(CSI_DATA_WIDTH)/*64*/, .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
+	//axi4_ctrl #(.C_RD_END_ADDR(1920 * 1080), .C_W_WIDTH(CSI_DATA_WIDTH), .C_R_WIDTH(8), .C_ID_LEN(4)) u_axi4_ctrl (
 
+		.axi_clk        (sys_clk_i       ),
+		.axi_reset      (w_hbram_ui_rst       ),
+
+		.axi_awaddr     (w_hbram_awaddr       ),
+		.axi_awlen      (w_hbram_awlen        ),
+		.axi_awvalid    (w_hbram_awvalid      ),
+		.axi_awready    (w_hbram_awready      ),
+
+		.axi_wdata      (w_hbram_wdata        ),//output由摄像头数据FIFO缓存得到,写入hbram
+		.axi_wstrb      (w_hbram_wstrb        ),//32'hFFFFFFFF
+		.axi_wlast      (w_hbram_wlast        ),
+		.axi_wvalid     (w_hbram_wvalid       ),
+		.axi_wready     (w_hbram_wready       ),
+
+		.axi_bid        (0          ),
+		.axi_bresp      (0        ),
+		.axi_bvalid     (1       ),
+
+		.axi_arid       (w_hbram_arid         ),
+		.axi_araddr     (w_hbram_araddr       ),
+		.axi_arlen      (w_hbram_arlen        ),
+		.axi_arvalid    (w_hbram_arvalid      ),
+		.axi_arready    (w_hbram_arready      ),
+
+		.axi_rid        (w_hbram_rid          ),
+		.axi_rdata      (w_hbram_rdata        ),//input从hbram中读出
+		.axi_rresp      (0        ),
+		.axi_rlast      (w_hbram_rlast        ),
+		.axi_rvalid     (w_hbram_rvalid       ),
+		.axi_rready     (w_hbram_rready       ),// 1
+
+		.wframe_pclk    (w_csi_rx_clk          ),
+		.wframe_vsync   (cmos_frame_vsync), 	//w_wframe_vsync   ),		//	Writter VSync. Flush on rising edge. Connect to EOF. 
+		.wframe_data_en (cmos_frame_href   ),
+		.wframe_data    (cmos_frame_Gray),//input摄像头数据
+		
+		.rframe_pclk    (w_pixel_clk            ),
+		//.rframe_vsync   (w_vsync             ),		//	Reader VSync. Flush on rising edge. Connect to ~EOF. 
+		.rframe_vsync   (lcd_vs             ),		//	Reader VSync. Flush on rising edge. Connect to ~EOF.
+		.rframe_data_en (lcd_request/*lcd_de  */           ),//input通过lec_drive输出的request，控制lcd_data的输出
+		.rframe_data    (lcd_data           ),	//output由w_hbram_rdata得到，从hbram中读得
+		
+		.tp_o 		(w_axi_tp)
+	);
+	assign w_hbram_awid = 0; 
+	assign w_hbram_wid = 0; 
 	
-	inter_connector #(
-        .TOP_DBW(16),          // 参数设置
-        .CSI_DATA_WIDTH(CSI_DATA_WIDTH)
-    ) u_inter_connector (
-        .w_sys_rst(w_sys_rst),                   // 输入信号连接
-        .sys_clk_i(sys_clk_i),
-        .hbramClk(hbramClk),
-        .hbramClk_Cal(hbramClk_Cal),
-        .hbramClk_shift(hbramClk_shift),         // 输出信号连接
-        .hbramClk_shift_sel(hbramClk_shift_sel),
-        .hbramClk_shift_ena(hbramClk_shift_ena),
-        .hbram_RST_N(hbram_RST_N),
-        .hbram_CS_N(hbram_CS_N),
-        .hbram_CK_P_HI(hbram_CK_P_HI),
-        .hbram_CK_P_LO(hbram_CK_P_LO),
-        .hbram_CK_N_HI(hbram_CK_N_HI),
-        .hbram_CK_N_LO(hbram_CK_N_LO),
-        .hbram_RWDS_OUT_HI(hbram_RWDS_OUT_HI),
-        .hbram_RWDS_OUT_LO(hbram_RWDS_OUT_LO),
-        .hbram_RWDS_IN_HI(hbram_RWDS_IN_HI),
-        .hbram_RWDS_IN_LO(hbram_RWDS_IN_LO),
-        .hbram_DQ_IN_LO(hbram_DQ_IN_LO),
-        .hbram_DQ_IN_HI(hbram_DQ_IN_HI),
-        .hbram_RWDS_OE(hbram_RWDS_OE),
-        .hbram_DQ_OUT_HI(hbram_DQ_OUT_HI),
-        .hbram_DQ_OUT_LO(hbram_DQ_OUT_LO),
-        .hbram_DQ_OE(hbram_DQ_OE),
-        .w_dev_rdata_i(w_dev_rdata_i),
-        .w_csi_rx_clk(w_csi_rx_clk),
-        .cmos_frame_vsync(cmos_frame_vsync),
-        .cmos_frame_href(cmos_frame_href),
-        .cmos_frame_Gray(cmos_frame_Gray),
-        .w_pixel_clk(w_pixel_clk),
-        .lcd_vs(lcd_vs),
-        .lcd_request(lcd_request),
-        .lcd_data(lcd_data)
-    );
+	
 	
 	////////////////////////////////////////////////////////////////
 	//  LCD Timing Driver
 	lcd_driver u_lcd_driver
 	(
 	    //  global clock
-	    .clk        (w_pixel_clk   ),//html_pixel
+	    .clk        (w_pixel_clk   ),
 	    .rst_n      (w_pixel_rstn), 
 	    
 	    //  lcd interface
@@ -1029,55 +1151,137 @@ module example_top
 	    .lcd_hs     (lcd_hs         ),
 	    .lcd_vs     (lcd_vs         ),
 	    .lcd_en     (lcd_de         ),
-	    .lcd_rgb    ({lcd_red2,lcd_green2,lcd_blue2, lcd_red,lcd_green,lcd_blue}),
+	    .lcd_rgb    ({lcd_red2,lcd_green2,lcd_blue2, lcd_red,lcd_green,lcd_blue}),//没用
 	    
 	    //  user interface
-	    .lcd_data   ({{3{lcd_data[15:8]}}, {3{lcd_data[7:0]}}}  )
+	    .lcd_data   ({{3{lcd_data[15:8]}}, {3{lcd_data[7:0]}}}  )//没用
+	);
+	//二值化
+	wire 	   [7:0]data;
+	wire 			w_vsync, w_href,w_de;
+	wire                  monoc;
+	
+	binarization #(.O(128)) u1
+	(
+	//module clock
+    .clk        	(w_pixel_clk)    ,   // 时钟信号
+    .rst_n      	(w_pixel_rstn)     ,   // 复位信号（低有效）
+
+    //图像处理前的数据接口
+    .ycbcr_vsync	(lcd_vs)     ,   // vsync信号
+    .ycbcr_href 	(lcd_hs)     ,   // href信号
+    .ycbcr_de   	(lcd_de)     ,   // data enable信号
+    .luminance 	(lcd_data)      ,
+
+    //图像处理后的数据接口
+    .post_vsync 	(w_vsync)     ,   // vsync信号
+    .post_href  	(w_href)    ,   // href信号
+    .post_de    	(w_de)     ,   // data enable信号
+    .monoc      	(monoc)        // monochrome（1=白，0=黑）	
+
 	);
 	
+//	assign  data = {8{monoc}};
+	
+	//多目标标记
+	wire [42:0] 	target_pos_out1;
+	wire [42:0] 	target_pos_out2;
+	wire [ 7:0] 	min = 8'd15;
+
+	VIP_multi_target_detect u_VIP_multi_target_detect 
+	(
+    .clk						(w_pixel_clk),
+    .rst_n					(w_pixel_rstn),
+    .per_frame_vsync			(w_vsync),
+	.per_frame_href			(w_href),
+    .per_frame_clken			(w_de),
+    .per_img_Bit				(monoc),
+    .target_pos_out1			(target_pos_out1),	//{Flag,ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+    .target_pos_out2			(target_pos_out2),
+    .MIN_DIST				(min)
+	);
+	
+	//画框
+	wire 				post_lcd_vs;
+	wire				post_lcd_href;
+	wire				post_lcd_en;
+	wire	[7:0]		red;
+	wire	[7:0]		green;
+	wire	[7:0]		blue;
+	
+
+	
+	VIP_Video_add_rectangular u_VIP_Video_add_rectangular
+	(
+    //global clock
+    .clk					(w_pixel_clk),
+    .rst_n				(w_pixel_rstn),
+
+    //在彩色图像上画方框
+    .per_frame_vsync		(lcd_vs),
+    .per_frame_href		(lcd_hs),
+    .per_frame_clken		(lcd_de),
+    .per_img_red			(lcd_data),
+    .per_img_green		(lcd_data),
+    .per_img_blue		(lcd_data),
+
+    //各目标位置
+    .target_pos_out1		(target_pos_out1),
+    .target_pos_out2		(target_pos_out2),
+
+    //Image data has been processsd
+    .post_frame_vsync	(post_lcd_vs),
+    .post_frame_href		(post_lcd_href),
+    .post_frame_clken	(post_lcd_en),
+    .post_img_red		(red),
+    .post_img_green		(green),
+    .post_img_blue		(blue)
+	);
+
 	
 	
 	
-	wire 			w_rgb_vsync, w_rgb_href; 
+	
+/* 	wire 			w_rgb_vsync, w_rgb_href; 
 	wire 	[7:0] 	w_rgb_r, w_rgb_g, w_rgb_b; 
 	
-	// VIP_RAW8_RGB888 #(.IMG_HDISP(1920), .IMG_VDISP(1080)) bayer2rgb (
-	// 	.clk				(w_pixel_clk),  	//cmos video pixel clock
-	// 	.rst_n			(w_pixel_rstn), 	//global reset
+	 VIP_RAW8_RGB888 #(.IMG_HDISP(1280), .IMG_VDISP(720)) bayer2rgb (
+	 	.clk				(w_pixel_clk),  	//cmos video pixel clock
+	 	.rst_n			(w_pixel_rstn), 	//global reset
 	    
-	// 	.mirror			(2'b00),
+		.mirror			(2'b00),
 		
-	// 	    //CMOS YCbCr444 data output
-	// 	.per_frame_vsync		(lcd_vs),    	//	Prepared Image data vsync valid signal. Reset on falling edge. 
-	// 	.per_frame_href		(lcd_de),     	//	Prepared Image data href vaild  signal
-	// 	.per_frame_hsync    	(lcd_hs), 
-	// 	.per_img_RAW		(lcd_data[7:0]), 	//	Input data from AXI reader directly. Latency is 1T. Matches with VS / HS / DE signals. 
+	 	    //CMOS YCbCr444 data output
+		.per_frame_vsync		(lcd_vs),    	//	Prepared Image data vsync valid signal. Reset on falling edge. 
+	 	.per_frame_href		(lcd_de),     	//	Prepared Image data href vaild  signal
+	 	.per_frame_hsync    	(lcd_hs), 
+	 	.per_img_RAW		(lcd_data[7:0]), 	//	Input data from AXI reader directly. Latency is 1T. Matches with VS / HS / DE signals. 
 		
-	// 	.post_frame_vsync		(w_rgb_vsync),   	//Processed Image data vsync valid signal
-	// 	.post_frame_href		(w_rgb_href),    	//Processed Image data href vaild  signal
-	// 	.post_frame_hsync		(w_rgb_hsync),    //Processed Image data href vaild  signal
-	// 	.post_img_red		(w_rgb_r),       	//Prepared Image green data to be processed 
-	// 	.post_img_green		(w_rgb_g),     	//Prepared Image green data to be processed
-	// 	.post_img_blue		(w_rgb_b)      	//Prepared Image blue data to be processed
-	// );
+	 	.post_frame_vsync		(w_rgb_vsync),   	//Processed Image data vsync valid signal
+	 	.post_frame_href		(w_rgb_href),    	//Processed Image data href vaild  signal
+		.post_frame_hsync		(w_rgb_hsync),    //Processed Image data href vaild  signal
+	 	.post_img_red		(w_rgb_r),       	//Prepared Image green data to be processed 
+	 	.post_img_green		(w_rgb_g),     	//Prepared Image green data to be processed
+	 	.post_img_blue		(w_rgb_b)      	//Prepared Image blue data to be processed
+	 );
 	
 	
-	// wire 			w_rgb_vs_o, w_rgb_hs_o, w_rgb_de_o; 
-	// wire 	[23:0] 	w_rgb_data_o; 
-	// FrameBoundCrop rgb_crop (
-	// 	.clk_i			(w_pixel_clk),
-	// 	.rst_i			(w_pixel_rst),
+	 wire 			w_rgb_vs_o, w_rgb_hs_o, w_rgb_de_o; 
+	 wire 	[23:0] 	w_rgb_data_o; 
+	 FrameBoundCrop rgb_crop (
+	 	.clk_i			(w_pixel_clk),
+	 	.rst_i			(w_pixel_rst),
 		
-	// 	.vs_i 			(w_rgb_vsync),
-	// 	.hs_i 			(w_rgb_hsync),
-	// 	.de_i 			(w_rgb_href),
-	// 	.data_i			({w_rgb_r, w_rgb_g, w_rgb_b}),
+	 	.vs_i 			(w_rgb_vsync),
+	 	.hs_i 			(w_rgb_hsync),
+	 	.de_i 			(w_rgb_href),
+	 	.data_i			({w_rgb_r, w_rgb_g, w_rgb_b}),
 		
-	// 	.vs_o 			(w_rgb_vs_o),
-	// 	.hs_o 			(w_rgb_hs_o),
-	// 	.de_o 			(w_rgb_de_o),
-	// 	.data_o			(w_rgb_data_o)
-	// );
+	 	.vs_o 			(w_rgb_vs_o),
+	 	.hs_o 			(w_rgb_hs_o),
+	 	.de_o 			(w_rgb_de_o),
+	 	.data_o			(w_rgb_data_o)
+	 ); */
 
 	
 	
@@ -1096,30 +1300,30 @@ module example_top
 	
 	// //-------------------------------------
 	// //Digilent HDMI-TX IP Modified by CB elec.
-	// rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
-	// (
-	// 	.oe_i 		(1), 			//	Always enable output
-	// 	.bitflip_i 		(HDMI_BITFLIP), 	//	Reverse clock & data lanes. 
+/* 	 rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
+	 (
+	 	.oe_i 		(1), 			//	Always enable output
+	 	.bitflip_i 		(HDMI_BITFLIP), 	//	Reverse clock & data lanes. 
 		
-	// 	.aRst			(w_pixel_rst), 
-	// 	.aRst_n		(w_pixel_rstn), 
+	 	.aRst			(w_pixel_rst), 
+	 	.aRst_n		(w_pixel_rstn), 
 		
-	// 	.PixelClk		(w_pixel_clk        ),
-	// 	.SerialClk		(),
+	 	.PixelClk		(w_pixel_clk        ),
+	 	.SerialClk		(),
 		
-	// 	.vid_pVSync		(w_rgb_vs_o), 
-	// 	.vid_pHSync		(w_rgb_hs_o), 
-	// 	.vid_pVDE		(w_rgb_de_o), 
-	// 	.vid_pData		(w_rgb_data_o), 
+	 	.vid_pVSync		(w_rgb_vs_o), 
+	 	.vid_pHSync		(w_rgb_hs_o), 
+	 	.vid_pVDE		(w_rgb_de_o), 
+	 	.vid_pData		(w_rgb_data_o), 
 		
-	// 	.txc_o		(hdmi_txc_o), 
-	// 	.txd0_o		(hdmi_txd0_o), 
-	// 	.txd1_o		(hdmi_txd1_o), de
-	// 	.txd2_o		(hdmi_txd2_o)
-	// ); 
+	 	.txc_o		(hdmi_txc_o), 
+	 	.txd0_o		(hdmi_txd0_o), 
+		.txd1_o		(hdmi_txd1_o), //de
+	 	.txd2_o		(hdmi_txd2_o)
+	 );  */
 		//-------------------------------------
 	//Digilent HDMI-TX IP Modified by CB elec.
-	rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
+/* 	rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
 	(
 		.oe_i 		(1), 			//	Always enable output
 		.bitflip_i 		(HDMI_BITFLIP), 	//	Reverse clock & data lanes. 
@@ -1140,15 +1344,30 @@ module example_top
 		.txd1_o		(hdmi_txd1_o), 
 		.txd2_o		(hdmi_txd2_o)
 	); 
-	
-	uart_top u_uart_top(
-    //input ports
-    	.clk		(w_pixel_clk),
-    	.uart_rx	(uart_rx_i),
-        .uart_tx	(uart_tx_o)
-	);
-	
-	
+	 */
+	//二值化
+	rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
+	(
+		.oe_i 		(1), 			//	Always enable output
+		.bitflip_i 		(HDMI_BITFLIP), 	//	Reverse clock & data lanes. 
+		
+		.aRst			(w_pixel_rst), 
+		.aRst_n		(w_pixel_rstn), 
+		
+		.PixelClk		(w_pixel_clk        ),
+		.SerialClk		(),
+		
+		.vid_pVSync		(post_lcd_vs/*w_vsync*/), 
+		.vid_pHSync		(post_lcd_href/*w_href*/), 
+		.vid_pVDE		(post_lcd_en/*w_de*/), 
+		.vid_pData		({red,green,blue}), 
+		
+		.txc_o		(hdmi_txc_o), 
+		.txd0_o		(hdmi_txd0_o), 
+		.txd1_o		(hdmi_txd1_o), 
+		.txd2_o		(hdmi_txd2_o)
+	); 
+
 endmodule
 
 
