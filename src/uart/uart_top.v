@@ -24,14 +24,19 @@
 module uart_top(
     //input ports
     input         clk,
+    input         reset,
     input         uart_rx,
+    input   [1:0] r_vsync_i,
+    input   [42:0] target_pos_out1,
+    input   [42:0] target_pos_out2,
+
     
     //output ports
     output  [7:0] led,
     output        uart_tx
 );
 
-   parameter      BPS_NUM = 1296;
+   parameter      BPS_NUM = 645;
    //  设置波特率为4800时，  bit位宽时钟周期个数:50MHz set 10417  40MHz set 8333
    //  设置波特率为9600时，  bit位宽时钟周期个数:50MHz set 5208   40MHz set 4167
    //  设置波特率为115200时，bit位宽时钟周期个数:50MHz set 434    40MHz set 347 12M set 104
@@ -61,9 +66,11 @@ module uart_top(
     always @(posedge clk)  receive_data <= led;
     uart_data_gen uart_data_gen(
         .clk                  (  clk      ),//input             clk,
+        .reset                (  reset        ),//input             clk,
+        .r_vsync_i            (  r_vsync_i    ),//input             clk,
         .read_data            (  receive_data ),//input      [7:0]  read_data,
         .tx_busy              (  tx_busy      ),//input             tx_busy,
-        .write_max_num        (  8'h14        ),//input      [7:0]  write_max_num,
+        .write_max_num        (  12            ),//input      [7:0]  write_max_num,
         .write_data           (  tx_data      ),//output reg [7:0]  write_data
         .write_en             (  tx_en        ) //output reg        write_en
     );

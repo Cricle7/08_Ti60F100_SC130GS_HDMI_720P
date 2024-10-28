@@ -19,7 +19,7 @@ vlog -sv -sv09compat +define+$SWITCH_1+$SWITCH_2 ../../ip/hbram/Testbench/models
 
 vlog -sv -sv09compat +define+$SWITCH_1 ../../ip/hbram/Testbench/W958D6NKY.modelsim.vp
 
-vlog -f flist +define+$SWITCH_1+$SWITCH_2 
+vlog -f flist +define+$switch_1+$switch_2 
 
 #Load the design.
 vsim -t ps +notimingchecks -gui -voptargs="+acc" work.tb_example_top

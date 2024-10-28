@@ -21,100 +21,128 @@
 
 `define UD #1
 module uart_data_gen(
+    input               reset,
     input               clk,
     input      [7:0]    read_data,
     input               tx_busy,
     input      [7:0]    write_max_num,
+
+    input   [1:0]  r_vsync_i,
+    input   [42:0] target_pos_out1,
+    input   [42:0] target_pos_out2,
+
     output reg [7:0]    write_data,
     output reg          write_en
 );
-    
-    // set every second send a string,"====HELLO WORLD==="
-    // 设置约每秒发送一个字符串
-    reg [25:0] time_cnt=0;  
-    reg [ 7:0] data_num;
-    always @(posedge clk)
-    begin
-        time_cnt <= `UD time_cnt + 26'd1;
+   
+    wire [63:0] data_buf; 
+    reg [10:0] x1,x2;
+    reg [9:0] y1,y2;
+
+    wire [11:0] sum1, sum2;  // 12 位宽
+    wire [10:0] sum3, sum4;  // 12 位宽
+
+    assign sum1 = target_pos_out1[31:21] + target_pos_out1[10:0];
+    assign sum2 = target_pos_out2[31:21] + target_pos_out2[10:0];
+    assign sum3 = target_pos_out1[41:32] + target_pos_out1[20:11];
+    assign sum4 = target_pos_out2[41:32] + target_pos_out2[20:11];
+
+    always @(clk) begin
+        if (reset) begin
+            x1 <= 0;
+            x2 <= 0;
+            y1 <= 0;
+            y2 <= 0;
+        end else if(r_vsync_i == 1)begin
+            x1 = sum1 >> 1;
+            x2 = sum2 >> 1;
+            y1 = sum3 >> 1;
+            y2 = sum4 >> 1;
+        end
     end
-    
+
+    //assign x1 = (target_pos_out1[31:21] + target_pos_out1[10:0])>>1;
+    //assign x2 = (target_pos_out2[31:21] + target_pos_out2[10:0])>>1;
+    //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
+    //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
+    assign data_buf = 64'hFFF0FFFF; 
+    //assign data_buf = {8'hff, 8'hff, 0,  x1 , y1, x2, y2}; 
+
+    reg [ 7:0] data_num;
+
     // 设置串口发射工作区间
-    reg        work_en=0;
-    reg        work_en_1d=0;
-    always @(posedge clk)
-    begin
-        if(time_cnt == 26'd2048)
+    reg        work_en;
+    reg        work_en_1d;
+    always @(posedge clk) begin
+        if (reset) begin
+            work_en <= `UD 1'b0;
+        end else if(r_vsync_i == 2'b01)
             work_en <= `UD 1'b1;
         else if(data_num == write_max_num-1'b1)
             work_en <= `UD 1'b0;
     end
     
-    always @(posedge clk)
-    begin
-        work_en_1d <= `UD work_en;
+    always @(posedge clk) begin
+        if (reset) begin
+            work_en_1d <= 1'b0;
+        end else
+        work_en_1d <= work_en;
     end
 
     // get the tx_busy‘s falling edge   获取tx_busy的下降沿
     reg            tx_busy_reg=0;
     wire           tx_busy_f;
-    always @ (posedge clk) tx_busy_reg <= `UD tx_busy;
+    always @ (posedge clk) tx_busy_reg <= tx_busy;
     
     assign tx_busy_f = (!tx_busy) && (tx_busy_reg);
     
     // 串口发射数据触发信号
     reg write_pluse;
-    always @ (posedge clk)
-    begin
-        if(work_en)
-        begin
+    always @ (posedge clk) begin
+        if (reset) begin
+            write_pluse <= `UD 1'b0;
+        end else if(work_en) begin
             if(~work_en_1d || tx_busy_f)
                 write_pluse <= `UD 1'b1;
             else
                 write_pluse <= `UD 1'b0;
-        end
-        else
+        end else
             write_pluse <= `UD 1'b0;
     end
     
-    always @ (posedge clk)
-    begin
-        if(~work_en & tx_busy_f)
+    always @ (posedge clk) begin
+        if (reset)
             data_num   <= 7'h0;
-        else if(write_pluse)
+        else if (~work_en & tx_busy_f)
+            data_num   <= 7'h0;
+        else if (write_pluse)
             data_num   <= data_num + 8'h1;
     end
     
-    always @(posedge clk)
-    begin
+    always @(posedge clk) begin
         write_en <= `UD write_pluse;
     end
 
 //  字符的对应ASCII码
-    always @ (posedge clk)
-    begin
-        case(data_num)
-            8'h0  ,
-            8'h1  :	write_data <= `UD 8'h77;// ASCII code is w
-            8'h2  :	write_data <= `UD 8'h77;// ASCII code is w
-            8'h3  :	write_data <= `UD 8'h77;// ASCII code is w
-            8'h4  :	write_data <= `UD 8'h2E;// ASCII code is .
-            8'h5  :	write_data <= `UD 8'h6D;// ASCII code is m
-            8'h6  :	write_data <= `UD 8'h65;// ASCII code is e
-            8'h7  :	write_data <= `UD 8'h79;// ASCII code is y
-            8'h8  :	write_data <= `UD 8'h65;// ASCII code is e
-            8'h9  :	write_data <= `UD 8'h73;// ASCII code is s
-            8'ha  :	write_data <= `UD 8'h65;// ASCII code is e
-            8'hb  :	write_data <= `UD 8'h6D;// ASCII code is m
-            8'hc  :	write_data <= `UD 8'h69;// ASCII code is i  
-            8'hd  :	write_data <= `UD 8'h2E;// ASCII code is .  
-            8'he  :	write_data <= `UD 8'h63;// ASCII code is c    
-            8'hf  :	write_data <= `UD 8'h6F;// ASCII code is o
-            8'h10 :	write_data <= `UD 8'h6D;// ASCII code is m  
-            8'h11 ,
-            8'h12 :	write_data <= `UD 8'h0d;
-            8'h13 :	write_data <= `UD 8'h0a;
-            default :	write_data <= `UD read_data;
-        endcase
+    always @ (posedge clk) begin
+        if (reset) begin
+            write_data <= 8'h0;
+        end else begin case(data_num)
+                8'd0  ,
+                8'd1  :	write_data <= data_buf[63:56];// ASCII code is w
+                8'd2  :	write_data <= data_buf[55:48];// ASCII code is w
+                8'd3  :	write_data <= data_buf[47:40];// ASCII code is w
+                8'd4  :	write_data <= data_buf[39:32];// ASCII code is .
+                8'd5  :	write_data <= data_buf[31:24];// ASCII code is m
+                8'd6  :	write_data <= data_buf[23:20];// ASCII code is e
+                8'd7  :	write_data <= data_buf[19:16];// ASCII code is y
+                8'd8  :	write_data <= data_buf[15:8];// ASCII code is e
+                8'd9  :	write_data <= data_buf[7:0];// ASCII code is s
+                8'd10 :	write_data <= 8'h0d;
+                8'd11 :	write_data <= 8'h0a;
+                default :	write_data <= 0;
+            endcase
+        end
     end
 
 endmodule
