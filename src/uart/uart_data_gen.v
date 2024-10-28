@@ -47,26 +47,25 @@ module uart_data_gen(
     assign sum3 = target_pos_out1[41:32] + target_pos_out1[20:11];
     assign sum4 = target_pos_out2[41:32] + target_pos_out2[20:11];
 
-    always @(clk) begin
+    always @(posedge clk) begin
         if (reset) begin
-            x1 <= 0;
-            x2 <= 0;
-            y1 <= 0;
-            y2 <= 0;
-        end else if(r_vsync_i == 1)begin
-            x1 = sum1 >> 1;
-            x2 = sum2 >> 1;
-            y1 = sum3 >> 1;
-            y2 = sum4 >> 1;
+            x1 <= `UD 0;
+            x2 <= `UD 0;
+            y1 <= `UD 0;
+            y2 <= `UD 0;
+        end else if (r_vsync_i == 2'b01) begin
+            x1 <= `UD sum1 >> 1;
+            x2 <= `UD sum2 >> 1;
+            y1 <= `UD sum3 >> 1;
+            y2 <= `UD sum4 >> 1;
         end
     end
-
-    //assign x1 = (target_pos_out1[31:21] + target_pos_out1[10:0])>>1;
+ //   assign x1 = (target_pos_out1[31:21] + target_pos_out1[10:0])>>1;
     //assign x2 = (target_pos_out2[31:21] + target_pos_out2[10:0])>>1;
     //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
     //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
-    assign data_buf = 64'hFFF0FFFF; 
-    //assign data_buf = {8'hff, 8'hff, 0,  x1 , y1, x2, y2}; 
+    //assign data_buf = 64'hFFF0FFFF; 
+    assign data_buf = {8'hff, 8'hff, 0,  x1 , y1, x2, y2}; 
 
     reg [ 7:0] data_num;
 
@@ -134,12 +133,11 @@ module uart_data_gen(
                 8'd3  :	write_data <= data_buf[47:40];// ASCII code is w
                 8'd4  :	write_data <= data_buf[39:32];// ASCII code is .
                 8'd5  :	write_data <= data_buf[31:24];// ASCII code is m
-                8'd6  :	write_data <= data_buf[23:20];// ASCII code is e
-                8'd7  :	write_data <= data_buf[19:16];// ASCII code is y
-                8'd8  :	write_data <= data_buf[15:8];// ASCII code is e
-                8'd9  :	write_data <= data_buf[7:0];// ASCII code is s
-                8'd10 :	write_data <= 8'h0d;
-                8'd11 :	write_data <= 8'h0a;
+                8'd6  :	write_data <= data_buf[23:16];// ASCII code is y
+                8'd7  :	write_data <= data_buf[15:8];// ASCII code is e
+                8'd8  :	write_data <= data_buf[7:0];// ASCII code is s
+                8'd9 :	write_data <= 8'h0d;
+                8'd10 :	write_data <= 8'h0a;
                 default :	write_data <= 0;
             endcase
         end

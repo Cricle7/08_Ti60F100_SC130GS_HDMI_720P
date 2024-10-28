@@ -70,7 +70,7 @@ module uart_top(
         .r_vsync_i            (  r_vsync_i    ),//input             clk,
         .read_data            (  receive_data ),//input      [7:0]  read_data,
         .tx_busy              (  tx_busy      ),//input             tx_busy,
-        .write_max_num        (  12            ),//input      [7:0]  write_max_num,
+        .write_max_num        (  11            ),//input      [7:0]  write_max_num,
         .write_data           (  tx_data      ),//output reg [7:0]  write_data
         .write_en             (  tx_en        ) //output reg        write_en
     );

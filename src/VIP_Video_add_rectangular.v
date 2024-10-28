@@ -42,23 +42,29 @@ wire       	rectangular_flag1;		//标志是否存在运动目标
 wire       	rectangular_flag2;
 
 
-assign rectangular_flag1 	= 	target_pos_out1[42];
-assign rectangular_down1 	= 	target_pos_out1[41:32];
-assign rectangular_right1 	= 	target_pos_out1[31:21];
-assign rectangular_up1 		= 	target_pos_out1[20:11];
-assign rectangular_left1	= 	target_pos_out1[10:0];	
+assign rectangular_flag1 	= 	target_pos_out1_d1[42];
+assign rectangular_down1 	= 	target_pos_out1_d1[41:32];
+assign rectangular_right1 	= 	target_pos_out1_d1[31:21];
+assign rectangular_up1 		= 	target_pos_out1_d1[20:11];
+assign rectangular_left1	= 	target_pos_out1_d1[10:0];	
 
-assign rectangular_flag2 	= 	target_pos_out2[42];
-assign rectangular_down2 	= 	target_pos_out2[41:32];
-assign rectangular_right2 	= 	target_pos_out2[31:21];
-assign rectangular_up2	 	= 	target_pos_out2[20:11];
-assign rectangular_left2	= 	target_pos_out2[10:0];		
+assign rectangular_flag2 	= 	target_pos_out2_d1[42];
+assign rectangular_down2 	= 	target_pos_out2_d1[41:32];
+assign rectangular_right2 	= 	target_pos_out2_d1[31:21];
+assign rectangular_up2	 	= 	target_pos_out2_d1[20:11];
+assign rectangular_left2	= 	target_pos_out2_d1[10:0];		
 
 	
 reg [10:0] x_cnt;
 reg [9:0] y_cnt;
  
 
+reg [42:0] 	target_pos_out1_d1;// {Flag,ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+reg [42:0] 	target_pos_out2_d1;
+always @(posedge clk) begin
+	target_pos_out1_d1 <= #1 target_pos_out1;// {Flag,ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+	target_pos_out2_d1 <= #1 target_pos_out2;
+end
 //对输入的像素进行“行/场”方向计数，得到其纵横坐标
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n)begin

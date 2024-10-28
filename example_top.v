@@ -1368,7 +1368,7 @@ module example_top
 		.txd2_o		(hdmi_txd2_o)
 	); 
 
-	reg 	[1:0] 	r_w_vsync = 0; 	
+	reg 	[2:0] 	r_w_vsync = 0; 	
 	always @(posedge w_pixel_clk) begin
 		r_w_vsync <= {r_w_vsync, w_vsync}; 
 	end
@@ -1378,7 +1378,7 @@ module example_top
     	.reset		(w_pixel_rst),
     	.uart_rx	(uart_rx_i),
         .uart_tx	(uart_tx_o),
-		.r_vsync_i		(r_w_vsync),
+		.r_vsync_i		(r_w_vsync[2:1]),
 		.target_pos_out1		(target_pos_out1),
 		.target_pos_out2		(target_pos_out2)
 	);
