@@ -49,15 +49,15 @@ module uart_data_gen(
 
     always @(posedge clk) begin
         if (reset) begin
-            x1 <= `UD 0;
-            x2 <= `UD 0;
-            y1 <= `UD 0;
-            y2 <= `UD 0;
+            x1 <= 0;
+            x2 <= 0;
+            y1 <= 0;
+            y2 <= 0;
         end else if (r_vsync_i == 2'b01) begin
-            x1 <= `UD sum1 >> 1;
-            x2 <= `UD sum2 >> 1;
-            y1 <= `UD sum3 >> 1;
-            y2 <= `UD sum4 >> 1;
+            x1 <= sum1[11:1];
+            x2 <= sum2[11:1];
+            y1 <= sum3[10:1];
+            y2 <= sum4[10:1];
         end
     end
  //   assign x1 = (target_pos_out1[31:21] + target_pos_out1[10:0])>>1;
@@ -65,7 +65,7 @@ module uart_data_gen(
     //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
     //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
     //assign data_buf = 64'hFFF0FFFF; 
-    assign data_buf = {8'hff, 8'hff, 0,  x1 , y1, x2, y2}; 
+    assign data_buf = {8'hff, 8'hff, 6'b000000,  x1 , y1, x2, y2}; 
 
     reg [ 7:0] data_num;
 
