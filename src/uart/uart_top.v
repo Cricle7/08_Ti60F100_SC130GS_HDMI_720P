@@ -68,6 +68,8 @@ module uart_top(
         .clk                  (  clk      ),//input             clk,
         .reset                (  reset        ),//input             clk,
         .r_vsync_i            (  r_vsync_i    ),//input             clk,
+        .target_pos_out1      (  target_pos_out1    ),//input             clk,
+        .target_pos_out2      (  target_pos_out2    ),//input             clk,
         .read_data            (  receive_data ),//input      [7:0]  read_data,
         .tx_busy              (  tx_busy      ),//input             tx_busy,
         .write_max_num        (  11            ),//input      [7:0]  write_max_num,

@@ -39,13 +39,59 @@ module uart_data_gen(
     reg [10:0] x1,x2;
     reg [9:0] y1,y2;
 
-    wire [11:0] sum1, sum2;  // 12 位宽
-    wire [10:0] sum3, sum4;  // 12 位宽
+    reg [10:0] target_pos1_part1_stage1, target_pos1_part2_stage1;
+    reg [10:0] target_pos2_part1_stage1, target_pos2_part2_stage1;
+    reg [9:0]  target_pos1_part3_stage1, target_pos1_part4_stage1;
+    reg [9:0]  target_pos2_part3_stage1, target_pos2_part4_stage1;
 
-    assign sum1 = target_pos_out1[31:21] + target_pos_out1[10:0];
-    assign sum2 = target_pos_out2[31:21] + target_pos_out2[10:0];
-    assign sum3 = target_pos_out1[41:32] + target_pos_out1[20:11];
-    assign sum4 = target_pos_out2[41:32] + target_pos_out2[20:11];
+    reg [11:0] sum1_stage2, sum2_stage2;
+    reg [10:0] sum3_stage2, sum4_stage2;
+
+    reg r_vsync_i_stage1, r_vsync_i_stage2;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            // 第一级流水线寄存器复位
+            target_pos1_part1_stage1 <= 0;
+            target_pos1_part2_stage1 <= 0;
+            target_pos2_part1_stage1 <= 0;
+            target_pos2_part2_stage1 <= 0;
+            target_pos1_part3_stage1 <= 0;
+            target_pos1_part4_stage1 <= 0;
+            target_pos2_part3_stage1 <= 0;
+            target_pos2_part4_stage1 <= 0;
+            r_vsync_i_stage1 <= 0;
+        end else begin
+            // 第一级流水线寄存器赋值
+            target_pos1_part1_stage1 <= target_pos_out1[31:21];
+            target_pos1_part2_stage1 <= target_pos_out1[10:0];
+            target_pos2_part1_stage1 <= target_pos_out2[31:21];
+            target_pos2_part2_stage1 <= target_pos_out2[10:0];
+            target_pos1_part3_stage1 <= target_pos_out1[41:32];
+            target_pos1_part4_stage1 <= target_pos_out1[20:11];
+            target_pos2_part3_stage1 <= target_pos_out2[41:32];
+            target_pos2_part4_stage1 <= target_pos_out2[20:11];
+            r_vsync_i_stage1 <= r_vsync_i;
+        end
+    end
+
+    always @(posedge clk) begin
+        if (reset) begin
+            // 第二级流水线寄存器复位
+            sum1_stage2 <= 0;
+            sum2_stage2 <= 0;
+            sum3_stage2 <= 0;
+            sum4_stage2 <= 0;
+            r_vsync_i_stage2 <= 0;
+        end else begin
+            // 执行加法操作并存储结果
+            sum1_stage2 <= target_pos1_part1_stage1 + target_pos1_part2_stage1;
+            sum2_stage2 <= target_pos2_part1_stage1 + target_pos2_part2_stage1;
+            sum3_stage2 <= target_pos1_part3_stage1 + target_pos1_part4_stage1;
+            sum4_stage2 <= target_pos2_part3_stage1 + target_pos2_part4_stage1;
+            r_vsync_i_stage2 <= r_vsync_i_stage1;
+        end
+    end
 
     always @(posedge clk) begin
         if (reset) begin
@@ -53,11 +99,12 @@ module uart_data_gen(
             x2 <= 0;
             y1 <= 0;
             y2 <= 0;
-        end else if (r_vsync_i == 2'b01) begin
-            x1 <= sum1[11:1];
-            x2 <= sum2[11:1];
-            y1 <= sum3[10:1];
-            y2 <= sum4[10:1];
+        end else if (r_vsync_i_stage2 == 2'b01) begin
+            // 使用第二级流水线的加法结果
+            x1 <= sum1_stage2[11:1];
+            x2 <= sum2_stage2[11:1];
+            y1 <= sum3_stage2[10:1];
+            y2 <= sum4_stage2[10:1];
         end
     end
  //   assign x1 = (target_pos_out1[31:21] + target_pos_out1[10:0])>>1;
