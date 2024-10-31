@@ -25,6 +25,7 @@
 
 *副本*
 !.gitignore
+!py/*.py
 work_pnr
 work_syn
 work_dbg

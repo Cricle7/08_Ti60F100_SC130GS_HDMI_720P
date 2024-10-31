@@ -112,7 +112,7 @@ module uart_data_gen(
     //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
     //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
     //assign data_buf = 64'hFFF0FFFF; 
-    assign data_buf = {8'hff, 8'hff, 6'b000000,  x1 , y1, x2, y2}; 
+    assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2}; 
 
     reg [ 7:0] data_num;
 
