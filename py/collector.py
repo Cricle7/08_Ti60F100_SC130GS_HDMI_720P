@@ -27,8 +27,8 @@ FRAME_COLOR = (0, 255, 0)  # 绿色
 FRAME_POSITIONS = []  # 存储所有矩形框的位置
 
 # 生成矩形框的所有位置（从左到右，从上到下，每次移动40像素）
-for y in range(0, WINDOW_HEIGHT, FRAME_SIZE):
-    for x in range(0, WINDOW_WIDTH, FRAME_SIZE):
+for y in range(0, WINDOW_HEIGHT, FRAME_SIZE*3):
+    for x in range(0, WINDOW_WIDTH, FRAME_SIZE*6):
         FRAME_POSITIONS.append((x, y))
 
 # 打开文件以追加方式记录坐标
@@ -50,7 +50,7 @@ while running and current_frame_index < len(FRAME_POSITIONS):
 
     # 停留开始时间
     start_time = time.time()
-    while time.time() - start_time < 30:  # 停留30秒
+    while time.time() - start_time < 3:  # 停留30秒
         # 填充黑色背景
         screen.fill((0, 0, 0))
 
