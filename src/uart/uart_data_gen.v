@@ -23,6 +23,7 @@
 module uart_data_gen(
     input               reset,
     input               clk,
+    input               uart_en,
     input      [7:0]    read_data,
     input               tx_busy,
     input      [7:0]    write_max_num,
@@ -30,12 +31,14 @@ module uart_data_gen(
     input   [1:0]  r_vsync_i,
     input   [42:0] target_pos_out1,
     input   [42:0] target_pos_out2,
+    input   [11:0] target_pos_diff1,
+    input   [11:0] target_pos_diff2,
 
     output reg [7:0]    write_data,
     output reg          write_en
 );
    
-    wire [63:0] data_buf; 
+    wire [95:0] data_buf; 
     reg [10:0] x1,x2;
     reg [9:0] y1,y2;
 
@@ -112,7 +115,7 @@ module uart_data_gen(
     //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
     //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
     //assign data_buf = 64'hFFF0FFFF; 
-    assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2}; 
+    assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2, 4'b0, target_pos_diff1, 4'b0 , target_pos_diff2}; 
 
     reg [ 7:0] data_num;
 
@@ -122,7 +125,7 @@ module uart_data_gen(
     always @(posedge clk) begin
         if (reset) begin
             work_en <= `UD 1'b0;
-        end else if(r_vsync_i == 2'b01)
+        end else if(r_vsync_i == 2'b01 && uart_en)
             work_en <= `UD 1'b1;
         else if(data_num == write_max_num-1'b1)
             work_en <= `UD 1'b0;
@@ -175,16 +178,20 @@ module uart_data_gen(
             write_data <= 8'h0;
         end else begin case(data_num)
                 8'd0  ,
-                8'd1  :	write_data <= data_buf[63:56];// ASCII code is w
-                8'd2  :	write_data <= data_buf[55:48];// ASCII code is w
-                8'd3  :	write_data <= data_buf[47:40];// ASCII code is w
-                8'd4  :	write_data <= data_buf[39:32];// ASCII code is .
-                8'd5  :	write_data <= data_buf[31:24];// ASCII code is m
-                8'd6  :	write_data <= data_buf[23:16];// ASCII code is y
-                8'd7  :	write_data <= data_buf[15:8];// ASCII code is e
-                8'd8  :	write_data <= data_buf[7:0];// ASCII code is s
-                8'd9 :	write_data <= 8'h0d;
-                8'd10 :	write_data <= 8'h0a;
+                8'd1  : write_data <= data_buf[95:88];   // 第1个字节
+                8'd2  : write_data <= data_buf[87:80];   // 第2个字节
+                8'd3  : write_data <= data_buf[79:72];   // 第3个字节
+                8'd4  : write_data <= data_buf[71:64];   // 第4个字节
+                8'd5  : write_data <= data_buf[63:56];   // 第5个字节
+                8'd6  : write_data <= data_buf[55:48];   // 第6个字节
+                8'd7  : write_data <= data_buf[47:40];   // 第7个字节
+                8'd8  : write_data <= data_buf[39:32];   // 第8个字节
+                8'd9  : write_data <= data_buf[31:24];   // 第9个字节
+                8'd10 : write_data <= data_buf[23:16];   // 第10个字节
+                8'd11 : write_data <= data_buf[15:8];    // 第11个字节
+                8'd12 : write_data <= data_buf[7:0];     // 第12个字节
+                8'd13 :	write_data <= 8'h0d;
+                8'd14 :	write_data <= 8'h0a;
                 default :	write_data <= 0;
             endcase
         end

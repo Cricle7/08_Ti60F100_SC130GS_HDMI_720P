@@ -21,7 +21,7 @@
 //----------------------------------------------------------------------------------------
 //****************************************************************************************//
 
-module binarization
+module binarization_black
 (
     //module clock
     input               clk             ,   // 时钟信号
@@ -45,7 +45,7 @@ reg    ycbcr_vsync_d;
 reg    ycbcr_href_d ;
 reg    ycbcr_de_d   ;
 
-wire  [7:0] try = 8'd220;//阈值
+wire  [7:0] try = 8'd32;//阈值
 
 //**************************************************s***
 //**                    main code
@@ -57,7 +57,7 @@ always @(posedge clk or negedge rst_n) begin
     if(!rst_n)
         monoc <= 1'b0;
     else if(ycbcr_vsync)begin  //阈值
-		if (luminance > try)
+		if (luminance < try)
 			monoc <= 1'b1;
 		else
 			monoc <= 1'b0;

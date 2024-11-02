@@ -4,7 +4,7 @@ import time
 from serial_receiver import SerialReceiver
 
 # 设置串口和窗口参数
-SERIAL_PORT = 'COM22'  # 修改为你的串口
+SERIAL_PORT = 'COM13'  # 修改为你的串口
 BAUD_RATE = 115200    # 修改为你的波特率
 
 # 初始化串口接收器
@@ -27,8 +27,11 @@ FRAME_COLOR = (0, 255, 0)  # 绿色
 FRAME_POSITIONS = []  # 存储所有矩形框的位置
 
 # 生成矩形框的所有位置（从左到右，从上到下，每次移动40像素）
-for y in range(0, WINDOW_HEIGHT, FRAME_SIZE*3):
-    for x in range(0, WINDOW_WIDTH, FRAME_SIZE*6):
+print(WINDOW_WIDTH)
+print('\n')
+print(WINDOW_HEIGHT)
+for y in range(1, WINDOW_HEIGHT, int(WINDOW_HEIGHT/3)):
+    for x in range(1, WINDOW_WIDTH, int(WINDOW_WIDTH/3)): 
         FRAME_POSITIONS.append((x, y))
 
 # 打开文件以追加方式记录坐标
@@ -50,7 +53,7 @@ while running and current_frame_index < len(FRAME_POSITIONS):
 
     # 停留开始时间
     start_time = time.time()
-    while time.time() - start_time < 3:  # 停留30秒
+    while time.time() - start_time < 2:  # 停留2秒
         # 填充黑色背景
         screen.fill((0, 0, 0))
 
@@ -73,11 +76,11 @@ while running and current_frame_index < len(FRAME_POSITIONS):
         # 接收串口数据
         coordinates = receiver.read_packet()
         if coordinates:
-            (x1, y1), (x2, y2) = coordinates
+            (x1, y1), (x2, y2), (xb1, yb1) , (xb2, yb2) = coordinates
 
             # 将坐标写入文件，包含当前矩形框的位置
             try:
-                log_file.write(f"Frame Position: ({frame_x}, {frame_y}), x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}\n")
+                log_file.write(f"Frame Position: ({frame_x}, {frame_y}), x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}, xb1: {xb1}, yb1: {yb1}, xb2: {xb2}, yb2: {yb2}\n")
                 log_file.flush()  # 刷新缓冲区，确保数据写入文件
             except IOError as e:
                 print(f"文件写入错误: {e}")

@@ -3,6 +3,7 @@ from data_loader import CoordinateDataLoader
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error, r2_score
 
 # 假设 data 已经从数据加载器中获取
@@ -17,8 +18,12 @@ for item in data:
     y1 = item['y1']
     x2 = item['x2']
     y2 = item['y2']
+    xb1 = item['xb1']
+    yb1 = item['yb1']
+    xb2 = item['xb2']
+    yb2 = item['yb2']
     frame_position = item['frame_position']
-    inputs.append([x1, y1, x2, y2])
+    inputs.append([x1, y1, x2, y2, xb1, yb1, xb2, yb2])
     labels.append(list(frame_position))
 
 inputs = np.array(inputs)
@@ -29,7 +34,7 @@ scaler = StandardScaler()
 inputs_scaled = scaler.fit_transform(inputs)
 
 # 生成多项式特征
-degree = 2
+degree = 1
 poly = PolynomialFeatures(degree)
 inputs_poly = poly.fit_transform(inputs_scaled)
 
@@ -38,7 +43,8 @@ X_train, X_test, y_train, y_test = train_test_split(
     inputs_poly, labels, test_size=0.2, random_state=42)
 
 # 训练模型
-model = LinearRegression()
+# model = LinearRegression()
+model = Lasso(alpha=0.1)  # alpha 是正则化强度
 model.fit(X_train, y_train)
 
 # 模型评估

@@ -17,12 +17,12 @@ class SerialReceiver:
             self.buffer.extend(self.ser.read(self.ser.in_waiting))
 
             # 检查缓冲区中是否存在完整的数据包
-            while len(self.buffer) >= 10:
+            while len(self.buffer) >= 14:
                 # 检查头部是否为 0xFF, 0xFF
                 if self.buffer[0] == 0xFF and self.buffer[1] == 0xFF:
                     # 提取一个完整的数据包
-                    packet = self.buffer[:10]
-                    self.buffer = self.buffer[10:]  # 移除已处理的数据
+                    packet = self.buffer[:14]
+                    self.buffer = self.buffer[14:]  # 移除已处理的数据
 
                     # 解析数据包
                     coordinates = self.parse_packet(packet)
@@ -35,10 +35,10 @@ class SerialReceiver:
 
     def parse_packet(self, data):
         """解析数据包，返回坐标信息"""
-        if len(data) == 10:
+        if len(data) == 14:
             try:
                 # 解包数据
-                header1, header2, *middle_data, tail1, tail2 = struct.unpack("!2B6B2B", data)
+                header1, header2, *middle_data, tail1, tail2 = struct.unpack("!2B10B2B", data)
 
                 # 检查头部和尾部是否正确
                 if header1 == 0xFF and header2 == 0xFF and tail1 == 0x0D and tail2 == 0x0A:
@@ -55,12 +55,19 @@ class SerialReceiver:
                     x2 = int(bit_string[13:24], 2)
                     y1 = int(bit_string[26:36], 2)
                     y2 = int(bit_string[38:48], 2)
-
+                    yb1 = int(bit_string[52:57], 2)
+                    xb1 = int(bit_string[58:63], 2)
+                    yb2 = int(bit_string[68:73], 2)
+                    xb2 = int(bit_string[74:79], 2)
                     # 比较 x1 和 x2，将横坐标较小的点设为 (x1, y1)
                     if x2 < x1:
                         x1, y1, x2, y2 = x2, y2, x1, y1
+                    if any(v == 0 for v in [x1, x2, y1, y2, yb1, xb1, yb2, xb2]):
+                        return None
+                    if abs(y2-y1) > 400:
+                        return None
 
-                    return (x1, y1), (x2, y2)
+                    return (x1, y1), (x2, y2), (xb1, yb1), (xb2, yb2)
                 else:
                     return None
             except struct.error as e:

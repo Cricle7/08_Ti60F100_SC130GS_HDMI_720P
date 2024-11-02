@@ -776,7 +776,7 @@ module example_top
 	wire 	[31:0] 	w_csi_axi_rdata; 
 	wire 			w_csi_axi_awready, w_csi_axi_wready, w_csi_axi_arready, w_csi_axi_rvalid; 
 	
-//`define PRI_MIPI_IP
+`define PRI_MIPI_IP
 	
 `ifdef PRI_MIPI_IP
 	//localparam 	CSI_DATA_WIDTH 	= 64; 	
@@ -1157,11 +1157,10 @@ module example_top
 	    .lcd_data   ({{3{lcd_data[15:8]}}, {3{lcd_data[7:0]}}}  )//没用
 	);
 	//二值化
-	wire 	   [7:0]data;
-	wire 			w_vsync, w_href,w_de;
-	wire                  monoc;
+	wire 			w_vsync, w_href,w_de,w_vsync_black, w_href_black,w_de_black;
+	wire                  monoc,monoc_black;
 	
-	binarization #(.O(128)) u1
+	binarization u1
 	(
 	//module clock
     .clk        	(w_pixel_clk)    ,   // 时钟信号
@@ -1181,13 +1180,34 @@ module example_top
 
 	);
 	
+	binarization_black u2
+	(
+	//module clock
+    .clk        	(w_pixel_clk)    ,   // 时钟信号
+    .rst_n      	(w_pixel_rstn)     ,   // 复位信号（低有效）
+
+    //图像处理前的数据接口
+    .ycbcr_vsync	(lcd_vs)     ,   // vsync信号
+    .ycbcr_href 	(lcd_hs)     ,   // href信号
+    .ycbcr_de   	(lcd_de)     ,   // data enable信号
+    .luminance 	(lcd_data)      ,
+
+    //图像处理后的数据接口
+    .post_vsync 	(w_vsync_black)     ,   // vsync信号
+    .post_href  	(w_href_black)    ,   // href信号
+    .post_de    	(w_de_black)     ,   // data enable信号
+    .monoc      	(monoc_black)        // monochrome（1=白，0=黑）	
+
+	);	
+	
 //	assign  data = {8{monoc}};
 	
 	//多目标标记
-	wire [42:0] 	target_pos_out1;
-	wire [42:0] 	target_pos_out2;
-	wire [ 7:0] 	min = 8'd15;
-
+	wire [42:0] 	target_pos_out1,target_pos_out1_black;
+	wire [42:0] 	target_pos_out2,target_pos_out2_black;
+	wire [11:0] 		target_pos_diff1,target_pos_diff2;
+	wire [ 7:0]  	min = 8'd15;
+//眼球
 	VIP_multi_target_detect u_VIP_multi_target_detect 
 	(
     .clk						(w_pixel_clk),
@@ -1200,6 +1220,38 @@ module example_top
     .target_pos_out2			(target_pos_out2),
     .MIN_DIST				(min)
 	);
+
+//瞳孔	
+	VIP_multi_target_detect_black black1
+	(
+    .clk						(w_pixel_clk),
+    .rst_n					(w_pixel_rstn),
+	
+    .per_frame_vsync			(w_vsync_black),
+    .per_frame_clken			(w_de_black),
+    .per_img_Bit				(monoc_black),
+	
+    .target_pos_in			(target_pos_out1),	//{Flag,ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+    .target_pos_out			(target_pos_out1_black),		
+    .target_pos_diff		(target_pos_diff1)		
+	);
+	
+	VIP_multi_target_detect_black black2
+	(
+    .clk						(w_pixel_clk),
+    .rst_n					(w_pixel_rstn),
+	
+    .per_frame_vsync			(w_vsync_black),
+    .per_frame_clken			(w_de_black),
+    .per_img_Bit				(monoc_black),
+	
+    .target_pos_in			(target_pos_out2),	//{Flag,ymax[41:32],xmax[31:21],ymin[20:11],xmin[10:0]}
+    .target_pos_out			(target_pos_out2_black),			
+    .target_pos_diff		(target_pos_diff2)		
+	);
+	
+	
+	
 	
 	//画框
 	wire 				post_lcd_vs;
@@ -1226,8 +1278,8 @@ module example_top
     .per_img_blue		(lcd_data),
 
     //各目标位置
-    .target_pos_out1		(target_pos_out1),
-    .target_pos_out2		(target_pos_out2),
+    .target_pos_out1		(target_pos_out1_black),
+    .target_pos_out2		(target_pos_out2_black),
 
     //Image data has been processsd
     .post_frame_vsync	(post_lcd_vs),
@@ -1372,15 +1424,21 @@ module example_top
 	always @(posedge w_pixel_clk) begin
 		r_w_vsync <= {r_w_vsync, w_vsync}; 
 	end
+	wire uart_en;
+    assign uart_en = target_pos_out1[42] && target_pos_out2[42] && target_pos_out1_black[42] && target_pos_out2_black[42];	
 	uart_top u_uart_top(
     //input ports
     	.clk		(w_pixel_clk),
     	.reset		(w_pixel_rst),
+    	.uart_en	(uart_en),
     	.uart_rx	(uart_rx_i),
         .uart_tx	(uart_tx_o),
 		.r_vsync_i		(r_w_vsync[2:1]),
 		.target_pos_out1		(target_pos_out1),
-		.target_pos_out2		(target_pos_out2)
+		.target_pos_out2		(target_pos_out2),
+
+		.target_pos_diff1(target_pos_diff1),
+		.target_pos_diff2(target_pos_diff2)
 	);
 	
 endmodule

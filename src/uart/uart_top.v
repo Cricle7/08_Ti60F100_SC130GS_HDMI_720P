@@ -25,12 +25,15 @@ module uart_top(
     //input ports
     input         clk,
     input         reset,
+    input         uart_en,
     input         uart_rx,
     input   [1:0] r_vsync_i,
     input   [42:0] target_pos_out1,
     input   [42:0] target_pos_out2,
 
     
+    input   [11:0] target_pos_diff1,
+    input   [11:0] target_pos_diff2,
     //output ports
     output  [7:0] led,
     output        uart_tx
@@ -67,12 +70,15 @@ module uart_top(
     uart_data_gen uart_data_gen(
         .clk                  (  clk      ),//input             clk,
         .reset                (  reset        ),//input             clk,
+        .uart_en              (  uart_en        ),//input             clk,
         .r_vsync_i            (  r_vsync_i    ),//input             clk,
         .target_pos_out1      (  target_pos_out1    ),//input             clk,
         .target_pos_out2      (  target_pos_out2    ),//input             clk,
+		.target_pos_diff1     (  target_pos_diff1   ),
+		.target_pos_diff2     (  target_pos_diff2   ),
         .read_data            (  receive_data ),//input      [7:0]  read_data,
         .tx_busy              (  tx_busy      ),//input             tx_busy,
-        .write_max_num        (  11            ),//input      [7:0]  write_max_num,
+        .write_max_num        (  15            ),//input      [7:0]  write_max_num,
         .write_data           (  tx_data      ),//output reg [7:0]  write_data
         .write_en             (  tx_en        ) //output reg        write_en
     );
