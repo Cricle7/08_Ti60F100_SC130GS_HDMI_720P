@@ -30,8 +30,8 @@ FRAME_POSITIONS = []  # 存储所有矩形框的位置
 print(WINDOW_WIDTH)
 print('\n')
 print(WINDOW_HEIGHT)
-for y in range(1, WINDOW_HEIGHT, int(WINDOW_HEIGHT/3)):
-    for x in range(1, WINDOW_WIDTH, int(WINDOW_WIDTH/3)): 
+for y in range(1, WINDOW_HEIGHT, int(WINDOW_HEIGHT/4)):
+    for x in range(1, WINDOW_WIDTH, int(WINDOW_WIDTH/4)): 
         FRAME_POSITIONS.append((x, y))
 
 # 打开文件以追加方式记录坐标
@@ -53,7 +53,7 @@ while running and current_frame_index < len(FRAME_POSITIONS):
 
     # 停留开始时间
     start_time = time.time()
-    while time.time() - start_time < 2:  # 停留2秒
+    while time.time() - start_time < 4:  # 停留2秒
         # 填充黑色背景
         screen.fill((0, 0, 0))
 
@@ -76,11 +76,17 @@ while running and current_frame_index < len(FRAME_POSITIONS):
         # 接收串口数据
         coordinates = receiver.read_packet()
         if coordinates:
-            (x1, y1), (x2, y2), (xb1, yb1) , (xb2, yb2) = coordinates
+            (x1, y1), (x2, y2), (left1, right1, up1, down1), (left2, right2, up2, down2) = coordinates
 
             # 将坐标写入文件，包含当前矩形框的位置
             try:
-                log_file.write(f"Frame Position: ({frame_x}, {frame_y}), x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}, xb1: {xb1}, yb1: {yb1}, xb2: {xb2}, yb2: {yb2}\n")
+                log_file.write(
+                    f"Frame Position: ({frame_x}, {frame_y}), "
+                    f"x1: {x1}, y1: {y1}, x2: {x2}, y2: {y2}, "
+                    f"left1: {left1}, right1: {right1}, up1: {up1}, down1: {down1}, "
+                    f"left2: {left2}, right2: {right2}, up2: {up2}, down2: {down2}, "
+                    f"sum: {left1 + right1 + left2 + right2}\n"
+                )
                 log_file.flush()  # 刷新缓冲区，确保数据写入文件
             except IOError as e:
                 print(f"文件写入错误: {e}")

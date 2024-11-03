@@ -1436,6 +1436,8 @@ module example_top
 		.r_vsync_i		(r_w_vsync[2:1]),
 		.target_pos_out1		(target_pos_out1),
 		.target_pos_out2		(target_pos_out2),
+		.target_pos_out1_black		(target_pos_out1_black),
+		.target_pos_out2_black		(target_pos_out2_black),
 
 		.target_pos_diff1(target_pos_diff1),
 		.target_pos_diff2(target_pos_diff2)

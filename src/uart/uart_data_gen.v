@@ -31,6 +31,8 @@ module uart_data_gen(
     input   [1:0]  r_vsync_i,
     input   [42:0] target_pos_out1,
     input   [42:0] target_pos_out2,
+    input   [42:0] target_pos_out1_black,
+    input   [42:0] target_pos_out2_black,
     input   [11:0] target_pos_diff1,
     input   [11:0] target_pos_diff2,
 
@@ -38,7 +40,7 @@ module uart_data_gen(
     output reg          write_en
 );
    
-    wire [95:0] data_buf; 
+    wire [159:0] data_buf; 
     reg [10:0] x1,x2;
     reg [9:0] y1,y2;
 
@@ -51,6 +53,16 @@ module uart_data_gen(
     reg [10:0] sum3_stage2, sum4_stage2;
 
     reg r_vsync_i_stage1, r_vsync_i_stage2;
+
+    wire [9:0] down1 	= 	target_pos_out1_black[41:32];
+    wire [10:0] right1 = 	target_pos_out1_black[31:21];
+    wire [9:0] up1 	= 	target_pos_out1_black[20:11];
+    wire [10:0] left1	= 	target_pos_out1_black[10:0];	
+
+    wire [9:0] down2 	= 	target_pos_out2_black[41:32];
+    wire [10:0] right2 = 	target_pos_out2_black[31:21];
+    wire [9:0] up2	= 	target_pos_out2_black[20:11];
+    wire [10:0] left2	=   target_pos_out2_black[10:0];		
 
     always @(posedge clk) begin
         if (reset) begin
@@ -115,8 +127,8 @@ module uart_data_gen(
     //assign y1 = (target_pos_out1[41:32] + target_pos_out1[20:11])>>1;
     //assign y2 = (target_pos_out2[41:32] + target_pos_out2[20:11])>>1;
     //assign data_buf = 64'hFFF0FFFF; 
-    assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2, 4'b0, target_pos_diff1, 4'b0 , target_pos_diff2}; 
-
+    //assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2, 4'b0, target_pos_diff1, 4'b0 , target_pos_diff2}; 
+    assign data_buf = {8'hff, 8'hff, 1'b0,  x1 ,1'b0, x2,2'b0, y1,2'b0, y2, 1'b0, left1, 1'b0, right1, 2'b0, up1, 2'b0, down1, 1'b0, left2, 1'b0, right2, 2'b0, up2, 2'b0, down2}; 
     reg [ 7:0] data_num;
 
     // 设置串口发射工作区间
@@ -173,26 +185,60 @@ module uart_data_gen(
     end
 
 //  字符的对应ASCII码
+//    always @ (posedge clk) begin
+        //if (reset) begin
+            //write_data <= 8'h0;
+        //end else begin case(data_num)
+                //8'd0  ,
+                //8'd1  : write_data <= data_buf[95:88];   // 第1个字节
+                //8'd2  : write_data <= data_buf[87:80];   // 第2个字节
+                //8'd3  : write_data <= data_buf[79:72];   // 第3个字节
+                //8'd4  : write_data <= data_buf[71:64];   // 第4个字节
+                //8'd5  : write_data <= data_buf[63:56];   // 第5个字节
+                //8'd6  : write_data <= data_buf[55:48];   // 第6个字节
+                //8'd7  : write_data <= data_buf[47:40];   // 第7个字节
+                //8'd8  : write_data <= data_buf[39:32];   // 第8个字节
+                //8'd9  : write_data <= data_buf[31:24];   // 第9个字节
+                //8'd10 : write_data <= data_buf[23:16];   // 第10个字节
+                //8'd11 : write_data <= data_buf[15:8];    // 第11个字节
+                //8'd12 : write_data <= data_buf[7:0];     // 第12个字节
+                //8'd13 :	write_data <= 8'h0d;
+                //8'd14 :	write_data <= 8'h0a;
+                //default :	write_data <= 0;
+            //endcase
+        //end
+    //end
     always @ (posedge clk) begin
         if (reset) begin
             write_data <= 8'h0;
-        end else begin case(data_num)
-                8'd0  ,
-                8'd1  : write_data <= data_buf[95:88];   // 第1个字节
-                8'd2  : write_data <= data_buf[87:80];   // 第2个字节
-                8'd3  : write_data <= data_buf[79:72];   // 第3个字节
-                8'd4  : write_data <= data_buf[71:64];   // 第4个字节
-                8'd5  : write_data <= data_buf[63:56];   // 第5个字节
-                8'd6  : write_data <= data_buf[55:48];   // 第6个字节
-                8'd7  : write_data <= data_buf[47:40];   // 第7个字节
-                8'd8  : write_data <= data_buf[39:32];   // 第8个字节
-                8'd9  : write_data <= data_buf[31:24];   // 第9个字节
-                8'd10 : write_data <= data_buf[23:16];   // 第10个字节
-                8'd11 : write_data <= data_buf[15:8];    // 第11个字节
-                8'd12 : write_data <= data_buf[7:0];     // 第12个字节
-                8'd13 :	write_data <= 8'h0d;
-                8'd14 :	write_data <= 8'h0a;
-                default :	write_data <= 0;
+        end else begin
+            case(data_num)
+                // 第1到第28个字节
+                8'd0 ,
+                8'd1  : write_data <= data_buf[159:152]; // 第9个字节
+                8'd2  : write_data <= data_buf[151:144]; // 第10个字节
+                8'd3 : write_data <= data_buf[143:136]; // 第11个字节
+                8'd4 : write_data <= data_buf[135:128]; // 第12个字节
+                8'd5 : write_data <= data_buf[127:120]; // 第13个字节
+                8'd6 : write_data <= data_buf[119:112]; // 第14个字节
+                8'd7 : write_data <= data_buf[111:104]; // 第15个字节
+                8'd8 : write_data <= data_buf[103:96];  // 第16个字节
+                8'd9 : write_data <= data_buf[95:88];   // 第17个字节
+                8'd10 : write_data <= data_buf[87:80];   // 第18个字节
+                8'd11 : write_data <= data_buf[79:72];   // 第19个字节
+                8'd12 : write_data <= data_buf[71:64];   // 第20个字节
+                8'd13 : write_data <= data_buf[63:56];   // 第21个字节
+                8'd14 : write_data <= data_buf[55:48];   // 第22个字节
+                8'd15 : write_data <= data_buf[47:40];   // 第23个字节
+                8'd16 : write_data <= data_buf[39:32];   // 第24个字节
+                8'd17 : write_data <= data_buf[31:24];   // 第25个字节
+                8'd18 : write_data <= data_buf[23:16];   // 第26个字节
+                8'd19 : write_data <= data_buf[15:8];    // 第27个字节
+                8'd20 : write_data <= data_buf[7:0];     // 第28个字节
+                // 追加的控制字符或其他数据
+                8'd21 : write_data <= 8'h0d;
+                8'd22 : write_data <= 8'h0a;
+                default: write_data <= 8'h00;
             endcase
         end
     end

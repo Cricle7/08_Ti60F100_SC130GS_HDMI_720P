@@ -31,6 +31,8 @@ module uart_top(
     input   [42:0] target_pos_out1,
     input   [42:0] target_pos_out2,
 
+    input   [42:0] target_pos_out1_black,
+    input   [42:0] target_pos_out2_black,
     
     input   [11:0] target_pos_diff1,
     input   [11:0] target_pos_diff2,
@@ -74,11 +76,13 @@ module uart_top(
         .r_vsync_i            (  r_vsync_i    ),//input             clk,
         .target_pos_out1      (  target_pos_out1    ),//input             clk,
         .target_pos_out2      (  target_pos_out2    ),//input             clk,
+		.target_pos_out1_black(target_pos_out1_black),
+		.target_pos_out2_black(target_pos_out2_black),
 		.target_pos_diff1     (  target_pos_diff1   ),
 		.target_pos_diff2     (  target_pos_diff2   ),
         .read_data            (  receive_data ),//input      [7:0]  read_data,
         .tx_busy              (  tx_busy      ),//input             tx_busy,
-        .write_max_num        (  15            ),//input      [7:0]  write_max_num,
+        .write_max_num        (  23           ),//input      [7:0]  write_max_num,
         .write_data           (  tx_data      ),//output reg [7:0]  write_data
         .write_en             (  tx_en        ) //output reg        write_en
     );
