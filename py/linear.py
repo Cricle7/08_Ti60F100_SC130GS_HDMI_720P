@@ -1,10 +1,9 @@
 import numpy as np
 from data_loader import CoordinateDataLoader
-from sklearn.preprocessing import StandardScaler, PolynomialFeatures
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import Lasso
+from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score
 
 # 假设 data 已经从数据加载器中获取
@@ -43,14 +42,10 @@ for item in data:
 inputs = np.array(inputs)
 labels = np.array(labels)
 
-# 数据预处理
-scaler = StandardScaler()
-inputs_scaled = scaler.fit_transform(inputs)
-
-# 生成多项式特征（这里使用3阶，可以根据需要调整）
-degree = 3
+# 生成多项式特征（使用2阶）
+degree = 2
 poly = PolynomialFeatures(degree)
-inputs_poly = poly.fit_transform(inputs_scaled)
+inputs_poly = poly.fit_transform(inputs)  # 不进行标准化，直接使用原始输入
 
 # 忽略前 75 组数据
 inputs_poly = inputs_poly[75:]
@@ -63,12 +58,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # 使用 GridSearchCV 进行超参数搜索
 param_grid = {
-    'alpha': [0.001, 0.01, 0.1, 1],
-    'max_iter': [10000, 50000, 100000]
+    'alpha': [1e-6, 1e-5, 1e-4, 1e-3, 0.01],
+    'max_iter': [50000, 100000, 200000, 500000]
 }
 lasso = Lasso()
 grid_search = GridSearchCV(lasso, param_grid, cv=5, scoring='r2')
 grid_search.fit(X_train, y_train)
+
 # 输出最佳参数组合
 print("Best parameters:", grid_search.best_params_)
 print("Best R² score from cross-validation:", grid_search.best_score_)
@@ -84,3 +80,26 @@ r2 = r2_score(y_test, y_pred)
 
 print(f"均方误差（MSE）: {mse:.4f}")
 print(f"R² 得分: {r2:.4f}")
+
+# 输出拟合出的多项式
+feature_names = poly.get_feature_names_out()
+coefficients = best_model.coef_
+
+# 检查是否有多个输出
+if coefficients.ndim == 1:
+    coefficients = coefficients.reshape(1, -1)  # 将一维数组转换为二维数组以便于后续处理
+
+# 构建多项式表达式
+polynomial_expressions = []
+for coefs in coefficients:
+    polynomial_terms = []
+    for coef, name in zip(coefs, feature_names):
+        if np.abs(coef) > 1e-5:  # 设置一个阈值以判断是否为零
+            polynomial_terms.append(f"{coef:.4f} * {name}")
+    polynomial_expression = " + ".join(polynomial_terms)
+    polynomial_expressions.append(polynomial_expression)
+
+# 输出多项式表达式
+for i, expression in enumerate(polynomial_expressions):
+    print(f"拟合出的多项式表达式 for output {i}:")
+    print(expression)
