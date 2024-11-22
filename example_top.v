@@ -47,6 +47,7 @@ module example_top
 	output 			uart_tx_o,
 	
 	output 			led_o, 			//	Core LED Output (Invert)
+	output 			gpio_inst10,
 	
 	//	Config SPI 
 	output 			spi_cs_o,			//	SPI_SSN | LED2 (Non-Inv) 
@@ -309,7 +310,20 @@ module example_top
 	output 	[9:0] 	hdmi_txd1_o,
 	output 	[9:0] 	hdmi_txd2_o,
 	
+	output 			hdmi_2_txc_oe,
+	output 			hdmi_2_txd0_oe,
+	output 			hdmi_2_txd1_oe,
+	output 			hdmi_2_txd2_oe,
 	
+	output 			hdmi_2_txc_rst_o,
+	output 			hdmi_2_txd0_rst_o,
+	output 			hdmi_2_txd1_rst_o,
+	output 			hdmi_2_txd2_rst_o,
+	
+	output 	[9:0] 	hdmi_2_txc_o,
+	output 	[9:0] 	hdmi_2_txd0_o,
+	output 	[9:0] 	hdmi_2_txd1_o,
+	output 	[9:0] 	hdmi_2_txd2_o,
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//	HBRAM Interface
@@ -335,6 +349,8 @@ module example_top
 	input 	[1:0] 	hbram_RWDS_IN_LO
 	
 );
+	assign gpio_inst10 = 1'b0;
+
 	
 	genvar _i; 
 	
@@ -1350,6 +1366,15 @@ module example_top
 	assign hdmi_txd2_oe = 1'b1; 
 	assign hdmi_txc_oe = 1'b1; 
 	
+	assign hdmi_2_txd0_rst_o = w_pixel_rst; 
+	assign hdmi_2_txd1_rst_o = w_pixel_rst; 
+	assign hdmi_2_txd2_rst_o = w_pixel_rst; 
+	assign hdmi_2_txc_rst_o = w_pixel_rst; 
+	
+	assign hdmi_2_txd0_oe = 1'b1; 
+	assign hdmi_2_txd1_oe = 1'b1; 
+	assign hdmi_2_txd2_oe = 1'b1; 
+	assign hdmi_2_txc_oe = 1'b1; 
 	// //-------------------------------------
 	// //Digilent HDMI-TX IP Modified by CB elec.
 /* 	 rgb2dvi #(.ENABLE_OSERDES(0)) u_rgb2dvi 
@@ -1418,6 +1443,28 @@ module example_top
 		.txd0_o		(hdmi_txd0_o), 
 		.txd1_o		(hdmi_txd1_o), 
 		.txd2_o		(hdmi_txd2_o)
+	); 
+
+	rgb2dvi #(.ENABLE_OSERDES(0)) u2_rgb2dvi 
+	(
+		.oe_i 		(1), 			//	Always enable output
+		.bitflip_i 		(HDMI_BITFLIP), 	//	Reverse clock & data lanes. 
+		
+		.aRst			(w_pixel_rst), 
+		.aRst_n			(w_pixel_rstn), 
+		
+		.PixelClk		(w_pixel_clk        ),
+		.SerialClk		(),
+		
+		.vid_pVSync		(post_lcd_vs/*w_vsync*/), 
+		.vid_pHSync		(post_lcd_href/*w_href*/), 
+		.vid_pVDE		(post_lcd_en/*w_de*/), 
+		.vid_pData		({red,green,blue}), 
+		
+		.txc_o		(hdmi_2_txc_o), 
+		.txd0_o		(hdmi_2_txd0_o), 
+		.txd1_o		(hdmi_2_txd1_o), 
+		.txd2_o		(hdmi_2_txd2_o)
 	); 
 
 	reg 	[2:0] 	r_w_vsync = 0; 	

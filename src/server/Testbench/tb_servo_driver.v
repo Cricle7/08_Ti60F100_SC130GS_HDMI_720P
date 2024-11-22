@@ -11,13 +11,11 @@ module tb_servo_driver;
     parameter CLK_FREQ = 50_000_000; // 50MHz
 
     // 实例化舵机驱动模块
-    servo_driver #(
-        .CLK_FREQ(CLK_FREQ)
-    ) uut (
+    servo_driver  uut (
         .clk(clk),
         .rst_n(rst_n),
-        .angle(angle),
-        .servo_pwm(servo_pwm)
+        .angle_in(angle),
+        .pwm(servo_pwm)
     );
 
     // 生成50MHz时钟信号

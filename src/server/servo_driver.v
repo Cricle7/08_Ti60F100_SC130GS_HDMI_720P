@@ -1,70 +1,57 @@
-module servo_driver #(
-    parameter CLK_FREQ = 50_000_000  // FPGA工作频率，默认50MHz，可从外部传入
-)(
-    input wire clk,          // 时钟信号
-    input wire rst_n,        // 复位信号，低电平有效
-    input wire [7:0] angle,  // 目标角度，0~180
-    output reg servo_pwm     // 输出给舵机的PWM信号
+module servo_driver
+(
+    input               clk,        // 时钟信号，假设为 50MHz
+    input               rst_n,      // 复位信号，低电平有效
+    input   [7:0]       angle_in,   // 输入角度，范围 0~180
+    output  reg         pwm         // PWM 输出信号
 );
 
-    // 参数定义
-    parameter PWM_PERIOD = 20_000;   // PWM周期20ms，单位us
-    parameter TOTAL_COUNT = 10_000;  // PWM计数总数，对应10000，方便计算占空比
+// 参数定义
+parameter       TIME_20MS   = 1_000_000;  // 20ms 对应的计数值，50MHz 时钟下 20ms = 1,000,000 个周期
+parameter       PULSE_MIN   = 25_000;     // 最小脉宽对应计数值（0.5ms），0.5ms * 50MHz = 25,000
+parameter       PULSE_MAX   = 125_000;    // 最大脉宽对应计数值（2.5ms），2.5ms * 50MHz = 125,000
 
-    // 计算每次计数的时钟周期数
-    localparam integer COUNT_PER_TICK = (CLK_FREQ * PWM_PERIOD / 1_000_000) / TOTAL_COUNT;
+// 预先计算增量，每度对应的计数值增量
+parameter       DELTA_PULSE = 555;        // (PULSE_MAX - PULSE_MIN) / 180 ≈ 555.55，取整数555
 
-    reg [31:0] tick_cnt;      // 时钟计数器，用于产生PWM计数时钟
-    reg [13:0] pwm_cnt;       // PWM计数器，范围0~9999
+// 内部信号
+reg [19:0]  cnt;            // 主计数器，计数 20ms 周期
+reg [19:0]  cnt_pwm;        // PWM 高电平计数值，根据输入角度计算
+wire        add_cnt;
+wire        end_cnt;
 
-    reg [13:0] pulse_width;   // 脉宽计数值，对应占空比
-
-    // 生成PWM计数时钟
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            tick_cnt <= 32'd0;
-        end else begin
-            if (tick_cnt < COUNT_PER_TICK - 1)
-                tick_cnt <= tick_cnt + 1;
-            else
-                tick_cnt <= 32'd0;
-        end
+// 主计数器，实现 20ms 周期计数
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+        cnt <= 0;
+    else if (add_cnt) begin
+        if (end_cnt)
+            cnt <= 0;
+        else
+            cnt <= cnt + 1;
     end
+end
 
-    // PWM计数器
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            pwm_cnt <= 14'd0;
-        end else begin
-            if (tick_cnt == COUNT_PER_TICK - 1) begin
-                if (pwm_cnt < TOTAL_COUNT - 1)
-                    pwm_cnt <= pwm_cnt + 1;
-                else
-                    pwm_cnt <= 14'd0;
-            end
-        end
-    end
+assign add_cnt = 1'b1;
+assign end_cnt = add_cnt && (cnt == TIME_20MS - 1);
 
-    // 生成PWM信号
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            servo_pwm <= 1'b0;
-        end else begin
-            if (pwm_cnt < pulse_width)
-                servo_pwm <= 1'b1;
-            else
-                servo_pwm <= 1'b0;
-        end
-    end
+// 根据输入角度计算 PWM 高电平计数值，避免使用除法
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+        cnt_pwm <= 0;
+    else
+        cnt_pwm <= PULSE_MIN + angle_in * DELTA_PULSE;
+end
 
-    // 根据角度计算脉宽（占空比计数值）
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
-            pulse_width <= 14'd250;  // 对应0度，脉宽0.5ms，占空比2.5%
-        end else begin
-            // 计算公式：pulse_width = 250 + (angle * (1250 - 250) / 180)
-            pulse_width <= 14'd250 + (angle * 1000) / 180;
-        end
-    end
+// PWM 波形生成
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+        pwm <= 1'b0;
+    else if (cnt < cnt_pwm)
+        pwm <= 1'b1;
+    else
+        pwm <= 1'b0;
+end
 
 endmodule
+
