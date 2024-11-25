@@ -1,0 +1,3 @@
+[submodule "src/pwm_servo_power"]
+	path = src/pwm_servo_power
+	url = git@github.com:Cricle7/servo-and-power-driver.git
