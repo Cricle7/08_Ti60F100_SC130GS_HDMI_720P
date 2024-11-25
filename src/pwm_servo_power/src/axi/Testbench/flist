@@ -1,4 +1,0 @@
-../AXI4_AWARMux.v
-../axi4_ctrl.v
-../axi4_ctrl_tb.v
-../../../ip/W0_FIFO_128/W0_FIFO_128.v
